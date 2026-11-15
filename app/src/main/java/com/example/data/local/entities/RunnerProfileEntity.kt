@@ -27,5 +27,7 @@ data class RunnerProfileEntity(
     val ritmoOrigem: String? = null, // Origem do ritmo: "auto", "manual", "teste"
     val alertasRitmoAtivos: Boolean = true, // Alertas de ritmo ligados/desligados
     val avisoDistanciaAtivo: Boolean = true, // Avisos por distância ligados/desligados
-    val avisoDistanciaMetros: Int = 1000 // Intervalo dos avisos em metros (500, 1000, 2000)
+    val avisoDistanciaMetros: Int = 1000, // Intervalo dos avisos em metros (500, 1000, 2000)
+    val showMapDuringRun: Boolean = true, // Mostrar mapa durante corrida ativa
+    val defaultCameraMode: String = "follow_user" // Modo de câmera padrão: "follow_user" | "show_full_route"
 )

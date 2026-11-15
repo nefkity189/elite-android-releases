@@ -54,6 +54,10 @@ data class WorkspaceState(
     val avisoDistanciaAtivo: Boolean = true,
     val avisoDistanciaMetros: Int = 1000,
 
+    // Preferências de mapa (tempo real)
+    val showMapDuringRun: Boolean = true,
+    val defaultCameraMode: String = "follow_user", // "follow_user" | "show_full_route" | "free"
+
     // Wizard/Preview state
     val previewPlan: GeneratedPlan? = null,
     val previewErrorMessage: String? = null,

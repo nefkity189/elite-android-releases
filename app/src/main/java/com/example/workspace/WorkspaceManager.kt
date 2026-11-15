@@ -150,6 +150,8 @@ class WorkspaceManager(
                         lembreteMinuto = profile.lembreteMinuto,
                         avisoDistanciaAtivo = profile.avisoDistanciaAtivo,
                         avisoDistanciaMetros = profile.avisoDistanciaMetros,
+                        showMapDuringRun = profile.showMapDuringRun,
+                        defaultCameraMode = profile.defaultCameraMode,
                         diasSelecionados = days,
                         frequenciaExercicio = profile.frequenciaExercicio,
                         ajustesAutomaticos = profile.ajustesAutomaticos,
@@ -565,6 +567,26 @@ class WorkspaceManager(
         _uiStateUpdate { it.copy(avisoDistanciaMetros = metros) }
         scope.launch {
             currentRepository?.updateAvisoDistanciaMetros(metros)
+        }
+    }
+
+    /**
+     * Define se deve mostrar o mapa durante a corrida.
+     */
+    fun setShowMapDuringRun(show: Boolean) {
+        _uiStateUpdate { it.copy(showMapDuringRun = show) }
+        scope.launch {
+            currentRepository?.updateShowMapDuringRun(show)
+        }
+    }
+
+    /**
+     * Define o modo de câmera padrão do mapa.
+     */
+    fun setDefaultCameraMode(mode: String) {
+        _uiStateUpdate { it.copy(defaultCameraMode = mode) }
+        scope.launch {
+            currentRepository?.updateDefaultCameraMode(mode)
         }
     }
 

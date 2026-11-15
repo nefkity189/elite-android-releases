@@ -45,6 +45,12 @@ interface RunnerProfileDao {
     @Query("UPDATE runner_profile SET avisoDistanciaMetros = :metros WHERE id = 1")
     suspend fun updateAvisoDistanciaMetros(metros: Int)
 
+    @Query("UPDATE runner_profile SET showMapDuringRun = :ativo WHERE id = 1")
+    suspend fun updateShowMapDuringRun(ativo: Boolean)
+
+    @Query("UPDATE runner_profile SET defaultCameraMode = :modo WHERE id = 1")
+    suspend fun updateDefaultCameraMode(modo: String)
+
     @Query("DELETE FROM runner_profile")
     suspend fun clearProfile()
 

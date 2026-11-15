@@ -618,6 +618,14 @@ class PlanRepository(
         profileDao.updateAvisoDistanciaMetros(metros)
     }
 
+    suspend fun updateShowMapDuringRun(ativo: Boolean) {
+        profileDao.updateShowMapDuringRun(ativo)
+    }
+
+    suspend fun updateDefaultCameraMode(modo: String) {
+        profileDao.updateDefaultCameraMode(modo)
+    }
+
     fun observeAutoAdjustments(planId: Long): Flow<List<AutoAdjustmentEntity>> {
         return autoAdjustmentDao.observeForPlan(planId)
     }
