@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Aisle</string>
+    <string name="notification_action_pause">Pausar</string>
+    <string name="notification_action_resume">Retomar</string>
+    <string name="voice_km_milestone_singular">Um quilômetro. Tempo %1$d minutos e %2$d segundos. Ritmo médio %3$d e %4$d por quilômetro.</string>
+    <string name="voice_km_milestone_plural">%1$d quilômetros. Tempo %2$d minutos e %3$d segundos. Ritmo médio %4$d e %5$d por quilômetro.</string>
+    <string name="voice_free_run_step_run">Corra</string>
+    <string name="voice_free_run_step_walk">Caminhe</string>
+    <string name="voice_start_run">Comece a correr</string>
+    <string name="voice_start_walk">Caminhe</string>
+    <string name="voice_ten_seconds_remaining">Faltam 10 segundos</string>
+    <string name="voice_workout_completed">Treino concluído</string>
+    <string name="voice_free_run_start">Iniciando corrida livre</string>
+    <string name="notification_status_starting">Iniciando corrida…</string>
+    <string name="notification_status_running">Em andamento</string>
+    <string name="notification_status_paused">Pausado</string>
+    <string name="notification_title_format">Aisle • %1$s (%2$s)</string>
+    <string name="today_workout_card_title">Hoje é dia de treino</string>
+    <string name="recover_run_title">Corrida em andamento detectada</string>
+    <string name="recover_run_message">Você tem um treino gravado que estava em execução. Deseja retomar ou descartar?</string>
+    <string name="recover_run_discard">Descartar</string>
+    <string name="recover_run_resume">Retomar corrida</string>
+    <string name="gps_status_no_gps">Sem GPS</string>
+    <string name="gps_status_gps_off">GPS Desligado</string>
+    <string name="gps_status_no_signal">Sem sinal</string>
+    <string name="gps_status_weak_signal">Sinal fraco</string>
+    <string name="gps_status_good_signal">Sinal bom</string>
+    <string name="battery_warning_power_save">Modo de economia de bateria ativo. Isso pode afetar a precisão do GPS.</string>
+    <string name="battery_warning_not_optimized">App não está na lista de exceção de economia de bateria.</string>
+    <string name="battery_warning_dismiss">Entendi</string>
+    <string name="confirm_finish_title">Encerrar o treino agora?</string>
+    <string name="confirm_finish_message">Você poderá ver o resumo com o tempo e a distância percorrida até aqui.</string>
+    <string name="confirm_finish_confirm">Encerrar e Salvar</string>
+    <string name="confirm_finish_dismiss">Continuar Treinando</string>
+    <string name="voice_step_run">Corra</string>
+    <string name="voice_step_walk">Caminhe</string>
+    <string name="milestone_format_meters">%1$d metros</string>
+    <string name="milestone_format_km_singular">1 quilômetro</string>
+    <string name="milestone_format_km_plural">%1$d quilômetros</string>
+    <string name="milestone_format_km_and_half">%1$d quilômetro%2$s e meio</string>
+    <string name="milestone_announcement">%1$s. Tempo %2$d minutos e %3$d segundos. Ritmo médio %4$d e %5$d por quilômetro.</string>
+    <string name="google_maps_key" translatable="false">REPLACE_WITH_GOOGLE_CLOUD_CONSOLE_MAPS_SDK_KEY</string>
+    <string name="map_no_key_title">Mapa indisponível</string>
+    <string name="map_no_key_message">Configure a Google Maps API Key em strings.xml (google_maps_key) para exibir o mapa em tempo real.</string>
+</resources>

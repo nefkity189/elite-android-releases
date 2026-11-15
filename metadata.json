@@ -1,0 +1,6 @@
+{
+  "name": "Aisle",
+  "description": "Plano de treino de caminhada e corrida para completar o primeiro 5K.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

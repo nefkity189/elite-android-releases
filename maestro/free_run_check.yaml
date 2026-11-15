@@ -1,0 +1,11 @@
+appId: com.aistudio.primeiro5k.kptwlz
+---
+- launchApp:
+    clearState: false
+
+- extendedWaitUntil:
+    visible:
+      text: "Hoje"
+    timeout: 15000
+
+- takeScreenshot: free_run_home

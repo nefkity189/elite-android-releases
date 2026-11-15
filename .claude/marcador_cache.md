@@ -1,0 +1,3 @@
+# Marcador Automatico (15/11/2026, 13:55:29)
+
+Sessão Ponytail full ativa. Repo AISLE_Proj: Android Kotlin/Compose (com.example, appId com.aistudio.primeiro5k.kptwlz), on-device, sem cloud. Arquitetura: 4 Room DBs por modalidade (livre/2.5k/5k/10k) via DatabaseProvider + BaseMigrations v10, PlanGenerator/PlanRegenerator/ProgressionTable/AdaptiveEngine/PauseAppler puro Kotlin, WorkspaceManager StateFlow, RunTrackingService foreground GPS, WorkoutReminderWorker. Gradle 9.5.1, AGP 9.5.1, Kotlin 2.4.21, minSdk 24/targetSdk 37. Testes: JUnit4+Robolectric+Turbine (unit), Compose+Room (instrumented). MCP: maestro, jev-local, headroom, cache-keeper. Nenhuma alteração pendente. Aguardando próxima solicitação.

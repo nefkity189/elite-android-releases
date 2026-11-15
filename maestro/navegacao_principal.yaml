@@ -1,0 +1,68 @@
+appId: com.aistudio.primeiro5k.kptwlz
+---
+# Fluxo de validação da navegação principal do app Aisle (Primeiro 5K).
+#
+# A navegação é controlada por estado (AppNavigation em MainActivity.kt):
+#   - 4 abas inferiores: Hoje | Plano | Progresso | Perfil  (AisleBottomNavigationBar)
+#   - Botão central flutuante: abre o QuickLauncher (quick_launcher)
+#     - Fluxo de onboarding: Welcome -> Quiz (3 perguntas) -> Selecionar Dias -> Selecionar Duração -> Plano
+#   - Botão "Começar" no Welcome inicia o quiz via AppScreen.QuizQuestion1
+#
+# Observações:
+#   - O app pede permissões de localização/notificação na primeira abertura;
+#     o fluxo permite "Agora não" no diálogo de permissões.
+#   - A tela inicial real depende do estado persistido (WorkspaceState.currentScreen).
+#     Este fluxo assume estado limpo (Welcome) e foca na navegação por abas.
+
+- launchApp:
+    clearState: true
+    stopApp: true
+
+# Diálogo de permissões (Android 13+): permitir ou "Agora não".
+- back:
+    # Se o diálogo estiver visível, descarta; caso contrário, não faz nada.
+    optional: true
+
+# Tela inicial: Welcome. O botão "Começar" inicia o onboarding.
+- extendedWaitUntil:
+    visible:
+      text: "Começar"
+    timeout: 10000
+
+- tapOn:
+    text: "Começar"
+
+# Quiz: 3 perguntas, depois seleção de dias e duração.
+- tapOn: "btn_proxima"  # QuizQuestion1 -> QuizQuestion2
+- tapOn: "btn_proxima"  # QuizQuestion2 -> QuizQuestion3
+- tapOn: "btn_proxima"  # QuizQuestion3 -> DaysSelection
+- tapOn: "btn_proxima"  # DaysSelection -> DurationSelection
+- tapOn: "btn_criar_plano"  # DurationSelection -> PlanPreview
+
+# Volta para a aba Hoje (abas inferiores estão visíveis no plano).
+- tapOn: "tab_hoje"
+- assertVisible: "tab_hoje"
+
+# Aba Plano (plano completo).
+- tapOn: "tab_plano"
+- assertVisible: "tab_plano"
+
+# Aba Progresso.
+- tapOn: "tab_progresso"
+- assertVisible: "tab_progresso"
+
+# Aba Perfil.
+- tapOn: "tab_perfil"
+- assertVisible: "tab_perfil"
+
+# Botão central flutuante: abre o QuickLauncher.
+- tapOn: "btn_center_action_aisle"
+- assertVisible: "quick_launcher"
+
+# Fecha o quick launcher e retorna ao fluxo principal.
+- back
+
+# Abre o plano completo a partir da aba Plano.
+- tapOn: "tab_plano"
+- tapOn: "btn_ver_plano_completo"
+- assertVisible: "btn_voltar"
