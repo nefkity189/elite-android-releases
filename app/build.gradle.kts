@@ -142,6 +142,7 @@ dependencies {
   // implementation(libs.okhttp)
   implementation(libs.play.services.location)
   implementation(libs.play.services.maps)
+  implementation(libs.maps.compose)
   // implementation(libs.retrofit)
   implementation(libs.androidx.work.runtime.ktx)
   implementation(libs.androidx.window)
