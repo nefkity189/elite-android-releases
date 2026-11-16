@@ -11,6 +11,41 @@ Pendente: fontes Barlow (colocar .ttf em res/font), Cards das telas Dias/Duraç�
 
 ---
 
+## Entrega Engenheiro (16 nov 2026): Mapa em Tempo Real + PlayPauseRing + Câmera com Bearing
+**Base:** branch `feature/engenheiro-20261115-203532`. Compilado e testado com Maestro MCP.
+
+- `ui/components/PlayPauseRing.kt` (NOVO): botão circular 64 dp com anel de progresso radial via Canvas.
+  - Pause (turquesa) quando rodando, Play (laranja) quando pausado.
+  - Progresso 0..1 desenhado como arco de 360° com caps arredondados.
+  - `testTag: btn_play_pause_ring`, `contentDescription` dinâmico.
+  - Sem dependências externas.
+
+- `ui/state/MapState.kt` (NOVO): estado de mapa persistido no perfil.
+  - `CameraMode` sealed interface: `FollowUser`, `FollowUserWithBearing`, `ShowFullRoute`, `Free`.
+  - `MapPreferences`: `showMapDuringRun` (bool), `defaultCameraMode` (string).
+  - `MapPoint`: latitude, longitude, accuracy, timestamp.
+  - `calculateBearing(lat1, lon1, lat2, lon2)`: heading entre dois pontos GPS para rotação da câmera.
+
+- `ui/components/MapComponents.kt` (NOVO): Google Maps em tempo real via `AndroidView` + `MapView`.
+  - `MapViewComposable`: polyline da rota (cor marca #00B4D8, 6 dp, caps arredondados), marcador azul da posição atual, 4 modos de câmera, botão expandir/colapsar, botão recenter (modo Free), legenda do modo.
+  - `MiniRouteMap`: rota compacta para card "Corridas recentes" no TodayScreen (usa `RouteNormalizer`).
+  - `MapScreen`: tela full-screen opcional para ver rota completa.
+
+- `ui/screens/ActiveRunScreen.kt` (REFATORADO): layout reestruturado.
+  - Column `fillMaxSize`: topo (GPS, toggles, avisos, etapa atual) com padding horizontal fixo.
+  - Mapa ocupa todo espaço restante (`weight(1f)`), preenchendo a tela.
+  - Overlay ABOVE AndroidView: métricas compactas (topo), botões expandir/câmera (canto sup. dir.), legenda, **PlayPauseRing central**, botão recenter + paginador (base).
+  - Botão "Finalizar" ancorado na base do root Box (`Alignment.BottomCenter`), sempre visível.
+  - Quando mapa desligado: layout vertical original (RunStepsBar, métricas, gráfico, "A seguir").
+
+- `ui/screens/ProfileScreen.kt`: terceira opção de câmera "Seguir com direção" (`card_camera_bearing`) salva `MapPreferences`.
+
+- **Validação Maestro MCP (4/4 passam):**
+  - A) Mapa em tela cheia abre ao tocar "Expandir mapa" → `accept_a_fullscreen_map.png`
+  - B) PlayPauseRing visível e clicável → `accept_b_play_pause_ring.png`
+  - C) Câmera com bearing dinâmico alterna ao tocar ícone → `accept_c_camera_bearing.png`
+  - D) Polyline da rota desenhada no mapa → `accept_d_polyline.png`
+
 ## Entrega D1 (10 nov 2026): Conexão UI ↔ Backend — Seleção de Modalidade → Geração de Plano
 **Base:** código estável com testes unitários passando (165 testes). Rode `./gradlew testDebugUnitTest` e `./gradlew assembleDebug` antes de testar no celular.
 
