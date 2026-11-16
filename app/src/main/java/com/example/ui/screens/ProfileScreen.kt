@@ -90,12 +90,16 @@ fun ProfileScreen(
     lembreteMinuto: Int = 0,
     avisoDistanciaAtivo: Boolean = true,
     avisoDistanciaMetros: Int = 1000,
+    showMapDuringRun: Boolean = true,
+    defaultCameraMode: String = "follow_user",
     onUserNameChange: (String) -> Unit,
     onVoiceToggle: (Boolean) -> Unit = {},
     onVibrationToggle: (Boolean) -> Unit = {},
     onLembretesChange: (ativos: Boolean, hora: Int, minuto: Int) -> Unit = { _, _, _ -> },
     onAvisoDistanciaAtivoToggle: (Boolean) -> Unit = {},
     onAvisoDistanciaMetrosChange: (Int) -> Unit = {},
+    onShowMapDuringRunToggle: (Boolean) -> Unit = {},
+    onDefaultCameraModeChange: (String) -> Unit = {},
     onClearAllData: (onResult: (Boolean) -> Unit) -> Unit = { _ -> },
     onExportBackup: () -> Unit = {},
     onShareBackup: () -> Unit = {},
@@ -461,6 +465,72 @@ fun ProfileScreen(
                                 modifier = Modifier
                                     .weight(1f)
                                     .testTag("card_distance_2000")
+                            )
+                        }
+                    }
+                }
+            }
+
+            // MAPA EM TEMPO REAL
+            AisleCard(
+                shape = RoundedCornerShape(16.dp),
+                modifier = Modifier.fillMaxWidth().testTag("card_preferences_map")
+            ) {
+                Column(
+                    modifier = Modifier.padding(AisleSpacing.lg),
+                    verticalArrangement = Arrangement.spacedBy(AisleSpacing.lg)
+                ) {
+                    Text(
+                        text = "Mapa em Tempo Real",
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = FontWeight.Bold
+                    )
+
+                    // Switch Mostrar Mapa
+                    AisleSwitchRow(
+                        title = "Mostrar mapa durante corrida",
+                        description = "Exibe sua posição e rota no mapa enquanto corre",
+                        checked = showMapDuringRun,
+                        onCheckedChange = { onShowMapDuringRunToggle(it) },
+                        modifier = Modifier.testTag("switch_show_map")
+                    )
+
+                    if (showMapDuringRun) {
+                        HorizontalDivider(color = AisleBorder.copy(alpha = 0.5f))
+
+                        // Modo de câmera padrão
+                        Text(
+                            text = "Modo de câmera padrão",
+                            style = MaterialTheme.typography.bodyMedium,
+                            fontWeight = FontWeight.Medium
+                        )
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(AisleSpacing.md)
+                        ) {
+                            AisleSelectableCard(
+                                text = "Seguir você",
+                                selected = defaultCameraMode == "follow_user",
+                                onClick = { onDefaultCameraModeChange("follow_user") },
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .testTag("card_camera_follow")
+                            )
+                            AisleSelectableCard(
+                                text = "Seguir com direção",
+                                selected = defaultCameraMode == "follow_user_with_bearing",
+                                onClick = { onDefaultCameraModeChange("follow_user_with_bearing") },
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .testTag("card_camera_bearing")
+                            )
+                            AisleSelectableCard(
+                                text = "Rota completa",
+                                selected = defaultCameraMode == "show_full_route",
+                                onClick = { onDefaultCameraModeChange("show_full_route") },
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .testTag("card_camera_route")
                             )
                         }
                     }
