@@ -59,7 +59,6 @@ import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.filled.MyLocation
 import androidx.compose.material.icons.filled.Explore
 import androidx.compose.material.icons.filled.ZoomOutMap
-import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -67,6 +66,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.Card
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -485,35 +485,22 @@ fun ActiveRunScreen(
 
                     // === OVERLAY NO MAPA (acima do AndroidView) ===
                     Box(modifier = Modifier.fillMaxSize()) {
-                        // Topo do mapa: métricas compactas + botão expandir/câmera
+                        // Topo do mapa: botões de controle (canto superior direito)
                         Column(
-                            modifier = Modifier.fillMaxSize(),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = AisleSpacing.md, vertical = AisleSpacing.md),
                             verticalArrangement = Arrangement.Top
                         ) {
-                            // Métricas compactas (Tempo | Dist | Ritmo)
                             Row(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(horizontal = AisleSpacing.md, vertical = AisleSpacing.md),
-                                horizontalArrangement = Arrangement.SpaceBetween
-                            ) {
-                                MetricBlock(label = "Tempo", value = totalTimeFormatted, modifier = Modifier.weight(1f))
-                                MetricBlock(label = "Dist", value = "$distanceKm km", modifier = Modifier.weight(1f))
-                                MetricBlock(label = "Ritmo", value = runState.averagePaceFormatted, modifier = Modifier.weight(1f))
-                            }
-
-                            // Botões de controle do mapa (canto superior direito)
-                            Row(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(horizontal = AisleSpacing.md),
+                                modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.End
                             ) {
                                 // Toggle expandir/colapsar mapa
                                 IconButton(
                                     onClick = { mapExpanded = !mapExpanded },
                                     modifier = Modifier
-                                        .size(40.dp)
+                                        .size(44.dp)
                                         .semantics { contentDescription = if (mapExpanded) "Colapsar mapa" else "Expandir mapa" }
                                         .testTag("btn_toggle_map_expand")
                                 ) {
@@ -521,9 +508,11 @@ fun ActiveRunScreen(
                                         imageVector = if (mapExpanded) Icons.Default.ExpandLess else Icons.Default.ExpandMore,
                                         contentDescription = null,
                                         tint = AisleTurquoise,
-                                        modifier = Modifier.size(20.dp)
+                                        modifier = Modifier.size(24.dp)
                                     )
                                 }
+
+                                Spacer(modifier = Modifier.width(AisleSpacing.xs))
 
                                 // Toggle modo de câmera
                                 IconButton(
@@ -537,7 +526,7 @@ fun ActiveRunScreen(
                                         onCameraModeChange(nextMode)
                                     },
                                     modifier = Modifier
-                                        .size(40.dp)
+                                        .size(44.dp)
                                         .semantics { contentDescription = "Alternar modo de câmera" }
                                         .testTag("btn_map_camera_mode")
                                 ) {
@@ -550,16 +539,16 @@ fun ActiveRunScreen(
                                         },
                                         contentDescription = null,
                                         tint = AisleTurquoise,
-                                        modifier = Modifier.size(20.dp)
+                                        modifier = Modifier.size(24.dp)
                                     )
                                 }
                             }
 
-                            // Legenda do modo de câmera (abaixo dos botões)
+                            // Legenda do modo de câmera (abaixo dos botões, canto sup. dir.)
                             Card(
                                 modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(horizontal = AisleSpacing.md, vertical = AisleSpacing.xs),
+                                    .padding(top = AisleSpacing.xs)
+                                    .align(Alignment.End),
                                 colors = androidx.compose.material3.CardDefaults.cardColors(
                                     containerColor = Color.Black.copy(alpha = 0.7f)
                                 )
@@ -578,17 +567,7 @@ fun ActiveRunScreen(
                             }
                         }
 
-                        // Centro do mapa: PlayPauseRing GRANDE
-                        PlayPauseRing(
-                            isPlaying = !runState.isPaused,
-                            progress = stepProgress,
-                            onClick = {
-                                if (runState.isPaused) onResumeClick() else onPauseClick()
-                            },
-                            modifier = Modifier.align(Alignment.Center)
-                        )
-
-                        // Base do mapa: botão recenter (apenas modo Free) + indicador de etapa
+                        // Centro inferior do mapa: PlayPauseRing (padrão apps de corrida)
                         Column(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -620,6 +599,18 @@ fun ActiveRunScreen(
                                 Spacer(modifier = Modifier.height(AisleSpacing.md))
                             }
 
+                            // PlayPauseRing GRANDE no centro inferior
+                            PlayPauseRing(
+                                isPlaying = !runState.isPaused,
+                                progress = stepProgress,
+                                onClick = {
+                                    if (runState.isPaused) onResumeClick() else onPauseClick()
+                                },
+                                modifier = Modifier.align(Alignment.CenterHorizontally)
+                            )
+
+                            Spacer(modifier = Modifier.height(AisleSpacing.md))
+
                             // Indicador de etapa (paginador)
                             if (steps.isNotEmpty() && !isFreeRun) {
                                 val totalMetrics = 3 + 1 + 1 + (if (runState.nextStep != null) 1 else 0)
@@ -642,96 +633,18 @@ fun ActiveRunScreen(
                 }
             }
 
-            // ============ RODAPÉ: Métricas detalhadas (sem mapa) ou Finalizar ============
-            if (!showMapDuringRun || !runState.isGpsRequested) {
-                Spacer(modifier = Modifier.height(AisleSpacing.xxl))
-
-                // MÉTRICAS entre dois divisores
-                Box(modifier = Modifier.fillMaxWidth().height(1.dp).background(AisleBorder))
-                Row(
-                    modifier = Modifier.fillMaxWidth().padding(vertical = AisleSpacing.lg),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    MetricBlock(label = "Tempo total", value = totalTimeFormatted, modifier = Modifier.weight(1f))
-                    MetricBlock(label = "Distância", value = "$distanceKm km", modifier = Modifier.weight(1f))
-                    MetricBlock(label = "Ritmo (min/km)", value = runState.averagePaceFormatted, modifier = Modifier.weight(1f))
-                }
-                Box(modifier = Modifier.fillMaxWidth().height(1.dp).background(AisleBorder))
-
-                Spacer(modifier = Modifier.height(AisleSpacing.xl))
-
-                // GRÁFICO DE RITMO
-                AisleCard(modifier = Modifier.fillMaxWidth()) {
-                    Column(modifier = Modifier.padding(AisleSpacing.md)) {
-                        Text(text = "Evolução do ritmo", style = MaterialTheme.typography.labelLarge, fontWeight = FontWeight.SemiBold, color = AisleTextSecondary)
-                        Spacer(modifier = Modifier.height(AisleSpacing.md))
-                        PaceChart(currentPaceSeconds = runState.averagePaceSeconds, targetPaceSeconds = if (!isFreeRun) 360.0 else null, chartHeight = if (isFreeRun) 90.dp else 120.dp)
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(AisleSpacing.lg))
-
-                // CARTÃO "A SEGUIR"
-                if (runState.nextStep != null && !isFreeRun) {
-                    AisleCard(
-                        border = BorderStroke(1.dp, AisleBorder),
-                        modifier = Modifier.fillMaxWidth().testTag("next_step_card")
-                    ) {
-                        Row(
-                            modifier = Modifier.padding(horizontal = AisleSpacing.md, vertical = AisleSpacing.md),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Text(
-                                text = "A seguir",
-                                style = MaterialTheme.typography.labelLarge,
-                                fontWeight = FontWeight.Bold,
-                                color = AisleTurquoise
-                            )
-                            Spacer(modifier = Modifier.width(AisleSpacing.md))
-                            Text(
-                                text = "${runState.nextStep.instruction} • ${runState.nextStep.durationFormatted}",
-                                style = MaterialTheme.typography.bodyMedium,
-                                fontWeight = FontWeight.Medium,
-                                color = AisleTextPrimary,
-                                modifier = Modifier.weight(1f)
-                            )
-                        }
-                    }
-                }
+            // ============ RODAPÉ: Botão Finalizar (sempre visível na base) ============
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = AisleSpacing.xl),
+                contentAlignment = Alignment.BottomCenter
+            ) {
+                HoldToFinishGradientButton(
+                    onFinish = onFinishClick,
+                    modifier = Modifier.width(200.dp)
+                )
             }
-
-            if (runState.isPaused) {
-                Spacer(modifier = Modifier.height(AisleSpacing.lg))
-                Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                    Surface(
-                        shape = CircleShape,
-                        color = AisleActionOrange.copy(alpha = 0.2f),
-                        border = BorderStroke(1.dp, AisleActionOrange)
-                    ) {
-                        Text(
-                            text = "Treino em pausa",
-                            style = MaterialTheme.typography.labelLarge,
-                            fontWeight = FontWeight.Bold,
-                            color = AisleActionOrange,
-                            modifier = Modifier.padding(horizontal = AisleSpacing.md, vertical = AisleSpacing.xs)
-                        )
-                    }
-                }
-            }
-        }
-
-        // ============ BOTÃO FINALIZAR (SEMPRE VISÍVEL NA BASE) ============
-        // Fora da Column principal, posicionado na base da tela
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .align(Alignment.BottomCenter)
-                .padding(bottom = AisleSpacing.xl)
-        ) {
-            HoldToFinishGradientButton(
-                onFinish = onFinishClick,
-                modifier = Modifier.width(200.dp)
-            )
         }
     }
 }
