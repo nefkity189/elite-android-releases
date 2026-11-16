@@ -56,6 +56,10 @@ import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Stop
 import androidx.compose.material.icons.filled.Vibration
 import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material.icons.filled.MyLocation
+import androidx.compose.material.icons.filled.Explore
+import androidx.compose.material.icons.filled.ZoomOutMap
+import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -209,6 +213,13 @@ fun ActiveRunScreen(
         else -> Triple("Sinal bom", StatusCompleted, Icons.Default.GpsFixed)
     }
 
+    // Botão central Play/Pause com anel de progresso
+    val stepProgress = if (runState.currentStep != null && runState.currentStep.durationSeconds > 0) {
+        (1.0f - runState.timeRemainingInStep.toFloat() / runState.currentStep.durationSeconds.toFloat()).coerceIn(0f, 1f)
+    } else {
+        0f
+    }
+
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -217,234 +228,249 @@ fun ActiveRunScreen(
             .navigationBarsPadding()
             .testTag("screen_active_run")
     ) {
-        // === PARTE SUPERIOR ROLÁVEL (GPS, título, métricas) ===
+        // === LAYOUT PRINCIPAL: Column que preenche a tela ===
         Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .verticalScroll(rememberScrollState())
-                .padding(horizontal = AisleSpacing.xl)
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Top
         ) {
-            // Barra Superior: Status do GPS e Controles de Áudio/Vibração
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
+            // ============ TOPO: GPS, Toggles, Avisos, Etapa Atual ============
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = AisleSpacing.xl)
             ) {
-                // Indicador de Sinal do GPS
-                Surface(
-                    shape = RoundedCornerShape(12.dp),
-                    color = gpsSignalColor.copy(alpha = 0.15f),
-                    border = BorderStroke(1.dp, gpsSignalColor.copy(alpha = 0.3f)),
-                    modifier = Modifier.testTag("gps_signal_indicator")
+                // Barra Superior: Status do GPS e Controles de Áudio/Vibração
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Row(
-                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Icon(
-                            imageVector = gpsSignalIcon,
-                            contentDescription = null,
-                            tint = gpsSignalColor,
-                            modifier = Modifier.size(16.dp)
-                        )
-                        Spacer(modifier = Modifier.width(6.dp))
-                        Text(
-                            text = gpsSignalText,
-                            style = MaterialTheme.typography.labelSmall,
-                            fontWeight = FontWeight.SemiBold,
-                            color = gpsSignalColor
-                        )
-                    }
-                }
-
-                // Toggles de voz e vibração
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    // Indicador de Sinal do GPS
                     Surface(
-                        shape = CircleShape,
-                        color = AisleCard,
-                        border = BorderStroke(1.dp, AisleBorder),
-                        modifier = Modifier.size(48.dp)
+                        shape = RoundedCornerShape(12.dp),
+                        color = gpsSignalColor.copy(alpha = 0.15f),
+                        border = BorderStroke(1.dp, gpsSignalColor.copy(alpha = 0.3f)),
+                        modifier = Modifier.testTag("gps_signal_indicator")
                     ) {
-                        IconButton(onClick = onToggleVoice) {
+                        Row(
+                            modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
                             Icon(
-                                imageVector = if (runState.voiceEnabled) Icons.AutoMirrored.Filled.VolumeUp else Icons.AutoMirrored.Filled.VolumeMute,
-                                contentDescription = if (runState.voiceEnabled) "Voz ligada" else "Voz desligada",
-                                tint = if (runState.voiceEnabled) AisleTurquoise else AisleTextSecondary,
-                                modifier = Modifier.size(20.dp)
-                            )
-                        }
-                    }
-                    Surface(
-                        shape = CircleShape,
-                        color = AisleCard,
-                        border = BorderStroke(1.dp, AisleBorder),
-                        modifier = Modifier.size(48.dp)
-                    ) {
-                        IconButton(onClick = onToggleVibration) {
-                            Icon(
-                                imageVector = Icons.Default.Vibration,
-                                contentDescription = if (runState.vibrationEnabled) "Vibração ligada" else "Vibração desligada",
-                                tint = if (runState.vibrationEnabled) AisleTurquoise else AisleTextSecondary,
-                                modifier = Modifier.size(20.dp)
-                            )
-                        }
-                    }
-                }
-            }
-
-            // Avisos (GPS desligado no aparelho ou TTS indisponível)
-            if (runState.isGpsRequested && !isDeviceGpsEnabled) {
-                Spacer(modifier = Modifier.height(AisleSpacing.md))
-                AisleCard(border = BorderStroke(1.dp, AisleAlert)) {
-                    Row(
-                        modifier = Modifier.padding(AisleSpacing.md),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Icon(Icons.Default.Warning, contentDescription = null, tint = AisleAlert)
-                        Spacer(modifier = Modifier.width(AisleSpacing.sm))
-                        Text(
-                            text = "O GPS do seu celular está desativado. Ative a localização nas configurações do aparelho para registrar distância.",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = AisleTextPrimary
-                        )
-                    }
-                }
-            }
-
-            if (!runState.ttsAvailable && runState.ttsWarning != null) {
-                Spacer(modifier = Modifier.height(AisleSpacing.xs))
-                AisleCard {
-                    Text(
-                        text = runState.ttsWarning,
-                        style = MaterialTheme.typography.bodySmall,
-                        color = AisleTextSecondary,
-                        modifier = Modifier.padding(AisleSpacing.md)
-                    )
-                }
-            }
-
-            // Aviso discreto de economia de bateria
-            if (showBatteryWarning) {
-                Spacer(modifier = Modifier.height(AisleSpacing.md))
-                AisleCard(
-                    border = BorderStroke(1.dp, AisleBorder),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable {
-                            try {
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                                    val intent = Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS).apply {
-                                        flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                                    }
-                                    context.startActivity(intent)
-                                }
-                            } catch (_: Exception) {}
-                        }
-                        .testTag("battery_warning_banner")
-                ) {
-                    Column(modifier = Modifier.padding(AisleSpacing.md)) {
-                        Row(verticalAlignment = Alignment.Top) {
-                            Icon(
-                                imageVector = Icons.Default.BatteryAlert,
+                                imageVector = gpsSignalIcon,
                                 contentDescription = null,
-                                tint = AisleActionOrange,
-                                modifier = Modifier.size(18.dp).padding(top = 2.dp)
+                                tint = gpsSignalColor,
+                                modifier = Modifier.size(16.dp)
                             )
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Text(
+                                text = gpsSignalText,
+                                style = MaterialTheme.typography.labelSmall,
+                                fontWeight = FontWeight.SemiBold,
+                                color = gpsSignalColor
+                            )
+                        }
+                    }
+
+                    // Toggles de voz e vibração
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        Surface(
+                            shape = CircleShape,
+                            color = AisleCard,
+                            border = BorderStroke(1.dp, AisleBorder),
+                            modifier = Modifier.size(48.dp)
+                        ) {
+                            IconButton(onClick = onToggleVoice) {
+                                Icon(
+                                    imageVector = if (runState.voiceEnabled) Icons.AutoMirrored.Filled.VolumeUp else Icons.AutoMirrored.Filled.VolumeMute,
+                                    contentDescription = if (runState.voiceEnabled) "Voz ligada" else "Voz desligada",
+                                    tint = if (runState.voiceEnabled) AisleTurquoise else AisleTextSecondary,
+                                    modifier = Modifier.size(20.dp)
+                                )
+                            }
+                        }
+                        Surface(
+                            shape = CircleShape,
+                            color = AisleCard,
+                            border = BorderStroke(1.dp, AisleBorder),
+                            modifier = Modifier.size(48.dp)
+                        ) {
+                            IconButton(onClick = onToggleVibration) {
+                                Icon(
+                                    imageVector = Icons.Default.Vibration,
+                                    contentDescription = if (runState.vibrationEnabled) "Vibração ligada" else "Vibração desligada",
+                                    tint = if (runState.vibrationEnabled) AisleTurquoise else AisleTextSecondary,
+                                    modifier = Modifier.size(20.dp)
+                                )
+                            }
+                        }
+                    }
+                }
+
+                // Avisos (GPS desligado no aparelho ou TTS indisponível)
+                if (runState.isGpsRequested && !isDeviceGpsEnabled) {
+                    Spacer(modifier = Modifier.height(AisleSpacing.md))
+                    AisleCard(border = BorderStroke(1.dp, AisleAlert)) {
+                        Row(
+                            modifier = Modifier.padding(AisleSpacing.md),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Icon(Icons.Default.Warning, contentDescription = null, tint = AisleAlert)
                             Spacer(modifier = Modifier.width(AisleSpacing.sm))
                             Text(
-                                text = "Seu celular pode pausar o GPS com a tela apagada. Toque para ajustar.",
+                                text = "O GPS do seu celular está desativado. Ative a localização nas configurações do aparelho para registrar distância.",
                                 style = MaterialTheme.typography.bodySmall,
-                                color = AisleTextPrimary,
-                                modifier = Modifier.weight(1f)
+                                color = AisleTextPrimary
                             )
-                            IconButton(
-                                onClick = { batteryBannerDismissedInSession = true },
-                                modifier = Modifier.size(24.dp)
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Default.Close,
-                                    contentDescription = "Fechar aviso",
-                                    tint = AisleTextSecondary,
-                                    modifier = Modifier.size(16.dp)
-                                )
-                            }
-                        }
-                        Spacer(modifier = Modifier.height(AisleSpacing.xxs))
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.End
-                        ) {
-                            TextButton(
-                                onClick = {
-                                    batteryBannerDismissedInSession = true
-                                    onDismissBatteryWarning()
-                                },
-                                modifier = Modifier.testTag("btn_dismiss_battery_forever")
-                            ) {
-                                Text(
-                                    text = "Não mostrar de novo",
-                                    style = MaterialTheme.typography.labelSmall,
-                                    color = AisleTurquoise
-                                )
-                            }
                         }
                     }
                 }
-            }
 
-            Spacer(modifier = Modifier.height(AisleSpacing.xl))
-
-            // ETAPA ATUAL: nome, cronômetro grande e instrução (sem moldura de cartão)
-            if (isFreeRun) {
-                FreeRunLayout(
-                    runState = runState,
-                    totalTimeFormatted = totalTimeFormatted
-                )
-            } else {
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .testTag("current_step_card"),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(stepIcon, contentDescription = null, tint = stepColor, modifier = Modifier.size(28.dp))
-                        Spacer(modifier = Modifier.width(AisleSpacing.md))
+                if (!runState.ttsAvailable && runState.ttsWarning != null) {
+                    Spacer(modifier = Modifier.height(AisleSpacing.xs))
+                    AisleCard {
                         Text(
-                            text = stepActionLabel,
-                            style = MaterialTheme.typography.titleLarge,
-                            fontWeight = FontWeight.SemiBold,
-                            color = stepColor
+                            text = runState.ttsWarning,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = AisleTextSecondary,
+                            modifier = Modifier.padding(AisleSpacing.md)
                         )
                     }
-                    Spacer(modifier = Modifier.height(AisleSpacing.xs))
-                    Text(
-                        text = stepTimeFormatted,
-                        style = MaterialTheme.typography.displayLarge.copy(
-                            fontWeight = FontWeight.Bold,
-                            fontFeatureSettings = "tnum",
-                            fontSize = (56 * timerFontScale).sp
-                        ),
-                        color = AisleTextPrimary,
-                        modifier = Modifier.testTag("step_countdown_timer")
+                }
+
+                // Aviso discreto de economia de bateria
+                if (showBatteryWarning) {
+                    Spacer(modifier = Modifier.height(AisleSpacing.md))
+                    AisleCard(
+                        border = BorderStroke(1.dp, AisleBorder),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable {
+                                try {
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                        val intent = Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS).apply {
+                                            flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                                        }
+                                        context.startActivity(intent)
+                                    }
+                                } catch (_: Exception) {}
+                            }
+                            .testTag("battery_warning_banner")
+                    ) {
+                        Column(modifier = Modifier.padding(AisleSpacing.md)) {
+                            Row(verticalAlignment = Alignment.Top) {
+                                Icon(
+                                    imageVector = Icons.Default.BatteryAlert,
+                                    contentDescription = null,
+                                    tint = AisleActionOrange,
+                                    modifier = Modifier.size(18.dp).padding(top = 2.dp)
+                                )
+                                Spacer(modifier = Modifier.width(AisleSpacing.sm))
+                                Text(
+                                    text = "Seu celular pode pausar o GPS com a tela apagada. Toque para ajustar.",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = AisleTextPrimary,
+                                    modifier = Modifier.weight(1f)
+                                )
+                                IconButton(
+                                    onClick = { batteryBannerDismissedInSession = true },
+                                    modifier = Modifier.size(24.dp)
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.Close,
+                                        contentDescription = "Fechar aviso",
+                                        tint = AisleTextSecondary,
+                                        modifier = Modifier.size(16.dp)
+                                    )
+                                }
+                            }
+                            Spacer(modifier = Modifier.height(AisleSpacing.xxs))
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.End
+                            ) {
+                                TextButton(
+                                    onClick = {
+                                        batteryBannerDismissedInSession = true
+                                        onDismissBatteryWarning()
+                                    },
+                                    modifier = Modifier.testTag("btn_dismiss_battery_forever")
+                                ) {
+                                    Text(
+                                        text = "Não mostrar de novo",
+                                        style = MaterialTheme.typography.labelSmall,
+                                        color = AisleTurquoise
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(AisleSpacing.xl))
+
+                // ETAPA ATUAL: nome, cronômetro grande e instrução
+                if (isFreeRun) {
+                    FreeRunLayout(
+                        runState = runState,
+                        totalTimeFormatted = totalTimeFormatted
                     )
-                    Spacer(modifier = Modifier.height(AisleSpacing.xs))
-                    Text(
-                        text = runState.currentStep?.instruction ?: "Aguardando início...",
-                        style = MaterialTheme.typography.bodyLarge,
-                        color = AisleTextSecondary,
-                        textAlign = TextAlign.Center
-                    )
+                } else {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .testTag("current_step_card"),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(stepIcon, contentDescription = null, tint = stepColor, modifier = Modifier.size(28.dp))
+                            Spacer(modifier = Modifier.width(AisleSpacing.md))
+                            Text(
+                                text = stepActionLabel,
+                                style = MaterialTheme.typography.titleLarge,
+                                fontWeight = FontWeight.SemiBold,
+                                color = stepColor
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(AisleSpacing.xs))
+                        Text(
+                            text = stepTimeFormatted,
+                            style = MaterialTheme.typography.displayLarge.copy(
+                                fontWeight = FontWeight.Bold,
+                                fontFeatureSettings = "tnum",
+                                fontSize = (56 * timerFontScale).sp
+                            ),
+                            color = AisleTextPrimary,
+                            modifier = Modifier.testTag("step_countdown_timer")
+                        )
+                        Spacer(modifier = Modifier.height(AisleSpacing.xs))
+                        Text(
+                            text = runState.currentStep?.instruction ?: "Aguardando início...",
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = AisleTextSecondary,
+                            textAlign = TextAlign.Center
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(AisleSpacing.lg))
+
+                // BARRA SEGMENTADA COM TODOS OS BLOCOS DO TREINO (apenas sem mapa)
+                if (!showMapDuringRun || !runState.isGpsRequested) {
+                    if (steps.isNotEmpty() && !isFreeRun) {
+                        RunStepsBar(steps = steps, currentIndex = runState.currentStepIndex)
+                    }
                 }
             }
 
-            // MAPA EM TELA CHEIA (dominante) + viewport deslizável de métricas sobreposto
+            // ============ MAPA: ocupa o espaço restante (flex 1) ============
             if (showMapDuringRun && runState.isGpsRequested) {
-                Spacer(modifier = Modifier.height(AisleSpacing.lg))
-                // Altura fixa: este Box vive dentro de Column(verticalScroll), onde
-                // fillMaxSize() geraria altura infinita e derruba o app
-                // (CheckScrollableContainerConstraints). 600 dp mantém o mapa dominante.
-                Box(modifier = Modifier.fillMaxWidth().height(600.dp)) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f)  // ocupa todo espaço vertical restante
+                ) {
+                    // Mapa real (AndroidView) - preenche todo o Box
                     MapViewComposable(
                         points = runState.routePoints ?: emptyList(),
                         currentLocation = runState.currentMapPoint,
@@ -457,62 +483,170 @@ fun ActiveRunScreen(
                             .testTag("map_view_realtime")
                     )
 
-                    // Controles do mapa: toggle de expandir/colapsar (rota completa)
-                    IconButton(
-                        onClick = { mapExpanded = !mapExpanded },
-                        modifier = Modifier
-                            .align(Alignment.TopEnd)
-                            .padding(AisleSpacing.md)
-                            .size(40.dp)
-                            .semantics { contentDescription = if (mapExpanded) "Colapsar mapa" else "Expandir mapa" }
-                            .testTag("btn_toggle_map_expand")
-                    ) {
-                        Icon(
-                            imageVector = if (mapExpanded) Icons.Default.ExpandLess else Icons.Default.ExpandMore,
-                            contentDescription = null,
-                            tint = AisleTurquoise,
-                            modifier = Modifier.size(20.dp)
+                    // === OVERLAY NO MAPA (acima do AndroidView) ===
+                    Box(modifier = Modifier.fillMaxSize()) {
+                        // Topo do mapa: métricas compactas + botão expandir/câmera
+                        Column(
+                            modifier = Modifier.fillMaxSize(),
+                            verticalArrangement = Arrangement.Top
+                        ) {
+                            // Métricas compactas (Tempo | Dist | Ritmo)
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = AisleSpacing.md, vertical = AisleSpacing.md),
+                                horizontalArrangement = Arrangement.SpaceBetween
+                            ) {
+                                MetricBlock(label = "Tempo", value = totalTimeFormatted, modifier = Modifier.weight(1f))
+                                MetricBlock(label = "Dist", value = "$distanceKm km", modifier = Modifier.weight(1f))
+                                MetricBlock(label = "Ritmo", value = runState.averagePaceFormatted, modifier = Modifier.weight(1f))
+                            }
+
+                            // Botões de controle do mapa (canto superior direito)
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = AisleSpacing.md),
+                                horizontalArrangement = Arrangement.End
+                            ) {
+                                // Toggle expandir/colapsar mapa
+                                IconButton(
+                                    onClick = { mapExpanded = !mapExpanded },
+                                    modifier = Modifier
+                                        .size(40.dp)
+                                        .semantics { contentDescription = if (mapExpanded) "Colapsar mapa" else "Expandir mapa" }
+                                        .testTag("btn_toggle_map_expand")
+                                ) {
+                                    Icon(
+                                        imageVector = if (mapExpanded) Icons.Default.ExpandLess else Icons.Default.ExpandMore,
+                                        contentDescription = null,
+                                        tint = AisleTurquoise,
+                                        modifier = Modifier.size(20.dp)
+                                    )
+                                }
+
+                                // Toggle modo de câmera
+                                IconButton(
+                                    onClick = {
+                                        val nextMode = when (cameraMode) {
+                                            is CameraMode.FollowUser -> CameraMode.ShowFullRoute
+                                            is CameraMode.FollowUserWithBearing -> CameraMode.ShowFullRoute
+                                            is CameraMode.ShowFullRoute -> CameraMode.Free
+                                            is CameraMode.Free -> CameraMode.FollowUserWithBearing
+                                        }
+                                        onCameraModeChange(nextMode)
+                                    },
+                                    modifier = Modifier
+                                        .size(40.dp)
+                                        .semantics { contentDescription = "Alternar modo de câmera" }
+                                        .testTag("btn_map_camera_mode")
+                                ) {
+                                    Icon(
+                                        imageVector = when (cameraMode) {
+                                            is CameraMode.FollowUser -> Icons.Default.MyLocation
+                                            is CameraMode.FollowUserWithBearing -> Icons.Default.MyLocation
+                                            is CameraMode.ShowFullRoute -> Icons.Default.Explore
+                                            is CameraMode.Free -> Icons.Default.ZoomOutMap
+                                        },
+                                        contentDescription = null,
+                                        tint = AisleTurquoise,
+                                        modifier = Modifier.size(20.dp)
+                                    )
+                                }
+                            }
+
+                            // Legenda do modo de câmera (abaixo dos botões)
+                            Card(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = AisleSpacing.md, vertical = AisleSpacing.xs),
+                                colors = androidx.compose.material3.CardDefaults.cardColors(
+                                    containerColor = Color.Black.copy(alpha = 0.7f)
+                                )
+                            ) {
+                                Text(
+                                    text = when (cameraMode) {
+                                        is CameraMode.FollowUser -> "Seguindo você"
+                                        is CameraMode.FollowUserWithBearing -> "Seguindo com direção"
+                                        is CameraMode.ShowFullRoute -> "Rota completa"
+                                        is CameraMode.Free -> "Livre (toque para recenter)"
+                                    },
+                                    style = androidx.compose.material3.MaterialTheme.typography.labelSmall,
+                                    color = Color.White,
+                                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
+                                )
+                            }
+                        }
+
+                        // Centro do mapa: PlayPauseRing GRANDE
+                        PlayPauseRing(
+                            isPlaying = !runState.isPaused,
+                            progress = stepProgress,
+                            onClick = {
+                                if (runState.isPaused) onResumeClick() else onPauseClick()
+                            },
+                            modifier = Modifier.align(Alignment.Center)
                         )
-                    }
 
-                    // Métricas compactas sobre o mapa
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = AisleSpacing.md),
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        MetricBlock(label = "Tempo", value = totalTimeFormatted, modifier = Modifier.weight(1f))
-                        MetricBlock(label = "Dist", value = "$distanceKm km", modifier = Modifier.weight(1f))
-                        MetricBlock(label = "Ritmo", value = runState.averagePaceFormatted, modifier = Modifier.weight(1f))
-                    }
+                        // Base do mapa: botão recenter (apenas modo Free) + indicador de etapa
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = AisleSpacing.md, vertical = AisleSpacing.lg),
+                            verticalArrangement = Arrangement.Bottom,
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            // Botão recenter (apenas modo Free)
+                            if (cameraMode is CameraMode.Free) {
+                                Surface(
+                                    shape = CircleShape,
+                                    color = AisleActionOrange,
+                                    modifier = Modifier
+                                        .semantics { contentDescription = "Recentralizar no usuário" }
+                                        .testTag("btn_map_recenter")
+                                ) {
+                                    IconButton(
+                                        onClick = onRecenter,
+                                        modifier = Modifier.size(48.dp)
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.Default.MyLocation,
+                                            contentDescription = null,
+                                            tint = Color.White,
+                                            modifier = Modifier.size(24.dp)
+                                        )
+                                    }
+                                }
+                                Spacer(modifier = Modifier.height(AisleSpacing.md))
+                            }
 
-                    // Botão central Play/Pause com anel de progresso — DENTRO do Box do mapa
-                    // para ficar acima do AndroidView (MapView) e ser clicável/visível.
-                    val stepProgress = if (runState.currentStep != null && runState.currentStep.durationSeconds > 0) {
-                        (1.0f - runState.timeRemainingInStep.toFloat() / runState.currentStep.durationSeconds.toFloat()).coerceIn(0f, 1f)
-                    } else {
-                        0f
+                            // Indicador de etapa (paginador)
+                            if (steps.isNotEmpty() && !isFreeRun) {
+                                val totalMetrics = 3 + 1 + 1 + (if (runState.nextStep != null) 1 else 0)
+                                val currentPage = 0
+                                Row(
+                                    horizontalArrangement = Arrangement.spacedBy(4.dp)
+                                ) {
+                                    repeat(totalMetrics) { i ->
+                                        Box(
+                                            modifier = Modifier
+                                                .size(if (i == currentPage) 8.dp else 4.dp)
+                                                .clip(CircleShape)
+                                                .background(if (i == currentPage) AisleTurquoise else AisleTextSecondary.copy(alpha = 0.5f))
+                                        )
+                                    }
+                                }
+                            }
+                        }
                     }
-                    PlayPauseRing(
-                        isPlaying = !runState.isPaused,
-                        progress = stepProgress,
-                        onClick = {
-                            if (runState.isPaused) onResumeClick() else onPauseClick()
-                        },
-                        modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = AisleSpacing.xxl + 80.dp)
-                    )
                 }
-            } else {
-                // Sem mapa: layout vertical original (fallback)
-                if (steps.isNotEmpty() && !isFreeRun) {
-                    Spacer(modifier = Modifier.height(AisleSpacing.xl))
-                    RunStepsBar(steps = steps, currentIndex = runState.currentStepIndex)
-                }
+            }
 
+            // ============ RODAPÉ: Métricas detalhadas (sem mapa) ou Finalizar ============
+            if (!showMapDuringRun || !runState.isGpsRequested) {
                 Spacer(modifier = Modifier.height(AisleSpacing.xxl))
 
-                // MÉTRICAS entre dois divisores: tempo total, distância e ritmo
+                // MÉTRICAS entre dois divisores
                 Box(modifier = Modifier.fillMaxWidth().height(1.dp).background(AisleBorder))
                 Row(
                     modifier = Modifier.fillMaxWidth().padding(vertical = AisleSpacing.lg),
@@ -526,7 +660,7 @@ fun ActiveRunScreen(
 
                 Spacer(modifier = Modifier.height(AisleSpacing.xl))
 
-                // GRÁFICO DE RITMO EN TEMPO REAL
+                // GRÁFICO DE RITMO
                 AisleCard(modifier = Modifier.fillMaxWidth()) {
                     Column(modifier = Modifier.padding(AisleSpacing.md)) {
                         Text(text = "Evolução do ritmo", style = MaterialTheme.typography.labelLarge, fontWeight = FontWeight.SemiBold, color = AisleTextSecondary)
@@ -534,34 +668,34 @@ fun ActiveRunScreen(
                         PaceChart(currentPaceSeconds = runState.averagePaceSeconds, targetPaceSeconds = if (!isFreeRun) 360.0 else null, chartHeight = if (isFreeRun) 90.dp else 120.dp)
                     }
                 }
-            }
 
-            Spacer(modifier = Modifier.height(AisleSpacing.lg))
+                Spacer(modifier = Modifier.height(AisleSpacing.lg))
 
-            // CARTÃO "A SEGUIR" COM O PRÓXIMO PASSO E A DURAÇÃO
-            if (runState.nextStep != null && !isFreeRun) {
-                AisleCard(
-                    border = BorderStroke(1.dp, AisleBorder),
-                    modifier = Modifier.fillMaxWidth().testTag("next_step_card")
-                ) {
-                    Row(
-                        modifier = Modifier.padding(horizontal = AisleSpacing.md, vertical = AisleSpacing.md),
-                        verticalAlignment = Alignment.CenterVertically
+                // CARTÃO "A SEGUIR"
+                if (runState.nextStep != null && !isFreeRun) {
+                    AisleCard(
+                        border = BorderStroke(1.dp, AisleBorder),
+                        modifier = Modifier.fillMaxWidth().testTag("next_step_card")
                     ) {
-                        Text(
-                            text = "A seguir",
-                            style = MaterialTheme.typography.labelLarge,
-                            fontWeight = FontWeight.Bold,
-                            color = AisleTurquoise
-                        )
-                        Spacer(modifier = Modifier.width(AisleSpacing.md))
-                        Text(
-                            text = "${runState.nextStep.instruction} • ${runState.nextStep.durationFormatted}",
-                            style = MaterialTheme.typography.bodyMedium,
-                            fontWeight = FontWeight.Medium,
-                            color = AisleTextPrimary,
-                            modifier = Modifier.weight(1f)
-                        )
+                        Row(
+                            modifier = Modifier.padding(horizontal = AisleSpacing.md, vertical = AisleSpacing.md),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = "A seguir",
+                                style = MaterialTheme.typography.labelLarge,
+                                fontWeight = FontWeight.Bold,
+                                color = AisleTurquoise
+                            )
+                            Spacer(modifier = Modifier.width(AisleSpacing.md))
+                            Text(
+                                text = "${runState.nextStep.instruction} • ${runState.nextStep.durationFormatted}",
+                                style = MaterialTheme.typography.bodyMedium,
+                                fontWeight = FontWeight.Medium,
+                                color = AisleTextPrimary,
+                                modifier = Modifier.weight(1f)
+                            )
+                        }
                     }
                 }
             }
@@ -586,15 +720,13 @@ fun ActiveRunScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(AisleSpacing.md))
-
-        // BOTÃO DE FINALIZAR (segurar 1,5s) — o Play/Pause é o ring central no mapa
-        Row(
+        // ============ BOTÃO FINALIZAR (SEMPRE VISÍVEL NA BASE) ============
+        // Fora da Column principal, posicionado na base da tela
+        Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = AisleSpacing.xs),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
+                .align(Alignment.BottomCenter)
+                .padding(bottom = AisleSpacing.xl)
         ) {
             HoldToFinishGradientButton(
                 onFinish = onFinishClick,
@@ -684,7 +816,6 @@ private fun HoldToFinishGradientButton(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
-                // Progresso animado da pressão circular / barra
                 if (isHolding) {
                     CircularProgressIndicator(
                         progress = { progress.value },
