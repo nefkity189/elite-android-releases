@@ -1,4 +1,5 @@
 import com.google.gms.googleservices.GoogleServicesPlugin.MissingGoogleServicesStrategy
+import java.util.Properties
 
 plugins {
   alias(libs.plugins.android.application)
@@ -9,15 +10,15 @@ plugins {
 }
 
 android {
-  namespace = "com.example"
+  namespace = "com.elite.sch.app"
   compileSdk { version = release(37) { minorApiLevel = 2 } }
 
   defaultConfig {
-    applicationId = "com.aistudio.primeiro5k.kptwlz"
+    applicationId = "com.elite.sch.app"
     minSdk = 24
     targetSdk = 37
-    versionCode = 1
-    versionName = "1.0"
+    versionCode = 15
+    versionName = "1.0.14"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
@@ -26,11 +27,19 @@ android {
   // and updating Android apps in AI Studio.
   signingConfigs {
     create("release") {
-      val keystorePath = System.getenv("KEYSTORE_PATH") ?: "${rootDir}/my-upload-key.jks"
-      storeFile = file(keystorePath)
-      storePassword = System.getenv("STORE_PASSWORD")
-      keyAlias = "upload"
-      keyPassword = System.getenv("KEY_PASSWORD")
+      val keystorePropertiesFile = rootProject.file("keystore.properties")
+      val keystoreProperties = Properties().apply {
+        if (keystorePropertiesFile.exists()) {
+          keystorePropertiesFile.inputStream().use(::load)
+        }
+      }
+      val keystorePath = System.getenv("KEYSTORE_PATH")
+        ?: keystoreProperties.getProperty("storeFile")
+        ?: "${rootDir}/my-upload-key.jks"
+      storeFile = rootProject.file(keystorePath)
+      storePassword = System.getenv("STORE_PASSWORD") ?: keystoreProperties.getProperty("storePassword")
+      keyAlias = System.getenv("KEY_ALIAS") ?: keystoreProperties.getProperty("keyAlias") ?: "upload"
+      keyPassword = System.getenv("KEY_PASSWORD") ?: keystoreProperties.getProperty("keyPassword")
     }
     create("debugConfig") {
       storeFile = file("${rootDir}/debug.keystore")
@@ -88,6 +97,8 @@ tasks.withType<Test> {
 
 // Configure the Secrets Gradle Plugin to use .env and .env.example files
 // to match the convention used in Web projects.
+// The plugin automatically injects MAPS_API_KEY into AndroidManifest.xml
+// via manifestPlaceholders and as BuildConfig.MAPS_API_KEY.
 secrets {
   propertiesFileName = ".env"
   defaultPropertiesFileName = ".env.example"
@@ -100,9 +111,10 @@ googleServices { missingGoogleServicesStrategy = MissingGoogleServicesStrategy.W
 // This makes it easy to add them back in the future if needed.
 dependencies {
   implementation(platform(libs.androidx.compose.bom))
-  // implementation(libs.firebase.bom)
+  implementation(platform(libs.firebase.bom))
   // implementation(libs.accompanist.permissions)
   implementation(libs.androidx.activity.compose)
+  implementation("androidx.core:core-splashscreen:1.0.1")
   // implementation(libs.androidx.camera.camera2)
   // implementation(libs.androidx.camera.core)
   // implementation(libs.androidx.camera.lifecycle)
@@ -124,15 +136,15 @@ dependencies {
   // implementation(libs.coil.compose)
   // implementation(libs.converter.moshi)
   // implementation(libs.firebase.ai)
-  // Uncomment to use Firestore:
-  // implementation(libs.firebase.firestore)
+  implementation(libs.firebase.firestore)
+  implementation(libs.firebase.appcheck.debug)
 
   // Uncomment ALL FOUR of the following dependencies together to use Firebase Auth and Google
   // Sign-In via Credential Manager:
-  // implementation(libs.firebase.auth)
-  // implementation(libs.androidx.credentials)
-  // implementation(libs.androidx.credentials.play.services)
-  // implementation(libs.googleid)
+  implementation(libs.firebase.auth)
+  implementation(libs.androidx.credentials)
+  implementation(libs.androidx.credentials.play.services)
+  implementation(libs.googleid)
   // implementation(libs.firebase.appcheck.recaptcha)
   // implementation(libs.firebase.appcheck.debug)
   implementation(libs.kotlinx.coroutines.android)
@@ -141,8 +153,7 @@ dependencies {
   // implementation(libs.moshi.kotlin)
   // implementation(libs.okhttp)
   implementation(libs.play.services.location)
-  implementation(libs.play.services.maps)
-  implementation(libs.maps.compose)
+  implementation(libs.maplibre.android)
   // implementation(libs.retrofit)
   implementation(libs.androidx.work.runtime.ktx)
   implementation(libs.androidx.window)
