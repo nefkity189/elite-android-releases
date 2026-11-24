@@ -344,30 +344,36 @@ fun DurationScreen(
 
             Spacer(modifier = Modifier.height(EliteSpacing.md))
 
-            Row(
+            // Grupo centralizado de botões de escolha rápida
+            Box(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(EliteSpacing.md)
+                contentAlignment = Alignment.Center
             ) {
-                quickChoices.forEach { weeks ->
-                    val isSelected = weeks == totalSemanas
-                    Card(
-                        shape = RoundedCornerShape(10.dp),
-                        border = if (isSelected) BorderStroke(2.dp, Olive) else BorderStroke(1.dp, LineStrong),
-                        modifier = Modifier
-                            .weight(1f)
-                            .clickable { onTotalSemanasChange(weeks) }
-                            .testTag("quick_weeks_$weeks")
-                    ) {
-                        Box(
-                            contentAlignment = Alignment.Center,
-                            modifier = Modifier.padding(vertical = EliteSpacing.md)
-                        ) {
-                            Text(
-                                text = "${weeks} sem",
-                                style = MaterialTheme.typography.labelMedium,
-                                fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
-                                color = if (isSelected) Olive else TextColor
-                            )
+                            Row(
+                                    horizontalArrangement = Arrangement.spacedBy(EliteSpacing.sm),
+                                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                                    quickChoices.forEach { weeks ->
+                                        val isSelected = weeks == totalSemanas
+                                        Card(
+                                            shape = RoundedCornerShape(10.dp),
+                                            border = if (isSelected) BorderStroke(2.dp, Olive) else BorderStroke(1.dp, LineStrong),
+                                            modifier = Modifier
+                                                .width(72.dp)
+                                                .clickable { onTotalSemanasChange(weeks) }
+                                                .testTag("quick_weeks_$weeks")
+                                        ) {
+                                            Box(
+                                                contentAlignment = Alignment.Center,
+                                                modifier = Modifier.padding(vertical = EliteSpacing.md)
+                            ) {
+                                                Text(
+                                                    text = "${weeks} sem",
+                                                    style = MaterialTheme.typography.labelMedium,
+                                                    fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
+                                                    color = if (isSelected) Olive else TextColor
+                                                )
+                            }
                         }
                     }
                 }
