@@ -43,8 +43,16 @@ data class DemoMission(
     val id: String = "",
     val startsAt: Timestamp? = null,
     val timeZone: String = "America/Sao_Paulo",
-    val results: List<OnlineMissionResult> = emptyList()
+    val results: List<OnlineMissionResult> = emptyList(),
+    /** ms restantes para entrada tardia; >0 significa que ainda pode entrar após a largada */
+    val lateJoinWindowMs: Long = 0L
 )
+
+val DEMO_LATE_JOIN_WINDOW_MS = 5L * 60 * 1000 // 5 minutos
+
+fun DemoMission.canLateJoin(nowMs: Long = ServerTimeSync.nowSync()): Boolean = lateJoinWindowMs > 0L
+fun DemoMission.elapsedMinutesSinceStart(nowMs: Long = ServerTimeSync.nowSync()): Long =
+    ((nowMs - (startsAt?.toDate()?.time ?: 0L)) / 60_000L).coerceAtLeast(0L)
 
 fun DemoMission.readyRunners(nowMs: Long = com.elite.sch.app.data.competition.ServerTimeSync.nowSync()): Int = results.count {
     val ready = it.readyAt?.toDate()?.time
@@ -244,8 +252,12 @@ class CompetitionDemoViewModel : ViewModel() {
             check(existing == null || existing == mission.id) { "Finalize ou abandone sua outra prova primeiro." }
             check(serverNow >= (mission.startsAt?.toDate()?.time ?: Long.MAX_VALUE)) { "Aguarde a largada." }
             if (existing != mission.id) {
+                val elapsedMs = serverNow - mission.startsAt!!.toDate().time
+                check(elapsedMs <= DEMO_LATE_JOIN_WINDOW_MS) {
+                    val remainingMin = ((DEMO_LATE_JOIN_WINDOW_MS - elapsedMs) / 1000L / 60L).coerceAtLeast(0L)
+                    if (remainingMin > 0) "Janela encerrada — resta ${remainingMin}min para entrar." else "Janela de entrada encerrada (5 min)."
+                }
                 check(mission.readyRunners(serverNow) >= 2) { "Aguarde dois corredores presentes." }
-                check(serverNow - mission.startsAt!!.toDate().time <= 60_000L) { "A janela de largada encerrou." }
                 val permission = androidx.core.content.ContextCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_FINE_LOCATION)
                 check(permission == android.content.pm.PackageManager.PERMISSION_GRANTED) { "Autorize a localizacao precisa antes de correr." }
                 val manager = context.getSystemService(android.content.Context.LOCATION_SERVICE) as android.location.LocationManager
@@ -414,6 +426,7 @@ private fun OnlineMission.toDemoMission(): DemoMission {
         id = id,
         startsAt = startsAt,
         timeZone = timeZone,
-        results = results
+        results = results,
+        lateJoinWindowMs = lateJoinWindowMs
     )
 }
