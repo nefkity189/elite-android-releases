@@ -1,0 +1,23 @@
+// 1) build.gradle (app):  implementation("androidx.core:core-splashscreen:1.0.1")
+// 2) AndroidManifest.xml: <application ... android:theme="@style/Theme.Elite.Starting"> (ou na activity principal)
+// 3) MainActivity.kt:
+
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        val system = installSplashScreen()          // ANTES do super.onCreate
+        super.onCreate(savedInstanceState)
+        system.setOnExitAnimationListener { it.remove() }   // sem a animação padrão do sistema (nosso fundo é igual)
+        setContent {
+            AisleTheme { // AJUSTE: tema atual
+                var showSplash by rememberSaveable { mutableStateOf(true) }
+                Box(Modifier.fillMaxSize()) {
+                    AppRoot()   // AJUSTE: o conteúdo atual do app
+                    if (showSplash) EliteSplash(isReady = { true }, onFinished = { showSplash = false })
+                }
+            }
+        }
+    }
+}
+// Se o app carrega dados no início, troque isReady por uma flag do ViewModel (a splash espera até 2,8 s e sai quando for true).

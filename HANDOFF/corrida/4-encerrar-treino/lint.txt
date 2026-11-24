@@ -1,0 +1,4 @@
+ERROR: text "GPS ativo" in span.chip.glass is covered by div.scrim (needs position:relative; z-index above the layer)
+ERROR: text "Pausar" in button.btn.olv is covered by div.scrim (needs position:relative; z-index above the layer)
+ERROR: text "Parar" in button.btn.pri is covered by div.scrim (needs position:relative; z-index above the layer)
+root=.phone 393x851dp  errors=3 warnings=0

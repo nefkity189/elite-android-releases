@@ -1,0 +1,7 @@
+[
+  {"name": "topo", "eval": "__setState('padrao')", "wait": 200},
+  {"name": "perto_de_voce", "eval": "__setState('perto_de_voce')", "wait": 200},
+  {"name": "vazio", "eval": "__setState('vazio')", "wait": 200},
+  {"name": "perfil_publico", "click": "[data-id='rank.r4']", "frames": [0, 120, 320, 600]},
+  {"name": "filtro_estado_10k", "setup": ["[data-id='rank.filters.scope.e']"], "click": "[data-id='rank.filters.dist.d10']", "wait": 200}
+]

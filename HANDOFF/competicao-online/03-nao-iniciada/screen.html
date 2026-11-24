@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elite - Missão não iniciada</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --page:#050604;
+  --bg:#0a0b09; --surface:#10120d; --card:#161911; --card-el:#1d2116; --field:#0d0f0a;
+  --line:rgba(236,232,218,.10); --line-strong:rgba(236,232,218,.18);
+  --text:#ece8da; --muted:#8f9384; --dim:#5e6255;
+  --olive:#a3b565; --olive-dark:#5d6b34; --olive-soft:rgba(163,181,101,.14); --on-olive:#0e1306;
+  --red:#d12b2b; --red-soft:rgba(209,43,43,.15); --on-red:#fff4f0;
+  --brass:#c9a24b; --brass-soft:rgba(201,162,75,.16); --amber:#e0a93a; --amber-soft:rgba(224,169,58,.14); --ok:#7fb069; --ok-soft:rgba(127,176,105,.15); --amber-line:rgba(224,169,58,.45); --red-line:rgba(209,43,43,.5); --ok-line:rgba(127,176,105,.45); --brass-line:rgba(201,162,75,.5);
+  --glass:rgba(16,18,13,.82); --glass-bar:rgba(16,18,13,.90); --scrim:rgba(0,0,0,.62);
+  --lg-bronze:#b07a4a; --lg-prata:#b4bab8; --lg-ouro:#c9a24b; --lg-platina:#86bdb3; --lg-diamante:#7fb4de; --lg-elite:#e7e2d0;
+  --av1:#3b4426; --av2:#4a3f1e; --av3:#2e3b3a; --av4:#46301f; --av5:#3a2e3f;
+  --num:"Barlow Condensed","Arial Narrow",sans-serif; --ui:"Inter",sans-serif; --logo:"Saira Stencil One","Impact",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--page);font-family:var(--ui);color:var(--text);display:flex;justify-content:center;padding:0;-webkit-font-smoothing:antialiased}
+button{font-family:var(--ui);color:inherit;background:none;border:0;cursor:pointer}
+[data-id="screen"]{flex:none;position:relative;width:393px;height:851px;overflow:hidden;background:var(--bg);display:flex;flex-direction:column;padding:28px 16px 0}
+svg{display:block;flex:none}
+
+/* ---- tipografia ---- */
+.t1{font:700 30px/32px var(--num);text-transform:uppercase;letter-spacing:.9px}
+.t1s{font:700 24px/26px var(--num);text-transform:uppercase;letter-spacing:.96px}
+.t2{font:600 20px/23px var(--num);text-transform:uppercase;letter-spacing:.8px}
+.t3{font:600 16px/20px var(--ui)}
+.body{font:400 14px/19.6px var(--ui)}
+.cap{font:400 12px/16px var(--ui);color:var(--muted)}
+.eyebrow{font:600 11px/14px var(--ui);text-transform:uppercase;letter-spacing:1.3px;color:var(--muted)}
+.num{font-family:var(--num);font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+.olive{color:var(--olive)} .red{color:var(--red)} .brass{color:var(--brass)} .ok{color:var(--ok)} .amber{color:var(--amber)} .muted{color:var(--muted)}
+.row{display:flex;align-items:center}
+.col{display:flex;flex-direction:column}
+.grow{flex:1;min-width:0}
+.ell{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ---- cartões ---- */
+.card{background:var(--card);border:1px solid var(--line-strong);border-radius:18px}
+.card-sel{border-color:var(--olive);background:linear-gradient(180deg,var(--olive-soft),var(--card))}
+.card-brass{border-color:var(--brass);background:linear-gradient(180deg,var(--brass-soft),var(--card))}
+.card-dash{background:transparent;border:1px dashed var(--line-strong);border-radius:18px}
+
+/* ---- botões ---- */
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 18px;border-radius:24px;font:700 15px/20px var(--ui);transition:transform .12s ease-out;flex:none}
+.btn:active{transform:scale(.96)}
+.btn-lg{height:56px;border-radius:28px;font-size:16px}
+.btn-red{background:var(--red);color:var(--on-red)}
+.btn-olive{background:var(--olive);color:var(--on-olive)}
+.btn-ghost{background:transparent;border:1px solid var(--line-strong);color:var(--text)}
+.btn-share{background:var(--olive-soft);border:1px solid var(--olive-dark);color:var(--olive)}
+.btn-off{background:var(--card-el);color:var(--dim);border:1px solid var(--line)}
+.btn-icon{width:48px;padding:0;flex:none}
+.btn-back{width:40px;height:40px;border-radius:20px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex:none;transition:transform .12s ease-out}
+.btn-back:active{transform:scale(.92)}
+
+/* ---- badges / chips ---- */
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font:700 10.5px/12px var(--ui);text-transform:uppercase;letter-spacing:.6px;flex:none;white-space:nowrap}
+.b-open{background:var(--olive-soft);color:var(--olive)}
+.b-one{background:var(--amber-soft);color:var(--amber)}
+.b-conf{background:var(--ok);color:var(--on-olive)}
+.b-live{background:var(--red-soft);color:var(--red)}
+.b-done{background:var(--card-el);color:var(--muted)}
+.b-none{background:transparent;border:1px solid var(--line-strong);color:var(--muted)}
+.b-brass{background:var(--brass-soft);color:var(--brass)}
+.dot{width:7px;height:7px;border-radius:4px;background:currentColor;flex:none}
+.chip{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:15px;background:var(--card-el);border:1px solid var(--line);font:600 12px/16px var(--ui);flex:none;white-space:nowrap}
+.chip-on{background:var(--olive-soft);border-color:var(--olive-dark);color:var(--olive)}
+.dist{display:inline-flex;align-items:center;justify-content:center;height:24px;padding:0 9px;border-radius:7px;background:var(--card-el);border:1px solid var(--line-strong);font:700 14px/16px var(--num);letter-spacing:.5px}
+
+/* ---- segmentado ---- */
+.seg{display:flex;gap:4px;padding:4px;background:var(--field);border:1px solid var(--line);border-radius:24px;height:48px}
+.seg>button{flex:1;border-radius:20px;font:700 20px/20px var(--num);color:var(--muted);letter-spacing:.5px;transition:background .18s ease-out,color .18s ease-out}
+.seg>button.on{background:var(--olive-soft);color:var(--olive);box-shadow:inset 0 0 0 1px var(--olive-dark)}
+.seg-sm{height:40px;border-radius:20px}
+.seg-sm>button{font:600 13px/16px var(--ui)}
+.tabs{display:flex;gap:20px;height:32px;border-bottom:1px solid var(--line)}
+.tabs>button{font:600 13px/16px var(--ui);color:var(--muted);padding:0 2px 10px;border-bottom:2px solid transparent}
+.tabs>button.on{color:var(--olive);border-bottom-color:var(--olive)}
+
+/* ---- avatares ---- */
+.av{border-radius:50%;display:flex;align-items:center;justify-content:center;font:700 14px/14px var(--num);letter-spacing:.5px;border:1.5px solid var(--line-strong);flex:none;color:var(--text)}
+.av-me{border-color:var(--olive);box-shadow:0 0 0 2px var(--olive-soft)}
+.av-empty{background:transparent;border:1.5px dashed var(--line-strong);color:var(--dim)}
+.stack{display:flex}
+.stack>*+*{margin-left:-8px}
+
+/* ---- barras ---- */
+.bar{height:6px;border-radius:3px;background:var(--card-el);overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:3px;background:var(--olive)}
+.bar-brass>i{background:var(--brass)}
+.hr{height:1px;background:var(--line);flex:none}
+
+.sc-ic{width:32px;height:32px;border-radius:16px;background:var(--brass-soft);color:var(--brass);display:flex;align-items:center;justify-content:center;flex:none}
+
+/* ---- topbar ---- */
+.topbar{display:flex;align-items:center;gap:12px;height:48px;flex:none}
+.logo{display:flex;align-items:center;gap:8px}
+.logo-t{font:400 17px/20px var(--logo);letter-spacing:3.4px}
+
+/* ---- barra inferior fixa ---- */
+.dock{flex:none;margin:0 -16px;padding:14px 16px 18px;background:var(--glass-bar);border-top:1px solid var(--line-strong);border-radius:26px 26px 0 0}
+
+/* ---- cartão de missão ---- */
+.m{display:flex;flex-direction:column;padding:14px;flex:none}
+.m-time{font:700 36px/36px var(--num);font-variant-numeric:tabular-nums;letter-spacing:.5px}
+.m-compact{padding:12px 14px}
+
+/* ---- linha de ranking ---- */
+.rk{display:flex;align-items:center;gap:10px;height:56px;padding:0 12px;border-radius:14px;flex:none}
+.rk-me{background:var(--olive-soft);box-shadow:inset 0 0 0 1px var(--olive-dark)}
+.rk-pos{width:30px;text-align:center;font:700 20px/20px var(--num);font-variant-numeric:tabular-nums;color:var(--muted)}
+.rk-elo{font:700 18px/18px var(--num);font-variant-numeric:tabular-nums;text-align:right}
+.trend{display:flex;align-items:center;justify-content:flex-end;gap:2px;font:600 11px/12px var(--ui);width:36px}
+.t-up{color:var(--ok)} .t-down{color:var(--red)} .t-eq{color:var(--dim)}
+
+/* ---- banners ---- */
+.banner{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;border:1px solid var(--line-strong);background:var(--card);flex:none}
+.banner-ico{width:36px;height:36px;border-radius:18px;display:flex;align-items:center;justify-content:center;flex:none}
+.bn-amber{border-color:var(--amber-line);background:linear-gradient(90deg,var(--amber-soft),var(--card))} .bn-amber .banner-ico{background:var(--amber-soft);color:var(--amber)}
+.bn-red{border-color:var(--red-line);background:linear-gradient(90deg,var(--red-soft),var(--card))} .bn-red .banner-ico{background:var(--red-soft);color:var(--red)}
+.bn-ok{border-color:var(--ok-line);background:linear-gradient(90deg,var(--ok-soft),var(--card))} .bn-ok .banner-ico{background:var(--ok-soft);color:var(--ok)}
+.bn-olive{border-color:var(--olive-dark);background:linear-gradient(90deg,var(--olive-soft),var(--card))} .bn-olive .banner-ico{background:var(--olive-soft);color:var(--olive)}
+.bn-brass{border-color:var(--brass-line);background:linear-gradient(90deg,var(--brass-soft),var(--card))} .bn-brass .banner-ico{background:var(--brass-soft);color:var(--brass)}
+.bn-mute .banner-ico{background:var(--card-el);color:var(--muted)}
+
+@media (prefers-reduced-motion:reduce){
+  .btn,.btn-back,.seg>button{transition:none}
+}
+
+/* ---- mini card de convite (miniatura do card compartilhável) ---- */
+.mini{display:flex;flex-direction:column;justify-content:space-between;padding:12px;border-radius:14px;background:linear-gradient(160deg,var(--card-el),var(--bg));border:1px solid var(--olive-dark)}
+.stripe{height:4px;width:100%;background:var(--red);border-radius:2px;transform:skewX(-20deg)}
+
+.invite{padding:14px;background:linear-gradient(135deg,var(--olive-soft),var(--card) 70%);border:1px solid var(--olive-dark);border-radius:18px;display:flex;flex-direction:column;gap:10px;flex:none}
+
+.kv{flex:1;display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.kv .num{font-size:28px}
+
+.num{white-space:nowrap}
+.sc-chip{white-space:nowrap}
+
+.tile{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 0;border-radius:14px;background:var(--field);border:1px solid var(--line)}
+.tile .num{font-size:28px}
+
+</style>
+</head>
+<body>
+<main data-id="screen" data-viewport="393x851" data-state="padrao">
+  <header data-id="ni.topbar" class="topbar" style="height:56px">
+    <button data-id="ni.topbar.back" class="btn-back" aria-label="Voltar"><svg data-id="ni.topbar.back.ic" data-icon="material:ArrowBack" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <div data-id="ni.topbar.col" class="col grow" style="gap:2px"><p data-id="ni.topbar.eyebrow" class="eyebrow">Competição online</p><h1 data-id="ni.topbar.title" class="t1s">Missão 5K — 13:00</h1></div>
+  </header>
+
+  <section data-id="ni.status" class="card col" style="align-items:center;gap:10px;padding:20px 16px 16px;margin-top:6px;flex:none" data-compose="MissionNotStartedCard">
+    <div data-id="ni.status.icon" class="sc-ic" style="width:64px;height:64px;border-radius:32px;background:var(--card-el);color:var(--muted)"><svg data-id="ni.status.icon.ic" data-icon="material:Schedule" viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+    <span data-id="ni.status.badge" class="badge b-none">Não iniciada por falta de competidores</span>
+    <h2 data-id="ni.status.title" class="t1" style="text-align:center">Missão não iniciada</h2>
+    <p data-id="ni.status.text" class="body muted" style="text-align:center">Não houve competidores suficientes. O mínimo é 2.</p>
+    <div data-id="ni.status.tiles" class="row" style="gap:10px;width:100%;margin-top:4px">
+      <div data-id="ni.status.tiles.tile" class="tile"><span data-id="ni.status.tiles.tile.eyebrow" class="eyebrow" style="font-size:10px">Horário</span><span data-id="ni.status.tiles.tile.num" class="num" data-bind="mission.time">13:00</span></div>
+      <div data-id="ni.status.tiles.tile2" class="tile"><span data-id="ni.status.tiles.tile2.eyebrow" class="eyebrow" style="font-size:10px">Distância</span><span data-id="ni.status.tiles.tile2.num" class="num" data-bind="mission.distance">5K</span></div>
+      <div data-id="ni.status.tiles.tile3" class="tile"><span data-id="ni.status.tiles.tile3.eyebrow" class="eyebrow" style="font-size:10px">Mínimo</span><span data-id="ni.status.tiles.tile3.num" class="num">2</span></div>
+    </div>
+  </section>
+
+  <section data-id="ni.invite" class="invite" style="margin-top:12px;gap:12px" data-compose="InviteShareCard">
+    <div data-id="ni.invite.row" class="row" style="gap:14px;align-items:stretch">
+      <div data-id="ni.invite.mini" class="mini" style="width:118px;height:148px;flex:none" data-compose="InviteMiniPreview">
+        <div data-id="ni.invite.mini.row" class="row" style="gap:5px"><svg data-id="ni.invite.mini.mark" data-icon="drawable:ic_elite_blade" viewBox="0 0 64 64" width="14" height="14" aria-hidden="true"><path d="M19.1 8H55.1L53.2 17H27.2L20.8 47H46.8L44.9 56H8.9Z" style="fill:var(--olive)"/><path d="M25.1 27H45.1L43.1 36H23.1Z" style="fill:var(--red)"/></svg><span data-id="ni.invite.mini.brand" style="font:400 9px/10px var(--logo);letter-spacing:1.8px">ELITE</span></div>
+        <div data-id="ni.invite.mini.col" class="col" style="gap:3px"><span data-id="ni.invite.mini.head" class="num" style="font-size:17px;line-height:18px;text-transform:uppercase;white-space:normal">Missão precisa de você</span><span data-id="ni.invite.mini.meta" class="num olive" style="font-size:15px">5K · 13:00</span></div>
+        <div data-id="ni.invite.mini.col2" class="col" style="gap:4px"><div data-id="ni.invite.mini.stripe" class="stripe"></div><span data-id="ni.invite.mini.motto" style="font:600 6.5px/8px var(--ui);letter-spacing:.6px;color:var(--muted);text-transform:uppercase">Foco, Missão dada, Missão cumprida.</span></div>
+      </div>
+      <div data-id="ni.invite.row.col" class="col grow" style="gap:6px;justify-content:center"><h2 data-id="ni.invite.title" class="t1s" style="font-size:21px;line-height:23px">Convoque competidores</h2><p data-id="ni.invite.text" class="cap">Compartilhe o card de convite e atraia gente para as próximas missões. Quem tem o Elite entra direto; quem não tem vai para o download.</p></div>
+    </div>
+    <button data-id="ni.invite.share" class="btn btn-olive btn-lg" style="height:52px"><svg data-id="ni.invite.share.ic" data-icon="material:Share" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5l6.8-4M8.6 13.5l6.8 4"/></svg>Compartilhar convite</button>
+  </section>
+
+  <div class="grow" data-id="ni.spacer"></div>
+  <footer data-id="ni.dock" class="dock" data-compose="BottomActionBar">
+    <button data-id="ni.dock.next" class="btn btn-ghost btn-lg" style="width:100%">Ver próximas missões</button>
+  </footer>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+[
+  {"name": "em_andamento", "eval": "__setState('andamento')", "wait": 200},
+  {"name": "distancia_concluida", "eval": "__setState('concluida')", "wait": 800}
+]

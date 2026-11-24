@@ -1,0 +1,24 @@
+appId: com.elite.sch.app
+---
+- launchApp:
+    stopApp: true
+- assertVisible:
+    text: "Começar treino"
+- tapOn:
+    text: "Começar treino"
+- assertVisible:
+    text: "Como você está hoje?"
+- tapOn:
+    text: "3"
+    below:
+      text: "Energia"
+- scroll
+- tapOn:
+    text: "3"
+    below:
+      text: "Sono"
+- tapOn:
+    text: "Confirmar e iniciar treino"
+- assertVisible:
+    id: "screen_active_run"
+- takeScreenshot: "active_run_map.png"

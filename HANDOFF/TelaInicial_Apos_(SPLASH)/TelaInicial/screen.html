@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elite - Login após o splash (v1)</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --page:#000000;
+  --bg:#0A0B09; --bg-0:rgba(10,11,9,0); --surface:#10120D; --card:#161911; --card2:#1D2116; --field:#0D0F0A;
+  --line:rgba(236,232,218,.10); --line2:rgba(236,232,218,.18);
+  --text:#ECE8DA; --muted:#8F9384; --dim:#5E6255;
+  --olive:#A3B565; --olive-dark:#5D6B34; --olive-soft:rgba(163,181,101,.14); --on-olive:#0E1306; --olive-glow:rgba(163,181,101,.20); --olive-glow0:rgba(163,181,101,0);
+  --red:#D12B2B; --on-red:#FFF4F0;
+  --brass:#C9A24B; --brass-soft:rgba(201,162,75,.16); --brass-50:rgba(201,162,75,.5);
+  --amber:#E0A93A; --amber-soft:rgba(224,169,58,.13); --amber-line:rgba(224,169,58,.35);
+  --ok:#7FB069; --step-rest:#4A4E40;
+  --scrim:rgba(0,0,0,.6); --shadow:rgba(0,0,0,.45);
+  --disp:"Barlow Condensed","Arial Narrow",sans-serif; --ui:"Inter",sans-serif; --logo:"Saira Stencil One","Impact",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--page);font-family:var(--ui);color:var(--text);display:flex;justify-content:center}
+button{font-family:var(--ui);cursor:pointer}
+[data-id="screen"]{flex:none;position:relative;width:393px;height:851px;overflow:hidden;background:var(--bg)}
+
+/* ---------- hero ---------- */
+[data-id="login.hero"]{position:absolute;left:0;top:0;width:393px;height:468px;overflow:hidden;background:var(--bg)}
+[data-id="login.hero.art"]{position:absolute;left:0;top:0;transition:transform 350ms cubic-bezier(.2,.8,.2,1)}
+[data-slide="2"] [data-id="login.hero.art"]{transform:translateX(-28px)}
+[data-slide="3"] [data-id="login.hero.art"]{transform:translateX(-56px)}
+[data-slide="4"] [data-id="login.hero.art"]{transform:translateX(-84px)}
+[data-id="login.hero.glow"]{position:absolute;left:0;top:0;width:393px;height:468px;background:radial-gradient(circle at 196px 300px,var(--olive-glow),var(--olive-glow0) 230px)}
+[data-id="login.hero.fade"]{position:absolute;left:0;top:328px;width:393px;height:140px;background:linear-gradient(to bottom,var(--bg-0),var(--bg))}
+
+/* ---------- logo ---------- */
+[data-id="login.logo"]{position:absolute;left:0;top:44px;width:393px;height:34px;display:flex;align-items:center;justify-content:center;gap:10px}
+[data-id="login.logo.mark"]{width:34px;height:34px;flex:none}
+[data-id="login.logo.word"]{font:400 28px/34px var(--logo);letter-spacing:6.7px;color:var(--text);padding-left:6px}
+
+/* ---------- carousel ---------- */
+[data-id="login.carousel"]{position:absolute;left:0;top:0;width:393px;height:600px;overflow:hidden}
+[data-id="login.carousel.track"]{position:absolute;left:0;top:0;width:1572px;height:600px;display:flex;transition:transform 350ms cubic-bezier(.2,.8,.2,1)}
+[data-slide="2"] [data-id="login.carousel.track"]{transform:translateX(-393px)}
+[data-slide="3"] [data-id="login.carousel.track"]{transform:translateX(-786px)}
+[data-slide="4"] [data-id="login.carousel.track"]{transform:translateX(-1179px)}
+.slide{position:relative;flex:none;width:393px;height:600px}
+.phone{position:absolute;left:93px;top:108px;width:207px;height:404px;padding:5px;border-radius:28px;background:var(--card2);border:1px solid var(--line2);box-shadow:0 18px 40px var(--shadow)}
+.phone-screen{position:relative;width:195px;height:392px;border-radius:23px;background:var(--bg);overflow:hidden;padding:24px 14px 14px;display:flex;flex-direction:column}
+.phone-notch{position:absolute;left:77px;top:8px;width:40px;height:4px;border-radius:2px;background:var(--line2)}
+.slide-title{position:absolute;left:0;top:528px;width:393px;height:64px;text-align:center;font:700 30px/32px var(--disp);letter-spacing:.9px;text-transform:uppercase;color:var(--text)}
+
+/* mini ui */
+.m-head{display:flex;align-items:center;justify-content:space-between;height:12px;margin-bottom:12px}
+.m-label{display:flex;align-items:center;gap:6px;font:600 9px/12px var(--ui);letter-spacing:1px;color:var(--olive);text-transform:uppercase}
+.m-dot{width:6px;height:6px;border-radius:3px;background:var(--olive)}
+.m-aside{font:500 9px/12px var(--ui);color:var(--muted)}
+.m-card{border-radius:12px;background:var(--card);border:1px solid var(--line);padding:10px}
+.m-btn{margin-top:auto;height:36px;border-radius:18px;background:var(--red);color:var(--on-red);font:600 12px/36px var(--ui);text-align:center}
+/* s1 */
+.mission{display:flex;align-items:center;gap:10px;height:46px;padding:0 10px}
+.badge{width:30px;height:22px;border-radius:8px;background:var(--olive-soft);color:var(--olive);font:700 14px/22px var(--disp);text-align:center;flex:none}
+.m-col{display:flex;flex-direction:column}
+.m-t{font:600 12px/16px var(--ui);color:var(--text)}
+.m-s{font:400 10px/14px var(--ui);color:var(--muted)}
+.countdown{margin-top:16px;display:flex;flex-direction:column;align-items:center;height:88px}
+.cd-time{font:700 56px/56px var(--disp);color:var(--text);font-variant-numeric:tabular-nums;letter-spacing:1px;margin:4px 0}
+.players{margin-top:16px;display:flex;flex-direction:column}
+.player{display:flex;align-items:center;gap:10px;height:34px}
+.avatar{width:26px;height:26px;border-radius:13px;background:var(--olive-soft);color:var(--olive);font:700 10px/26px var(--ui);text-align:center;flex:none}
+.avatar.me{background:var(--olive);color:var(--on-olive)}
+.p-name{flex:1;font:500 12px/16px var(--ui);color:var(--text)}
+.p-status{font:500 10px/14px var(--ui);color:var(--ok)}
+/* s2 */
+.league{display:flex;flex-direction:column;gap:4px}
+.league-top{display:flex;align-items:center;gap:8px}
+.league-name{font:700 20px/22px var(--disp);letter-spacing:.8px;color:var(--text);text-transform:uppercase}
+.bar{height:4px;border-radius:2px;background:var(--card2);margin-top:6px;position:relative}
+.bar-fill{position:absolute;left:0;top:0;height:4px;border-radius:2px;background:var(--olive)}
+.chips{display:flex;gap:6px;margin-top:12px}
+.chip{white-space:nowrap;height:24px;padding:0 10px;border-radius:12px;border:1px solid var(--line2);font:500 10px/22px var(--ui);color:var(--muted)}
+.chip.on{background:var(--olive-soft);border-color:var(--olive-dark);color:var(--olive)}
+.rank{margin-top:10px;display:flex;flex-direction:column}
+.rank-row{display:flex;align-items:center;gap:10px;height:34px;padding:0 8px;border-radius:8px}
+.rank-row.me{background:var(--olive-soft)}
+.rank-pos{width:14px;font:700 15px/18px var(--disp);color:var(--muted);text-align:center}
+.rank-pos.gold{color:var(--brass)}
+.rank-name{flex:1;font:500 12px/16px var(--ui);color:var(--text)}
+.rank-pts{font:600 14px/18px var(--disp);color:var(--text);font-variant-numeric:tabular-nums}
+.rank-row.me .rank-pts{color:var(--olive)}
+.note{margin-top:auto;font:400 9px/12px var(--ui);color:var(--dim);text-align:center}
+/* s3 */
+.weeks{display:flex;gap:3px;margin-top:6px}
+.week{flex:1;height:4px;border-radius:2px;background:var(--card2)}
+.week.done{background:var(--olive)}
+.plan-title{font:700 30px/30px var(--disp);letter-spacing:.9px;color:var(--text);text-transform:uppercase;margin-top:12px}
+.plan-chart{display:flex;align-items:flex-end;gap:2px;height:96px;margin-top:14px;border-bottom:1px solid var(--line)}
+.seg{border-radius:3px 3px 0 0}
+.axis{display:flex;justify-content:space-between;margin-top:4px;font:400 9px/12px var(--ui);color:var(--dim)}
+.sum{display:flex;margin:14px 0 12px}
+.sum-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px}
+.sum-col+.sum-col{border-left:1px solid var(--line)}
+.sum-v{white-space:nowrap;font:600 17px/20px var(--disp);color:var(--text);font-variant-numeric:tabular-nums}
+.sum-l{font:400 9px/12px var(--ui);color:var(--muted)}
+/* s4 */
+.ach-list{display:flex;flex-direction:column;gap:8px}
+.ach{display:flex;align-items:center;gap:10px;height:50px;padding:0 10px}
+.ach.locked{opacity:.55}
+.medal{width:32px;height:32px;border-radius:16px;background:var(--brass-soft);display:flex;align-items:center;justify-content:center;flex:none}
+.medal.off{background:var(--card2)}
+.ach-t{white-space:nowrap;font:600 11px/14px var(--ui);color:var(--text)}
+.ach-d{white-space:nowrap;font:400 9px/12px var(--ui);color:var(--muted)}
+.ach-bar{width:100px;margin-top:5px}
+
+/* ---------- dots ---------- */
+[data-id="login.dots"]{position:absolute;left:0;top:612px;width:393px;height:8px;display:flex;justify-content:center;gap:8px}
+.dot{width:8px;height:8px;border-radius:4px;background:var(--dim);transition:width 200ms ease-out,background-color 200ms ease-out}
+[data-slide="1"] [data-id="login.dots.d1"],[data-slide="2"] [data-id="login.dots.d2"],[data-slide="3"] [data-id="login.dots.d3"],[data-slide="4"] [data-id="login.dots.d4"]{width:24px;background:var(--olive)}
+
+/* ---------- ações ---------- */
+[data-id="login.actions"]{position:absolute;left:24px;top:634px;width:345px;display:flex;flex-direction:column}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:26px;width:345px;transition:transform 100ms ease-out}
+.btn:active{transform:scale(.97)}
+[data-id="login.actions.google"]{height:52px;background:var(--olive);color:var(--on-olive);font:600 16px/22px var(--ui)}
+[data-id="login.actions.email"]{height:48px;margin-top:10px;background:none;border:1px solid var(--line2);color:var(--text);font:600 15px/20px var(--ui)}
+[data-id="login.actions.skip"]{height:44px;margin-top:6px;background:none;color:var(--olive);font:600 15px/20px var(--ui);border-radius:22px;transition:opacity 100ms ease-out}
+[data-id="login.actions.skip"]:active{transform:none;opacity:.6}
+[data-id="login.actions.spinner"]{display:none;width:20px;height:20px;border-radius:10px;border:2px solid var(--on-olive);border-top-color:var(--olive);animation:spin 800ms linear infinite}
+[data-auth="loading"] [data-id="login.actions.spinner"]{display:block}
+[data-auth="loading"] [data-id="login.actions.google.icon"]{display:none}
+[data-auth="loading"] [data-id="login.actions.email"],[data-auth="loading"] [data-id="login.actions.skip"]{opacity:.4}
+[data-id="login.legal"]{position:absolute;left:24px;top:798px;width:345px;height:28px;text-align:center;font:400 11px/14px var(--ui);color:var(--muted)}
+[data-id="login.legal.terms"],[data-id="login.legal.privacy"]{color:var(--text);text-decoration:underline}
+
+/* ---------- sheet e-mail ---------- */
+[data-id="login.scrim"]{position:absolute;left:0;top:0;width:393px;height:851px;background:var(--scrim);opacity:0;pointer-events:none;transition:opacity 300ms cubic-bezier(.4,0,.2,1)}
+[data-id="login.sheet"]{position:absolute;left:0;bottom:0;width:393px;padding:10px 24px 28px;border-radius:26px 26px 0 0;background:var(--surface);border-top:1px solid var(--line2);transform:translateY(520px);transition:transform 300ms cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
+[data-sheet="open"] [data-id="login.scrim"]{opacity:1;pointer-events:auto}
+[data-sheet="open"] [data-id="login.sheet"]{transform:translateY(0)}
+[data-id="login.sheet.handle"]{align-self:center;width:36px;height:4px;border-radius:2px;background:var(--line2)}
+[data-id="login.sheet.title"]{margin-top:18px;font:700 24px/28px var(--disp);letter-spacing:.96px;text-transform:uppercase;color:var(--text)}
+[data-id="login.sheet.subtitle"]{margin-top:4px;font:400 13px/18px var(--ui);color:var(--muted)}
+.f-label{margin-top:20px;font:500 12px/14px var(--ui);color:var(--muted)}
+.f-label.second{margin-top:14px}
+.field{margin-top:6px;height:56px;border-radius:14px;background:var(--field);border:1px solid var(--line2);display:flex;align-items:center;padding:0 16px;gap:8px}
+.f-text{flex:1;font:400 16px/22px var(--ui);color:var(--dim)}
+.f-text.filled{color:var(--text)}
+[data-id="login.sheet.eye"]{width:44px;height:44px;margin-right:-12px;border:0;background:none;display:flex;align-items:center;justify-content:center}
+[data-id="login.sheet.error"]{display:none;margin-top:14px;padding:12px;border-radius:12px;background:var(--amber-soft);border:1px solid var(--amber-line);font:400 13px/18px var(--ui);color:var(--text)}
+[data-error="on"] [data-id="login.sheet.error"]{display:block}
+[data-id="login.sheet.submit"]{height:52px;margin-top:20px;background:var(--olive);color:var(--on-olive);font:600 16px/22px var(--ui)}
+[data-id="login.sheet.spinner"]{display:none;width:20px;height:20px;border-radius:10px;border:2px solid var(--on-olive);border-top-color:var(--olive);animation:spin 800ms linear infinite}
+[data-auth="loading"] [data-id="login.sheet.spinner"]{display:block}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){
+  [data-id="login.hero.art"],[data-id="login.carousel.track"],.dot,.btn,[data-id="login.actions.skip"],[data-id="login.scrim"],[data-id="login.sheet"]{transition:none}
+  [data-id="login.actions.spinner"],[data-id="login.sheet.spinner"]{animation:none}
+}
+</style>
+</head>
+<body>
+<main data-id="screen" data-viewport="393x851" data-slide="1" data-compose="LoginScreen">
+  <div data-id="login.hero" data-compose="LoginHeroBackground">
+    <svg data-id="login.hero.art" aria-hidden="true" viewBox="0 0 477 468" width="477" height="468" fill="none"><path d="M374.3,150.0 C376.1,154.5 376.8,161.1 374.6,165.4 C372.3,169.6 365.6,173.0 360.7,175.6 C355.8,178.1 350.4,179.6 345.3,180.7 C340.2,181.9 334.9,182.8 330.0,182.4 C325.1,182.0 320.5,179.9 315.9,178.3 C311.4,176.7 306.8,175.2 302.7,172.8 C298.6,170.3 293.3,167.2 291.2,163.4 C289.0,159.6 289.4,154.4 289.5,150.0 C289.7,145.6 290.8,141.4 292.2,137.0 C293.6,132.5 294.2,126.6 297.7,123.1 C301.1,119.5 307.5,116.6 312.9,115.6 C318.3,114.6 324.8,116.1 330.0,117.1 C335.2,118.0 340.1,119.3 344.3,121.3 C348.4,123.3 351.8,126.3 355.1,129.1 C358.3,132.0 360.5,134.9 363.7,138.4 C366.9,141.8 372.5,145.5 374.3,150.0Z" style="stroke:var(--olive);stroke-opacity:0.22;stroke-width:1.2"/><path d="M411.1,150.0 C414.1,158.2 414.3,170.0 409.8,177.5 C405.3,185.1 392.9,190.6 384.1,195.1 C375.3,199.6 366.1,202.3 357.0,204.4 C348.0,206.6 338.7,208.5 330.0,208.0 C321.3,207.4 312.9,203.9 304.6,201.1 C296.4,198.3 288.0,195.7 280.6,191.2 C273.2,186.7 264.1,180.9 260.3,174.1 C256.4,167.2 257.3,158.0 257.5,150.0 C257.7,142.0 259.1,134.5 261.5,126.3 C263.8,118.2 265.3,107.6 271.6,101.3 C277.9,95.1 289.8,90.3 299.6,88.7 C309.3,87.2 320.7,90.3 330.0,92.0 C339.3,93.8 347.7,95.8 355.2,99.2 C362.8,102.6 369.0,107.5 375.1,112.4 C381.2,117.3 386.0,122.3 392.0,128.6 C398.0,134.9 408.2,141.8 411.1,150.0Z" style="stroke:var(--olive);stroke-opacity:0.202;stroke-width:1.2"/><path d="M449.1,150.0 C452.9,161.9 451.6,178.9 444.5,189.5 C437.4,200.2 419.2,207.5 406.6,213.8 C393.9,220.2 381.3,224.3 368.6,227.6 C355.8,230.9 342.6,234.1 330.0,233.6 C317.4,233.0 305.1,228.1 293.2,224.1 C281.2,220.1 268.8,216.4 258.2,209.8 C247.6,203.3 234.9,194.7 229.4,184.7 C223.9,174.7 225.2,161.5 225.3,150.0 C225.4,138.5 226.7,127.3 230.1,115.5 C233.4,103.7 235.8,88.2 245.3,79.4 C254.7,70.6 272.5,64.5 286.6,62.6 C300.7,60.7 316.8,65.6 330.0,68.1 C343.2,70.6 355.1,73.0 366.0,77.6 C376.9,82.1 386.3,88.6 395.6,95.4 C404.9,102.1 412.8,109.2 421.7,118.3 C430.6,127.4 445.3,138.1 449.1,150.0Z" style="stroke:var(--olive);stroke-opacity:0.184;stroke-width:1.2"/><path d="M487.9,150.0 C492.1,165.6 488.3,187.6 478.4,201.2 C468.4,214.8 444.5,223.6 428.1,231.8 C411.7,240.0 396.3,245.9 379.9,250.5 C363.6,255.0 346.4,259.8 330.0,259.3 C313.6,258.8 297.3,252.5 281.6,247.4 C265.8,242.3 249.5,237.3 235.6,228.6 C221.8,220.0 205.7,208.5 198.6,195.4 C191.5,182.2 193.0,165.2 192.9,150.0 C192.8,134.8 193.6,119.8 197.9,104.4 C202.2,89.0 206.1,68.5 218.8,57.3 C231.5,46.2 255.5,39.5 274.0,37.4 C292.6,35.4 312.9,42.0 330.0,45.2 C347.1,48.3 362.2,50.7 376.6,56.2 C391.1,61.6 403.9,69.2 416.7,77.8 C429.4,86.4 441.1,95.5 453.0,107.6 C464.8,119.6 483.7,134.4 487.9,150.0Z" style="stroke:var(--olive);stroke-opacity:0.166;stroke-width:1.2"/><path d="M527.2,150.0 C531.4,169.4 524.2,196.0 511.2,212.5 C498.1,229.0 468.8,238.9 448.8,249.0 C428.8,259.1 411.0,267.1 391.2,273.2 C371.4,279.2 350.2,285.7 330.0,285.3 C309.8,285.0 289.4,277.3 269.9,271.0 C250.4,264.7 229.9,258.4 212.9,247.6 C195.9,236.7 176.6,222.2 167.8,206.0 C159.0,189.7 160.6,168.8 160.1,150.0 C159.6,131.2 159.6,112.1 165.0,93.0 C170.4,73.9 176.3,48.7 192.5,35.4 C208.6,22.1 239.1,15.3 262.0,13.3 C285.0,11.3 309.1,19.6 330.0,23.2 C350.9,26.8 369.2,28.7 387.3,34.7 C405.4,40.8 422.2,49.3 438.6,59.5 C454.9,69.8 470.9,81.2 485.6,96.3 C500.4,111.4 522.9,130.6 527.2,150.0Z" style="stroke:var(--olive);stroke-opacity:0.148;stroke-width:1.2"/><path d="M566.5,150.0 C570.4,173.1 559.0,204.2 542.7,223.4 C526.4,242.7 492.1,253.5 468.7,265.6 C445.3,277.7 425.7,288.3 402.6,296.0 C379.4,303.7 354.1,311.9 330.0,311.7 C305.9,311.5 281.4,302.2 258.1,294.7 C234.8,287.2 210.3,279.5 190.2,266.5 C170.0,253.5 147.5,236.1 136.9,216.6 C126.4,197.2 127.7,172.5 126.8,150.0 C125.9,127.5 124.8,104.2 131.4,81.4 C138.0,58.7 146.5,28.8 166.4,13.7 C186.3,-1.5 223.4,-7.7 250.6,-9.6 C277.9,-11.6 305.4,-1.7 330.0,2.1 C354.6,5.9 376.2,6.5 398.1,12.9 C420.0,19.3 441.2,28.5 461.5,40.4 C481.7,52.4 502.1,66.3 519.6,84.5 C537.1,102.8 562.7,126.9 566.5,150.0Z" style="stroke:var(--olive);stroke-opacity:0.13;stroke-width:1.2"/><path d="M605.6,150.0 C608.6,176.9 592.4,211.9 572.8,233.8 C553.2,255.8 514.4,267.4 488.0,281.6 C461.5,295.8 440.3,309.6 414.0,319.0 C387.7,328.5 358.0,338.4 330.0,338.3 C302.0,338.3 273.4,327.3 246.3,318.5 C219.1,309.7 190.7,300.7 167.3,285.6 C143.9,270.4 118.3,250.0 105.9,227.4 C93.4,204.8 94.3,176.3 92.8,150.0 C91.4,123.7 89.2,95.9 97.2,69.6 C105.2,43.4 117.1,9.2 140.9,-7.6 C164.6,-24.4 208.4,-29.5 239.9,-31.3 C271.4,-33.1 301.8,-22.0 330.0,-18.4 C358.2,-14.7 383.4,-15.9 409.3,-9.5 C435.2,-3.0 461.2,6.8 485.5,20.5 C509.7,34.1 534.7,50.8 554.7,72.4 C574.7,94.0 602.6,123.1 605.6,150.0Z" style="stroke:var(--olive);stroke-opacity:0.112;stroke-width:1.2"/><path d="M644.0,150.0 C645.7,180.6 624.3,219.1 601.5,243.7 C578.6,268.3 536.1,280.9 506.8,297.3 C477.5,313.8 455.1,331.1 425.6,342.4 C396.2,353.8 361.9,365.3 330.0,365.3 C298.1,365.3 265.4,352.4 234.4,342.3 C203.5,332.2 171.1,322.0 144.4,304.6 C117.8,287.3 88.9,264.0 74.5,238.2 C60.1,212.4 60.1,180.1 58.1,150.0 C56.1,119.9 52.9,87.4 62.6,57.7 C72.2,28.0 88.2,-10.1 116.1,-28.3 C143.9,-46.5 194.2,-49.8 229.8,-51.5 C265.5,-53.2 298.2,-41.6 330.0,-38.5 C361.8,-35.4 390.7,-39.1 420.8,-32.8 C450.9,-26.4 482.3,-16.0 510.6,-0.5 C538.9,15.0 568.5,34.9 590.7,60.0 C612.9,85.1 642.2,119.4 644.0,150.0Z" style="stroke:var(--olive);stroke-opacity:0.094;stroke-width:1.2"/><path d="M95.7,380.0 C94.4,386.1 87.8,392.1 83.2,396.9 C78.5,401.8 72.9,404.9 67.8,409.0 C62.6,413.1 58.7,418.9 52.4,421.5 C46.1,424.2 37.3,425.4 30.0,425.1 C22.7,424.8 15.8,421.7 8.7,419.6 C1.5,417.6 -6.4,416.4 -12.8,412.9 C-19.2,409.5 -26.2,404.5 -29.8,399.0 C-33.3,393.6 -34.1,386.4 -34.2,380.0 C-34.2,373.6 -33.7,366.3 -30.1,360.8 C-26.5,355.4 -19.4,350.0 -12.5,347.3 C-5.7,344.6 3.9,345.8 11.0,344.8 C18.1,343.7 23.0,342.4 30.0,341.0 C37.0,339.7 45.6,336.2 53.3,336.8 C60.9,337.4 69.7,340.7 76.0,344.6 C82.4,348.5 88.1,354.5 91.4,360.4 C94.7,366.3 97.1,373.9 95.7,380.0Z" style="stroke:var(--olive);stroke-opacity:0.22;stroke-width:1.2"/><path d="M137.0,380.0 C134.6,390.0 124.0,399.6 116.6,407.6 C109.2,415.6 100.8,421.2 92.6,428.2 C84.4,435.1 77.7,444.8 67.2,449.1 C56.8,453.5 42.1,455.0 30.0,454.3 C17.9,453.7 6.6,448.7 -5.3,445.5 C-17.2,442.2 -30.7,440.5 -41.4,434.9 C-52.1,429.3 -63.8,420.9 -69.6,411.7 C-75.5,402.6 -76.5,390.5 -76.3,380.0 C-76.1,369.5 -74.7,357.5 -68.4,348.6 C-62.1,339.8 -49.9,331.5 -38.7,327.2 C-27.4,322.8 -12.3,324.7 -0.9,322.6 C10.5,320.5 18.3,317.1 30.0,314.5 C41.7,311.8 56.5,305.9 69.3,307.0 C82.1,308.0 96.5,314.1 106.8,320.9 C117.1,327.8 126.0,338.0 131.0,347.8 C136.0,357.7 139.4,370.0 137.0,380.0Z" style="stroke:var(--olive);stroke-opacity:0.202;stroke-width:1.2"/><path d="M177.0,380.0 C173.6,393.8 159.3,406.8 149.5,418.1 C139.6,429.3 129.0,437.7 117.8,447.5 C106.6,457.3 96.9,471.0 82.2,477.0 C67.6,483.0 46.9,484.3 30.0,483.4 C13.1,482.4 -2.5,475.8 -19.2,471.4 C-36.0,467.1 -55.5,465.2 -70.6,457.4 C-85.8,449.6 -102.2,437.6 -110.2,424.7 C-118.1,411.8 -119.2,394.6 -118.4,380.0 C-117.6,365.4 -114.7,348.8 -105.6,336.8 C-96.4,324.8 -79.0,314.1 -63.5,308.0 C-48.1,302.0 -28.3,304.3 -12.7,300.7 C2.9,297.1 13.5,290.7 30.0,286.6 C46.5,282.4 68.1,274.1 86.1,275.9 C104.0,277.6 123.8,287.2 137.8,297.1 C151.8,307.0 163.4,321.6 169.9,335.4 C176.4,349.2 180.4,366.2 177.0,380.0Z" style="stroke:var(--olive);stroke-opacity:0.184;stroke-width:1.2"/><path d="M215.8,380.0 C211.5,397.5 194.0,413.9 181.9,428.4 C169.8,442.9 157.4,454.4 143.3,467.2 C129.2,480.0 116.2,497.6 97.3,505.1 C78.5,512.5 51.8,513.3 30.0,512.1 C8.2,510.8 -11.5,502.9 -33.3,497.6 C-55.1,492.3 -81.0,490.5 -100.7,480.5 C-120.3,470.5 -141.4,454.5 -151.3,437.8 C-161.2,421.0 -161.7,398.7 -160.0,380.0 C-158.4,361.3 -153.5,340.4 -141.4,325.4 C-129.3,310.4 -106.7,297.6 -87.3,289.8 C-67.8,282.0 -44.1,284.2 -24.5,278.8 C-5.0,273.3 8.7,263.1 30.0,257.2 C51.3,251.4 80.3,241.0 103.4,243.7 C126.5,246.4 151.4,260.0 168.8,273.2 C186.2,286.5 200.0,305.5 207.9,323.3 C215.7,341.1 220.2,362.5 215.8,380.0Z" style="stroke:var(--olive);stroke-opacity:0.166;stroke-width:1.2"/><path d="M253.7,380.0 C248.6,401.2 228.2,420.8 214.2,438.7 C200.1,456.5 186.3,471.4 169.3,487.2 C152.4,502.9 135.7,524.3 112.5,533.2 C89.3,542.1 56.7,542.0 30.0,540.5 C3.3,539.0 -20.7,530.2 -47.6,524.1 C-74.5,518.1 -107.3,516.4 -131.5,504.2 C-155.7,492.1 -181.3,471.7 -192.8,451.0 C-204.4,430.3 -203.8,402.8 -200.9,380.0 C-198.1,357.2 -190.9,332.4 -175.7,314.5 C-160.6,296.5 -133.2,282.0 -110.0,272.3 C-86.8,262.6 -59.9,264.1 -36.6,256.4 C-13.2,248.7 3.7,233.8 30.0,226.2 C56.3,218.6 93.0,206.7 121.2,210.6 C149.5,214.5 178.9,232.8 199.5,249.6 C220.1,266.4 235.8,289.8 244.8,311.6 C253.8,333.3 258.8,358.8 253.7,380.0Z" style="stroke:var(--olive);stroke-opacity:0.148;stroke-width:1.2"/><path d="M290.7,380.0 C285.0,404.8 262.3,427.7 246.5,449.0 C230.7,470.2 215.5,488.7 195.7,507.5 C175.9,526.2 155.3,551.1 127.6,561.3 C100.0,571.5 61.6,570.4 30.0,568.7 C-1.6,567.0 -30.0,557.8 -62.2,551.2 C-94.4,544.5 -134.6,543.2 -163.3,528.7 C-192.0,514.2 -221.6,489.1 -234.5,464.3 C-247.4,439.5 -245.0,406.7 -240.7,380.0 C-236.3,353.3 -226.6,324.8 -208.5,304.0 C-190.4,283.2 -158.6,267.1 -132.1,255.3 C-105.5,243.5 -76.0,243.6 -49.0,233.3 C-22.0,222.9 -1.4,202.8 30.0,193.4 C61.4,184.0 106.1,171.3 139.4,176.8 C172.7,182.3 206.1,205.9 229.6,226.4 C253.2,247.0 270.4,274.5 280.6,300.1 C290.8,325.7 296.4,355.2 290.7,380.0Z" style="stroke:var(--olive);stroke-opacity:0.13;stroke-width:1.2"/><path d="M327.2,380.0 C321.1,408.4 296.4,434.7 279.0,459.3 C261.5,484.0 245.1,506.4 222.4,528.0 C199.7,549.7 174.8,577.9 142.7,589.3 C110.6,600.8 66.6,598.4 30.0,596.7 C-6.6,594.9 -39.5,586.1 -77.1,578.9 C-114.8,571.8 -162.8,570.7 -195.9,553.8 C-229.1,536.9 -262.2,506.5 -276.1,477.5 C-289.9,448.6 -285.1,410.6 -279.0,380.0 C-272.9,349.4 -260.5,317.6 -239.6,294.1 C-218.7,270.5 -183.3,252.9 -153.7,238.7 C-124.1,224.6 -92.7,222.4 -62.0,209.1 C-31.4,195.8 -6.6,170.0 30.0,158.9 C66.6,147.9 119.6,135.2 157.8,142.7 C196.0,150.1 232.7,179.5 259.0,203.9 C285.2,228.3 304.0,259.7 315.4,289.1 C326.7,318.4 333.2,351.6 327.2,380.0Z" style="stroke:var(--olive);stroke-opacity:0.112;stroke-width:1.2"/><path d="M293.2,440.0 C292.8,444.8 289.7,449.6 287.5,454.1 C285.2,458.6 283.1,463.2 279.6,466.9 C276.2,470.7 271.7,474.7 266.8,476.8 C261.8,479.0 255.9,479.2 250.0,479.8 C244.1,480.4 237.6,481.6 231.6,480.4 C225.6,479.3 217.6,477.1 213.8,472.9 C210.0,468.7 209.2,461.0 208.8,455.5 C208.5,450.0 210.9,444.8 211.8,440.0 C212.7,435.2 212.7,430.9 214.3,426.6 C215.9,422.2 218.4,418.1 221.5,414.1 C224.6,410.0 228.1,405.8 232.9,402.4 C237.6,399.0 244.0,394.2 250.0,393.7 C256.0,393.2 263.6,396.0 268.6,399.1 C273.6,402.3 276.6,408.3 280.1,412.6 C283.6,417.0 287.4,420.5 289.5,425.1 C291.7,429.7 293.5,435.2 293.2,440.0Z" style="stroke:var(--olive);stroke-opacity:0.22;stroke-width:1.2"/><path d="M323.4,440.0 C322.8,448.2 317.4,456.3 313.6,463.9 C309.8,471.6 306.2,479.3 300.4,485.8 C294.6,492.3 287.0,499.1 278.6,502.8 C270.2,506.6 260.1,507.3 250.0,508.4 C239.9,509.6 228.5,511.7 218.3,509.5 C208.1,507.4 195.0,502.9 188.9,495.6 C182.8,488.3 182.2,475.0 181.7,465.7 C181.3,456.4 185.0,448.1 186.2,440.0 C187.4,431.9 186.6,424.5 188.9,417.0 C191.3,409.5 195.3,402.0 200.5,395.0 C205.7,388.0 212.0,380.4 220.3,374.8 C228.5,369.1 239.8,361.7 250.0,361.2 C260.2,360.6 272.8,366.1 281.2,371.5 C289.6,377.0 294.6,386.8 300.6,394.0 C306.6,401.2 313.5,407.0 317.3,414.7 C321.1,422.3 324.0,431.8 323.4,440.0Z" style="stroke:var(--olive);stroke-opacity:0.202;stroke-width:1.2"/><path d="M353.6,440.0 C352.7,451.6 344.9,462.9 339.5,473.7 C334.1,484.5 329.3,495.5 321.2,504.7 C313.1,514.0 302.5,523.7 290.7,529.2 C278.8,534.8 264.3,536.3 250.0,537.9 C235.7,539.6 219.1,542.5 204.8,539.1 C190.6,535.7 172.7,528.3 164.6,517.7 C156.4,507.0 156.7,488.3 156.1,475.4 C155.6,462.4 160.1,451.4 161.2,440.0 C162.4,428.6 160.0,418.0 162.9,407.2 C165.8,396.4 171.3,385.3 178.7,375.1 C186.1,365.0 195.5,354.1 207.3,346.4 C219.2,338.7 235.7,329.1 250.0,328.8 C264.3,328.6 281.6,337.0 293.4,344.8 C305.1,352.7 312.1,365.8 320.7,375.7 C329.3,385.6 339.7,393.4 345.2,404.1 C350.7,414.9 354.6,428.4 353.6,440.0Z" style="stroke:var(--olive);stroke-opacity:0.184;stroke-width:1.2"/></svg>
+    <div data-id="login.hero.glow"></div>
+    <div data-id="login.hero.fade"></div>
+  </div>
+  <div data-id="login.carousel" data-compose="HorizontalPager">
+    <div data-id="login.carousel.track">
+<section data-id="login.slide.1" class="slide" data-compose="LoginPage">
+  <div data-id="login.slide.1.phone" class="phone" data-compose="PhoneMockup">
+    <div class="phone-screen" data-id="login.slide.1.screen">
+      <div class="phone-notch"></div>
+      <div data-id="login.slide.1.head" class="m-head"><span data-id="login.slide.1.head.label" class="m-label"><i class="m-dot"></i>Competição online</span><span data-id="login.slide.1.head.aside" class="m-aside">Premium</span></div>
+      <div data-id="login.slide.1.mission" class="m-card mission">
+        <span data-id="login.slide.1.mission.badge" class="badge">5K</span>
+        <div class="m-col"><span data-id="login.slide.1.mission.name" class="m-t">Missão das 13:00</span><span data-id="login.slide.1.mission.count" class="m-s">3 na sala</span></div>
+      </div>
+      <div data-id="login.slide.1.countdown" class="countdown">
+        <span data-id="login.slide.1.countdown.label" class="m-s">Começa em</span>
+        <span data-id="login.slide.1.countdown.time" class="cd-time" data-bind="mockup.countdown">18:42</span>
+        <span data-id="login.slide.1.countdown.rule" class="m-s">Vence quem concluir primeiro</span>
+      </div>
+      <div data-id="login.slide.1.players" class="players">
+        <div class="player"><span data-id="login.slide.1.players.p1.avatar" class="avatar me">VC</span><span data-id="login.slide.1.players.p1.name" class="p-name">Você</span><span data-id="login.slide.1.players.p1.status" class="p-status">● Na sala</span></div>
+        <div class="player"><span data-id="login.slide.1.players.p2.avatar" class="avatar">RM</span><span data-id="login.slide.1.players.p2.name" class="p-name">Rafael M.</span><span data-id="login.slide.1.players.p2.status" class="p-status">● Na sala</span></div>
+        <div class="player"><span data-id="login.slide.1.players.p3.avatar" class="avatar">CS</span><span data-id="login.slide.1.players.p3.name" class="p-name">Camila S.</span><span data-id="login.slide.1.players.p3.status" class="p-status">● Na sala</span></div>
+      </div>
+      <div data-id="login.slide.1.cta" class="m-btn">Entrar na prova</div>
+    </div>
+  </div>
+  <h2 data-id="login.slide.1.title" class="slide-title">Corra contra<br>gente de verdade.</h2>
+</section>
+<section data-id="login.slide.2" class="slide" data-compose="LoginPage">
+  <div data-id="login.slide.2.phone" class="phone" data-compose="PhoneMockup">
+    <div class="phone-screen" data-id="login.slide.2.screen">
+      <div class="phone-notch"></div>
+      <div data-id="login.slide.2.head" class="m-head"><span data-id="login.slide.2.head.label" class="m-label"><i class="m-dot"></i>Ranking e ligas</span><span data-id="login.slide.2.head.aside" class="m-aside">Temporada</span></div>
+      <div data-id="login.slide.2.league" class="m-card league">
+        <div class="league-top"><svg data-id="login.slide.2.league.icon" data-icon="material:Shield" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="var(--brass)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 3l7.5 3v5.5c0 4.6-3.1 8.2-7.5 9.5C7.6 19.700 4.500 16.100 4.500 11.500V6L12 3z"/></svg><span data-id="login.slide.2.league.name" class="league-name">Liga Ouro II</span></div>
+        <span data-id="login.slide.2.league.hint" class="m-s">Faltam 58 pontos para subir</span>
+        <div data-id="login.slide.2.league.bar" class="bar"><div data-id="login.slide.2.league.bar.fill" class="bar-fill" style="width:120px"></div></div>
+      </div>
+      <div data-id="login.slide.2.chips" class="chips"><span data-id="login.slide.2.chips.global" class="chip on">Global</span><span data-id="login.slide.2.chips.state" class="chip">Meu estado</span></div>
+      <div data-id="login.slide.2.rank" class="rank"><div class="rank-row"><span data-id="login.slide.2.rank.r1.pos" class="rank-pos gold">1</span><span data-id="login.slide.2.rank.r1.name" class="rank-name">Bruno A.</span><span data-id="login.slide.2.rank.r1.pts" class="rank-pts">3.120 pts</span></div><div class="rank-row"><span data-id="login.slide.2.rank.r2.pos" class="rank-pos">2</span><span data-id="login.slide.2.rank.r2.name" class="rank-name">Camila S.</span><span data-id="login.slide.2.rank.r2.pts" class="rank-pts">2.940 pts</span></div><div class="rank-row"><span data-id="login.slide.2.rank.r3.pos" class="rank-pos">3</span><span data-id="login.slide.2.rank.r3.name" class="rank-name">Rafael M.</span><span data-id="login.slide.2.rank.r3.pts" class="rank-pts">2.815 pts</span></div><div class="rank-row me"><span data-id="login.slide.2.rank.r4.pos" class="rank-pos">4</span><span data-id="login.slide.2.rank.r4.name" class="rank-name">Você</span><span data-id="login.slide.2.rank.r4.pts" class="rank-pts">2.402 pts</span></div></div>
+      <span data-id="login.slide.2.note" class="note">Exemplo ilustrativo</span>
+    </div>
+  </div>
+  <h2 data-id="login.slide.2.title" class="slide-title">Suba no pódio<br>e no ranking.</h2>
+</section>
+<section data-id="login.slide.3" class="slide" data-compose="LoginPage">
+  <div data-id="login.slide.3.phone" class="phone" data-compose="PhoneMockup">
+    <div class="phone-screen" data-id="login.slide.3.screen">
+      <div class="phone-notch"></div>
+      <div data-id="login.slide.3.head" class="m-head"><span data-id="login.slide.3.head.label" class="m-label"><i class="m-dot"></i>Seu plano</span><span data-id="login.slide.3.head.aside" class="m-aside">Semana 3 de 12</span></div>
+      <div data-id="login.slide.3.weeks" class="weeks"><i class="week done"></i><i class="week done"></i><i class="week"></i><i class="week"></i><i class="week"></i><i class="week"></i><i class="week"></i><i class="week"></i><i class="week"></i><i class="week"></i><i class="week"></i><i class="week"></i></div>
+      <span data-id="login.slide.3.workout" class="plan-title">Corrida leve</span>
+      <span data-id="login.slide.3.duration" class="m-s">Treino de hoje · 42 min</span>
+      <div data-id="login.slide.3.chart" class="plan-chart"><div data-id="login.slide.3.chart.cool-up" class="seg" style="flex:3;height:40px;background:var(--brass)"></div><div data-id="login.slide.3.chart.run1" class="seg" style="flex:5;height:100px;background:var(--olive)"></div><div data-id="login.slide.3.chart.walk1" class="seg" style="flex:2;height:45px;background:var(--step-rest)"></div><div data-id="login.slide.3.chart.run2" class="seg" style="flex:5;height:100px;background:var(--olive)"></div><div data-id="login.slide.3.chart.walk2" class="seg" style="flex:2;height:45px;background:var(--step-rest)"></div><div data-id="login.slide.3.chart.run3" class="seg" style="flex:5;height:100px;background:var(--olive)"></div><div data-id="login.slide.3.chart.cool-down" class="seg" style="flex:3;height:40px;background:var(--brass-50)"></div></div>
+      <div data-id="login.slide.3.axis" class="axis"><span data-id="login.slide.3.axis.start">0</span><span data-id="login.slide.3.axis.end">42 min</span></div>
+      <div data-id="login.slide.3.summary" class="sum">
+        <div class="sum-col"><span data-id="login.slide.3.summary.dist.v" class="sum-v">5,2 km</span><span data-id="login.slide.3.summary.dist.l" class="sum-l">Distância</span></div>
+        <div class="sum-col"><span data-id="login.slide.3.summary.pace.v" class="sum-v">6:10</span><span data-id="login.slide.3.summary.pace.l" class="sum-l">Ritmo /km</span></div>
+        <div class="sum-col"><span data-id="login.slide.3.summary.run.v" class="sum-v">3 blocos</span><span data-id="login.slide.3.summary.run.l" class="sum-l">De corrida</span></div>
+      </div>
+      <div data-id="login.slide.3.cta" class="m-btn">Começar treino</div>
+    </div>
+  </div>
+  <h2 data-id="login.slide.3.title" class="slide-title">Seu plano de treino,<br>semana a semana.</h2>
+</section>
+<section data-id="login.slide.4" class="slide" data-compose="LoginPage">
+  <div data-id="login.slide.4.phone" class="phone" data-compose="PhoneMockup">
+    <div class="phone-screen" data-id="login.slide.4.screen">
+      <div class="phone-notch"></div>
+      <div data-id="login.slide.4.head" class="m-head"><span data-id="login.slide.4.head.label" class="m-label"><i class="m-dot"></i>Conquistas</span><span data-id="login.slide.4.head.aside" class="m-aside">2 de 6</span></div>
+      <div data-id="login.slide.4.list" class="ach-list"><div data-id="login.slide.4.list.a1" class="m-card ach"><span class="medal"><svg data-id="login.slide.4.list.a1.icon" data-icon="material:EmojiEvents" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--brass)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="9" r="5.5"/><path d="M8.800 13.700L7 21l5-2.600L17 21l-1.800-7.300"/></svg></span><div class="m-col"><span data-id="login.slide.4.list.a1.title" class="ach-t">Primeira missão</span><span data-id="login.slide.4.list.a1.desc" class="ach-d">Conclua uma missão.</span></div></div><div data-id="login.slide.4.list.a2" class="m-card ach"><span class="medal"><svg data-id="login.slide.4.list.a2.icon" data-icon="material:EmojiEvents" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--brass)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="9" r="5.5"/><path d="M8.800 13.700L7 21l5-2.600L17 21l-1.800-7.300"/></svg></span><div class="m-col"><span data-id="login.slide.4.list.a2.title" class="ach-t">Primeira vitória</span><span data-id="login.slide.4.list.a2.desc" class="ach-d">Seja o primeiro.</span></div></div><div data-id="login.slide.4.list.a3" class="m-card ach"><span class="medal"><svg data-id="login.slide.4.list.a3.icon" data-icon="material:EmojiEvents" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--brass)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="9" r="5.5"/><path d="M8.800 13.700L7 21l5-2.600L17 21l-1.800-7.300"/></svg></span><div class="m-col"><span data-id="login.slide.4.list.a3.title" class="ach-t">Sequência</span><span data-id="login.slide.4.list.a3.desc" class="ach-d">5 missões seguidas.</span><div data-id="login.slide.4.list.a3.bar" class="bar ach-bar"><div data-id="login.slide.4.list.a3.bar.fill" class="bar-fill" style="width:60px"></div></div></div></div><div data-id="login.slide.4.list.a4" class="m-card ach locked"><span class="medal off"><svg data-id="login.slide.4.list.a4.icon" data-icon="material:Lock" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect x="5" y="10.500" width="14" height="10" rx="2.500"/><path d="M8 10.500V8a4 4 0 0 1 8 0v2.500"/></svg></span><div class="m-col"><span data-id="login.slide.4.list.a4.title" class="ach-t">Participação completa</span><span data-id="login.slide.4.list.a4.desc" class="ach-d">2,5K, 5K e 10K.</span></div></div><div data-id="login.slide.4.list.a5" class="m-card ach locked"><span class="medal off"><svg data-id="login.slide.4.list.a5.icon" data-icon="material:Lock" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect x="5" y="10.500" width="14" height="10" rx="2.500"/><path d="M8 10.500V8a4 4 0 0 1 8 0v2.500"/></svg></span><div class="m-col"><span data-id="login.slide.4.list.a5.title" class="ach-t">Pódio estadual</span><span data-id="login.slide.4.list.a5.desc" class="ach-d">Chegue ao pódio.</span></div></div></div>
+    </div>
+  </div>
+  <h2 data-id="login.slide.4.title" class="slide-title">Missão dada é<br>missão cumprida.</h2>
+</section>
+    </div>
+  </div>
+  <header data-id="login.logo" data-compose="EliteLogoLockup"><svg data-id="login.logo.mark" data-icon="asset:ic_elite_mark" viewBox="0 0 64 64" width="34" height="34"><path d="M19.1,8.0 L55.1,8.0 L53.2,17.0 L27.2,17.0 L20.8,47.0 L46.8,47.0 L44.9,56.0 L8.9,56.0 Z" style="fill:var(--text)"/><path d="M25.1,27.0 L45.1,27.0 L43.1,36.0 L23.1,36.0 Z" style="fill:var(--red)"/></svg><span data-id="login.logo.word">ELITE</span></header>
+  <div data-id="login.dots" data-compose="PagerDots"><i data-id="login.dots.d1" class="dot"></i><i data-id="login.dots.d2" class="dot"></i><i data-id="login.dots.d3" class="dot"></i><i data-id="login.dots.d4" class="dot"></i></div>
+  <nav data-id="login.actions" data-compose="LoginActions">
+    <button data-id="login.actions.google" aria-label="Entrar com Google" class="btn" data-compose="EliteButton(Primary, leadingIcon)"><svg data-id="login.actions.google.icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" stroke="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.35 11.1H12v2.98h5.35c-.5 2.3-2.4 3.5-5.35 3.5a5.9 5.9 0 1 1 0-11.8c1.5 0 2.8.55 3.85 1.45l2.1-2.1A8.9 8.9 0 0 0 12 3.1a8.9 8.9 0 1 0 0 17.8c5.1 0 8.5-3.6 8.5-8.7 0-.4 0-.75-.15-1.1z" fill="currentColor" stroke="none"/></svg><span data-id="login.actions.spinner"></span><span data-id="login.actions.google.label" data-bind="auth.googleLabel">Entrar com Google</span></button>
+    <button data-id="login.actions.email" aria-label="Entrar com e-mail" class="btn" data-compose="LoginGhostButton"><svg data-id="login.actions.email.icon" data-icon="material:Mail" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg><span data-id="login.actions.email.label">Entrar com e-mail</span></button>
+    <button data-id="login.actions.skip" aria-label="Continuar sem conta" class="btn" data-compose="TextButton"><span data-id="login.actions.skip.label">Continuar sem conta</span></button>
+  </nav>
+  <p data-id="login.legal" data-compose="LegalText">Ao continuar, você aceita os <a data-id="login.legal.terms" href="https://elitesch.web.app/termos.html">Termos</a> e a <a data-id="login.legal.privacy" href="https://elitesch.web.app/privacidade.html">Política de Privacidade</a>.</p>
+  <div data-id="login.scrim"></div>
+  <section data-id="login.sheet" data-compose="EmailSignInSheet(ModalBottomSheet)">
+    <div data-id="login.sheet.handle"></div>
+    <h3 data-id="login.sheet.title">Entrar com e-mail</h3>
+    <p data-id="login.sheet.subtitle">Use o e-mail e a senha da sua conta Elite.</p>
+    <span data-id="login.sheet.email.label" class="f-label">E-mail</span>
+    <div data-id="login.sheet.email" class="field" data-compose="OutlinedTextField"><span data-id="login.sheet.email.value" class="f-text" data-bind="form.email">voce@email.com</span></div>
+    <span data-id="login.sheet.password.label" class="f-label second">Senha</span>
+    <div data-id="login.sheet.password" class="field" data-compose="OutlinedTextField(PasswordVisualTransformation)"><span data-id="login.sheet.password.value" class="f-text" data-bind="form.password">Digite sua senha</span><button data-id="login.sheet.eye" aria-label="Mostrar senha"><svg data-id="login.sheet.eye.icon" data-icon="material:Visibility" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="var(--muted)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.8"/></svg></button></div>
+    <p data-id="login.sheet.error" data-bind="auth.errorMessage">E-mail ou senha incorretos. Confira os dados e tente de novo.</p>
+    <button data-id="login.sheet.submit" aria-label="Entrar" class="btn" data-compose="EliteButton(Primary, loading)"><span data-id="login.sheet.spinner"></span><span data-id="login.sheet.submit.label">Entrar</span></button>
+  </section>
+</main>
+<script>
+(function(){
+  var root=document.querySelector('[data-id="screen"]');
+  function go(i){ i=Math.max(1,Math.min(4,i)); root.setAttribute('data-slide',String(i)); }
+  window.__go=go;
+  var car=document.querySelector('[data-id="login.carousel"]'),x0=null;
+  car.addEventListener('pointerdown',function(e){x0=e.clientX;});
+  car.addEventListener('pointerup',function(e){ if(x0===null)return; var dx=e.clientX-x0; x0=null; var cur=parseInt(root.getAttribute('data-slide'),10); if(dx<-40)go(cur+1); else if(dx>40)go(cur-1); });
+  function q(id){return document.querySelector('[data-id="'+id+'"]');}
+  q('login.actions.email').addEventListener('click',function(){root.setAttribute('data-sheet','open');});
+  q('login.scrim').addEventListener('click',function(){root.removeAttribute('data-sheet');root.removeAttribute('data-error');});
+  q('login.actions.google').addEventListener('click',function(){root.setAttribute('data-auth','loading');q('login.actions.google.label').textContent='Entrando…';});
+  q('login.sheet.submit').addEventListener('click',function(){
+    if(root.getAttribute('data-error')!=='on'){ root.setAttribute('data-error','on'); }
+  });
+})();
+</script>
+</body>
+</html>

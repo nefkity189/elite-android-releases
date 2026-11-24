@@ -1,0 +1,1070 @@
+{
+ "screen": {
+  "w": 393,
+  "h": 851
+ },
+ "tokens": {
+  "--page": "#050604",
+  "--bg": "#0a0b09",
+  "--surface": "#10120d",
+  "--card": "#161911",
+  "--card-el": "#1d2116",
+  "--field": "#0d0f0a",
+  "--line": "rgba(236,232,218,.10)",
+  "--line-strong": "rgba(236,232,218,.18)",
+  "--text": "#ece8da",
+  "--muted": "#8f9384",
+  "--dim": "#5e6255",
+  "--olive": "#a3b565",
+  "--olive-dark": "#5d6b34",
+  "--olive-soft": "rgba(163,181,101,.14)",
+  "--on-olive": "#0e1306",
+  "--red": "#d12b2b",
+  "--red-soft": "rgba(209,43,43,.15)",
+  "--on-red": "#fff4f0",
+  "--brass": "#c9a24b",
+  "--brass-soft": "rgba(201,162,75,.16)",
+  "--amber": "#e0a93a",
+  "--amber-soft": "rgba(224,169,58,.14)",
+  "--ok": "#7fb069",
+  "--ok-soft": "rgba(127,176,105,.15)",
+  "--amber-line": "rgba(224,169,58,.45)",
+  "--red-line": "rgba(209,43,43,.5)",
+  "--ok-line": "rgba(127,176,105,.45)",
+  "--brass-line": "rgba(201,162,75,.5)",
+  "--glass": "rgba(16,18,13,.82)",
+  "--glass-bar": "rgba(16,18,13,.90)",
+  "--scrim": "rgba(0,0,0,.62)",
+  "--lg-bronze": "#b07a4a",
+  "--lg-prata": "#b4bab8",
+  "--lg-ouro": "#c9a24b",
+  "--lg-platina": "#86bdb3",
+  "--lg-diamante": "#7fb4de",
+  "--lg-elite": "#e7e2d0",
+  "--av1": "#3b4426",
+  "--av2": "#4a3f1e",
+  "--av3": "#2e3b3a",
+  "--av4": "#46301f",
+  "--av5": "#3a2e3f",
+  "--num": "\"Barlow Condensed\",\"Arial Narrow\",sans-serif",
+  "--ui": "\"Inter\",sans-serif",
+  "--logo": "\"Saira Stencil One\",\"Impact\",sans-serif"
+ },
+ "fonts": [
+  {
+   "family": "Inter",
+   "loaded": true
+  },
+  {
+   "family": "Barlow Condensed",
+   "loaded": false
+  },
+  {
+   "family": "Saira Stencil One",
+   "loaded": true
+  }
+ ],
+ "media_queries": [
+  "(prefers-reduced-motion: reduce)"
+ ],
+ "animations": [],
+ "elements": [
+  {
+   "id": 0,
+   "depth": 0,
+   "sel": "main",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 851
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "flex-direction": "column",
+    "flex-shrink": "0",
+    "padding": "28px 16px 0px",
+    "background-color": "rgb(10, 11, 9)",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=screen",
+    "data-viewport=393x851",
+    "data-state=padrao"
+   ]
+  },
+  {
+   "id": 1,
+   "depth": 1,
+   "sel": "header.topbar",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 28,
+    "w": 361,
+    "h": 56
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "12px"
+   },
+   "data": [
+    "data-id=ni.topbar"
+   ]
+  },
+  {
+   "id": 2,
+   "depth": 2,
+   "sel": "button.btn-back",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 36,
+    "w": 40,
+    "h": 40
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "20px",
+    "font-size": "13.3333px",
+    "text-align": "center",
+    "transition": "transform 0.12s ease-out"
+   },
+   "aria": "Voltar",
+   "data": [
+    "data-id=ni.topbar.back"
+   ]
+  },
+  {
+   "id": 3,
+   "depth": 3,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 26,
+    "y": 46,
+    "w": 20,
+    "h": 20
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ni.topbar.back.ic",
+    "data-icon=material:ArrowBack"
+   ],
+   "svg": "<svg data-id=\"ni.topbar.back.ic\" data-icon=\"material:ArrowBack\" viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M15 18l-6-6 6-6\"></path></svg>"
+  },
+  {
+   "id": 4,
+   "depth": 2,
+   "sel": "div.col.grow",
+   "text": null,
+   "rect": {
+    "x": 68,
+    "y": 35,
+    "w": 309,
+    "h": 42
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "2px"
+   },
+   "data": [
+    "data-id=ni.topbar.col"
+   ]
+  },
+  {
+   "id": 5,
+   "depth": 3,
+   "sel": "p.eyebrow",
+   "text": "Competição online",
+   "rect": {
+    "x": 68,
+    "y": 35,
+    "w": 309,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "letter-spacing": "1.3px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=ni.topbar.eyebrow"
+   ]
+  },
+  {
+   "id": 6,
+   "depth": 3,
+   "sel": "h1.t1s",
+   "text": "Missão 5K — 13:00",
+   "rect": {
+    "x": 68,
+    "y": 51,
+    "w": 309,
+    "h": 26
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "24px",
+    "font-weight": "700",
+    "line-height": "26px",
+    "letter-spacing": "0.96px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=ni.topbar.title"
+   ]
+  },
+  {
+   "id": 7,
+   "depth": 1,
+   "sel": "section.card.col",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 90,
+    "w": 361,
+    "h": 309.2
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "10px",
+    "padding": "20px 16px 16px",
+    "margin": "6px 0px 0px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "18px"
+   },
+   "data": [
+    "data-id=ni.status",
+    "data-compose=MissionNotStartedCard"
+   ]
+  },
+  {
+   "id": 8,
+   "depth": 2,
+   "sel": "div.sc-ic",
+   "text": null,
+   "rect": {
+    "x": 164.5,
+    "y": 111,
+    "w": 64,
+    "h": 64
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "color": "rgb(143, 147, 132)",
+    "background-color": "rgb(29, 33, 22)",
+    "border-radius": "32px"
+   },
+   "data": [
+    "data-id=ni.status.icon"
+   ]
+  },
+  {
+   "id": 9,
+   "depth": 3,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 181.5,
+    "y": 128,
+    "w": 30,
+    "h": 30
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ni.status.icon.ic",
+    "data-icon=material:Schedule"
+   ],
+   "svg": "<svg data-id=\"ni.status.icon.ic\" data-icon=\"material:Schedule\" viewBox=\"0 0 24 24\" width=\"30\" height=\"30\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\"></circle><path d=\"M12 7v5l3 2\"></path></svg>"
+  },
+  {
+   "id": 10,
+   "depth": 2,
+   "sel": "span.badge.b-none",
+   "text": "Não iniciada por falta de competidores",
+   "rect": {
+    "x": 56.3,
+    "y": 185,
+    "w": 280.5,
+    "h": 24
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "6px",
+    "padding": "0px 10px",
+    "color": "rgb(143, 147, 132)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "12px",
+    "font-size": "10.5px",
+    "font-weight": "700",
+    "line-height": "12px",
+    "letter-spacing": "0.6px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=ni.status.badge"
+   ]
+  },
+  {
+   "id": 11,
+   "depth": 2,
+   "sel": "h2.t1",
+   "text": "Missão não iniciada",
+   "rect": {
+    "x": 74.8,
+    "y": 219,
+    "w": 243.3,
+    "h": 32
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "30px",
+    "font-weight": "700",
+    "line-height": "32px",
+    "letter-spacing": "0.9px",
+    "text-align": "center",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=ni.status.title"
+   ]
+  },
+  {
+   "id": 12,
+   "depth": 2,
+   "sel": "p.body.muted",
+   "text": "Não houve competidores suficientes. O mínimo é 2.",
+   "rect": {
+    "x": 33,
+    "y": 261,
+    "w": 327,
+    "h": 39.2
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "14px",
+    "line-height": "19.6px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=ni.status.text"
+   ]
+  },
+  {
+   "id": 13,
+   "depth": 2,
+   "sel": "div.row",
+   "text": null,
+   "rect": {
+    "x": 33,
+    "y": 314.2,
+    "w": 327,
+    "h": 68
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "10px",
+    "margin": "4px 0px 0px"
+   },
+   "data": [
+    "data-id=ni.status.tiles"
+   ]
+  },
+  {
+   "id": 14,
+   "depth": 3,
+   "sel": "div.tile",
+   "text": null,
+   "rect": {
+    "x": 33,
+    "y": 314.2,
+    "w": 102.3,
+    "h": 68
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "4px",
+    "padding": "10px 0px",
+    "background-color": "rgb(13, 15, 10)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "14px"
+   },
+   "data": [
+    "data-id=ni.status.tiles.tile"
+   ]
+  },
+  {
+   "id": 15,
+   "depth": 4,
+   "sel": "span.eyebrow",
+   "text": "Horário",
+   "rect": {
+    "x": 56.6,
+    "y": 325.2,
+    "w": 55,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "10px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "letter-spacing": "1.3px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=ni.status.tiles.tile.eyebrow"
+   ]
+  },
+  {
+   "id": 16,
+   "depth": 4,
+   "sel": "span.num",
+   "text": "13:00",
+   "rect": {
+    "x": 52.4,
+    "y": 343.2,
+    "w": 63.5,
+    "h": 28
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "28px",
+    "font-weight": "700",
+    "line-height": "28px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=ni.status.tiles.tile.num",
+    "data-bind=mission.time"
+   ]
+  },
+  {
+   "id": 17,
+   "depth": 3,
+   "sel": "div.tile",
+   "text": null,
+   "rect": {
+    "x": 145.3,
+    "y": 314.2,
+    "w": 102.3,
+    "h": 68
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "4px",
+    "padding": "10px 0px",
+    "background-color": "rgb(13, 15, 10)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "14px"
+   },
+   "data": [
+    "data-id=ni.status.tiles.tile2"
+   ]
+  },
+  {
+   "id": 18,
+   "depth": 4,
+   "sel": "span.eyebrow",
+   "text": "Distância",
+   "rect": {
+    "x": 163.4,
+    "y": 325.2,
+    "w": 66.1,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "10px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "letter-spacing": "1.3px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=ni.status.tiles.tile2.eyebrow"
+   ]
+  },
+  {
+   "id": 19,
+   "depth": 4,
+   "sel": "span.num",
+   "text": "5K",
+   "rect": {
+    "x": 182.6,
+    "y": 343.2,
+    "w": 27.7,
+    "h": 28
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "28px",
+    "font-weight": "700",
+    "line-height": "28px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=ni.status.tiles.tile2.num",
+    "data-bind=mission.distance"
+   ]
+  },
+  {
+   "id": 20,
+   "depth": 3,
+   "sel": "div.tile",
+   "text": null,
+   "rect": {
+    "x": 257.7,
+    "y": 314.2,
+    "w": 102.3,
+    "h": 68
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "4px",
+    "padding": "10px 0px",
+    "background-color": "rgb(13, 15, 10)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "14px"
+   },
+   "data": [
+    "data-id=ni.status.tiles.tile3"
+   ]
+  },
+  {
+   "id": 21,
+   "depth": 4,
+   "sel": "span.eyebrow",
+   "text": "Mínimo",
+   "rect": {
+    "x": 285.3,
+    "y": 325.2,
+    "w": 47.1,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "10px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "letter-spacing": "1.3px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=ni.status.tiles.tile3.eyebrow"
+   ]
+  },
+  {
+   "id": 22,
+   "depth": 4,
+   "sel": "span.num",
+   "text": "2",
+   "rect": {
+    "x": 301.9,
+    "y": 343.2,
+    "w": 14,
+    "h": 28
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "28px",
+    "font-weight": "700",
+    "line-height": "28px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=ni.status.tiles.tile3.num"
+   ]
+  },
+  {
+   "id": 23,
+   "depth": 1,
+   "sel": "section.invite",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 411.2,
+    "w": 361,
+    "h": 242
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-shrink": "0",
+    "gap": "12px",
+    "padding": "14px",
+    "margin": "12px 0px 0px",
+    "background-image": "linear-gradient(135deg, rgba(163, 181, 101, 0.14), rgb(22, 25, 17) 70%)",
+    "border": "1px solid rgb(93, 107, 52)",
+    "border-radius": "18px"
+   },
+   "data": [
+    "data-id=ni.invite",
+    "data-compose=InviteShareCard"
+   ]
+  },
+  {
+   "id": 24,
+   "depth": 2,
+   "sel": "div.row",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 426.2,
+    "w": 331,
+    "h": 148
+   },
+   "style": {
+    "display": "flex",
+    "gap": "14px"
+   },
+   "data": [
+    "data-id=ni.invite.row"
+   ]
+  },
+  {
+   "id": 25,
+   "depth": 3,
+   "sel": "div.mini",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 426.2,
+    "w": 118,
+    "h": 148
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "justify-content": "space-between",
+    "flex-shrink": "0",
+    "padding": "12px",
+    "background-image": "linear-gradient(160deg, rgb(29, 33, 22), rgb(10, 11, 9))",
+    "border": "1px solid rgb(93, 107, 52)",
+    "border-radius": "14px"
+   },
+   "data": [
+    "data-id=ni.invite.mini",
+    "data-compose=InviteMiniPreview"
+   ]
+  },
+  {
+   "id": 26,
+   "depth": 4,
+   "sel": "div.row",
+   "text": null,
+   "rect": {
+    "x": 44,
+    "y": 439.2,
+    "w": 92,
+    "h": 14
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "5px"
+   },
+   "data": [
+    "data-id=ni.invite.mini.row"
+   ]
+  },
+  {
+   "id": 27,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 44,
+    "y": 439.2,
+    "w": 14,
+    "h": 14
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ni.invite.mini.mark",
+    "data-icon=drawable:ic_elite_blade"
+   ],
+   "svg": "<svg data-id=\"ni.invite.mini.mark\" data-icon=\"drawable:ic_elite_blade\" viewBox=\"0 0 64 64\" width=\"14\" height=\"14\" aria-hidden=\"true\"><path d=\"M19.1 8H55.1L53.2 17H27.2L20.8 47H46.8L44.9 56H8.9Z\" style=\"fill:var(--olive)\"></path><path d=\"M25.1 27H45.1L43.1 36H23.1Z\" style=\"fill:var(--red)\"></path></svg>"
+  },
+  {
+   "id": 28,
+   "depth": 5,
+   "sel": "span",
+   "text": "ELITE",
+   "rect": {
+    "x": 63,
+    "y": 441.2,
+    "w": 33.2,
+    "h": 10
+   },
+   "style": {
+    "font-family": "\"Saira Stencil One\", Impact, sans-serif",
+    "font-size": "9px",
+    "line-height": "10px",
+    "letter-spacing": "1.8px"
+   },
+   "data": [
+    "data-id=ni.invite.mini.brand"
+   ]
+  },
+  {
+   "id": 29,
+   "depth": 4,
+   "sel": "div.col",
+   "text": null,
+   "rect": {
+    "x": 44,
+    "y": 459.2,
+    "w": 92,
+    "h": 72
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "gap": "3px"
+   },
+   "data": [
+    "data-id=ni.invite.mini.col"
+   ]
+  },
+  {
+   "id": 30,
+   "depth": 5,
+   "sel": "span.num",
+   "text": "Missão precisa de você",
+   "rect": {
+    "x": 44,
+    "y": 459.2,
+    "w": 92,
+    "h": 54
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "17px",
+    "font-weight": "700",
+    "line-height": "18px",
+    "font-variant-numeric": "tabular-nums",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=ni.invite.mini.head"
+   ]
+  },
+  {
+   "id": 31,
+   "depth": 5,
+   "sel": "span.num.olive",
+   "text": "5K · 13:00",
+   "rect": {
+    "x": 44,
+    "y": 516.2,
+    "w": 92,
+    "h": 15
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "15px",
+    "font-weight": "700",
+    "line-height": "15px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=ni.invite.mini.meta"
+   ]
+  },
+  {
+   "id": 32,
+   "depth": 4,
+   "sel": "div.col",
+   "text": null,
+   "rect": {
+    "x": 44,
+    "y": 537.2,
+    "w": 92,
+    "h": 24
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "gap": "4px"
+   },
+   "data": [
+    "data-id=ni.invite.mini.col2"
+   ]
+  },
+  {
+   "id": 33,
+   "depth": 5,
+   "sel": "div.stripe",
+   "text": null,
+   "rect": {
+    "x": 43.3,
+    "y": 537.2,
+    "w": 93.5,
+    "h": 4
+   },
+   "style": {
+    "background-color": "rgb(209, 43, 43)",
+    "border-radius": "2px",
+    "transform": "matrix(1, 0, -0.36397, 1, 0, 0)"
+   },
+   "data": [
+    "data-id=ni.invite.mini.stripe"
+   ]
+  },
+  {
+   "id": 34,
+   "depth": 5,
+   "sel": "span",
+   "text": "Foco, Missão dada, Missão cumprida.",
+   "rect": {
+    "x": 44,
+    "y": 545.2,
+    "w": 92,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "6.5px",
+    "font-weight": "600",
+    "line-height": "8px",
+    "letter-spacing": "0.6px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=ni.invite.mini.motto"
+   ]
+  },
+  {
+   "id": 35,
+   "depth": 3,
+   "sel": "div.col.grow",
+   "text": null,
+   "rect": {
+    "x": 163,
+    "y": 426.2,
+    "w": 199,
+    "h": 148
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "justify-content": "center",
+    "flex-grow": "1",
+    "gap": "6px"
+   },
+   "data": [
+    "data-id=ni.invite.row.col"
+   ]
+  },
+  {
+   "id": 36,
+   "depth": 4,
+   "sel": "h2.t1s",
+   "text": "Convoque competidores",
+   "rect": {
+    "x": 163,
+    "y": 434.2,
+    "w": 199,
+    "h": 46
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "21px",
+    "font-weight": "700",
+    "line-height": "23px",
+    "letter-spacing": "0.96px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=ni.invite.title"
+   ]
+  },
+  {
+   "id": 37,
+   "depth": 4,
+   "sel": "p.cap",
+   "text": "Compartilhe o card de convite e atraia gente para as próximas missões. Quem tem o Elite entra direto; quem não tem vai para o download.",
+   "rect": {
+    "x": 163,
+    "y": 486.2,
+    "w": 199,
+    "h": 80
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=ni.invite.text"
+   ]
+  },
+  {
+   "id": 38,
+   "depth": 2,
+   "sel": "button.btn.btn-olive.btn-lg",
+   "text": "Compartilhar convite",
+   "rect": {
+    "x": 31,
+    "y": 586.2,
+    "w": 331,
+    "h": 52
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "8px",
+    "padding": "0px 18px",
+    "color": "rgb(14, 19, 6)",
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "28px",
+    "font-weight": "700",
+    "line-height": "20px",
+    "text-align": "center",
+    "transition": "transform 0.12s ease-out"
+   },
+   "data": [
+    "data-id=ni.invite.share"
+   ]
+  },
+  {
+   "id": 39,
+   "depth": 3,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 100.1,
+    "y": 602.2,
+    "w": 20,
+    "h": 20
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ni.invite.share.ic",
+    "data-icon=material:Share"
+   ],
+   "svg": "<svg data-id=\"ni.invite.share.ic\" data-icon=\"material:Share\" viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"18\" cy=\"5\" r=\"3\"></circle><circle cx=\"6\" cy=\"12\" r=\"3\"></circle><circle cx=\"18\" cy=\"19\" r=\"3\"></circle><path d=\"M8.6 10.5l6.8-4M8.6 13.5l6.8 4\"></path></svg>"
+  },
+  {
+   "id": 40,
+   "depth": 1,
+   "sel": "div.grow",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 653.2,
+    "w": 361,
+    "h": 108.8
+   },
+   "style": {
+    "flex-grow": "1"
+   },
+   "data": [
+    "data-id=ni.spacer"
+   ]
+  },
+  {
+   "id": 41,
+   "depth": 1,
+   "sel": "footer.dock",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 762,
+    "w": 393,
+    "h": 89
+   },
+   "style": {
+    "flex-shrink": "0",
+    "padding": "14px 16px 18px",
+    "margin": "0px -16px",
+    "background-color": "rgba(16, 18, 13, 0.9)",
+    "border-radius": "26px 26px 0px 0px"
+   },
+   "data": [
+    "data-id=ni.dock",
+    "data-compose=BottomActionBar"
+   ]
+  },
+  {
+   "id": 42,
+   "depth": 2,
+   "sel": "button.btn.btn-ghost.btn-lg",
+   "text": "Ver próximas missões",
+   "rect": {
+    "x": 16,
+    "y": 777,
+    "w": 361,
+    "h": 56
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "8px",
+    "padding": "0px 18px",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "28px",
+    "font-weight": "700",
+    "line-height": "20px",
+    "text-align": "center",
+    "transition": "transform 0.12s ease-out"
+   },
+   "data": [
+    "data-id=ni.dock.next"
+   ]
+  }
+ ],
+ "root_selector": "main"
+}

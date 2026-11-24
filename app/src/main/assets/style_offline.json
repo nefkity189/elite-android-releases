@@ -1,0 +1,240 @@
+{
+  "version": 8,
+  "glyphs": "file://__FILES_DIR__/glyphs/{fontstack}/{range}.pbf",
+  "sprite": "file://__FILES_DIR__/sprites/v4/light",
+  "sources": {
+    "protomaps": {
+      "type": "vector",
+      "url": "pmtiles://file://__FILES_DIR__/brazil.pmtiles",
+      "attribution": "© Protomaps © OpenStreetMap"
+    }
+  },
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "#f8f4f0"
+      }
+    },
+    {
+      "id": "water",
+      "type": "fill",
+      "source": "protomaps",
+      "source-layer": "water",
+      "paint": {
+        "fill-color": "#d0e8f8",
+        "fill-opacity": 1
+      }
+    },
+    {
+      "id": "waterway",
+      "type": "line",
+      "source": "protomaps",
+      "source-layer": "waterway",
+      "paint": {
+        "line-color": "#a0c8e8",
+        "line-width": 1.5
+      }
+    },
+    {
+      "id": "landuse",
+      "type": "fill",
+      "source": "protomaps",
+      "source-layer": "landuse",
+      "paint": {
+        "fill-color": [
+          "match",
+          ["get", "class"],
+          "park", "#c8e8c8",
+          "forest", "#a8d8a8",
+          "residential", "#f0f0e0",
+          "commercial", "#f0e0e0",
+          "industrial", "#e8e8e0",
+          "#f8f4f0"
+        ],
+        "fill-opacity": 0.8
+      }
+    },
+    {
+      "id": "road",
+      "type": "line",
+      "source": "protomaps",
+      "source-layer": "road",
+      "filter": ["==", "$type", "LineString"],
+      "paint": {
+        "line-color": [
+          "match",
+          ["get", "class"],
+          "motorway", "#f8c8c8",
+          "trunk", "#f8d8c8",
+          "primary", "#f8e8c8",
+          "secondary", "#f8f0c8",
+          "tertiary", "#f8f8c8",
+          "unclassified", "#f0f0f0",
+          "residential", "#e8e8e8",
+          "service", "#e0e0e0",
+          "#e0e0e0"
+        ],
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          6, 0.5,
+          8, 1,
+          10, 1.5,
+          12, 2,
+          14, 3,
+          16, 4,
+          18, 6
+        ],
+        "line-opacity": 1
+      }
+    },
+    {
+      "id": "road_casing",
+      "type": "line",
+      "source": "protomaps",
+      "source-layer": "road",
+      "filter": ["==", "$type", "LineString"],
+      "paint": {
+        "line-color": [
+          "match",
+          ["get", "class"],
+          "motorway", "#c06060",
+          "trunk", "#c08060",
+          "primary", "#c0a060",
+          "secondary", "#c0c060",
+          "tertiary", "#a0a060",
+          "unclassified", "#808080",
+          "residential", "#606060",
+          "service", "#606060",
+          "#606060"
+        ],
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          6, 1.5,
+          8, 2,
+          10, 2.5,
+          12, 3,
+          14, 4,
+          16, 5,
+          18, 7
+        ],
+        "line-opacity": 0.6
+      }
+    },
+    {
+      "id": "bridge",
+      "type": "line",
+      "source": "protomaps",
+      "source-layer": "road",
+      "filter": ["all", ["==", "$type", "LineString"], ["==", "bridge", true]],
+      "paint": {
+        "line-color": "#f0e0d0",
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          6, 0.5,
+          8, 1,
+          10, 1.5,
+          12, 2,
+          14, 3,
+          16, 4
+        ]
+      }
+    },
+    {
+      "id": "tunnel",
+      "type": "line",
+      "source": "protomaps",
+      "source-layer": "road",
+      "filter": ["all", ["==", "$type", "LineString"], ["==", "tunnel", true]],
+      "paint": {
+        "line-color": "#d0c0c0",
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          6, 0.5,
+          8, 1,
+          10, 1.5,
+          12, 2,
+          14, 3,
+          16, 4
+        ],
+        "line-dasharray": [4, 4]
+      }
+    },
+    {
+      "id": "place",
+      "type": "symbol",
+      "source": "protomaps",
+      "source-layer": "place",
+      "filter": ["in", "class", "country", "state", "city", "town", "village"],
+      "layout": {
+        "text-field": ["get", "name"],
+        "text-font": ["Noto Sans Regular"],
+        "text-size": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          4, 10,
+          6, 12,
+          8, 14,
+          10, 16
+        ],
+        "text-anchor": "center",
+        "text-allow-overlap": true
+      },
+      "paint": {
+        "text-color": "#202020",
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 1,
+        "text-halo-blur": 1
+      }
+    },
+    {
+      "id": "poi",
+      "type": "symbol",
+      "source": "protomaps",
+      "source-layer": "poi",
+      "filter": ["==", "$type", "Point"],
+      "layout": {
+        "icon-image": ["concat", ["get", "class"], "_15"],
+        "icon-size": 1,
+        "icon-allow-overlap": true,
+        "icon-ignore-placement": true
+      }
+    },
+    {
+      "id": "building",
+      "type": "fill-extrusion",
+      "source": "protomaps",
+      "source-layer": "building",
+      "filter": ["==", "$type", "Polygon"],
+      "paint": {
+        "fill-extrusion-color": "#e8e8e8",
+        "fill-extrusion-height": ["get", "height"],
+        "fill-extrusion-base": 0,
+        "fill-extrusion-opacity": 0.8
+      },
+      "minzoom": 14
+    },
+    {
+      "id": "boundary",
+      "type": "line",
+      "source": "protomaps",
+      "source-layer": "boundary",
+      "filter": ["==", "$type", "LineString"],
+      "paint": {
+        "line-color": "#a0a0a0",
+        "line-width": 1,
+        "line-dasharray": [4, 4]
+      }
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+WARN: touch target button.sw is 50x30 (<44dp)
+root=.phone 393x851dp  errors=0 warnings=1

@@ -1,0 +1,696 @@
+{
+ "screen": {
+  "w": 207,
+  "h": 404
+ },
+ "tokens": {
+  "--page": "#000000",
+  "--bg": "#0A0B09",
+  "--bg-0": "rgba(10,11,9,0)",
+  "--surface": "#10120D",
+  "--card": "#161911",
+  "--card2": "#1D2116",
+  "--field": "#0D0F0A",
+  "--line": "rgba(236,232,218,.10)",
+  "--line2": "rgba(236,232,218,.18)",
+  "--text": "#ECE8DA",
+  "--muted": "#8F9384",
+  "--dim": "#5E6255",
+  "--olive": "#A3B565",
+  "--olive-dark": "#5D6B34",
+  "--olive-soft": "rgba(163,181,101,.14)",
+  "--on-olive": "#0E1306",
+  "--olive-glow": "rgba(163,181,101,.20)",
+  "--olive-glow0": "rgba(163,181,101,0)",
+  "--red": "#D12B2B",
+  "--on-red": "#FFF4F0",
+  "--brass": "#C9A24B",
+  "--brass-soft": "rgba(201,162,75,.16)",
+  "--brass-50": "rgba(201,162,75,.5)",
+  "--amber": "#E0A93A",
+  "--amber-soft": "rgba(224,169,58,.13)",
+  "--amber-line": "rgba(224,169,58,.35)",
+  "--ok": "#7FB069",
+  "--step-rest": "#4A4E40",
+  "--scrim": "rgba(0,0,0,.6)",
+  "--shadow": "rgba(0,0,0,.45)",
+  "--disp": "\"Barlow Condensed\",\"Arial Narrow\",sans-serif",
+  "--ui": "\"Inter\",sans-serif",
+  "--logo": "\"Saira Stencil One\",\"Impact\",sans-serif"
+ },
+ "fonts": [
+  {
+   "family": "Inter",
+   "loaded": true
+  },
+  {
+   "family": "Barlow Condensed",
+   "loaded": false
+  }
+ ],
+ "media_queries": [
+  "(prefers-reduced-motion: reduce)"
+ ],
+ "animations": [],
+ "elements": [
+  {
+   "id": 0,
+   "depth": 0,
+   "sel": "div.phone",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 207,
+    "h": 404
+   },
+   "style": {
+    "position": "absolute",
+    "padding": "5px",
+    "background-color": "rgb(29, 33, 22)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "28px",
+    "box-shadow": "rgba(0, 0, 0, 0.45) 0px 18px 40px 0px"
+   },
+   "data": [
+    "data-id=login.slide.1.phone",
+    "data-compose=PhoneMockup"
+   ]
+  },
+  {
+   "id": 1,
+   "depth": 1,
+   "sel": "div.phone-screen",
+   "text": null,
+   "rect": {
+    "x": 6,
+    "y": 6,
+    "w": 195,
+    "h": 392
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "flex-direction": "column",
+    "padding": "24px 14px 14px",
+    "background-color": "rgb(10, 11, 9)",
+    "border-radius": "23px",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=login.slide.1.screen"
+   ]
+  },
+  {
+   "id": 2,
+   "depth": 2,
+   "sel": "div.phone-notch",
+   "text": null,
+   "rect": {
+    "x": 83,
+    "y": 14,
+    "w": 40,
+    "h": 4
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgba(236, 232, 218, 0.18)",
+    "border-radius": "2px"
+   }
+  },
+  {
+   "id": 3,
+   "depth": 2,
+   "sel": "div.m-head",
+   "text": null,
+   "rect": {
+    "x": 20,
+    "y": 30,
+    "w": 167,
+    "h": 12
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "margin": "0px 0px 12px"
+   },
+   "data": [
+    "data-id=login.slide.1.head"
+   ]
+  },
+  {
+   "id": 4,
+   "depth": 3,
+   "sel": "span.m-label",
+   "text": "Competição online",
+   "rect": {
+    "x": 20,
+    "y": 30,
+    "w": 125.9,
+    "h": 12
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "6px",
+    "color": "rgb(163, 181, 101)",
+    "font-size": "9px",
+    "font-weight": "600",
+    "line-height": "12px",
+    "letter-spacing": "1px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=login.slide.1.head.label"
+   ]
+  },
+  {
+   "id": 5,
+   "depth": 4,
+   "sel": "i.m-dot",
+   "text": null,
+   "rect": {
+    "x": 20,
+    "y": 33,
+    "w": 6,
+    "h": 6
+   },
+   "style": {
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "3px"
+   }
+  },
+  {
+   "id": 6,
+   "depth": 3,
+   "sel": "span.m-aside",
+   "text": "Premium",
+   "rect": {
+    "x": 149,
+    "y": 30,
+    "w": 38,
+    "h": 12
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "9px",
+    "font-weight": "500",
+    "line-height": "12px"
+   },
+   "data": [
+    "data-id=login.slide.1.head.aside"
+   ]
+  },
+  {
+   "id": 7,
+   "depth": 2,
+   "sel": "div.m-card.mission",
+   "text": null,
+   "rect": {
+    "x": 20,
+    "y": 54,
+    "w": 167,
+    "h": 46
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "10px",
+    "padding": "0px 10px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "12px"
+   },
+   "data": [
+    "data-id=login.slide.1.mission"
+   ]
+  },
+  {
+   "id": 8,
+   "depth": 3,
+   "sel": "span.badge",
+   "text": "5K",
+   "rect": {
+    "x": 31,
+    "y": 66,
+    "w": 30,
+    "h": 22
+   },
+   "style": {
+    "flex-shrink": "0",
+    "color": "rgb(163, 181, 101)",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border-radius": "8px",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "22px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=login.slide.1.mission.badge"
+   ]
+  },
+  {
+   "id": 9,
+   "depth": 3,
+   "sel": "div.m-col",
+   "text": null,
+   "rect": {
+    "x": 71,
+    "y": 62,
+    "w": 101,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column"
+   }
+  },
+  {
+   "id": 10,
+   "depth": 4,
+   "sel": "span.m-t",
+   "text": "Missão das 13:00",
+   "rect": {
+    "x": 71,
+    "y": 62,
+    "w": 101,
+    "h": 16
+   },
+   "style": {
+    "font-size": "12px",
+    "font-weight": "600",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=login.slide.1.mission.name"
+   ]
+  },
+  {
+   "id": 11,
+   "depth": 4,
+   "sel": "span.m-s",
+   "text": "3 na sala",
+   "rect": {
+    "x": 71,
+    "y": 78,
+    "w": 101,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "10px",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=login.slide.1.mission.count"
+   ]
+  },
+  {
+   "id": 12,
+   "depth": 2,
+   "sel": "div.countdown",
+   "text": null,
+   "rect": {
+    "x": 20,
+    "y": 116,
+    "w": 167,
+    "h": 88
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "center",
+    "margin": "16px 0px 0px"
+   },
+   "data": [
+    "data-id=login.slide.1.countdown"
+   ]
+  },
+  {
+   "id": 13,
+   "depth": 3,
+   "sel": "span.m-s",
+   "text": "Começa em",
+   "rect": {
+    "x": 75.1,
+    "y": 116,
+    "w": 56.7,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "10px",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=login.slide.1.countdown.label"
+   ]
+  },
+  {
+   "id": 14,
+   "depth": 3,
+   "sel": "span.cd-time",
+   "text": "18:42",
+   "rect": {
+    "x": 37.5,
+    "y": 134,
+    "w": 132,
+    "h": 56
+   },
+   "style": {
+    "margin": "4px 0px",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "56px",
+    "font-weight": "700",
+    "line-height": "56px",
+    "letter-spacing": "1px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=login.slide.1.countdown.time",
+    "data-bind=mockup.countdown"
+   ]
+  },
+  {
+   "id": 15,
+   "depth": 3,
+   "sel": "span.m-s",
+   "text": "Vence quem concluir primeiro",
+   "rect": {
+    "x": 32.7,
+    "y": 194,
+    "w": 141.6,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "10px",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=login.slide.1.countdown.rule"
+   ]
+  },
+  {
+   "id": 16,
+   "depth": 2,
+   "sel": "div.players",
+   "text": null,
+   "rect": {
+    "x": 20,
+    "y": 220,
+    "w": 167,
+    "h": 102
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "margin": "16px 0px 0px"
+   },
+   "data": [
+    "data-id=login.slide.1.players"
+   ]
+  },
+  {
+   "id": 17,
+   "depth": 3,
+   "sel": "div.player",
+   "text": null,
+   "rect": {
+    "x": 20,
+    "y": 220,
+    "w": 167,
+    "h": 34
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "10px"
+   }
+  },
+  {
+   "id": 18,
+   "depth": 4,
+   "sel": "span.avatar.me",
+   "text": "VC",
+   "rect": {
+    "x": 20,
+    "y": 224,
+    "w": 26,
+    "h": 26
+   },
+   "style": {
+    "flex-shrink": "0",
+    "color": "rgb(14, 19, 6)",
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "13px",
+    "font-size": "10px",
+    "font-weight": "700",
+    "line-height": "26px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=login.slide.1.players.p1.avatar"
+   ]
+  },
+  {
+   "id": 19,
+   "depth": 4,
+   "sel": "span.p-name",
+   "text": "Você",
+   "rect": {
+    "x": 56,
+    "y": 229,
+    "w": 77.1,
+    "h": 16
+   },
+   "style": {
+    "flex-grow": "1",
+    "font-size": "12px",
+    "font-weight": "500",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=login.slide.1.players.p1.name"
+   ]
+  },
+  {
+   "id": 20,
+   "depth": 4,
+   "sel": "span.p-status",
+   "text": "● Na sala",
+   "rect": {
+    "x": 143.1,
+    "y": 230,
+    "w": 43.9,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(127, 176, 105)",
+    "font-size": "10px",
+    "font-weight": "500",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=login.slide.1.players.p1.status"
+   ]
+  },
+  {
+   "id": 21,
+   "depth": 3,
+   "sel": "div.player",
+   "text": null,
+   "rect": {
+    "x": 20,
+    "y": 254,
+    "w": 167,
+    "h": 34
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "10px"
+   }
+  },
+  {
+   "id": 22,
+   "depth": 4,
+   "sel": "span.avatar",
+   "text": "RM",
+   "rect": {
+    "x": 20,
+    "y": 258,
+    "w": 26,
+    "h": 26
+   },
+   "style": {
+    "flex-shrink": "0",
+    "color": "rgb(163, 181, 101)",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border-radius": "13px",
+    "font-size": "10px",
+    "font-weight": "700",
+    "line-height": "26px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=login.slide.1.players.p2.avatar"
+   ]
+  },
+  {
+   "id": 23,
+   "depth": 4,
+   "sel": "span.p-name",
+   "text": "Rafael M.",
+   "rect": {
+    "x": 56,
+    "y": 263,
+    "w": 77.1,
+    "h": 16
+   },
+   "style": {
+    "flex-grow": "1",
+    "font-size": "12px",
+    "font-weight": "500",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=login.slide.1.players.p2.name"
+   ]
+  },
+  {
+   "id": 24,
+   "depth": 4,
+   "sel": "span.p-status",
+   "text": "● Na sala",
+   "rect": {
+    "x": 143.1,
+    "y": 264,
+    "w": 43.9,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(127, 176, 105)",
+    "font-size": "10px",
+    "font-weight": "500",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=login.slide.1.players.p2.status"
+   ]
+  },
+  {
+   "id": 25,
+   "depth": 3,
+   "sel": "div.player",
+   "text": null,
+   "rect": {
+    "x": 20,
+    "y": 288,
+    "w": 167,
+    "h": 34
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "10px"
+   }
+  },
+  {
+   "id": 26,
+   "depth": 4,
+   "sel": "span.avatar",
+   "text": "CS",
+   "rect": {
+    "x": 20,
+    "y": 292,
+    "w": 26,
+    "h": 26
+   },
+   "style": {
+    "flex-shrink": "0",
+    "color": "rgb(163, 181, 101)",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border-radius": "13px",
+    "font-size": "10px",
+    "font-weight": "700",
+    "line-height": "26px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=login.slide.1.players.p3.avatar"
+   ]
+  },
+  {
+   "id": 27,
+   "depth": 4,
+   "sel": "span.p-name",
+   "text": "Camila S.",
+   "rect": {
+    "x": 56,
+    "y": 297,
+    "w": 77.1,
+    "h": 16
+   },
+   "style": {
+    "flex-grow": "1",
+    "font-size": "12px",
+    "font-weight": "500",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=login.slide.1.players.p3.name"
+   ]
+  },
+  {
+   "id": 28,
+   "depth": 4,
+   "sel": "span.p-status",
+   "text": "● Na sala",
+   "rect": {
+    "x": 143.1,
+    "y": 298,
+    "w": 43.9,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(127, 176, 105)",
+    "font-size": "10px",
+    "font-weight": "500",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=login.slide.1.players.p3.status"
+   ]
+  },
+  {
+   "id": 29,
+   "depth": 2,
+   "sel": "div.m-btn",
+   "text": "Entrar na prova",
+   "rect": {
+    "x": 20,
+    "y": 348,
+    "w": 167,
+    "h": 36
+   },
+   "style": {
+    "margin": "26px 0px 0px",
+    "color": "rgb(255, 244, 240)",
+    "background-color": "rgb(209, 43, 43)",
+    "border-radius": "18px",
+    "font-size": "12px",
+    "font-weight": "600",
+    "line-height": "36px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=login.slide.1.cta"
+   ]
+  }
+ ],
+ "root_selector": ".phone"
+}

@@ -1,0 +1,33 @@
+[
+ {
+  "name": "progresso_lista",
+  "wait": 300
+ },
+ {
+  "name": "seta_pressionada",
+  "press": "[data-id='prog.run1.arrow']",
+  "wait": 300
+ },
+ {
+  "name": "progresso_abre_detalhes",
+  "click": "[data-id='prog.run1.arrow']",
+  "frames": [
+   0,
+   100,
+   200,
+   400
+  ]
+ },
+ {
+  "name": "progresso_abre_detalhes_run2",
+  "setup": [
+   "[data-id='det.top.back']"
+  ],
+  "click": "[data-id='prog.run2.arrow']",
+  "frames": [
+   0,
+   200,
+   400
+  ]
+ }
+]

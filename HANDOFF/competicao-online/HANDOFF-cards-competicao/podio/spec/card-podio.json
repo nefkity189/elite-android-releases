@@ -1,0 +1,618 @@
+{
+ "screen": {
+  "w": 1080,
+  "h": 1350
+ },
+ "tokens": {
+  "--ink": "#0A0B09",
+  "--card": "#161911",
+  "--elev": "#1D2116",
+  "--bone": "#ECE8DA",
+  "--muted": "#8F9384",
+  "--dim": "#5E6255",
+  "--olive": "#A3B565",
+  "--on-olive": "#0E1306",
+  "--red": "#D12B2B",
+  "--brass": "#C9A24B",
+  "--silver": "#B8BCB0",
+  "--bronze": "#A8703E",
+  "--skew": "-12deg"
+ },
+ "fonts": [
+  {
+   "family": "Inter",
+   "loaded": true
+  },
+  {
+   "family": "Barlow",
+   "loaded": false
+  }
+ ],
+ "media_queries": [],
+ "animations": [],
+ "elements": [
+  {
+   "id": 0,
+   "depth": 0,
+   "sel": "main.phone",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 1080,
+    "h": 1350
+   },
+   "style": {
+    "position": "relative",
+    "flex-shrink": "0",
+    "background-color": "rgb(10, 11, 9)",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-screen=podio",
+    "data-component=PodiumCard"
+   ]
+  },
+  {
+   "id": 1,
+   "depth": 1,
+   "sel": "div.a",
+   "text": null,
+   "rect": {
+    "x": 500,
+    "y": 420,
+    "w": 820,
+    "h": 824
+   },
+   "style": {
+    "position": "absolute"
+   }
+  },
+  {
+   "id": 2,
+   "depth": 2,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 500,
+    "y": 420,
+    "w": 820,
+    "h": 820
+   },
+   "style": {
+    "opacity": "0.06",
+    "overflow": "hidden"
+   },
+   "svg": "<svg viewBox=\"0 0 64 64\" width=\"820\" height=\"820\" style=\"opacity:0.06\"><path fill=\"#C9A24B\" d=\"M19.1,8.0 L55.1,8.0 L53.2,17.0 L27.2,17.0 L20.8,47.0 L46.8,47.0 L44.9,56.0 L8.9,56.0 Z\"></path><path fill=\"#C9A24B\" d=\"M25.1,27.0 L45.1,27.0 L43.1,36.0 L23.1,36.0 Z\"></path></svg>"
+  },
+  {
+   "id": 3,
+   "depth": 1,
+   "sel": "div.z",
+   "text": null,
+   "rect": {
+    "x": 72,
+    "y": 72,
+    "w": 64,
+    "h": 64
+   },
+   "style": {
+    "position": "absolute",
+    "z-index": "2"
+   }
+  },
+  {
+   "id": 4,
+   "depth": 2,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 72,
+    "y": 72,
+    "w": 64,
+    "h": 64
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "svg": "<svg viewBox=\"0 0 64 64\" width=\"64\" height=\"64\" style=\"opacity:1\"><path fill=\"#ECE8DA\" d=\"M19.1,8.0 L55.1,8.0 L53.2,17.0 L27.2,17.0 L20.8,47.0 L46.8,47.0 L44.9,56.0 L8.9,56.0 Z\"></path><path fill=\"#D12B2B\" d=\"M25.1,27.0 L45.1,27.0 L43.1,36.0 L23.1,36.0 Z\"></path></svg>"
+  },
+  {
+   "id": 5,
+   "depth": 1,
+   "sel": "div.z.wm",
+   "text": "ELITE",
+   "rect": {
+    "x": 160,
+    "y": 76,
+    "w": 187.3,
+    "h": 56
+   },
+   "style": {
+    "position": "absolute",
+    "font-family": "Barlow",
+    "font-size": "44px",
+    "font-weight": "700",
+    "line-height": "56px",
+    "letter-spacing": "10.56px",
+    "z-index": "5"
+   }
+  },
+  {
+   "id": 6,
+   "depth": 1,
+   "sel": "div.z.ctx",
+   "text": "Prova 5K das 13:00",
+   "rect": {
+    "x": 766.3,
+    "y": 86,
+    "w": 241.7,
+    "h": 32
+   },
+   "style": {
+    "position": "absolute",
+    "color": "rgb(143, 147, 132)",
+    "font-family": "Inter",
+    "font-size": "26px",
+    "font-weight": "600",
+    "line-height": "32px",
+    "text-align": "right",
+    "z-index": "5"
+   }
+  },
+  {
+   "id": 7,
+   "depth": 1,
+   "sel": "div.z.bar",
+   "text": null,
+   "rect": {
+    "x": 72,
+    "y": 1232,
+    "w": 66.1,
+    "h": 10
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(209, 43, 43)",
+    "transform": "matrix(1, 0, -0.212557, 1, 0, 0)",
+    "z-index": "2"
+   }
+  },
+  {
+   "id": 8,
+   "depth": 1,
+   "sel": "div.z.tg",
+   "text": "Missão dada é missão cumprida",
+   "rect": {
+    "x": 72,
+    "y": 1262,
+    "w": 371.8,
+    "h": 30
+   },
+   "style": {
+    "position": "absolute",
+    "color": "rgb(143, 147, 132)",
+    "font-family": "Inter",
+    "font-size": "24px",
+    "font-weight": "600",
+    "line-height": "30px",
+    "z-index": "2"
+   }
+  },
+  {
+   "id": 9,
+   "depth": 1,
+   "sel": "div.z.tg",
+   "text": "Competição online",
+   "rect": {
+    "x": 790.8,
+    "y": 1262,
+    "w": 217.2,
+    "h": 30
+   },
+   "style": {
+    "position": "absolute",
+    "font-family": "Inter",
+    "font-size": "24px",
+    "font-weight": "600",
+    "line-height": "30px",
+    "z-index": "2"
+   }
+  },
+  {
+   "id": 10,
+   "depth": 1,
+   "sel": "div.z.d.sk",
+   "text": "NO PÓDIO",
+   "rect": {
+    "x": 72,
+    "y": 200,
+    "w": 986.2,
+    "h": 170
+   },
+   "style": {
+    "position": "absolute",
+    "font-family": "Barlow, sans-serif",
+    "font-size": "190px",
+    "font-weight": "700",
+    "line-height": "170px",
+    "transform": "matrix(1, 0, -0.212557, 1, 0, 0)",
+    "z-index": "2"
+   }
+  },
+  {
+   "id": 11,
+   "depth": 1,
+   "sel": "div.z.k",
+   "text": "Os três primeiros da missão, tempo oficial",
+   "rect": {
+    "x": 72,
+    "y": 400,
+    "w": 634.5,
+    "h": 40
+   },
+   "style": {
+    "position": "absolute",
+    "color": "rgb(143, 147, 132)",
+    "font-family": "Inter",
+    "font-size": "32px",
+    "line-height": "40px",
+    "z-index": "2"
+   }
+  },
+  {
+   "id": 12,
+   "depth": 1,
+   "sel": "div.z",
+   "text": null,
+   "rect": {
+    "x": 72,
+    "y": 720,
+    "w": 300,
+    "h": 102
+   },
+   "style": {
+    "position": "absolute",
+    "z-index": "2"
+   }
+  },
+  {
+   "id": 13,
+   "depth": 2,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 136,
+    "y": 720,
+    "w": 236,
+    "h": 102
+   },
+   "style": {
+    "margin": "0px 0px 0px 64px"
+   }
+  },
+  {
+   "id": 14,
+   "depth": 3,
+   "sel": "div.d",
+   "text": "Marina L.",
+   "rect": {
+    "x": 136,
+    "y": 720,
+    "w": 236,
+    "h": 42
+   },
+   "style": {
+    "font-family": "Barlow, sans-serif",
+    "font-size": "36px",
+    "font-weight": "700",
+    "line-height": "42px"
+   }
+  },
+  {
+   "id": 15,
+   "depth": 3,
+   "sel": "div.d",
+   "text": "24:02",
+   "rect": {
+    "x": 136,
+    "y": 762,
+    "w": 236,
+    "h": 60
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-family": "Barlow, sans-serif",
+    "font-size": "54px",
+    "font-weight": "700",
+    "line-height": "60px"
+   }
+  },
+  {
+   "id": 16,
+   "depth": 1,
+   "sel": "div.a.sk",
+   "text": null,
+   "rect": {
+    "x": 72,
+    "y": 850,
+    "w": 335.8,
+    "h": 300
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(184, 188, 176)",
+    "transform": "matrix(1, 0, -0.212557, 1, 0, 0)"
+   }
+  },
+  {
+   "id": 17,
+   "depth": 2,
+   "sel": "div.d",
+   "text": "2",
+   "rect": {
+    "x": 112.6,
+    "y": 864,
+    "w": 272,
+    "h": 190
+   },
+   "style": {
+    "position": "absolute",
+    "color": "rgb(14, 19, 6)",
+    "font-family": "Barlow, sans-serif",
+    "font-size": "190px",
+    "font-weight": "700",
+    "line-height": "190px",
+    "text-align": "center",
+    "transform": "matrix(1, 0, 0.212557, 1, 0, 0)"
+   }
+  },
+  {
+   "id": 18,
+   "depth": 1,
+   "sel": "div.z",
+   "text": null,
+   "rect": {
+    "x": 386,
+    "y": 570,
+    "w": 300,
+    "h": 128
+   },
+   "style": {
+    "position": "absolute",
+    "z-index": "2"
+   }
+  },
+  {
+   "id": 19,
+   "depth": 2,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 482,
+    "y": 570,
+    "w": 204,
+    "h": 128
+   },
+   "style": {
+    "margin": "0px 0px 0px 96px"
+   }
+  },
+  {
+   "id": 20,
+   "depth": 3,
+   "sel": "div.bar",
+   "text": null,
+   "rect": {
+    "x": 482,
+    "y": 570,
+    "w": 86.6,
+    "h": 12
+   },
+   "style": {
+    "margin": "0px 0px 14px",
+    "background-color": "rgb(209, 43, 43)",
+    "transform": "matrix(1, 0, -0.212557, 1, 0, 0)"
+   }
+  },
+  {
+   "id": 21,
+   "depth": 3,
+   "sel": "div.d",
+   "text": "Rafael S.",
+   "rect": {
+    "x": 482,
+    "y": 596,
+    "w": 204,
+    "h": 42
+   },
+   "style": {
+    "font-family": "Barlow, sans-serif",
+    "font-size": "36px",
+    "font-weight": "700",
+    "line-height": "42px"
+   }
+  },
+  {
+   "id": 22,
+   "depth": 3,
+   "sel": "div.d",
+   "text": "23:47",
+   "rect": {
+    "x": 482,
+    "y": 638,
+    "w": 204,
+    "h": 60
+   },
+   "style": {
+    "font-family": "Barlow, sans-serif",
+    "font-size": "54px",
+    "font-weight": "700",
+    "line-height": "60px"
+   }
+  },
+  {
+   "id": 23,
+   "depth": 1,
+   "sel": "div.a.sk",
+   "text": null,
+   "rect": {
+    "x": 386,
+    "y": 700,
+    "w": 367.7,
+    "h": 450
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(201, 162, 75)",
+    "transform": "matrix(1, 0, -0.212557, 1, 0, 0)"
+   }
+  },
+  {
+   "id": 24,
+   "depth": 2,
+   "sel": "div.d",
+   "text": "1",
+   "rect": {
+    "x": 458.5,
+    "y": 714,
+    "w": 272,
+    "h": 190
+   },
+   "style": {
+    "position": "absolute",
+    "color": "rgb(14, 19, 6)",
+    "font-family": "Barlow, sans-serif",
+    "font-size": "190px",
+    "font-weight": "700",
+    "line-height": "190px",
+    "text-align": "center",
+    "transform": "matrix(1, 0, 0.212557, 1, 0, 0)"
+   }
+  },
+  {
+   "id": 25,
+   "depth": 1,
+   "sel": "div.z",
+   "text": null,
+   "rect": {
+    "x": 700,
+    "y": 800,
+    "w": 300,
+    "h": 102
+   },
+   "style": {
+    "position": "absolute",
+    "z-index": "2"
+   }
+  },
+  {
+   "id": 26,
+   "depth": 2,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 747,
+    "y": 800,
+    "w": 253,
+    "h": 102
+   },
+   "style": {
+    "margin": "0px 0px 0px 47px"
+   }
+  },
+  {
+   "id": 27,
+   "depth": 3,
+   "sel": "div.d",
+   "text": "Caio M.",
+   "rect": {
+    "x": 747,
+    "y": 800,
+    "w": 253,
+    "h": 42
+   },
+   "style": {
+    "font-family": "Barlow, sans-serif",
+    "font-size": "36px",
+    "font-weight": "700",
+    "line-height": "42px"
+   }
+  },
+  {
+   "id": 28,
+   "depth": 3,
+   "sel": "div.d",
+   "text": "24:55",
+   "rect": {
+    "x": 747,
+    "y": 842,
+    "w": 253,
+    "h": 60
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-family": "Barlow, sans-serif",
+    "font-size": "54px",
+    "font-weight": "700",
+    "line-height": "60px"
+   }
+  },
+  {
+   "id": 29,
+   "depth": 1,
+   "sel": "div.a.sk",
+   "text": null,
+   "rect": {
+    "x": 700,
+    "y": 930,
+    "w": 318.8,
+    "h": 220
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(168, 112, 62)",
+    "transform": "matrix(1, 0, -0.212557, 1, 0, 0)"
+   }
+  },
+  {
+   "id": 30,
+   "depth": 2,
+   "sel": "div.d",
+   "text": "3",
+   "rect": {
+    "x": 723.6,
+    "y": 944,
+    "w": 272,
+    "h": 190
+   },
+   "style": {
+    "position": "absolute",
+    "color": "rgb(14, 19, 6)",
+    "font-family": "Barlow, sans-serif",
+    "font-size": "190px",
+    "font-weight": "700",
+    "line-height": "190px",
+    "text-align": "center",
+    "transform": "matrix(1, 0, 0.212557, 1, 0, 0)"
+   }
+  },
+  {
+   "id": 31,
+   "depth": 1,
+   "sel": "div.a",
+   "text": null,
+   "rect": {
+    "x": 72,
+    "y": 1150,
+    "w": 936,
+    "h": 4
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(29, 33, 22)"
+   }
+  }
+ ],
+ "root_selector": ".phone"
+}

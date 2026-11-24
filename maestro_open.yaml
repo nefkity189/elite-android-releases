@@ -1,0 +1,7 @@
+appId: com.elite.sch.app
+---
+- launchApp:
+    stopApp: true
+- assertVisible:
+    id: "screen_active_run"
+- takeScreenshot: "active_run.png"

@@ -1,0 +1,9 @@
+[
+  {"name": "participacao", "eval": "__setState('participacao')", "wait": 200},
+  {"name": "podio", "click": "[data-id='shr.chips.podio']", "wait": 300},
+  {"name": "conquista", "click": "[data-id='shr.chips.conquista']", "wait": 300},
+  {"name": "ranking", "click": "[data-id='shr.chips.ranking']", "wait": 300},
+  {"name": "convite", "click": "[data-id='shr.chips.convite']", "wait": 300},
+  {"name": "convite_fallback", "click": "[data-id='shr.chips.fallback']", "wait": 300},
+  {"name": "compartilhar_pressionado", "press": "[data-id='shr.dock.share']", "wait": 300}
+]

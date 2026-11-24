@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elite - Sala da Missão</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --page:#050604;
+  --bg:#0a0b09; --surface:#10120d; --card:#161911; --card-el:#1d2116; --field:#0d0f0a;
+  --line:rgba(236,232,218,.10); --line-strong:rgba(236,232,218,.18);
+  --text:#ece8da; --muted:#8f9384; --dim:#5e6255;
+  --olive:#a3b565; --olive-dark:#5d6b34; --olive-soft:rgba(163,181,101,.14); --on-olive:#0e1306;
+  --red:#d12b2b; --red-soft:rgba(209,43,43,.15); --on-red:#fff4f0;
+  --brass:#c9a24b; --brass-soft:rgba(201,162,75,.16); --amber:#e0a93a; --amber-soft:rgba(224,169,58,.14); --ok:#7fb069; --ok-soft:rgba(127,176,105,.15); --amber-line:rgba(224,169,58,.45); --red-line:rgba(209,43,43,.5); --ok-line:rgba(127,176,105,.45); --brass-line:rgba(201,162,75,.5);
+  --glass:rgba(16,18,13,.82); --glass-bar:rgba(16,18,13,.90); --scrim:rgba(0,0,0,.62);
+  --lg-bronze:#b07a4a; --lg-prata:#b4bab8; --lg-ouro:#c9a24b; --lg-platina:#86bdb3; --lg-diamante:#7fb4de; --lg-elite:#e7e2d0;
+  --av1:#3b4426; --av2:#4a3f1e; --av3:#2e3b3a; --av4:#46301f; --av5:#3a2e3f;
+  --num:"Barlow Condensed","Arial Narrow",sans-serif; --ui:"Inter",sans-serif; --logo:"Saira Stencil One","Impact",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--page);font-family:var(--ui);color:var(--text);display:flex;justify-content:center;padding:0;-webkit-font-smoothing:antialiased}
+button{font-family:var(--ui);color:inherit;background:none;border:0;cursor:pointer}
+[data-id="screen"]{flex:none;position:relative;width:393px;height:851px;overflow:hidden;background:var(--bg);display:flex;flex-direction:column;padding:28px 16px 0}
+svg{display:block;flex:none}
+
+/* ---- tipografia ---- */
+.t1{font:700 30px/32px var(--num);text-transform:uppercase;letter-spacing:.9px}
+.t1s{font:700 24px/26px var(--num);text-transform:uppercase;letter-spacing:.96px}
+.t2{font:600 20px/23px var(--num);text-transform:uppercase;letter-spacing:.8px}
+.t3{font:600 16px/20px var(--ui)}
+.body{font:400 14px/19.6px var(--ui)}
+.cap{font:400 12px/16px var(--ui);color:var(--muted)}
+.eyebrow{font:600 11px/14px var(--ui);text-transform:uppercase;letter-spacing:1.3px;color:var(--muted)}
+.num{font-family:var(--num);font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+.olive{color:var(--olive)} .red{color:var(--red)} .brass{color:var(--brass)} .ok{color:var(--ok)} .amber{color:var(--amber)} .muted{color:var(--muted)}
+.row{display:flex;align-items:center}
+.col{display:flex;flex-direction:column}
+.grow{flex:1;min-width:0}
+.ell{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ---- cartões ---- */
+.card{background:var(--card);border:1px solid var(--line-strong);border-radius:18px}
+.card-sel{border-color:var(--olive);background:linear-gradient(180deg,var(--olive-soft),var(--card))}
+.card-brass{border-color:var(--brass);background:linear-gradient(180deg,var(--brass-soft),var(--card))}
+.card-dash{background:transparent;border:1px dashed var(--line-strong);border-radius:18px}
+
+/* ---- botões ---- */
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 18px;border-radius:24px;font:700 15px/20px var(--ui);transition:transform .12s ease-out;flex:none}
+.btn:active{transform:scale(.96)}
+.btn-lg{height:56px;border-radius:28px;font-size:16px}
+.btn-red{background:var(--red);color:var(--on-red)}
+.btn-olive{background:var(--olive);color:var(--on-olive)}
+.btn-ghost{background:transparent;border:1px solid var(--line-strong);color:var(--text)}
+.btn-share{background:var(--olive-soft);border:1px solid var(--olive-dark);color:var(--olive)}
+.btn-off{background:var(--card-el);color:var(--dim);border:1px solid var(--line)}
+.btn-icon{width:48px;padding:0;flex:none}
+.btn-back{width:40px;height:40px;border-radius:20px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex:none;transition:transform .12s ease-out}
+.btn-back:active{transform:scale(.92)}
+
+/* ---- badges / chips ---- */
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font:700 10.5px/12px var(--ui);text-transform:uppercase;letter-spacing:.6px;flex:none;white-space:nowrap}
+.b-open{background:var(--olive-soft);color:var(--olive)}
+.b-one{background:var(--amber-soft);color:var(--amber)}
+.b-conf{background:var(--ok);color:var(--on-olive)}
+.b-live{background:var(--red-soft);color:var(--red)}
+.b-done{background:var(--card-el);color:var(--muted)}
+.b-none{background:transparent;border:1px solid var(--line-strong);color:var(--muted)}
+.b-brass{background:var(--brass-soft);color:var(--brass)}
+.dot{width:7px;height:7px;border-radius:4px;background:currentColor;flex:none}
+.chip{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:15px;background:var(--card-el);border:1px solid var(--line);font:600 12px/16px var(--ui);flex:none;white-space:nowrap}
+.chip-on{background:var(--olive-soft);border-color:var(--olive-dark);color:var(--olive)}
+.dist{display:inline-flex;align-items:center;justify-content:center;height:24px;padding:0 9px;border-radius:7px;background:var(--card-el);border:1px solid var(--line-strong);font:700 14px/16px var(--num);letter-spacing:.5px}
+
+/* ---- segmentado ---- */
+.seg{display:flex;gap:4px;padding:4px;background:var(--field);border:1px solid var(--line);border-radius:24px;height:48px}
+.seg>button{flex:1;border-radius:20px;font:700 20px/20px var(--num);color:var(--muted);letter-spacing:.5px;transition:background .18s ease-out,color .18s ease-out}
+.seg>button.on{background:var(--olive-soft);color:var(--olive);box-shadow:inset 0 0 0 1px var(--olive-dark)}
+.seg-sm{height:40px;border-radius:20px}
+.seg-sm>button{font:600 13px/16px var(--ui)}
+.tabs{display:flex;gap:20px;height:32px;border-bottom:1px solid var(--line)}
+.tabs>button{font:600 13px/16px var(--ui);color:var(--muted);padding:0 2px 10px;border-bottom:2px solid transparent}
+.tabs>button.on{color:var(--olive);border-bottom-color:var(--olive)}
+
+/* ---- avatares ---- */
+.av{border-radius:50%;display:flex;align-items:center;justify-content:center;font:700 14px/14px var(--num);letter-spacing:.5px;border:1.5px solid var(--line-strong);flex:none;color:var(--text)}
+.av-me{border-color:var(--olive);box-shadow:0 0 0 2px var(--olive-soft)}
+.av-empty{background:transparent;border:1.5px dashed var(--line-strong);color:var(--dim)}
+.stack{display:flex}
+.stack>*+*{margin-left:-8px}
+
+/* ---- barras ---- */
+.bar{height:6px;border-radius:3px;background:var(--card-el);overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:3px;background:var(--olive)}
+.bar-brass>i{background:var(--brass)}
+.hr{height:1px;background:var(--line);flex:none}
+
+.sc-ic{width:32px;height:32px;border-radius:16px;background:var(--brass-soft);color:var(--brass);display:flex;align-items:center;justify-content:center;flex:none}
+
+/* ---- topbar ---- */
+.topbar{display:flex;align-items:center;gap:12px;height:48px;flex:none}
+.logo{display:flex;align-items:center;gap:8px}
+.logo-t{font:400 17px/20px var(--logo);letter-spacing:3.4px}
+
+/* ---- barra inferior fixa ---- */
+.dock{flex:none;margin:0 -16px;padding:14px 16px 18px;background:var(--glass-bar);border-top:1px solid var(--line-strong);border-radius:26px 26px 0 0}
+
+/* ---- cartão de missão ---- */
+.m{display:flex;flex-direction:column;padding:14px;flex:none}
+.m-time{font:700 36px/36px var(--num);font-variant-numeric:tabular-nums;letter-spacing:.5px}
+.m-compact{padding:12px 14px}
+
+/* ---- linha de ranking ---- */
+.rk{display:flex;align-items:center;gap:10px;height:56px;padding:0 12px;border-radius:14px;flex:none}
+.rk-me{background:var(--olive-soft);box-shadow:inset 0 0 0 1px var(--olive-dark)}
+.rk-pos{width:30px;text-align:center;font:700 20px/20px var(--num);font-variant-numeric:tabular-nums;color:var(--muted)}
+.rk-elo{font:700 18px/18px var(--num);font-variant-numeric:tabular-nums;text-align:right}
+.trend{display:flex;align-items:center;justify-content:flex-end;gap:2px;font:600 11px/12px var(--ui);width:36px}
+.t-up{color:var(--ok)} .t-down{color:var(--red)} .t-eq{color:var(--dim)}
+
+/* ---- banners ---- */
+.banner{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;border:1px solid var(--line-strong);background:var(--card);flex:none}
+.banner-ico{width:36px;height:36px;border-radius:18px;display:flex;align-items:center;justify-content:center;flex:none}
+.bn-amber{border-color:var(--amber-line);background:linear-gradient(90deg,var(--amber-soft),var(--card))} .bn-amber .banner-ico{background:var(--amber-soft);color:var(--amber)}
+.bn-red{border-color:var(--red-line);background:linear-gradient(90deg,var(--red-soft),var(--card))} .bn-red .banner-ico{background:var(--red-soft);color:var(--red)}
+.bn-ok{border-color:var(--ok-line);background:linear-gradient(90deg,var(--ok-soft),var(--card))} .bn-ok .banner-ico{background:var(--ok-soft);color:var(--ok)}
+.bn-olive{border-color:var(--olive-dark);background:linear-gradient(90deg,var(--olive-soft),var(--card))} .bn-olive .banner-ico{background:var(--olive-soft);color:var(--olive)}
+.bn-brass{border-color:var(--brass-line);background:linear-gradient(90deg,var(--brass-soft),var(--card))} .bn-brass .banner-ico{background:var(--brass-soft);color:var(--brass)}
+.bn-mute .banner-ico{background:var(--card-el);color:var(--muted)}
+
+@media (prefers-reduced-motion:reduce){
+  .btn,.btn-back,.seg>button{transition:none}
+}
+
+/* ---- mini card de convite (miniatura do card compartilhável) ---- */
+.mini{display:flex;flex-direction:column;justify-content:space-between;padding:12px;border-radius:14px;background:linear-gradient(160deg,var(--card-el),var(--bg));border:1px solid var(--olive-dark)}
+.stripe{height:4px;width:100%;background:var(--red);border-radius:2px;transform:skewX(-20deg)}
+
+.invite{padding:14px;background:linear-gradient(135deg,var(--olive-soft),var(--card) 70%);border:1px solid var(--olive-dark);border-radius:18px;display:flex;flex-direction:column;gap:10px;flex:none}
+
+.kv{flex:1;display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.kv .num{font-size:28px}
+
+.num{white-space:nowrap}
+.sc-chip{white-space:nowrap}
+
+[data-id="lobby.scroll"]{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;display:flex;flex-direction:column;gap:10px;padding-bottom:12px}
+[data-id="lobby.scroll"]::-webkit-scrollbar{display:none}
+.slot-pulse{animation:slot-pulse 2s ease-in-out infinite}
+@keyframes slot-pulse{0%,100%{border-color:var(--line-strong)}50%{border-color:var(--olive)}}
+.fact{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:2px 0}
+.fact+.fact{border-left:1px solid var(--line)}
+.fact .num{font-size:24px}
+.rule{display:flex;gap:10px;align-items:flex-start}
+.rule svg{margin-top:2px;color:var(--olive)}
+.pr{display:flex;align-items:center;gap:12px;height:52px}
+
+.bn,.s-conf,.s-open{display:none}
+[data-state="padrao"] .s-open,[data-state="banner10"] .s-open,[data-state="banner5"] .s-open{display:flex}
+[data-state="confirmada"] .s-conf{display:flex}
+[data-state="banner10"] .bn-10{display:flex}
+[data-state="banner5"] .bn-5{display:flex}
+[data-state="confirmada"] .bn-ok-c{display:flex}
+@media (prefers-reduced-motion:reduce){.slot-pulse{animation:none}}
+</style>
+</head>
+<body>
+<main data-id="screen" data-viewport="393x851" data-state="padrao">
+  <header data-id="lobby.topbar" class="topbar" style="height:56px">
+    <button data-id="lobby.topbar.back" class="btn-back" aria-label="Voltar"><svg data-id="lobby.topbar.back.ic" data-icon="material:ArrowBack" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <div class="col grow" data-id="lobby.topbar.titles" style="gap:2px">
+      <p data-id="lobby.topbar.eyebrow" class="eyebrow">Sala da missão</p>
+      <h1 data-id="lobby.topbar.title" class="t1s" data-bind="mission.title">Missão 5K — 13:00</h1>
+    </div>
+  </header>
+
+  <div data-id="lobby.banners" class="col" style="gap:8px;flex:none;margin-bottom:10px">
+    <aside data-id="lobby.banner10" class="banner bn-amber bn bn-10" data-compose="WarningBanner" role="status">
+      <div data-id="lobby.banner10.banner-ico" class="banner-ico"><svg data-id="lobby.banner10.ic" data-icon="material:Notifications" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+      <div data-id="lobby.banner10.col" class="col grow" style="gap:2px"><p data-id="lobby.banner10.title" class="t3" style="font-size:14px">Faltam 10 minutos</p><p data-id="lobby.banner10.text" class="cap">Falta 1 competidor para a missão iniciar. Convide alguém.</p></div>
+      <button data-id="lobby.banner10.cta" class="btn btn-share" style="height:36px;padding:0 12px;font-size:12px">Convidar</button>
+    </aside>
+    <aside data-id="lobby.banner5" class="banner bn-red bn bn-5" data-compose="WarningBanner" role="status">
+      <div data-id="lobby.banner5.banner-ico" class="banner-ico"><svg data-id="lobby.banner5.ic" data-icon="material:Warning" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0zM12 9v4M12 17h.01"/></svg></div>
+      <div data-id="lobby.banner5.col" class="col grow" style="gap:2px"><p data-id="lobby.banner5.title" class="t3" style="font-size:14px">Faltam 5 minutos</p><p data-id="lobby.banner5.text" class="cap">Sem 2 competidores, a missão não inicia. Convide agora.</p></div>
+      <button data-id="lobby.banner5.cta" class="btn btn-share" style="height:36px;padding:0 12px;font-size:12px">Convidar</button>
+    </aside>
+    <aside data-id="lobby.bannerok" class="banner bn-ok bn bn-ok-c" data-compose="WarningBanner" role="status">
+      <div data-id="lobby.bannerok.banner-ico" class="banner-ico"><svg data-id="lobby.bannerok.ic" data-icon="material:Check" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <div data-id="lobby.bannerok.col" class="col grow" style="gap:2px"><p data-id="lobby.bannerok.title" class="t3" style="font-size:14px">Missão confirmada. Prepare-se.</p><p data-id="lobby.bannerok.text" class="cap">Mínimo de 2 competidores atingido.</p></div>
+    </aside>
+  </div>
+
+  <div data-id="lobby.scroll" data-compose="verticalScroll Column">
+    <section data-id="lobby.countdown" class="card" style="padding:12px 16px 10px;flex:none" data-compose="CountdownCard">
+      <div data-id="lobby.countdown.row" class="row" style="justify-content:space-between"><span data-id="lobby.countdown.label" class="eyebrow">Começa em</span><span data-id="lobby.countdown.status" class="badge b-one s-open"><i data-id="lobby.countdown.status.dot" class="dot"></i>Falta 1 competidor</span><span data-id="lobby.countdown.status-ok" class="badge b-conf s-conf"><i data-id="lobby.countdown.status-ok.dot" class="dot"></i>Confirmada</span></div>
+      <p data-id="lobby.countdown.value" class="num" style="font-size:52px;text-align:center;margin:6px 0 8px;letter-spacing:1px" data-bind="mission.countdown">18:42</p>
+      <div data-id="lobby.facts" class="row" style="padding-top:10px;border-top:1px solid var(--line)">
+        <div data-id="lobby.facts.fact" class="fact"><span data-id="lobby.facts.fact.eyebrow" class="eyebrow" style="font-size:10px">Distância</span><span data-id="lobby.facts.fact.num" class="num">5 km</span></div>
+        <div data-id="lobby.facts.fact2" class="fact"><span data-id="lobby.facts.fact2.eyebrow" class="eyebrow" style="font-size:10px">Horário</span><span data-id="lobby.facts.fact2.num" class="num">13:00</span></div>
+        <div data-id="lobby.facts.fact3" class="fact"><span data-id="lobby.facts.fact3.eyebrow" class="eyebrow" style="font-size:10px">Mínimo</span><span data-id="lobby.facts.fact3.num" class="num">2</span></div>
+      </div>
+      <div data-id="lobby.rule" class="row" style="gap:8px;margin-top:10px;justify-content:center;color:var(--olive)"><svg data-id="lobby.rule.ic" data-icon="material:Flag" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg><span data-id="lobby.rule.text" class="t3" style="font-size:13px">Vence quem concluir primeiro</span></div>
+    </section>
+
+    <section data-id="lobby.players" class="card" style="padding:12px 14px;flex:none" data-compose="ParticipantList">
+      <div data-id="lobby.players.row" class="row" style="justify-content:space-between;margin-bottom:4px"><h2 data-id="lobby.players.title" class="t2">Competidores</h2><span data-id="lobby.players.count" class="num" style="font-size:20px" data-bind="mission.count"><span data-id="lobby.players.count.open" class="s-open">1/2</span><span data-id="lobby.players.count.conf" class="s-conf">2/2</span></span></div>
+      <div class="pr" data-id="lobby.players.me"><div data-id="lobby.players.me.av" class="av av-me" style="width:36px;height:36px;background:var(--av1);font-size:13px">RN</div><div data-id="lobby.players.me.col" class="col grow" style="gap:1px"><span data-id="lobby.players.me.name" class="t3" style="font-size:14px">Rafael Nunes <span class="olive" data-id="lobby.players.me.tag" style="font-size:11px;font-weight:700">VOCÊ</span></span></div><span data-id="lobby.players.me.status" class="row cap ok" style="gap:6px"><i data-id="lobby.players.me.status.dot" class="dot"></i>Na sala</span></div>
+      <div data-id="lobby.players.hr" class="hr"></div>
+      <div class="pr s-conf" data-id="lobby.players.p2"><div data-id="lobby.players.p2.av" class="av" style="width:36px;height:36px;background:var(--av2);font-size:13px">CD</div><div data-id="lobby.players.p2.col" class="col grow"><span data-id="lobby.players.p2.name" class="t3" style="font-size:14px">Camila Duarte</span></div><span data-id="lobby.players.p2.status" class="row cap ok" style="gap:6px"><i data-id="lobby.players.p2.status.dot" class="dot"></i>Na sala</span></div>
+      <div class="pr s-open" data-id="lobby.players.slot"><div data-id="lobby.players.slot.av" class="av av-empty slot-pulse" style="width:36px;height:36px"><svg data-id="lobby.players.slot.ic" data-icon="material:Add" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></div><div data-id="lobby.players.slot.col" class="col grow" style="gap:1px"><span data-id="lobby.players.slot.name" class="t3 muted" style="font-size:14px">Aguardando competidor</span><span data-id="lobby.players.slot.hint" class="cap">Vaga em aberto</span></div></div>
+    </section>
+
+    <section data-id="lobby.invite" class="invite" data-compose="InviteCard">
+      <div data-id="lobby.invite.row" class="row" style="gap:12px;align-items:flex-start">
+        <div data-id="lobby.invite.icon" class="sc-ic" style="width:40px;height:40px;border-radius:20px;background:var(--olive-soft);color:var(--olive)"><svg data-id="lobby.invite.icon.ic" data-icon="material:Groups" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div data-id="lobby.invite.row.col" class="col grow" style="gap:4px"><h2 data-id="lobby.invite.title" class="t2">Chame reforços para a missão</h2><p data-id="lobby.invite.text" class="cap">O link leva direto para esta missão. Quem já tem o Elite cai na sala; quem não tem vai para o download.</p></div>
+      </div>
+      <button data-id="lobby.invite.share" class="btn btn-olive btn-lg" style="height:50px"><svg data-id="lobby.invite.share.ic" data-icon="material:Share" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5l6.8-4M8.6 13.5l6.8 4"/></svg>Compartilhar convite</button>
+    </section>
+
+    <section data-id="lobby.rules" class="card" style="padding:14px;flex:none" data-compose="MissionRulesCard">
+      <h2 data-id="lobby.rules.title" class="t2" style="margin-bottom:10px">Regras da missão</h2>
+      <div data-id="lobby.rules.col" class="col" style="gap:8px">
+        <div data-id="lobby.rules.col.rule" class="rule"><svg data-id="lobby.rules.i1" data-icon="material:Check" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><p data-id="lobby.rules.r1" class="cap" style="color:var(--text)">Vence quem concluir os 5 km primeiro.</p></div>
+        <div data-id="lobby.rules.col.rule2" class="rule"><svg data-id="lobby.rules.i2" data-icon="material:Check" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><p data-id="lobby.rules.r2" class="cap" style="color:var(--text)">A missão só começa com no mínimo 2 competidores.</p></div>
+        <div data-id="lobby.rules.col.rule3" class="rule"><svg data-id="lobby.rules.i3" data-icon="material:Check" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><p data-id="lobby.rules.r3" class="cap" style="color:var(--text)">É preciso completar a distância para registrar o resultado.</p></div>
+      </div>
+    </section>
+  </div>
+
+  <footer data-id="lobby.dock" class="dock" data-compose="BottomActionBar">
+    <button data-id="lobby.dock.wait" class="btn btn-lg btn-off s-open" disabled>Aguardando o mínimo de competidores</button>
+    <button data-id="lobby.dock.enter" class="btn btn-lg btn-red s-conf" style="width:100%">Entrar na prova</button>
+  </footer>
+
+  <script>
+  (function(){
+    var root=document.querySelector('[data-id="screen"]'),v=document.querySelector('[data-id="lobby.countdown.value"]');
+    var t={padrao:'18:42',banner10:'09:58',banner5:'04:57',confirmada:'04:12'};
+    window.__setState=function(n){root.setAttribute('data-state',n);v.textContent=t[n]||t.padrao;};
+  })();
+  </script>
+</main>
+
+</body>
+</html>

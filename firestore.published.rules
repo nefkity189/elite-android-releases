@@ -1,0 +1,228 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function isOwner(uid) { return signedIn() && request.auth.uid == uid; }
+    function d() { return request.resource.data; }
+
+    // Per-user bounded clock probe. No shared mutable clock document.
+    match /_timeSync/{uid} {
+      allow read: if isOwner(uid);
+      allow create, update: if isOwner(uid)
+        && d().keys().hasOnly(['serverTime'])
+            && d().serverTime == request.time;
+      allow delete: if isOwner(uid);
+    }
+    match /config/{doc} {
+      allow read: if signedIn();
+      allow write: if false;
+    }
+    match /seasons/{seasonId} {
+      allow read: if signedIn();
+      allow write: if false;
+    }
+    match /users/{uid} {
+      allow read: if signedIn();
+      allow create: if isOwner(uid)
+        && d().elo == 0 && d().elo25 == 0 && d().elo5 == 0 && d().elo10 == 0
+        && d().isPremium == false
+        && d().seasonId == get(/databases/$(database)/documents/config/season).data.id;
+      allow update: if isOwner(uid)
+        && d().diff(resource.data).affectedKeys().hasOnly(['name', 'state', 'avatarSeed']);
+    }
+    match /users/{uid}/achievements/{id} {
+      allow read: if isOwner(uid);
+      allow write: if false;
+    }
+    match /users/{uid}/seasonHistory/{seasonId} {
+      allow read: if isOwner(uid);
+      allow write: if false;
+    }
+    match /users/{uid}/competitionHistory/{historyId} {
+      allow read: if isOwner(uid);
+      allow write: if false;
+    }
+    match /missions/{missionId} {
+      allow read: if signedIn();
+      function profileState() {
+        return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.state;
+      }
+      function validStateTimeZone(state, timeZone) {
+        return (state in ['AC'] && timeZone == 'America/Rio_Branco')
+          || (state in ['AM'] && timeZone == 'America/Manaus')
+          || (state in ['AP', 'PA'] && timeZone == 'America/Belem')
+          || (state in ['BA'] && timeZone == 'America/Bahia')
+          || (state in ['CE', 'MA', 'PB', 'PI', 'RN'] && timeZone == 'America/Fortaleza')
+          || (state in ['DF', 'ES', 'GO', 'MG', 'PR', 'RJ', 'RS', 'SC', 'SP'] && timeZone == 'America/Sao_Paulo')
+          || (state in ['MS'] && timeZone == 'America/Campo_Grande')
+          || (state in ['MT'] && timeZone == 'America/Cuiaba')
+          || (state in ['PE'] && timeZone == 'America/Recife')
+          || (state in ['RO'] && timeZone == 'America/Porto_Velho')
+          || (state in ['RR'] && timeZone == 'America/Boa_Vista')
+          || (state in ['SE'] && timeZone == 'America/Maceio')
+          || (state in ['TO'] && timeZone == 'America/Araguaina');
+      }
+      allow create: if signedIn()
+        && d().keys().hasOnly(['distanceKm', 'startsAt', 'minPlayers', 'playerCount', 'state', 'timeZone'])
+        && d().distanceKm in [2.5, 5, 5.0, 10, 10.0]
+        && d().minPlayers == 2
+        && d().state == profileState()
+        && d().state is string && d().state.size() == 2
+        && d().timeZone is string && validStateTimeZone(d().state, d().timeZone)
+        && d().startsAt is timestamp
+        && d().startsAt.minutes() == 0 && d().startsAt.seconds() == 0
+        && (d().startsAt.hours() >= 5 || d().startsAt.hours() == 0)
+        && d().startsAt > request.time
+        && d().startsAt <= request.time + duration.value(24, 'h')
+        && d().playerCount == 1
+        && existsAfter(/databases/$(database)/documents/missions/$(missionId)/players/$(request.auth.uid));
+      allow update: if signedIn()
+        && d().diff(resource.data).affectedKeys().hasOnly(['playerCount'])
+        && d().playerCount >= 0
+        && ((d().playerCount == resource.data.playerCount + 1
+              && !exists(/databases/$(database)/documents/missions/$(missionId)/players/$(request.auth.uid))
+              && existsAfter(/databases/$(database)/documents/missions/$(missionId)/players/$(request.auth.uid)))
+          || (d().playerCount == resource.data.playerCount - 1
+              && exists(/databases/$(database)/documents/missions/$(missionId)/players/$(request.auth.uid))
+              && !existsAfter(/databases/$(database)/documents/missions/$(missionId)/players/$(request.auth.uid))))
+        || firstWinnerClaim();
+      function firstWinnerClaim() {
+        let afterPlayer = getAfter(/databases/$(database)/documents/missions/$(missionId)/players/$(request.auth.uid)).data;
+        let evidence = getAfter(/databases/$(database)/documents/missions/$(missionId)/gpsPrivate/$(request.auth.uid)).data;
+        return isOwner(d().winnerUid)
+          && !resource.data.keys().hasAny(['winnerUid'])
+          && d().diff(resource.data).affectedKeys().hasOnly(['winnerUid', 'winnerFinishedAt', 'winnerTimeSec'])
+          && d().winnerFinishedAt == request.time
+          && d().winnerTimeSec is int && d().winnerTimeSec >= 0
+          && afterPlayer.finishedAt == request.time
+          && afterPlayer.timeSec == d().winnerTimeSec
+          && afterPlayer.progressKm >= resource.data.distanceKm
+          && evidence.updatedAt == request.time && evidence.points.size() > 0;
+      }
+      match /players/{uid} {
+        function mission() {
+          return get(/databases/$(database)/documents/missions/$(missionId)).data;
+        }
+        allow read: if signedIn();
+        allow create: if isOwner(uid)
+          && d().keys().hasOnly(['name', 'state', 'joinedAt', 'progressKm', 'finishedAt', 'timeSec', 'eloDelta'])
+          && d().progressKm == 0
+          && d().timeSec == 0
+          && d().finishedAt == null
+          && d().eloDelta == 0
+          && d().state == profileState()
+          && d().state == getAfter(/databases/$(database)/documents/missions/$(missionId)).data.state
+          && d().joinedAt == request.time
+          && ((!exists(/databases/$(database)/documents/missions/$(missionId))
+                && getAfter(/databases/$(database)/documents/missions/$(missionId)).data.playerCount == 1)
+              || (exists(/databases/$(database)/documents/missions/$(missionId))
+                && getAfter(/databases/$(database)/documents/missions/$(missionId)).data.playerCount == mission().playerCount + 1))
+          && request.time < getAfter(/databases/$(database)/documents/missions/$(missionId)).data.startsAt;
+        function activePlayer() {
+          return isOwner(uid) && resource.data.finishedAt == null
+            && !resource.data.keys().hasAny(['withdrawnAt']);
+        }
+        function startClaim() {
+          let peer = get(/databases/$(database)/documents/missions/$(missionId)/players/$(d().startPeerUid)).data;
+          return activePlayer()
+            && !resource.data.keys().hasAny(['sessionId'])
+            && d().diff(resource.data).affectedKeys().hasOnly(['sessionId', 'startedAt', 'startPeerUid'])
+            && d().sessionId is string && d().sessionId.size() >= 16 && d().sessionId.size() <= 80
+            && d().startPeerUid != uid
+            && d().startedAt == request.time
+            && request.time >= mission().startsAt
+            && request.time <= mission().startsAt + duration.value(60, 's')
+            && mission().playerCount >= 2
+            && resource.data.readyAt >= request.time - duration.value(45, 's')
+            && peer.readyAt >= request.time - duration.value(45, 's')
+            && peer.finishedAt == null && !peer.keys().hasAny(['withdrawnAt']);
+        }
+        function finishHasEvidence() {
+          let evidence = getAfter(/databases/$(database)/documents/missions/$(missionId)/gpsPrivate/$(uid)).data;
+          return evidence.updatedAt == request.time && evidence.points.size() > 0;
+        }
+        allow update: if startClaim() || isOwner(uid)
+          && resource.data.finishedAt == null
+          && !resource.data.keys().hasAny(['withdrawnAt'])
+          && d().diff(resource.data).affectedKeys().hasOnly(['readyAt'])
+          && d().readyAt == request.time
+          || isOwner(uid)
+          && resource.data.finishedAt == null
+          && !resource.data.keys().hasAny(['withdrawnAt'])
+          && d().diff(resource.data).affectedKeys().hasOnly(['withdrawnAt'])
+          && d().withdrawnAt == request.time
+          || isOwner(uid)
+          && d().diff(resource.data).affectedKeys().hasOnly([
+            'progressKm', 'finishedAt', 'timeSec', 'paceSecPerKm',
+            'gpsAccuracyMeters', 'clientElapsedRealtimeMs', 'lastUpdatedAt'
+          ])
+          && resource.data.finishedAt == null
+          && !resource.data.keys().hasAny(['withdrawnAt'])
+          && resource.data.keys().hasAll(['sessionId', 'startedAt'])
+          && d().sessionId == resource.data.sessionId
+          && request.time >= mission().startsAt
+          && request.time <= mission().startsAt + duration.value(3, 'h')
+          && mission().playerCount >= mission().minPlayers
+          && d().progressKm is number && d().timeSec is int
+          && d().progressKm >= 0 && d().timeSec >= 0
+          && d().lastUpdatedAt == request.time
+          && d().timeSec <= (request.time - mission().startsAt).seconds() + 10
+          && d().progressKm >= resource.data.progressKm
+          && d().timeSec >= resource.data.timeSec
+          && d().progressKm * 1000 <= d().timeSec * 7 + 20
+          && (d().progressKm - resource.data.progressKm) * 1000
+              <= (d().timeSec - resource.data.timeSec) * 7 + 20
+          && (!d().diff(resource.data).affectedKeys().hasAny(['finishedAt'])
+              || (d().finishedAt == request.time && d().progressKm >= mission().distanceKm && finishHasEvidence()))
+          && d().progressKm <= get(/databases/$(database)/documents/missions/$(missionId)).data.distanceKm + 0.3;
+        allow delete: if isOwner(uid)
+          && getAfter(/databases/$(database)/documents/missions/$(missionId)).data.playerCount == mission().playerCount - 1
+          && (request.time < mission().startsAt || mission().playerCount < mission().minPlayers);
+      }
+      // Private bounded GPS evidence, never exposed to other runners.
+      // Full accepted route remains in the device's Room database.
+      match /gpsPrivate/{uid} {
+        function validPoint(p) {
+          return p.keys().hasOnly(['latitude', 'longitude', 'accuracy', 'capturedAtMs'])
+            && p.latitude is number && p.latitude >= -90 && p.latitude <= 90
+            && p.longitude is number && p.longitude >= -180 && p.longitude <= 180
+            && p.accuracy is number && p.accuracy > 0 && p.accuracy <= 20
+            && p.capturedAtMs is int;
+        }
+        function pointAtValid(i) {
+          return d().points.size() <= i || validPoint(d().points[i]);
+        }
+
+        allow read: if isOwner(uid);
+        allow create, update: if isOwner(uid)
+          && exists(/databases/$(database)/documents/missions/$(missionId)/players/$(uid))
+          && !get(/databases/$(database)/documents/missions/$(missionId)/players/$(uid)).data.keys().hasAny(['withdrawnAt'])
+          && get(/databases/$(database)/documents/missions/$(missionId)/players/$(uid)).data.finishedAt == null
+          && d().keys().hasOnly(['points', 'updatedAt'])
+          && d().points is list && d().points.size() <= 10
+          && pointAtValid(0) && pointAtValid(1) && pointAtValid(2) && pointAtValid(3)
+          && pointAtValid(4) && pointAtValid(5) && pointAtValid(6) && pointAtValid(7)
+          && pointAtValid(8) && pointAtValid(9)
+          && d().updatedAt == request.time;
+        allow delete: if false;
+      }
+    }
+
+    // Public daily website download counter. This is a soft quota, not an
+    // anti-abuse boundary: direct APK URLs and fabricated clients can bypass it.
+    match /downloads/{day} {
+      allow read: if day.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$');
+      allow create: if day.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+        && request.resource.data.keys().hasOnly(['count'])
+        && request.resource.data.count is int
+        && request.resource.data.count == 1;
+      allow update: if day.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['count'])
+        && request.resource.data.count is int
+        && request.resource.data.count == resource.data.count + 1
+        && request.resource.data.count <= 4;
+      allow delete: if false;
+    }
+  }
+}
+

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elite - Temporada e ligas</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --page:#050604;
+  --bg:#0a0b09; --surface:#10120d; --card:#161911; --card-el:#1d2116; --field:#0d0f0a;
+  --line:rgba(236,232,218,.10); --line-strong:rgba(236,232,218,.18);
+  --text:#ece8da; --muted:#8f9384; --dim:#5e6255;
+  --olive:#a3b565; --olive-dark:#5d6b34; --olive-soft:rgba(163,181,101,.14); --on-olive:#0e1306;
+  --red:#d12b2b; --red-soft:rgba(209,43,43,.15); --on-red:#fff4f0;
+  --brass:#c9a24b; --brass-soft:rgba(201,162,75,.16); --amber:#e0a93a; --amber-soft:rgba(224,169,58,.14); --ok:#7fb069; --ok-soft:rgba(127,176,105,.15); --amber-line:rgba(224,169,58,.45); --red-line:rgba(209,43,43,.5); --ok-line:rgba(127,176,105,.45); --brass-line:rgba(201,162,75,.5);
+  --glass:rgba(16,18,13,.82); --glass-bar:rgba(16,18,13,.90); --scrim:rgba(0,0,0,.62);
+  --lg-bronze:#b07a4a; --lg-prata:#b4bab8; --lg-ouro:#c9a24b; --lg-platina:#86bdb3; --lg-diamante:#7fb4de; --lg-elite:#e7e2d0;
+  --av1:#3b4426; --av2:#4a3f1e; --av3:#2e3b3a; --av4:#46301f; --av5:#3a2e3f;
+  --num:"Barlow Condensed","Arial Narrow",sans-serif; --ui:"Inter",sans-serif; --logo:"Saira Stencil One","Impact",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--page);font-family:var(--ui);color:var(--text);display:flex;justify-content:center;padding:0;-webkit-font-smoothing:antialiased}
+button{font-family:var(--ui);color:inherit;background:none;border:0;cursor:pointer}
+[data-id="screen"]{flex:none;position:relative;width:393px;height:851px;overflow:hidden;background:var(--bg);display:flex;flex-direction:column;padding:28px 16px 0}
+svg{display:block;flex:none}
+
+/* ---- tipografia ---- */
+.t1{font:700 30px/32px var(--num);text-transform:uppercase;letter-spacing:.9px}
+.t1s{font:700 24px/26px var(--num);text-transform:uppercase;letter-spacing:.96px}
+.t2{font:600 20px/23px var(--num);text-transform:uppercase;letter-spacing:.8px}
+.t3{font:600 16px/20px var(--ui)}
+.body{font:400 14px/19.6px var(--ui)}
+.cap{font:400 12px/16px var(--ui);color:var(--muted)}
+.eyebrow{font:600 11px/14px var(--ui);text-transform:uppercase;letter-spacing:1.3px;color:var(--muted)}
+.num{font-family:var(--num);font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+.olive{color:var(--olive)} .red{color:var(--red)} .brass{color:var(--brass)} .ok{color:var(--ok)} .amber{color:var(--amber)} .muted{color:var(--muted)}
+.row{display:flex;align-items:center}
+.col{display:flex;flex-direction:column}
+.grow{flex:1;min-width:0}
+.ell{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ---- cartões ---- */
+.card{background:var(--card);border:1px solid var(--line-strong);border-radius:18px}
+.card-sel{border-color:var(--olive);background:linear-gradient(180deg,var(--olive-soft),var(--card))}
+.card-brass{border-color:var(--brass);background:linear-gradient(180deg,var(--brass-soft),var(--card))}
+.card-dash{background:transparent;border:1px dashed var(--line-strong);border-radius:18px}
+
+/* ---- botões ---- */
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 18px;border-radius:24px;font:700 15px/20px var(--ui);transition:transform .12s ease-out;flex:none}
+.btn:active{transform:scale(.96)}
+.btn-lg{height:56px;border-radius:28px;font-size:16px}
+.btn-red{background:var(--red);color:var(--on-red)}
+.btn-olive{background:var(--olive);color:var(--on-olive)}
+.btn-ghost{background:transparent;border:1px solid var(--line-strong);color:var(--text)}
+.btn-share{background:var(--olive-soft);border:1px solid var(--olive-dark);color:var(--olive)}
+.btn-off{background:var(--card-el);color:var(--dim);border:1px solid var(--line)}
+.btn-icon{width:48px;padding:0;flex:none}
+.btn-back{width:40px;height:40px;border-radius:20px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex:none;transition:transform .12s ease-out}
+.btn-back:active{transform:scale(.92)}
+
+/* ---- badges / chips ---- */
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font:700 10.5px/12px var(--ui);text-transform:uppercase;letter-spacing:.6px;flex:none;white-space:nowrap}
+.b-open{background:var(--olive-soft);color:var(--olive)}
+.b-one{background:var(--amber-soft);color:var(--amber)}
+.b-conf{background:var(--ok);color:var(--on-olive)}
+.b-live{background:var(--red-soft);color:var(--red)}
+.b-done{background:var(--card-el);color:var(--muted)}
+.b-none{background:transparent;border:1px solid var(--line-strong);color:var(--muted)}
+.b-brass{background:var(--brass-soft);color:var(--brass)}
+.dot{width:7px;height:7px;border-radius:4px;background:currentColor;flex:none}
+.chip{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:15px;background:var(--card-el);border:1px solid var(--line);font:600 12px/16px var(--ui);flex:none;white-space:nowrap}
+.chip-on{background:var(--olive-soft);border-color:var(--olive-dark);color:var(--olive)}
+.dist{display:inline-flex;align-items:center;justify-content:center;height:24px;padding:0 9px;border-radius:7px;background:var(--card-el);border:1px solid var(--line-strong);font:700 14px/16px var(--num);letter-spacing:.5px}
+
+/* ---- segmentado ---- */
+.seg{display:flex;gap:4px;padding:4px;background:var(--field);border:1px solid var(--line);border-radius:24px;height:48px}
+.seg>button{flex:1;border-radius:20px;font:700 20px/20px var(--num);color:var(--muted);letter-spacing:.5px;transition:background .18s ease-out,color .18s ease-out}
+.seg>button.on{background:var(--olive-soft);color:var(--olive);box-shadow:inset 0 0 0 1px var(--olive-dark)}
+.seg-sm{height:40px;border-radius:20px}
+.seg-sm>button{font:600 13px/16px var(--ui)}
+.tabs{display:flex;gap:20px;height:32px;border-bottom:1px solid var(--line)}
+.tabs>button{font:600 13px/16px var(--ui);color:var(--muted);padding:0 2px 10px;border-bottom:2px solid transparent}
+.tabs>button.on{color:var(--olive);border-bottom-color:var(--olive)}
+
+/* ---- avatares ---- */
+.av{border-radius:50%;display:flex;align-items:center;justify-content:center;font:700 14px/14px var(--num);letter-spacing:.5px;border:1.5px solid var(--line-strong);flex:none;color:var(--text)}
+.av-me{border-color:var(--olive);box-shadow:0 0 0 2px var(--olive-soft)}
+.av-empty{background:transparent;border:1.5px dashed var(--line-strong);color:var(--dim)}
+.stack{display:flex}
+.stack>*+*{margin-left:-8px}
+
+/* ---- barras ---- */
+.bar{height:6px;border-radius:3px;background:var(--card-el);overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:3px;background:var(--olive)}
+.bar-brass>i{background:var(--brass)}
+.hr{height:1px;background:var(--line);flex:none}
+
+.sc-ic{width:32px;height:32px;border-radius:16px;background:var(--brass-soft);color:var(--brass);display:flex;align-items:center;justify-content:center;flex:none}
+
+/* ---- topbar ---- */
+.topbar{display:flex;align-items:center;gap:12px;height:48px;flex:none}
+.logo{display:flex;align-items:center;gap:8px}
+.logo-t{font:400 17px/20px var(--logo);letter-spacing:3.4px}
+
+/* ---- barra inferior fixa ---- */
+.dock{flex:none;margin:0 -16px;padding:14px 16px 18px;background:var(--glass-bar);border-top:1px solid var(--line-strong);border-radius:26px 26px 0 0}
+
+/* ---- cartão de missão ---- */
+.m{display:flex;flex-direction:column;padding:14px;flex:none}
+.m-time{font:700 36px/36px var(--num);font-variant-numeric:tabular-nums;letter-spacing:.5px}
+.m-compact{padding:12px 14px}
+
+/* ---- linha de ranking ---- */
+.rk{display:flex;align-items:center;gap:10px;height:56px;padding:0 12px;border-radius:14px;flex:none}
+.rk-me{background:var(--olive-soft);box-shadow:inset 0 0 0 1px var(--olive-dark)}
+.rk-pos{width:30px;text-align:center;font:700 20px/20px var(--num);font-variant-numeric:tabular-nums;color:var(--muted)}
+.rk-elo{font:700 18px/18px var(--num);font-variant-numeric:tabular-nums;text-align:right}
+.trend{display:flex;align-items:center;justify-content:flex-end;gap:2px;font:600 11px/12px var(--ui);width:36px}
+.t-up{color:var(--ok)} .t-down{color:var(--red)} .t-eq{color:var(--dim)}
+
+/* ---- banners ---- */
+.banner{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;border:1px solid var(--line-strong);background:var(--card);flex:none}
+.banner-ico{width:36px;height:36px;border-radius:18px;display:flex;align-items:center;justify-content:center;flex:none}
+.bn-amber{border-color:var(--amber-line);background:linear-gradient(90deg,var(--amber-soft),var(--card))} .bn-amber .banner-ico{background:var(--amber-soft);color:var(--amber)}
+.bn-red{border-color:var(--red-line);background:linear-gradient(90deg,var(--red-soft),var(--card))} .bn-red .banner-ico{background:var(--red-soft);color:var(--red)}
+.bn-ok{border-color:var(--ok-line);background:linear-gradient(90deg,var(--ok-soft),var(--card))} .bn-ok .banner-ico{background:var(--ok-soft);color:var(--ok)}
+.bn-olive{border-color:var(--olive-dark);background:linear-gradient(90deg,var(--olive-soft),var(--card))} .bn-olive .banner-ico{background:var(--olive-soft);color:var(--olive)}
+.bn-brass{border-color:var(--brass-line);background:linear-gradient(90deg,var(--brass-soft),var(--card))} .bn-brass .banner-ico{background:var(--brass-soft);color:var(--brass)}
+.bn-mute .banner-ico{background:var(--card-el);color:var(--muted)}
+
+@media (prefers-reduced-motion:reduce){
+  .btn,.btn-back,.seg>button{transition:none}
+}
+
+/* ---- mini card de convite (miniatura do card compartilhável) ---- */
+.mini{display:flex;flex-direction:column;justify-content:space-between;padding:12px;border-radius:14px;background:linear-gradient(160deg,var(--card-el),var(--bg));border:1px solid var(--olive-dark)}
+.stripe{height:4px;width:100%;background:var(--red);border-radius:2px;transform:skewX(-20deg)}
+
+.invite{padding:14px;background:linear-gradient(135deg,var(--olive-soft),var(--card) 70%);border:1px solid var(--olive-dark);border-radius:18px;display:flex;flex-direction:column;gap:10px;flex:none}
+
+.kv{flex:1;display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.kv .num{font-size:28px}
+
+.num{white-space:nowrap}
+.sc-chip{white-space:nowrap}
+
+[data-id="ssn.scroll"]{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;display:flex;flex-direction:column;gap:10px;padding-bottom:12px}
+[data-id="ssn.scroll"]::-webkit-scrollbar{display:none}
+.ladder{display:flex;gap:8px}
+.lgi{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 0 8px;border-radius:14px;background:var(--field);border:1px solid var(--line);transition:background .18s ease-out,border-color .18s ease-out}
+.lgi span{font:600 10.5px/12px var(--ui);color:var(--muted)}
+.lgi.on{background:var(--brass-soft);border-color:var(--brass)}
+.lgi.on span{color:var(--text)}
+.lgi.here{box-shadow:0 0 0 2px var(--olive-soft)}
+.dvr{display:flex;align-items:center;gap:12px;height:52px;padding:0 12px;border-radius:14px;background:var(--field);border:1px solid var(--line)}
+.dvr-me{border-color:var(--olive-dark);background:var(--olive-soft)}
+.dl{display:none;flex-direction:column;gap:8px}
+[data-state="liga_bronze"] .dl-bronze,[data-state="liga_prata"] .dl-prata,[data-state="padrao"] .dl-ouro,[data-state="liga_platina"] .dl-platina,[data-state="liga_diamante"] .dl-diamante,[data-state="liga_elite"] .dl-elite{display:flex}
+.rw{display:flex;align-items:center;gap:12px;height:48px}
+.mini-a{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 6px;border-radius:14px;text-align:center;border:1px solid var(--line);background:var(--field)}
+.mini-a .ic{width:36px;height:36px;border-radius:18px;display:flex;align-items:center;justify-content:center;background:var(--card-el);color:var(--dim)}
+.mini-a.ok{border-color:var(--brass-line);background:var(--brass-soft)} .mini-a.ok .ic{background:var(--brass-soft);color:var(--brass)}
+.mini-a span.n{font:600 12px/14px var(--ui)}
+@media (prefers-reduced-motion:reduce){.lgi{transition:none}}
+
+</style>
+</head>
+<body>
+<main data-id="screen" data-viewport="393x851" data-state="padrao">
+  <header data-id="ssn.topbar" class="topbar">
+    <button data-id="ssn.topbar.back" class="btn-back" aria-label="Voltar"><svg data-id="ssn.topbar.back.ic" data-icon="material:ArrowBack" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <h1 data-id="ssn.topbar.title" class="t1 grow">Temporada 1</h1>
+    <button data-id="ssn.topbar.share" class="btn-back" aria-label="Compartilhar liga"><svg data-id="ssn.topbar.share.ic" data-icon="material:Share" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5l6.8-4M8.6 13.5l6.8 4"/></svg></button>
+  </header>
+
+  <div data-id="ssn.scroll" style="margin-top:8px" data-compose="LazyColumn">
+    <section data-id="ssn.time" class="card" style="padding:14px 16px;flex:none" data-compose="SeasonTimeCard">
+      <div data-id="ssn.time.row" class="row" style="justify-content:space-between"><span data-id="ssn.time.label" class="eyebrow">Fim de temporada</span><span data-id="ssn.time.left" class="num amber" style="font-size:22px" data-bind="season.remaining">12d 04h</span></div>
+      <div class="bar" data-id="ssn.time.bar" style="margin-top:10px"><i data-id="ssn.time.fill" style="width:60%;background:var(--amber)"></i></div>
+      <p data-id="ssn.time.text" class="cap" style="margin-top:8px">Ao final, os pontos sofrem reset parcial e a divisão alcançada define as recompensas.</p>
+    </section>
+
+    <section data-id="ssn.me" class="card card-brass" style="padding:14px 16px;flex:none" data-compose="LeagueProgressCard">
+      <div data-id="ssn.me.row" class="row" style="gap:14px">
+        <svg data-id="ssn.me.badge" data-icon="custom:ic_league_ouro_2" viewBox="0 0 24 24" width="72" height="72" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-ouro)"/><path d="M7.8 10L12 13L16.2 10" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 14.5L12 17.5L16.2 14.5" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div data-id="ssn.me.row.col" class="col grow" style="gap:3px"><span data-id="ssn.me.name" class="t1" style="color:var(--brass)">Liga Ouro II</span><span data-id="ssn.me.pts" class="cap"><b data-id="ssn.me.pts.b" style="color:var(--text)" data-bind="user.elo">1.542</b> pts · faixa 1.400–1.599</span></div>
+      </div>
+      <div class="bar bar-brass" data-id="ssn.me.bar" style="margin-top:14px;height:8px;border-radius:4px"><i data-id="ssn.me.fill" style="width:71%"></i></div>
+      <div data-id="ssn.me.row2" class="row" style="justify-content:space-between;margin-top:8px"><span data-id="ssn.me.next" class="cap">Faltam <b data-id="ssn.me.next.b" style="color:var(--text)">58 pontos</b> para subir de divisão</span><span data-id="ssn.me.target" class="row cap" style="gap:5px"><svg data-id="ssn.me.target.badge" data-icon="custom:ic_league_ouro_1" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-ouro)"/><path d="M7.8 8L12 11L16.2 8" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 16L12 19L16.2 16" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ouro I</span></div>
+    </section>
+
+    <section data-id="ssn.ladder" class="card" style="padding:12px;flex:none" data-compose="LeagueLadder">
+      <h2 data-id="ssn.ladder.title" class="t2" style="margin:0 2px 10px">Ligas e divisões</h2>
+      <div data-id="ssn.ladder.row" class="ladder">
+<button data-id="ssn.ladder.bronze" class="lgi" data-l="bronze" aria-label="Liga Bronze"><svg data-id="ssn.ladder.bronze.badge" data-icon="custom:ic_league_bronze_1" viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-bronze)"/><path d="M7.8 8L12 11L16.2 8" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 16L12 19L16.2 16" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-id="ssn.ladder.bronze.name">Bronze</span></button>
+<button data-id="ssn.ladder.prata" class="lgi" data-l="prata" aria-label="Liga Prata"><svg data-id="ssn.ladder.prata.badge" data-icon="custom:ic_league_prata_1" viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-prata)"/><path d="M7.8 8L12 11L16.2 8" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 16L12 19L16.2 16" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-id="ssn.ladder.prata.name">Prata</span></button>
+<button data-id="ssn.ladder.ouro" class="lgi on here" data-l="ouro" aria-label="Liga Ouro"><svg data-id="ssn.ladder.ouro.badge" data-icon="custom:ic_league_ouro_1" viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-ouro)"/><path d="M7.8 8L12 11L16.2 8" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 16L12 19L16.2 16" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-id="ssn.ladder.ouro.name">Ouro</span></button>
+<button data-id="ssn.ladder.platina" class="lgi" data-l="platina" aria-label="Liga Platina"><svg data-id="ssn.ladder.platina.badge" data-icon="custom:ic_league_platina_1" viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-platina)"/><path d="M7.8 8L12 11L16.2 8" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 16L12 19L16.2 16" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-id="ssn.ladder.platina.name">Platina</span></button>
+<button data-id="ssn.ladder.diamante" class="lgi" data-l="diamante" aria-label="Liga Diamante"><svg data-id="ssn.ladder.diamante.badge" data-icon="custom:ic_league_diamante_1" viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-diamante)"/><path d="M7.8 8L12 11L16.2 8" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 16L12 19L16.2 16" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-id="ssn.ladder.diamante.name">Diamante</span></button>
+<button data-id="ssn.ladder.elite" class="lgi" data-l="elite" aria-label="Liga Elite"><svg data-id="ssn.ladder.elite.badge" data-icon="custom:ic_league_elite_0" viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-elite)"/><path d="M10.2 7.2H17L16.6 8.9H11.7L10.5 14.6H15.4L15 16.3H8.3Z" style="fill:var(--bg)"/><path d="M11.3 10.8H15.1L14.8 12.3H11Z" style="fill:var(--red)"/></svg><span data-id="ssn.ladder.elite.name">Elite</span></button>
+      </div>
+      <div data-id="ssn.dv" style="margin-top:10px" data-compose="DivisionList">
+<div data-id="ssn.dl.bronze" class="dl dl-bronze"><div data-id="ssn.dv.bronze.i" class="dvr"><svg data-id="ssn.dv.bronze.i.insig" data-icon="custom:ic_league_bronze_1" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-bronze)"/><path d="M7.8 8L12 11L16.2 8" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 16L12 19L16.2 16" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div data-id="ssn.dv.bronze.i.col" class="col grow" style="gap:1px"><span data-id="ssn.dv.bronze.i.name" class="t3" style="font-size:14px">Bronze I</span><span data-id="ssn.dv.bronze.i.range" class="cap">400–599 pts</span></div></div><div data-id="ssn.dv.bronze.ii" class="dvr"><svg data-id="ssn.dv.bronze.ii.insig" data-icon="custom:ic_league_bronze_2" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-bronze)"/><path d="M7.8 10L12 13L16.2 10" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 14.5L12 17.5L16.2 14.5" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div data-id="ssn.dv.bronze.ii.col" class="col grow" style="gap:1px"><span data-id="ssn.dv.bronze.ii.name" class="t3" style="font-size:14px">Bronze II</span><span data-id="ssn.dv.bronze.ii.range" class="cap">200–399 pts</span></div></div><div data-id="ssn.dv.bronze.iii" class="dvr"><svg data-id="ssn.dv.bronze.iii.insig" data-icon="custom:ic_league_bronze_3" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-bronze)"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div data-id="ssn.dv.bronze.iii.col" class="col grow" style="gap:1px"><span data-id="ssn.dv.bronze.iii.name" class="t3" style="font-size:14px">Bronze III</span><span data-id="ssn.dv.bronze.iii.range" class="cap">0–199 pts</span></div></div></div>
+<div data-id="ssn.dl.prata" class="dl dl-prata"><div data-id="ssn.dv.prata.i" class="dvr"><svg data-id="ssn.dv.prata.i.insig" data-icon="custom:ic_league_prata_1" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-prata)"/><path d="M7.8 8L12 11L16.2 8" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 16L12 19L16.2 16" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div data-id="ssn.dv.prata.i.col" class="col grow" style="gap:1px"><span data-id="ssn.dv.prata.i.name" class="t3" style="font-size:14px">Prata I</span><span data-id="ssn.dv.prata.i.range" class="cap">1.000–1.199 pts</span></div></div><div data-id="ssn.dv.prata.ii" class="dvr"><svg data-id="ssn.dv.prata.ii.insig" data-icon="custom:ic_league_prata_2" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-prata)"/><path d="M7.8 10L12 13L16.2 10" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 14.5L12 17.5L16.2 14.5" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div data-id="ssn.dv.prata.ii.col" class="col grow" style="gap:1px"><span data-id="ssn.dv.prata.ii.name" class="t3" style="font-size:14px">Prata II</span><span data-id="ssn.dv.prata.ii.range" class="cap">800–999 pts</span></div></div><div data-id="ssn.dv.prata.iii" class="dvr"><svg data-id="ssn.dv.prata.iii.insig" data-icon="custom:ic_league_prata_3" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-prata)"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div data-id="ssn.dv.prata.iii.col" class="col grow" style="gap:1px"><span data-id="ssn.dv.prata.iii.name" class="t3" style="font-size:14px">Prata III</span><span data-id="ssn.dv.prata.iii.range" class="cap">600–799 pts</span></div></div></div>
+<div data-id="ssn.dl.ouro" class="dl dl-ouro"><div data-id="ssn.dv.ouro.i" class="dvr"><svg data-id="ssn.dv.ouro.i.insig" data-icon="custom:ic_league_ouro_1" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-ouro)"/><path d="M7.8 8L12 11L16.2 8" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 16L12 19L16.2 16" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div data-id="ssn.dv.ouro.i.col" class="col grow" style="gap:1px"><span data-id="ssn.dv.ouro.i.name" class="t3" style="font-size:14px">Ouro I</span><span data-id="ssn.dv.ouro.i.range" class="cap">1.600–1.799 pts</span></div><span data-id="ssn.dv.ouro.i.badge" class="badge b-brass" style="height:20px">Próxima</span></div><div data-id="ssn.dv.ouro.ii" class="dvr dvr-me"><svg data-id="ssn.dv.ouro.ii.insig" data-icon="custom:ic_league_ouro_2" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-ouro)"/><path d="M7.8 10L12 13L16.2 10" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 14.5L12 17.5L16.2 14.5" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div data-id="ssn.dv.ouro.ii.col" class="col grow" style="gap:1px"><span data-id="ssn.dv.ouro.ii.name" class="t3" style="font-size:14px">Ouro II</span><span data-id="ssn.dv.ouro.ii.range" class="cap">1.400–1.599 pts</span></div><span data-id="ssn.dv.ouro.ii.badge" class="badge b-open" style="height:20px">Você</span></div><div data-id="ssn.dv.ouro.iii" class="dvr"><svg data-id="ssn.dv.ouro.iii.insig" data-icon="custom:ic_league_ouro_3" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-ouro)"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div data-id="ssn.dv.ouro.iii.col" class="col grow" style="gap:1px"><span data-id="ssn.dv.ouro.iii.name" class="t3" style="font-size:14px">Ouro III</span><span data-id="ssn.dv.ouro.iii.range" class="cap">1.200–1.399 pts</span></div></div></div>
+<div data-id="ssn.dl.platina" class="dl dl-platina"><div data-id="ssn.dv.platina.i" class="dvr"><svg data-id="ssn.dv.platina.i.insig" data-icon="custom:ic_league_platina_1" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-platina)"/><path d="M7.8 8L12 11L16.2 8" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 16L12 19L16.2 16" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div data-id="ssn.dv.platina.i.col" class="col grow" style="gap:1px"><span data-id="ssn.dv.platina.i.name" class="t3" style="font-size:14px">Platina I</span><span data-id="ssn.dv.platina.i.range" class="cap">2.200–2.399 pts</span></div></div><div data-id="ssn.dv.platina.ii" class="dvr"><svg data-id="ssn.dv.platina.ii.insig" data-icon="custom:ic_league_platina_2" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-platina)"/><path d="M7.8 10L12 13L16.2 10" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 14.5L12 17.5L16.2 14.5" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div data-id="ssn.dv.platina.ii.col" class="col grow" style="gap:1px"><span data-id="ssn.dv.platina.ii.name" class="t3" style="font-size:14px">Platina II</span><span data-id="ssn.dv.platina.ii.range" class="cap">2.000–2.199 pts</span></div></div><div data-id="ssn.dv.platina.iii" class="dvr"><svg data-id="ssn.dv.platina.iii.insig" data-icon="custom:ic_league_platina_3" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-platina)"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div data-id="ssn.dv.platina.iii.col" class="col grow" style="gap:1px"><span data-id="ssn.dv.platina.iii.name" class="t3" style="font-size:14px">Platina III</span><span data-id="ssn.dv.platina.iii.range" class="cap">1.800–1.999 pts</span></div></div></div>
+<div data-id="ssn.dl.diamante" class="dl dl-diamante"><div data-id="ssn.dv.diamante.i" class="dvr"><svg data-id="ssn.dv.diamante.i.insig" data-icon="custom:ic_league_diamante_1" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-diamante)"/><path d="M7.8 8L12 11L16.2 8" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 16L12 19L16.2 16" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div data-id="ssn.dv.diamante.i.col" class="col grow" style="gap:1px"><span data-id="ssn.dv.diamante.i.name" class="t3" style="font-size:14px">Diamante I</span><span data-id="ssn.dv.diamante.i.range" class="cap">2.800–2.999 pts</span></div></div><div data-id="ssn.dv.diamante.ii" class="dvr"><svg data-id="ssn.dv.diamante.ii.insig" data-icon="custom:ic_league_diamante_2" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-diamante)"/><path d="M7.8 10L12 13L16.2 10" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 14.5L12 17.5L16.2 14.5" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div data-id="ssn.dv.diamante.ii.col" class="col grow" style="gap:1px"><span data-id="ssn.dv.diamante.ii.name" class="t3" style="font-size:14px">Diamante II</span><span data-id="ssn.dv.diamante.ii.range" class="cap">2.600–2.799 pts</span></div></div><div data-id="ssn.dv.diamante.iii" class="dvr"><svg data-id="ssn.dv.diamante.iii.insig" data-icon="custom:ic_league_diamante_3" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-diamante)"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div data-id="ssn.dv.diamante.iii.col" class="col grow" style="gap:1px"><span data-id="ssn.dv.diamante.iii.name" class="t3" style="font-size:14px">Diamante III</span><span data-id="ssn.dv.diamante.iii.range" class="cap">2.400–2.599 pts</span></div></div></div>
+<div data-id="ssn.dl.elite" class="dl dl-elite"><div data-id="ssn.dv.elite.r1" class="dvr"><svg data-id="ssn.dv.elite.r1.badge" data-icon="custom:ic_league_elite_0" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-elite)"/><path d="M10.2 7.2H17L16.6 8.9H11.7L10.5 14.6H15.4L15 16.3H8.3Z" style="fill:var(--bg)"/><path d="M11.3 10.8H15.1L14.8 12.3H11Z" style="fill:var(--red)"/></svg><div data-id="ssn.dv.elite.r1.col" class="col grow" style="gap:1px"><span data-id="ssn.dv.elite.r1.name" class="t3" style="font-size:14px">Elite</span><span data-id="ssn.dv.elite.r1.range" class="cap">3.000 pts ou mais · sem subdivisões</span></div></div></div>
+      </div>
+    </section>
+
+    <section data-id="ssn.rewards" class="card" style="padding:12px 14px 6px;flex:none" data-compose="SeasonRewardsCard">
+      <div data-id="ssn.rewards.row" class="row" style="gap:8px;margin-bottom:6px"><span data-id="ssn.rewards.row.brass" class="brass"><svg data-id="ssn.rewards.ic" data-icon="material:CardGiftcard" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v14M5 12v9h14v-9M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg></span><h2 data-id="ssn.rewards.title" class="t2">Recompensas da temporada</h2></div>
+<div data-id="ssn.rw.bronze" class="rw"><svg data-id="ssn.rw.bronze.badge" data-icon="custom:ic_league_bronze_1" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-bronze)"/><path d="M7.8 8L12 11L16.2 8" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 16L12 19L16.2 16" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div data-id="ssn.rw.bronze.col" class="col grow" style="gap:1px"><span data-id="ssn.rw.bronze.name" class="t3" style="font-size:14px">Bronze</span><span data-id="ssn.rw.bronze.text" class="cap">Insígnia de bronze no perfil</span></div></div><div data-id="ssn.rewards.hr" class="hr"></div>
+<div data-id="ssn.rw.prata" class="rw"><svg data-id="ssn.rw.prata.badge" data-icon="custom:ic_league_prata_1" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-prata)"/><path d="M7.8 8L12 11L16.2 8" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 16L12 19L16.2 16" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div data-id="ssn.rw.prata.col" class="col grow" style="gap:1px"><span data-id="ssn.rw.prata.name" class="t3" style="font-size:14px">Prata</span><span data-id="ssn.rw.prata.text" class="cap">Insígnia de prata no perfil</span></div></div><div data-id="ssn.rewards.hr2" class="hr"></div>
+<div data-id="ssn.rw.ouro" class="rw"><svg data-id="ssn.rw.ouro.badge" data-icon="custom:ic_league_ouro_1" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-ouro)"/><path d="M7.8 8L12 11L16.2 8" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 16L12 19L16.2 16" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div data-id="ssn.rw.ouro.col" class="col grow" style="gap:1px"><span data-id="ssn.rw.ouro.name" class="t3" style="font-size:14px">Ouro</span><span data-id="ssn.rw.ouro.text" class="cap">Moldura dourada no avatar</span></div></div><div data-id="ssn.rewards.hr3" class="hr"></div>
+<div data-id="ssn.rw.platina" class="rw"><svg data-id="ssn.rw.platina.badge" data-icon="custom:ic_league_platina_1" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-platina)"/><path d="M7.8 8L12 11L16.2 8" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 16L12 19L16.2 16" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div data-id="ssn.rw.platina.col" class="col grow" style="gap:1px"><span data-id="ssn.rw.platina.name" class="t3" style="font-size:14px">Platina</span><span data-id="ssn.rw.platina.text" class="cap">Moldura platina + título da liga</span></div></div><div data-id="ssn.rewards.hr4" class="hr"></div>
+<div data-id="ssn.rw.diamante" class="rw"><svg data-id="ssn.rw.diamante.badge" data-icon="custom:ic_league_diamante_1" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-diamante)"/><path d="M7.8 8L12 11L16.2 8" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 16L12 19L16.2 16" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div data-id="ssn.rw.diamante.col" class="col grow" style="gap:1px"><span data-id="ssn.rw.diamante.name" class="t3" style="font-size:14px">Diamante</span><span data-id="ssn.rw.diamante.text" class="cap">Moldura diamante + card exclusivo</span></div></div><div data-id="ssn.rewards.hr5" class="hr"></div>
+<div data-id="ssn.rw.elite" class="rw"><svg data-id="ssn.rw.elite.badge" data-icon="custom:ic_league_elite_0" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-elite)"/><path d="M10.2 7.2H17L16.6 8.9H11.7L10.5 14.6H15.4L15 16.3H8.3Z" style="fill:var(--bg)"/><path d="M11.3 10.8H15.1L14.8 12.3H11Z" style="fill:var(--red)"/></svg><div data-id="ssn.rw.elite.col" class="col grow" style="gap:1px"><span data-id="ssn.rw.elite.name" class="t3" style="font-size:14px">Elite</span><span data-id="ssn.rw.elite.text" class="cap">Título “Elite da temporada” + card exclusivo</span></div></div>
+    </section>
+
+    <section data-id="ssn.best" class="card" style="padding:12px 14px;flex:none" data-compose="SeasonBestCard">
+      <h2 data-id="ssn.best.title" class="t2" style="margin-bottom:10px">Suas melhores posições</h2>
+      <div data-id="ssn.best.row" class="row" style="gap:10px">
+        <div data-id="ssn.best.row.kv" class="kv"><span data-id="ssn.best.row.kv.eyebrow" class="eyebrow" style="font-size:10px">Global</span><span data-id="ssn.best.g" class="num">#94</span></div>
+        <div data-id="ssn.best.row.kv2" class="kv"><span data-id="ssn.best.row.kv2.eyebrow" class="eyebrow" style="font-size:10px">Estado MT</span><span data-id="ssn.best.e" class="num">#3</span></div>
+        <div data-id="ssn.best.row.kv3" class="kv"><span data-id="ssn.best.row.kv3.eyebrow" class="eyebrow" style="font-size:10px">Melhor liga</span><span data-id="ssn.best.l" class="num brass" style="font-size:22px">Ouro I</span></div>
+      </div>
+    </section>
+
+    <section data-id="ssn.achv" class="card" style="padding:12px;flex:none" data-compose="RankingAchievementsRow">
+      <div data-id="ssn.achv.row" class="row" style="justify-content:space-between;margin:0 2px 10px"><h2 data-id="ssn.achv.title" class="t2">Conquistas do ranking</h2><button data-id="ssn.achv.all" class="row olive" style="font:600 12px/14px var(--ui);gap:2px">Ver todas<svg data-id="ssn.achv.all.ic" data-icon="material:ChevronRight" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
+      <div data-id="ssn.achv.row2" class="row" style="gap:8px;align-items:stretch">
+        <div data-id="ssn.achv.a1" class="mini-a"><div data-id="ssn.achv.a1.ic" class="ic"><svg data-id="ssn.achv.a1.icon" data-icon="material:Lock" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><span data-id="ssn.achv.a1.n" class="n">Top 10 global</span><span data-id="ssn.achv.a1.cap" class="cap" style="font-size:11px">#128</span></div>
+        <div data-id="ssn.achv.a2" class="mini-a ok"><div data-id="ssn.achv.a2.ic" class="ic"><svg data-id="ssn.achv.a2.icon" data-icon="material:Place" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><span data-id="ssn.achv.a2.n" class="n">Top 10 local</span><span data-id="ssn.achv.a2.cap" class="cap brass" style="font-size:11px">Desbloqueada</span></div>
+        <div data-id="ssn.achv.a3" class="mini-a"><div data-id="ssn.achv.a3.ic" class="ic"><svg data-id="ssn.achv.a3.icon" data-icon="material:Stars" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8l4 4 5-7 5 7 4-4-2 12H5z"/></svg></div><span data-id="ssn.achv.a3.n" class="n">Elite da temporada</span><span data-id="ssn.achv.a3.cap" class="cap" style="font-size:11px">Ouro II</span></div>
+      </div>
+    </section>
+  </div>
+
+  <footer data-id="ssn.dock" class="dock" style="padding-top:12px" data-compose="BottomActionBar">
+    <div data-id="ssn.dock.row" class="row" style="gap:10px">
+      <button data-id="ssn.dock.pos" class="btn btn-olive" style="flex:1;height:52px;padding:0 10px;font-size:14px;line-height:16px;text-align:center"><svg data-id="ssn.dock.pos.ic" data-icon="material:Share" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5l6.8-4M8.6 13.5l6.8 4"/></svg>Compartilhar posição</button>
+      <button data-id="ssn.dock.league" class="btn btn-ghost" style="flex:1;height:52px;padding:0 10px;font-size:14px;line-height:16px;text-align:center">Compartilhar liga</button>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    var root=document.querySelector('[data-id="screen"]'),btns=document.querySelectorAll('[data-id="ssn.ladder.row"] button');
+    function sel(k){btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-l')===k)});root.setAttribute('data-state',k==='ouro'?'padrao':'liga_'+k);}
+    btns.forEach(function(b){b.addEventListener('click',function(){sel(b.getAttribute('data-l'))})});
+    window.__setState=function(n){sel(n==='padrao'?'ouro':n.replace('liga_',''))};
+  })();
+  </script>
+</main>
+
+</body>
+</html>

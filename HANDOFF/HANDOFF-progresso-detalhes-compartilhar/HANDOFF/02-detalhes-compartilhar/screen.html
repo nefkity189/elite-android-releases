@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elite - 02 Detalhes da Corrida + Compartilhar</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --page:#000000; --bg:#0a0b09; --surface:#10120d; --card:#161911; --card-elev:#1d2116; --field:#0d0f0a;
+  --line:rgba(236,232,218,.10); --line-strong:rgba(236,232,218,.18);
+  --text:#ece8da; --muted:#8f9384; --dim:#5e6255;
+  --olive:#a3b565; --olive-dark:#5d6b34; --olive-soft:rgba(163,181,101,.14); --on-olive:#0e1306;
+  --red:#d12b2b; --on-red:#fff4f0; --brass:#c9a24b;
+  --share-glow:#1e2314; --route-halo:#1c2015; --white:#ffffff;
+  --display:"Barlow Condensed","Arial Narrow",sans-serif; --body:"Inter",sans-serif; --logo:"Saira Stencil One","Barlow Condensed",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+button{border:0;background:none;color:inherit;font:inherit;cursor:pointer}
+body{background:var(--page);font-family:var(--body);color:var(--text);display:flex;justify-content:center}
+[data-id="screen"]{flex:none;position:relative;width:393px;height:851px;overflow:hidden;background:var(--bg)}
+.view{position:absolute;left:0;top:0;width:393px;height:851px;display:none;flex-direction:column;background:var(--bg)}
+[data-state="progresso"] [data-id="app.progress"]{display:flex}
+[data-state="detalhes"] [data-id="app.detail"]{display:flex}
+[data-state="compartilhar"] [data-id="app.share"]{display:flex}
+
+/* ---------- partes comuns ---------- */
+.statusbar{flex:none;height:32px}
+.iconbtn{flex:none;width:48px;height:48px;display:grid;place-items:center;border-radius:24px;transition:transform 100ms ease-out}
+.iconbtn:active{transform:scale(.92)}
+.iconbtn svg{width:24px;height:24px;fill:var(--text)}
+.stroke-olive{stroke:var(--olive);fill:none}
+.card{background:var(--card);border:1px solid var(--line-strong);border-radius:18px}
+.metric{display:flex;flex-direction:column;align-items:center}
+.metric-value{font:600 28px/28px var(--display);font-variant-numeric:tabular-nums;color:var(--text);white-space:nowrap}
+.metric-label{margin-top:4px;font:500 12.5px/16px var(--body);letter-spacing:.15px;color:var(--muted);white-space:nowrap}
+.metric.start{align-items:flex-start}
+
+/* ---------- VISTA: DETALHES ---------- */
+[data-id="app.detail"]{padding:0 20px}
+[data-id="det.scroll"]{flex:1;min-height:0;overflow-y:auto;scrollbar-width:none;display:flex;flex-direction:column;gap:12px;padding-top:12px}
+[data-id="det.scroll"]>*{flex:none}
+[data-id="det.top"]{height:48px;display:flex;align-items:center;justify-content:space-between}
+[data-id="det.top.title"]{font:700 16px/22px var(--body);letter-spacing:.1px;color:var(--text)}
+[data-id="det.top.share"] svg{fill:var(--olive)}
+[data-id="det.hero"]{display:flex;flex-direction:column;align-items:center;padding:12px 0}
+[data-id="det.hero.distance"]{font:700 30px/32px var(--display);letter-spacing:.9px;font-variant-numeric:tabular-nums;color:var(--olive)}
+[data-id="det.hero.metrics"]{display:flex;gap:12px}
+[data-id="det.route"]{padding:12px}
+[data-id="det.route.head"]{display:flex;align-items:center;justify-content:space-between;height:16px}
+[data-id="det.route.title"]{font:700 12.5px/16px var(--body);letter-spacing:.15px;color:var(--muted)}
+[data-id="det.route.legend"]{display:flex;align-items:center;gap:8px}
+.dot{width:8px;height:8px;border-radius:4px}
+.legend-text{font:500 11px/16px var(--body);letter-spacing:.13px;color:var(--muted)}
+[data-id="det.route.start"]{background:var(--olive)}
+[data-id="det.route.end"]{background:var(--red)}
+[data-id="det.route.legend.gap"]{width:4px;height:1px}
+[data-id="det.route.canvas"]{margin-top:12px;width:329px;height:220px;display:block}
+.route-line{stroke:var(--olive);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.pin-start{fill:var(--olive)} .pin-end{fill:var(--red)} .pin-core{fill:var(--white)}
+
+/* card NOVO: todos os dados */
+[data-id="det.data"]{padding:16px}
+[data-id="det.data.head"]{display:flex;align-items:center;justify-content:space-between}
+[data-id="det.data.title"]{font:700 12.5px/16px var(--body);letter-spacing:.15px;color:var(--text)}
+[data-id="det.data.mode"]{height:22px;padding:0 10px;border-radius:11px;background:var(--olive-soft);display:flex;align-items:center;font:700 11px/16px var(--body);letter-spacing:.13px;color:var(--olive)}
+[data-id="det.data.when"]{margin-top:2px;font:400 11px/16px var(--body);letter-spacing:.13px;color:var(--muted)}
+[data-id="det.data.grid"]{margin-top:14px;display:grid;grid-template-columns:repeat(2,1fr);column-gap:16px;row-gap:14px}
+.metric-value.olive{color:var(--olive)}
+
+/* card NOVO: compartilhar */
+[data-id="det.share"]{padding:16px;display:flex;align-items:center;gap:16px}
+[data-id="det.share.thumb"]{flex:none;position:relative;width:88px;height:110px;border-radius:12px;border:1px solid var(--olive-dark);overflow:hidden;background:radial-gradient(circle at 50% 50%,var(--share-glow),var(--bg))}
+[data-id="det.share.thumb.brand"]{position:absolute;left:8px;top:8px;font:400 6px/8px var(--logo);letter-spacing:1.4px;color:var(--text)}
+[data-id="det.share.thumb.route"]{position:absolute;left:8px;top:22px;width:72px;height:44px}
+.thumb-halo{stroke:var(--route-halo);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.thumb-line{stroke:var(--olive);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;fill:none}
+[data-id="det.share.thumb.distance"]{position:absolute;left:8px;bottom:22px;display:flex;align-items:flex-end;gap:2px}
+[data-id="det.share.thumb.value"]{font:600 22px/20px var(--display);color:var(--text)}
+[data-id="det.share.thumb.unit"]{font:400 8px/10px var(--display);color:var(--muted);padding-bottom:2px}
+[data-id="det.share.thumb.meta"]{position:absolute;left:8px;bottom:9px;font:600 7px/9px var(--body);letter-spacing:.3px;color:var(--muted)}
+[data-id="det.share.body"]{flex:1;min-width:0;display:flex;flex-direction:column}
+[data-id="det.share.title"]{font:700 16px/22px var(--body);letter-spacing:.1px;color:var(--text)}
+[data-id="det.share.text"]{margin-top:2px;font:400 12px/16px var(--body);color:var(--muted)}
+[data-id="det.share.cta"]{margin-top:12px;height:40px;border-radius:20px;border:1px solid var(--olive);background:var(--olive-soft);display:flex;align-items:center;justify-content:center;gap:8px;transition:transform 100ms ease-out}
+[data-id="det.share.cta"]:active{transform:scale(.97)}
+[data-id="det.share.cta.icon"]{width:18px;height:18px;fill:var(--olive)}
+[data-id="det.share.cta.label"]{font:700 13px/16px var(--body);color:var(--olive)}
+
+/* cards existentes (sem mudanca) */
+[data-id="det.pace"]{padding:12px}
+[data-id="det.pace.title"]{font:700 12.5px/16px var(--body);letter-spacing:.15px;color:var(--text)}
+[data-id="det.pace.sub"]{font:500 11px/16px var(--body);letter-spacing:.13px;color:var(--muted)}
+[data-id="det.pace.chart"]{margin-top:14px;position:relative;width:329px;height:160px}
+[data-id="det.pace.chart.svg"]{position:absolute;left:0;top:0;width:329px;height:160px}
+.grid-line{stroke:var(--line);stroke-width:1}
+.pace-line{stroke:var(--olive);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none}
+[data-id="det.pace.chart.max"]{position:absolute;left:0;top:0;font:500 10px/12px var(--body);color:var(--muted)}
+[data-id="det.pace.chart.min"]{position:absolute;left:0;bottom:0;font:500 10px/12px var(--body);color:var(--muted)}
+[data-id="det.records"]{padding:12px}
+[data-id="det.records.head"]{display:flex;align-items:center;gap:8px}
+[data-id="det.records.icon"]{width:22px;height:22px;fill:var(--red)}
+[data-id="det.records.title"]{font:700 12.5px/16px var(--body);letter-spacing:.15px;color:var(--brass)}
+[data-id="det.records.row"]{margin-top:14px;display:flex;justify-content:space-around}
+.metric-value.brass{color:var(--brass)}
+[data-id="det.notes"]{padding:12px;display:flex;flex-direction:column;gap:12px}
+[data-id="det.notes.title"]{font:700 12.5px/16px var(--body);letter-spacing:.15px;color:var(--text)}
+[data-id="det.notes.hint"]{font:400 12px/16px var(--body);color:var(--muted)}
+[data-id="det.notes.field"]{height:96px;border-radius:14px;border:1px solid var(--line-strong);padding:12px 16px;font:400 14px/19.6px var(--body);color:var(--muted)}
+[data-id="det.tail"]{height:16px}
+
+/* rodape fixo */
+[data-id="det.footer"]{flex:none;background:var(--bg)}
+[data-id="det.footer.divider"]{height:1px;background:var(--line-strong)}
+[data-id="det.footer.pad"]{padding:12px 0 40px}
+[data-id="det.save"]{width:100%;height:56px;border-radius:28px;background:var(--olive);display:flex;align-items:center;justify-content:center;font:700 16px/22px var(--body);color:var(--on-olive)}
+
+/* ---------- VISTA: PROGRESSO ---------- */
+[data-id="app.progress"]{padding:0 20px}
+[data-id="prog.top"]{flex:none;height:56px;display:flex;align-items:center}
+[data-id="prog.top.title"]{font:600 20px/23px var(--display);letter-spacing:.8px;color:var(--text)}
+[data-id="prog.list"]{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;gap:16px;padding-top:4px}
+[data-id="prog.list"]>*{flex:none}
+[data-id="prog.history"]{display:flex;align-items:center;justify-content:space-between}
+[data-id="prog.history.title"]{font:700 16px/22px var(--body);letter-spacing:.1px;color:var(--text)}
+[data-id="prog.history.count"]{height:24px;padding:0 12px;border-radius:12px;background:var(--card-elev);display:flex;align-items:center;font:700 11px/16px var(--body);letter-spacing:.13px;color:var(--text)}
+.run{padding:16px;border-radius:16px}
+.run-head{display:flex;align-items:center;gap:8px}
+.run-info{flex:1;min-width:0}
+.run-date{font:600 12.5px/16px var(--body);letter-spacing:.15px;color:var(--text)}
+.run-title{margin-top:2px;font:700 16px/22px var(--body);letter-spacing:.1px;color:var(--text)}
+.run-mini{flex:none;width:52px;height:36px;border-radius:8px;background:var(--olive-soft);display:grid;place-items:center}
+.run-mini svg{width:44px;height:28px}
+.mini-line{stroke:var(--olive);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.run-arrow{flex:none;width:40px;height:40px;display:grid;place-items:center;border-radius:20px;transition:transform 100ms ease-out}
+.run-arrow:active{transform:scale(.9)}
+.run-arrow-bg{width:32px;height:32px;border-radius:16px;background:var(--olive-soft);display:grid;place-items:center}
+.run-arrow svg{width:18px;height:18px;fill:var(--olive)}
+.run-divider{margin:12px 0 10px;height:1px;background:var(--line)}
+.run-metrics{display:flex;justify-content:space-between}
+.run-metric-label{font:500 11px/16px var(--body);letter-spacing:.13px;color:var(--muted)}
+.run-metric-value{margin-top:2px;font:700 14px/19.6px var(--body);color:var(--text)}
+
+/* ---------- VISTA: COMPARTILHAR (preview) ---------- */
+[data-id="app.share"]{padding:0}
+[data-id="shr.back"]{position:absolute;left:8px;top:32px;z-index:2}
+[data-id="shr.col"]{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px 16px}
+[data-id="shr.label"]{font:600 11px/16px var(--body);letter-spacing:1.32px;color:var(--muted)}
+[data-id="shr.card"]{margin-top:16px;position:relative;width:361px;height:451px;border-radius:22px;border:1px solid var(--olive-dark);background:radial-gradient(circle at 50% 50%,var(--share-glow),var(--bg));padding:20px;display:flex;flex-direction:column;gap:12px}
+[data-id="shr.card.head"]{flex:none;height:30px;display:flex;align-items:center;justify-content:space-between}
+[data-id="shr.card.brand"]{display:flex;align-items:center;gap:8px}
+[data-id="shr.card.mark"]{width:26px;height:30px;fill:var(--olive)}
+[data-id="shr.card.wordmark"]{font:400 18px/22px var(--logo);letter-spacing:4.32px;color:var(--text)}
+[data-id="shr.card.badge"]{padding:3px 8px;border-radius:6px;background:var(--olive-soft);font:700 10px/14px var(--body);letter-spacing:1px;color:var(--olive)}
+[data-id="shr.card.route"]{flex:1;min-height:0;width:100%;position:relative}
+[data-id="shr.card.route.svg"]{position:absolute;left:0;top:0;width:319px;height:100%}
+.share-halo{stroke:var(--route-halo);stroke-width:8;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.share-line{stroke:var(--olive);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;fill:none}
+[data-id="shr.card.dist"]{flex:none;display:flex;flex-direction:column;gap:2px}
+[data-id="shr.card.dist.label"]{font:600 11px/14px var(--body);letter-spacing:1.32px;color:var(--muted)}
+[data-id="shr.card.dist.row"]{display:flex;align-items:flex-end}
+[data-id="shr.card.dist.value"]{font:600 72px/68px var(--display);color:var(--text)}
+[data-id="shr.card.dist.unit"]{font:500 24px/26px var(--display);color:var(--muted);padding:0 0 8px 4px}
+[data-id="shr.card.metrics"]{flex:none;display:flex;gap:10px}
+.share-metric{flex:1}
+.share-metric-label{font:600 11px/14px var(--body);letter-spacing:1.32px;color:var(--muted)}
+.share-metric-value{font:600 30px/42px var(--display);color:var(--text)}
+[data-id="shr.card.footer"]{flex:none;margin-top:5px;text-align:center;font:600 9px/12px var(--body);letter-spacing:1.8px;color:var(--muted)}
+[data-id="shr.cta"]{margin-top:16px;width:361px;height:44px;border-radius:22px;background:var(--red);display:flex;align-items:center;justify-content:center;gap:10px;font:700 14px/20px var(--body);color:var(--on-red);transition:transform 100ms ease-out}
+[data-id="shr.cta"]:active{transform:scale(.97)}
+[data-id="shr.cta.icon"]{width:18px;height:18px;fill:var(--on-red)}
+[data-id="shr.cta.label"]{font:700 14px/20px var(--body);color:var(--on-red)}
+
+/* ---------- MOTION ---------- */
+[data-enter="detalhes"] [data-id="app.detail"]{animation:detail-enter 200ms cubic-bezier(.2,0,0,1) both}
+[data-enter="compartilhar"] [data-id="app.share"]{animation:share-enter 220ms cubic-bezier(.2,.8,.2,1) both}
+@keyframes detail-enter{from{opacity:0}to{opacity:1}}
+@keyframes share-enter{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){
+  [data-enter] .view{animation:none}
+  .iconbtn,.run-arrow,[data-id="det.share.cta"],[data-id="shr.cta"]{transition:none}
+}
+
+[data-id="prog.nav"]{flex:none;height:74px;margin:0 -8px;padding:0 0 10px;display:flex;align-items:flex-end}
+[data-id="nav.bar"]{flex:1;height:64px;display:flex;align-items:center;padding:0 6px;background:var(--surface);border:1px solid var(--line-strong);border-radius:24px}
+.nav-item{flex:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;font:500 11px/16px var(--body);color:var(--muted)}
+.nav-item svg{width:22px;height:22px;fill:currentColor}
+.nav-item[data-selected="true"]{color:var(--olive)}
+.nav-coach{flex:1;display:flex;align-items:center;justify-content:center}
+[data-id="nav.coach"]{width:48px;height:48px;border-radius:16px;padding:2px;background:conic-gradient(var(--olive),var(--red),var(--brass),var(--olive))}
+[data-id="nav.coach"] div{width:44px;height:44px;border-radius:14px;background:radial-gradient(circle at 30% 20%,#262b1a,#0c0e08 70%);display:grid;place-items:center}
+[data-id="nav.coach"] svg{width:26px;height:26px}
+</style>
+</head>
+<body>
+<main data-id="screen" data-viewport="393x851" data-state="detalhes">
+
+<!-- ================= VISTA 2: DETALHES DA CORRIDA ================= -->
+<div class="view" data-id="app.detail" data-compose="WorkoutSummaryScreen(isDetailOnly = true)">
+  <div class="statusbar" data-id="det.statusbar" data-compose="statusBarsPadding"></div>
+  <div data-id="det.scroll" data-compose="Column(weight(1f).verticalScroll)">
+
+    <header data-id="det.top" data-compose="Row(SpaceBetween)">
+      <button class="iconbtn" data-id="det.top.back" aria-label="Voltar" data-compose="IconButton">
+        <svg data-id="det.top.back.icon" data-icon="material:AutoMirrored.Filled.ArrowBack" aria-hidden="true" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      </button>
+      <h1 data-id="det.top.title">Detalhes da Corrida</h1>
+      <button class="iconbtn" data-id="det.top.share" data-goto="compartilhar" aria-label="Compartilhar corrida" data-compose="IconButton (NOVO)">
+        <svg data-id="det.top.share.icon" data-icon="material:Filled.Share" aria-hidden="true" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
+      </button>
+    </header>
+
+    <section data-id="det.hero" data-compose="Column(Center)">
+      <p data-id="det.hero.distance" data-bind="distanceKm">5,12 km</p>
+      <div data-id="det.hero.metrics" data-compose="Row(spacedBy(12.dp))">
+        <div class="metric" data-id="det.hero.time" data-compose="MetricBlock"><p class="metric-value" data-id="det.hero.time.value" data-bind="timeFormatted">28:41</p><p class="metric-label" data-id="det.hero.time.label">Tempo</p></div>
+        <div class="metric" data-id="det.hero.pace" data-compose="MetricBlock"><p class="metric-value" data-id="det.hero.pace.value" data-bind="paceFormatted">5:36</p><p class="metric-label" data-id="det.hero.pace.label">Ritmo Médio</p></div>
+      </div>
+    </section>
+
+    <section class="card" data-id="det.route" data-compose="EliteCard">
+      <div data-id="det.route.head">
+        <p data-id="det.route.title">Trajeto percorrido</p>
+        <div data-id="det.route.legend">
+          <span class="dot" data-id="det.route.start"></span><span class="legend-text" data-id="det.route.legend.start">Início</span>
+          <span data-id="det.route.legend.gap"></span>
+          <span class="dot" data-id="det.route.end"></span><span class="legend-text" data-id="det.route.legend.end">Fim</span>
+        </div>
+      </div>
+      <svg data-id="det.route.canvas" data-compose="Canvas (rota)" aria-hidden="true" viewBox="0 0 329 220">
+        <polyline class="route-line" points="40,150 62,118 100,96 150,78 205,66 255,82 292,112 296,150 270,180 220,192 160,186 110,194 66,182 48,166"/>
+        <circle class="pin-start" cx="40" cy="150" r="3.3"/><circle class="pin-core" cx="40" cy="150" r="1.5"/>
+        <circle class="pin-end" cx="48" cy="166" r="3.3"/><circle class="pin-core" cx="48" cy="166" r="1.5"/>
+      </svg>
+    </section>
+
+    <section class="card" data-id="det.data" data-compose="EliteCard (NOVO: card_all_data)">
+      <div data-id="det.data.head">
+        <p data-id="det.data.title">Todos os dados</p>
+        <span data-id="det.data.mode" data-bind="modalidade">Corrida livre</span>
+      </div>
+      <p data-id="det.data.when" data-bind="log.finalizadoEm">Sábado, 22 de novembro · 15:04</p>
+      <div data-id="det.data.grid" data-compose="Grid 2 colunas (Row + weight(1f))">
+        <div class="metric start" data-id="det.data.dist"><p class="metric-value olive" data-id="det.data.dist.value" data-bind="distanceKm">5,12 km</p><p class="metric-label" data-id="det.data.dist.label">Distância</p></div>
+        <div class="metric start" data-id="det.data.time"><p class="metric-value" data-id="det.data.time.value" data-bind="timeFormatted">28:41</p><p class="metric-label" data-id="det.data.time.label">Tempo total</p></div>
+        <div class="metric start" data-id="det.data.pace"><p class="metric-value" data-id="det.data.pace.value" data-bind="paceFormatted">5:36 /km</p><p class="metric-label" data-id="det.data.pace.label">Ritmo médio</p></div>
+        <div class="metric start" data-id="det.data.best"><p class="metric-value" data-id="det.data.best.value" data-bind="paceSeries.min">5:08 /km</p><p class="metric-label" data-id="det.data.best.label">Ritmo mais rápido</p></div>
+        <div class="metric start" data-id="det.data.rpe"><p class="metric-value" data-id="det.data.rpe.value" data-bind="log.esforcoPercebido">6/10</p><p class="metric-label" data-id="det.data.rpe.label">Esforço (Moderado)</p></div>
+        <div class="metric start" data-id="det.data.gps"><p class="metric-value" data-id="det.data.gps.value" data-bind="log.gpsAceitas">1.284</p><p class="metric-label" data-id="det.data.gps.label">Pontos de GPS</p></div>
+      </div>
+    </section>
+
+    <section class="card" data-id="det.share" data-compose="EliteCard (NOVO: card_share_run)">
+      <button data-id="det.share.thumb" data-goto="compartilhar" aria-label="Abrir cartão de compartilhamento" data-compose="ShareCardThumb">
+        <span data-id="det.share.thumb.brand">ELITE</span>
+        <svg data-id="det.share.thumb.route" aria-hidden="true" viewBox="0 0 72 44"><polyline class="thumb-halo" points="6,32 12,22 22,16 34,12 48,14 58,22 60,32 50,38 34,40 18,38"/><polyline class="thumb-line" points="6,32 12,22 22,16 34,12 48,14 58,22 60,32 50,38 34,40 18,38"/></svg>
+        <span data-id="det.share.thumb.distance"><span data-id="det.share.thumb.value">5,12</span><span data-id="det.share.thumb.unit">km</span></span>
+        <span data-id="det.share.thumb.meta">28:41 · 5:36</span>
+      </button>
+      <div data-id="det.share.body" data-compose="Column(weight(1f))">
+        <p data-id="det.share.title">Compartilhar corrida</p>
+        <p data-id="det.share.text">Cartão com a rota, a distância e o tempo desta corrida.</p>
+        <button data-id="det.share.cta" data-goto="compartilhar" aria-label="Compartilhar corrida" data-compose="OutlinedPillButton (NOVO)">
+          <svg data-id="det.share.cta.icon" data-icon="material:Filled.Share" aria-hidden="true" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
+          <span data-id="det.share.cta.label">Compartilhar</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="card" data-id="det.pace" data-compose="EliteCard (existente: card_pace_chart)">
+      <p data-id="det.pace.title">Ritmo ao longo do treino</p>
+      <p data-id="det.pace.sub">Janela móvel de 30s filtrada</p>
+      <div data-id="det.pace.chart" data-compose="PaceCanvasChart">
+        <svg data-id="det.pace.chart.svg" aria-hidden="true" viewBox="0 0 329 160">
+          <line class="grid-line" x1="0" y1="14" x2="329" y2="14"/><line class="grid-line" x1="0" y1="80" x2="329" y2="80"/><line class="grid-line" x1="0" y1="146" x2="329" y2="146"/>
+          <polyline class="pace-line" points="28,92 52,80 80,70 110,76 140,60 170,66 200,48 230,58 260,40 290,52 320,34"/>
+        </svg>
+        <span data-id="det.pace.chart.max">5:08</span>
+        <span data-id="det.pace.chart.min">6:02</span>
+      </div>
+    </section>
+
+    <section class="card" data-id="det.records" data-compose="EliteCard (existente: card_personal_records)">
+      <div data-id="det.records.head">
+        <svg data-id="det.records.icon" data-icon="material:Filled.EmojiEvents" aria-hidden="true" viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg>
+        <p data-id="det.records.title">Seus recordes</p>
+      </div>
+      <div data-id="det.records.row">
+        <div class="metric" data-id="det.records.dist"><p class="metric-value olive" data-id="det.records.dist.value">10,03 km</p><p class="metric-label" data-id="det.records.dist.label">Maior distância</p></div>
+        <div class="metric" data-id="det.records.dur"><p class="metric-value brass" data-id="det.records.dur.value">58:12</p><p class="metric-label" data-id="det.records.dur.label">Maior duração</p></div>
+      </div>
+    </section>
+
+    <section class="card" data-id="det.notes" data-compose="EliteCard (existente: card_anotacoes_particulares)">
+      <p data-id="det.notes.title">Anotações particulares</p>
+      <p data-id="det.notes.hint">Sensações, clima ou observações do seu treino (salvo no celular).</p>
+      <div data-id="det.notes.field">Ex: Bom ritmo no trecho intermediário...</div>
+    </section>
+    <div data-id="det.tail"></div>
+  </div>
+
+  <footer data-id="det.footer" data-compose="Column (rodapé fixo)">
+    <div data-id="det.footer.divider"></div>
+    <div data-id="det.footer.pad">
+      <button data-id="det.save" data-compose="BrandGradientButton">Salvar alterações</button>
+    </div>
+  </footer>
+</div>
+
+<!-- ================= VISTA 3: COMPARTILHAR NO ELITE (preview do cartao) ================= -->
+<div class="view" data-id="app.share" data-compose="ShareCardPreviewScreen">
+  <div class="statusbar" data-id="shr.statusbar" data-compose="statusBarsPadding"></div>
+  <button class="iconbtn" data-id="shr.back" data-goto="detalhes" aria-label="Voltar" data-compose="IconButton (NOVO, canto sup. esquerdo)">
+    <svg data-id="shr.back.icon" data-icon="material:AutoMirrored.Filled.ArrowBack" aria-hidden="true" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+  </button>
+  <div data-id="shr.col" data-compose="Column(Center, verticalScroll)">
+    <p data-id="shr.label">COMPARTILHAR NO ELITE</p>
+    <section data-id="shr.card" data-compose="ShareCardPreview (existente)">
+      <div data-id="shr.card.head">
+        <div data-id="shr.card.brand">
+          <svg data-id="shr.card.mark" data-icon="drawable:ic_elite_mark" aria-hidden="true" viewBox="0 0 26 30"><path d="M13 1 L25 8 V22 L13 29 L1 22 V8 Z M13 8 L19 11.5 V18.5 L13 22 L7 18.5 V11.5 Z" fill-rule="evenodd"/></svg>
+          <span data-id="shr.card.wordmark">ELITE</span>
+        </div>
+        <span data-id="shr.card.badge">TREINO CONCLUÍDO</span>
+      </div>
+      <div data-id="shr.card.route" data-compose="RoutePreview (Canvas)">
+        <svg data-id="shr.card.route.svg" aria-hidden="true" viewBox="0 0 319 164" preserveAspectRatio="none">
+          <polyline class="share-halo" points="30,120 60,86 110,62 170,42 230,50 280,80 292,120 260,148 200,156 140,150 80,156 44,138"/>
+          <polyline class="share-line" points="30,120 60,86 110,62 170,42 230,50 280,80 292,120 260,148 200,156 140,150 80,156 44,138"/>
+          <circle class="pin-start" cx="30" cy="120" r="6"/><circle class="pin-end" cx="44" cy="138" r="6"/>
+        </svg>
+      </div>
+      <div data-id="shr.card.dist">
+        <p data-id="shr.card.dist.label">DISTÂNCIA</p>
+        <div data-id="shr.card.dist.row"><span data-id="shr.card.dist.value" data-bind="distanceValue">5,12</span><span data-id="shr.card.dist.unit" data-bind="distanceUnit">km</span></div>
+      </div>
+      <div data-id="shr.card.metrics" data-compose="Row(spacedBy(10.dp))">
+        <div class="share-metric" data-id="shr.card.time" data-compose="ShareMetric"><p class="share-metric-label" data-id="shr.card.time.label">TEMPO</p><p class="share-metric-value" data-id="shr.card.time.value">28:41</p></div>
+        <div class="share-metric" data-id="shr.card.pace" data-compose="ShareMetric"><p class="share-metric-label" data-id="shr.card.pace.label">RITMO</p><p class="share-metric-value" data-id="shr.card.pace.value">5:36</p></div>
+      </div>
+      <p data-id="shr.card.footer">ELITE · MISSÃO DADA É MISSÃO CUMPRIDA</p>
+    </section>
+    <button data-id="shr.cta" aria-label="Compartilhar" data-compose="Button (existente: btn_share_card_preview)">
+      <svg data-id="shr.cta.icon" data-icon="material:Filled.Share" aria-hidden="true" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
+      <span data-id="shr.cta.label">Compartilhar</span>
+    </button>
+  </div>
+</div>
+
+</main>
+<script>
+(function(){
+  var root=document.querySelector('[data-id="screen"]');
+  function go(s){root.removeAttribute('data-enter');void root.offsetWidth;root.setAttribute('data-state',s);root.setAttribute('data-enter',s);}
+  window.__goto=go;
+  window.__replay=function(){var s=root.getAttribute('data-state');root.removeAttribute('data-enter');void root.offsetWidth;root.setAttribute('data-enter',s);};
+  Array.prototype.forEach.call(document.querySelectorAll('[data-goto]'),function(el){
+    el.addEventListener('click',function(){go(el.getAttribute('data-goto'));});
+  });
+})();
+</script>
+</body>
+</html>

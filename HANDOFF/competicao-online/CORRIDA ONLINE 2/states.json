@@ -1,0 +1,16 @@
+[
+  {"name": "prova", "eval": "__setState('prova')", "wait": 300},
+  {"name": "desistir_dialog", "eval": "__setState('desistir_dialog')", "wait": 300},
+  {"name": "largada_3", "eval": "__setState('largada')", "frames": [200, 700]},
+  {"name": "largada_2_1_ja", "eval": "__setState('largada')", "frames": [1200, 2200, 3200]},
+  {"name": "concluida_animacao", "eval": "__setState('concluida')", "frames": [0, 300, 700, 1200, 2000, 3000]},
+  {"name": "resultado", "eval": "__setState('resultado')", "wait": 300},
+  {"name": "resultado_parcial", "eval": "__setState('resultado_parcial')", "wait": 300},
+  {"name": "resultado_abandono", "eval": "__setState('resultado_abandono')", "wait": 300},
+  {"name": "liga_galeria", "eval": "__setState('liga_galeria')", "frames": [0, 700, 1400, 2200]},
+  {"name": "liga_platina", "setup": ["[data-id='preview.liga']", "[data-id='liga.tier.platina']"], "frames": [0, 800, 1600]},
+  {"name": "liga_diamante", "setup": ["[data-id='preview.liga']", "[data-id='liga.tier.diamante']"], "frames": [0, 800, 1600]},
+  {"name": "liga_elite", "setup": ["[data-id='preview.liga']", "[data-id='liga.tier.elite']"], "frames": [0, 800, 1600]},
+  {"name": "promocao_animacao", "eval": "__setState('promocao')", "frames": [0, 400, 900, 1800]},
+  {"name": "desistir_pressionado", "press": "[data-id='race.giveup']", "wait": 300}
+]

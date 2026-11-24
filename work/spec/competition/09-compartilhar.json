@@ -1,0 +1,1582 @@
+{
+ "screen": {
+  "w": 393,
+  "h": 851
+ },
+ "tokens": {
+  "--page": "#050604",
+  "--bg": "#0a0b09",
+  "--surface": "#10120d",
+  "--card": "#161911",
+  "--card-el": "#1d2116",
+  "--field": "#0d0f0a",
+  "--line": "rgba(236,232,218,.10)",
+  "--line-strong": "rgba(236,232,218,.18)",
+  "--text": "#ece8da",
+  "--muted": "#8f9384",
+  "--dim": "#5e6255",
+  "--olive": "#a3b565",
+  "--olive-dark": "#5d6b34",
+  "--olive-soft": "rgba(163,181,101,.14)",
+  "--on-olive": "#0e1306",
+  "--red": "#d12b2b",
+  "--red-soft": "rgba(209,43,43,.15)",
+  "--on-red": "#fff4f0",
+  "--brass": "#c9a24b",
+  "--brass-soft": "rgba(201,162,75,.16)",
+  "--amber": "#e0a93a",
+  "--amber-soft": "rgba(224,169,58,.14)",
+  "--ok": "#7fb069",
+  "--ok-soft": "rgba(127,176,105,.15)",
+  "--amber-line": "rgba(224,169,58,.45)",
+  "--red-line": "rgba(209,43,43,.5)",
+  "--ok-line": "rgba(127,176,105,.45)",
+  "--brass-line": "rgba(201,162,75,.5)",
+  "--glass": "rgba(16,18,13,.82)",
+  "--glass-bar": "rgba(16,18,13,.90)",
+  "--scrim": "rgba(0,0,0,.62)",
+  "--lg-bronze": "#b07a4a",
+  "--lg-prata": "#b4bab8",
+  "--lg-ouro": "#c9a24b",
+  "--lg-platina": "#86bdb3",
+  "--lg-diamante": "#7fb4de",
+  "--lg-elite": "#e7e2d0",
+  "--av1": "#3b4426",
+  "--av2": "#4a3f1e",
+  "--av3": "#2e3b3a",
+  "--av4": "#46301f",
+  "--av5": "#3a2e3f",
+  "--num": "\"Barlow Condensed\",\"Arial Narrow\",sans-serif",
+  "--ui": "\"Inter\",sans-serif",
+  "--logo": "\"Saira Stencil One\",\"Impact\",sans-serif"
+ },
+ "fonts": [
+  {
+   "family": "Inter",
+   "loaded": true
+  },
+  {
+   "family": "Barlow Condensed",
+   "loaded": false
+  },
+  {
+   "family": "Saira Stencil One",
+   "loaded": true
+  }
+ ],
+ "media_queries": [
+  "(prefers-reduced-motion: reduce)",
+  "(prefers-reduced-motion: reduce)"
+ ],
+ "animations": [],
+ "elements": [
+  {
+   "id": 0,
+   "depth": 0,
+   "sel": "main",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 851
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "flex-direction": "column",
+    "flex-shrink": "0",
+    "padding": "28px 16px 0px",
+    "background-color": "rgb(10, 11, 9)",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=screen",
+    "data-viewport=393x851",
+    "data-state=participacao"
+   ]
+  },
+  {
+   "id": 1,
+   "depth": 1,
+   "sel": "header.topbar",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 28,
+    "w": 361,
+    "h": 48
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "12px"
+   },
+   "data": [
+    "data-id=shr.topbar"
+   ]
+  },
+  {
+   "id": 2,
+   "depth": 2,
+   "sel": "button.btn-back",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 32,
+    "w": 40,
+    "h": 40
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "20px",
+    "font-size": "13.3333px",
+    "text-align": "center",
+    "transition": "transform 0.12s ease-out"
+   },
+   "aria": "Fechar",
+   "data": [
+    "data-id=shr.topbar.close"
+   ]
+  },
+  {
+   "id": 3,
+   "depth": 3,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 26,
+    "y": 42,
+    "w": 20,
+    "h": 20
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=shr.topbar.close.ic",
+    "data-icon=material:Close"
+   ],
+   "svg": "<svg data-id=\"shr.topbar.close.ic\" data-icon=\"material:Close\" viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M18 6L6 18M6 6l12 12\"></path></svg>"
+  },
+  {
+   "id": 4,
+   "depth": 2,
+   "sel": "h1.t1.grow",
+   "text": "Compartilhar",
+   "rect": {
+    "x": 68,
+    "y": 36,
+    "w": 309,
+    "h": 32
+   },
+   "style": {
+    "flex-grow": "1",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "30px",
+    "font-weight": "700",
+    "line-height": "32px",
+    "letter-spacing": "0.9px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=shr.topbar.title"
+   ]
+  },
+  {
+   "id": 5,
+   "depth": 1,
+   "sel": "nav",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 82,
+    "w": 393,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "flex-shrink": "0",
+    "gap": "8px",
+    "padding": "0px 16px",
+    "margin": "6px -16px 0px"
+   },
+   "aria": "Modelo do card",
+   "data": [
+    "data-id=shr.chips",
+    "data-compose=ShareVariantChips"
+   ]
+  },
+  {
+   "id": 6,
+   "depth": 2,
+   "sel": "button.chip.chip-on",
+   "text": "Participação",
+   "rect": {
+    "x": 16,
+    "y": 82,
+    "w": 98.8,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "6px",
+    "padding": "0px 12px",
+    "color": "rgb(163, 181, 101)",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border": "1px solid rgb(93, 107, 52)",
+    "border-radius": "15px",
+    "font-size": "12px",
+    "font-weight": "600",
+    "line-height": "16px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=shr.chips.participacao",
+    "data-s=participacao"
+   ]
+  },
+  {
+   "id": 7,
+   "depth": 2,
+   "sel": "button.chip",
+   "text": "Pódio",
+   "rect": {
+    "x": 122.8,
+    "y": 82,
+    "w": 58.9,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "6px",
+    "padding": "0px 12px",
+    "background-color": "rgb(29, 33, 22)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "15px",
+    "font-size": "12px",
+    "font-weight": "600",
+    "line-height": "16px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=shr.chips.podio",
+    "data-s=podio"
+   ]
+  },
+  {
+   "id": 8,
+   "depth": 2,
+   "sel": "button.chip",
+   "text": "Conquista",
+   "rect": {
+    "x": 189.7,
+    "y": 82,
+    "w": 85.3,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "6px",
+    "padding": "0px 12px",
+    "background-color": "rgb(29, 33, 22)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "15px",
+    "font-size": "12px",
+    "font-weight": "600",
+    "line-height": "16px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=shr.chips.conquista",
+    "data-s=conquista"
+   ]
+  },
+  {
+   "id": 9,
+   "depth": 2,
+   "sel": "button.chip",
+   "text": "Ranking",
+   "rect": {
+    "x": 283,
+    "y": 82,
+    "w": 72.8,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "6px",
+    "padding": "0px 12px",
+    "background-color": "rgb(29, 33, 22)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "15px",
+    "font-size": "12px",
+    "font-weight": "600",
+    "line-height": "16px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=shr.chips.ranking",
+    "data-s=ranking"
+   ]
+  },
+  {
+   "id": 10,
+   "depth": 2,
+   "sel": "button.chip",
+   "text": "Convite",
+   "rect": {
+    "x": 363.8,
+    "y": 82,
+    "w": 70.7,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "6px",
+    "padding": "0px 12px",
+    "background-color": "rgb(29, 33, 22)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "15px",
+    "font-size": "12px",
+    "font-weight": "600",
+    "line-height": "16px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=shr.chips.convite",
+    "data-s=convite"
+   ]
+  },
+  {
+   "id": 11,
+   "depth": 2,
+   "sel": "button.chip",
+   "text": "Convite sem app",
+   "rect": {
+    "x": 442.5,
+    "y": 82,
+    "w": 123.1,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "6px",
+    "padding": "0px 12px",
+    "background-color": "rgb(29, 33, 22)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "15px",
+    "font-size": "12px",
+    "font-weight": "600",
+    "line-height": "16px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=shr.chips.fallback",
+    "data-s=convite_fallback"
+   ]
+  },
+  {
+   "id": 12,
+   "depth": 1,
+   "sel": "section.col",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 124,
+    "w": 361,
+    "h": 362
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-shrink": "0",
+    "margin": "12px 0px 0px"
+   },
+   "data": [
+    "data-id=shr.preview",
+    "data-compose=ShareCardPreview (bitmap 1080x1350 em escala 0,2685)"
+   ]
+  },
+  {
+   "id": 13,
+   "depth": 2,
+   "sel": "div.sc-card.card-v.v-participacao",
+   "text": null,
+   "rect": {
+    "x": 51.5,
+    "y": 124,
+    "w": 290,
+    "h": 362
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "flex-shrink": "0",
+    "background-image": "linear-gradient(160deg, rgb(29, 33, 22), rgb(10, 11, 9) 62%)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "16px",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=shr.c1"
+   ]
+  },
+  {
+   "id": 14,
+   "depth": 3,
+   "sel": "div.sc-deco1",
+   "text": null,
+   "rect": {
+    "x": 182.3,
+    "y": 115,
+    "w": 256.5,
+    "h": 420
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "transform": "matrix(1, 0, -0.32492, 1, 0, 0)"
+   },
+   "data": [
+    "data-id=shr.c1.sc-deco1"
+   ]
+  },
+  {
+   "id": 15,
+   "depth": 3,
+   "sel": "div.sc-deco2",
+   "text": null,
+   "rect": {
+    "x": 208.3,
+    "y": 115,
+    "w": 150.5,
+    "h": 420
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgba(209, 43, 43, 0.15)",
+    "transform": "matrix(1, 0, -0.32492, 1, 0, 0)"
+   },
+   "data": [
+    "data-id=shr.c1.sc-deco2"
+   ]
+  },
+  {
+   "id": 16,
+   "depth": 3,
+   "sel": "div.sc-in",
+   "text": null,
+   "rect": {
+    "x": 52.5,
+    "y": 125,
+    "w": 288,
+    "h": 360
+   },
+   "style": {
+    "display": "flex",
+    "position": "absolute",
+    "flex-direction": "column",
+    "justify-content": "space-between",
+    "padding": "14px 16px 12px"
+   },
+   "data": [
+    "data-id=shr.c1.sc-in"
+   ]
+  },
+  {
+   "id": 17,
+   "depth": 4,
+   "sel": "div.sc-top",
+   "text": null,
+   "rect": {
+    "x": 68.5,
+    "y": 139,
+    "w": 256,
+    "h": 20
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between",
+    "align-items": "center"
+   },
+   "data": [
+    "data-id=shr.c1.sc-in.sc-top"
+   ]
+  },
+  {
+   "id": 18,
+   "depth": 5,
+   "sel": "div.sc-logo",
+   "text": null,
+   "rect": {
+    "x": 68.5,
+    "y": 139,
+    "w": 73.9,
+    "h": 20
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "6px",
+    "font-family": "\"Saira Stencil One\", Impact, sans-serif",
+    "font-size": "13px",
+    "line-height": "14px",
+    "letter-spacing": "2.6px"
+   },
+   "data": [
+    "data-id=shr.c1.sc-in.sc-top.sc-logo"
+   ]
+  },
+  {
+   "id": 19,
+   "depth": 6,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 68.5,
+    "y": 139,
+    "w": 20,
+    "h": 20
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=shr.c1.mark",
+    "data-icon=drawable:ic_elite_blade"
+   ],
+   "svg": "<svg data-id=\"shr.c1.mark\" data-icon=\"drawable:ic_elite_blade\" viewBox=\"0 0 64 64\" width=\"20\" height=\"20\" aria-hidden=\"true\"><path d=\"M19.1 8H55.1L53.2 17H27.2L20.8 47H46.8L44.9 56H8.9Z\" style=\"fill:var(--olive)\"></path><path d=\"M25.1 27H45.1L43.1 36H23.1Z\" style=\"fill:var(--red)\"></path></svg>"
+  },
+  {
+   "id": 20,
+   "depth": 6,
+   "sel": "span",
+   "text": "ELITE",
+   "rect": {
+    "x": 94.5,
+    "y": 142,
+    "w": 47.9,
+    "h": 14
+   },
+   "style": {},
+   "data": [
+    "data-id=shr.c1.brand"
+   ]
+  },
+  {
+   "id": 21,
+   "depth": 5,
+   "sel": "span.sc-mt",
+   "text": "Missão 5K · 13:00",
+   "rect": {
+    "x": 225.4,
+    "y": 144,
+    "w": 99.1,
+    "h": 10
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "9px",
+    "font-weight": "700",
+    "line-height": "10px",
+    "letter-spacing": "1px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=shr.c1.mt"
+   ]
+  },
+  {
+   "id": 22,
+   "depth": 4,
+   "sel": "div.col",
+   "text": null,
+   "rect": {
+    "x": 68.5,
+    "y": 175,
+    "w": 256,
+    "h": 141
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "flow-start"
+   },
+   "data": [
+    "data-id=shr.c1.sc-in.col"
+   ]
+  },
+  {
+   "id": 23,
+   "depth": 5,
+   "sel": "span.eyebrow.olive",
+   "text": "Missão cumprida",
+   "rect": {
+    "x": 68.5,
+    "y": 175,
+    "w": 115.3,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-size": "10px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "letter-spacing": "1.3px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=shr.c1.eyebrow"
+   ]
+  },
+  {
+   "id": 24,
+   "depth": 5,
+   "sel": "div.row",
+   "text": null,
+   "rect": {
+    "x": 68.5,
+    "y": 189,
+    "w": 136.4,
+    "h": 104
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "flow-end",
+    "gap": "8px"
+   },
+   "data": [
+    "data-id=shr.c1.sc-in.col.row"
+   ]
+  },
+  {
+   "id": 25,
+   "depth": 6,
+   "sel": "span.num",
+   "text": "2º",
+   "rect": {
+    "x": 68.5,
+    "y": 189,
+    "w": 84.5,
+    "h": 104
+   },
+   "style": {
+    "color": "rgb(201, 162, 75)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "104px",
+    "font-weight": "700",
+    "line-height": "104px",
+    "letter-spacing": "1px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=shr.c1.place"
+   ]
+  },
+  {
+   "id": 26,
+   "depth": 6,
+   "sel": "span.eyebrow",
+   "text": "lugar",
+   "rect": {
+    "x": 161,
+    "y": 265,
+    "w": 43.9,
+    "h": 14
+   },
+   "style": {
+    "margin": "0px 0px 14px",
+    "color": "rgb(201, 162, 75)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "letter-spacing": "1.3px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=shr.c1.place-l"
+   ]
+  },
+  {
+   "id": 27,
+   "depth": 5,
+   "sel": "span.t2",
+   "text": "Rafael Nunes",
+   "rect": {
+    "x": 68.5,
+    "y": 293,
+    "w": 107.7,
+    "h": 23
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "19px",
+    "font-weight": "600",
+    "line-height": "23px",
+    "letter-spacing": "0.8px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=shr.c1.name"
+   ]
+  },
+  {
+   "id": 28,
+   "depth": 4,
+   "sel": "div.row",
+   "text": null,
+   "rect": {
+    "x": 68.5,
+    "y": 332,
+    "w": 256,
+    "h": 29
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "8px"
+   },
+   "data": [
+    "data-id=shr.c1.sc-in.row"
+   ]
+  },
+  {
+   "id": 29,
+   "depth": 5,
+   "sel": "div.sc-stat",
+   "text": null,
+   "rect": {
+    "x": 68.5,
+    "y": 332,
+    "w": 80,
+    "h": 29
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "2px"
+   },
+   "data": [
+    "data-id=shr.c1.sc-in.row.sc-stat"
+   ]
+  },
+  {
+   "id": 30,
+   "depth": 6,
+   "sel": "span",
+   "text": "Tempo",
+   "rect": {
+    "x": 68.5,
+    "y": 332,
+    "w": 80,
+    "h": 9
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "8px",
+    "font-weight": "600",
+    "line-height": "9px",
+    "letter-spacing": "0.8px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=shr.c1.sc-in.row.sc-stat.span"
+   ]
+  },
+  {
+   "id": 31,
+   "depth": 6,
+   "sel": "span.num",
+   "text": "24:18",
+   "rect": {
+    "x": 68.5,
+    "y": 343,
+    "w": 80,
+    "h": 18
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "18px",
+    "font-weight": "700",
+    "line-height": "18px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=shr.c1.time"
+   ]
+  },
+  {
+   "id": 32,
+   "depth": 5,
+   "sel": "div.sc-stat",
+   "text": null,
+   "rect": {
+    "x": 156.5,
+    "y": 332,
+    "w": 80,
+    "h": 29
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "2px"
+   },
+   "data": [
+    "data-id=shr.c1.sc-in.row.sc-stat2"
+   ]
+  },
+  {
+   "id": 33,
+   "depth": 6,
+   "sel": "span",
+   "text": "Pace médio",
+   "rect": {
+    "x": 156.5,
+    "y": 332,
+    "w": 80,
+    "h": 9
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "8px",
+    "font-weight": "600",
+    "line-height": "9px",
+    "letter-spacing": "0.8px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=shr.c1.sc-in.row.sc-stat2.span"
+   ]
+  },
+  {
+   "id": 34,
+   "depth": 6,
+   "sel": "span.num",
+   "text": "4:52 /km",
+   "rect": {
+    "x": 156.5,
+    "y": 343,
+    "w": 80,
+    "h": 18
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "18px",
+    "font-weight": "700",
+    "line-height": "18px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=shr.c1.pace"
+   ]
+  },
+  {
+   "id": 35,
+   "depth": 5,
+   "sel": "div.sc-stat",
+   "text": null,
+   "rect": {
+    "x": 244.5,
+    "y": 332,
+    "w": 80,
+    "h": 29
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "2px"
+   },
+   "data": [
+    "data-id=shr.c1.sc-in.row.sc-stat3"
+   ]
+  },
+  {
+   "id": 36,
+   "depth": 6,
+   "sel": "span",
+   "text": "Distância",
+   "rect": {
+    "x": 244.5,
+    "y": 332,
+    "w": 80,
+    "h": 9
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "8px",
+    "font-weight": "600",
+    "line-height": "9px",
+    "letter-spacing": "0.8px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=shr.c1.sc-in.row.sc-stat3.span"
+   ]
+  },
+  {
+   "id": 37,
+   "depth": 6,
+   "sel": "span.num",
+   "text": "5K",
+   "rect": {
+    "x": 244.5,
+    "y": 343,
+    "w": 80,
+    "h": 18
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "18px",
+    "font-weight": "700",
+    "line-height": "18px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=shr.c1.dist"
+   ]
+  },
+  {
+   "id": 38,
+   "depth": 4,
+   "sel": "div.row",
+   "text": null,
+   "rect": {
+    "x": 68.5,
+    "y": 377,
+    "w": 256,
+    "h": 46
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "6px"
+   },
+   "data": [
+    "data-id=shr.c1.sc-in.row2"
+   ]
+  },
+  {
+   "id": 39,
+   "depth": 5,
+   "sel": "span.sc-chip",
+   "text": "Global #128",
+   "rect": {
+    "x": 68.5,
+    "y": 377,
+    "w": 72.4,
+    "h": 20
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "4px",
+    "padding": "0px 8px",
+    "background-color": "rgb(29, 33, 22)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "10px",
+    "font-size": "9.5px",
+    "font-weight": "700",
+    "line-height": "10px"
+   },
+   "data": [
+    "data-id=shr.c1.rg"
+   ]
+  },
+  {
+   "id": 40,
+   "depth": 5,
+   "sel": "span.sc-chip",
+   "text": "MT #7",
+   "rect": {
+    "x": 146.9,
+    "y": 377,
+    "w": 47.1,
+    "h": 20
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "4px",
+    "padding": "0px 8px",
+    "background-color": "rgb(29, 33, 22)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "10px",
+    "font-size": "9.5px",
+    "font-weight": "700",
+    "line-height": "10px"
+   },
+   "data": [
+    "data-id=shr.c1.re"
+   ]
+  },
+  {
+   "id": 41,
+   "depth": 5,
+   "sel": "span.sc-chip",
+   "text": "Ouro II",
+   "rect": {
+    "x": 200,
+    "y": 377,
+    "w": 64.3,
+    "h": 20
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "4px",
+    "padding": "0px 8px",
+    "color": "rgb(201, 162, 75)",
+    "background-color": "rgb(29, 33, 22)",
+    "border": "1px solid rgba(201, 162, 75, 0.5)",
+    "border-radius": "10px",
+    "font-size": "9.5px",
+    "font-weight": "700",
+    "line-height": "10px"
+   },
+   "data": [
+    "data-id=shr.c1.lg"
+   ]
+  },
+  {
+   "id": 42,
+   "depth": 6,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 209,
+    "y": 381,
+    "w": 12,
+    "h": 12
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=shr.c1.lg.badge",
+    "data-icon=custom:ic_league_ouro_2"
+   ],
+   "svg": "<svg data-id=\"shr.c1.lg.badge\" data-icon=\"custom:ic_league_ouro_2\" viewBox=\"0 0 24 24\" width=\"12\" height=\"12\" aria-hidden=\"true\"><path d=\"M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z\" style=\"fill:var(--lg-ouro)\"></path><path d=\"M7.8 10L12 13L16.2 10\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 14.5L12 17.5L16.2 14.5\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>"
+  },
+  {
+   "id": 43,
+   "depth": 5,
+   "sel": "span.sc-chip",
+   "text": "Pódio",
+   "rect": {
+    "x": 68.5,
+    "y": 403,
+    "w": 59.3,
+    "h": 20
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "4px",
+    "padding": "0px 8px",
+    "color": "rgb(201, 162, 75)",
+    "background-color": "rgb(29, 33, 22)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "10px",
+    "font-size": "9.5px",
+    "font-weight": "700",
+    "line-height": "10px"
+   },
+   "data": [
+    "data-id=shr.c1.ac"
+   ]
+  },
+  {
+   "id": 44,
+   "depth": 6,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 77.5,
+    "y": 407.5,
+    "w": 11,
+    "h": 11
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=shr.c1.ac.ic",
+    "data-icon=material:WorkspacePremium"
+   ],
+   "svg": "<svg data-id=\"shr.c1.ac.ic\" data-icon=\"material:WorkspacePremium\" viewBox=\"0 0 24 24\" width=\"11\" height=\"11\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"9\" r=\"6\"></circle><path d=\"M8.5 14.5L7 22l5-3 5 3-1.5-7.5\"></path></svg>"
+  },
+  {
+   "id": 45,
+   "depth": 4,
+   "sel": "div.sc-foot",
+   "text": null,
+   "rect": {
+    "x": 68.5,
+    "y": 439,
+    "w": 256,
+    "h": 34
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "gap": "5px"
+   },
+   "data": [
+    "data-id=shr.c1.sc-in.sc-foot"
+   ]
+  },
+  {
+   "id": 46,
+   "depth": 5,
+   "sel": "div.stripe",
+   "text": null,
+   "rect": {
+    "x": 68,
+    "y": 439,
+    "w": 61.1,
+    "h": 3
+   },
+   "style": {
+    "background-color": "rgb(209, 43, 43)",
+    "border-radius": "2px",
+    "transform": "matrix(1, 0, -0.36397, 1, 0, 0)"
+   },
+   "data": [
+    "data-id=shr.c1.sc-in.sc-foot.stripe"
+   ]
+  },
+  {
+   "id": 47,
+   "depth": 5,
+   "sel": "span.sc-motto",
+   "text": "Foco, Missão dada, Missão cumprida.",
+   "rect": {
+    "x": 68.5,
+    "y": 447,
+    "w": 256,
+    "h": 9
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "7.5px",
+    "font-weight": "700",
+    "line-height": "9px",
+    "letter-spacing": "1.1px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=shr.c1.motto"
+   ]
+  },
+  {
+   "id": 48,
+   "depth": 5,
+   "sel": "span.sc-cta",
+   "text": "Baixe o Elite e entre na missão.",
+   "rect": {
+    "x": 68.5,
+    "y": 461,
+    "w": 256,
+    "h": 12
+   },
+   "style": {
+    "font-size": "10px",
+    "font-weight": "600",
+    "line-height": "12px"
+   },
+   "data": [
+    "data-id=shr.c1.cta"
+   ]
+  },
+  {
+   "depth": 2,
+   "sel": "div.sc-card.card-v.v-podio",
+   "hidden": true
+  },
+  {
+   "depth": 2,
+   "sel": "div.sc-card.card-v.v-conquista",
+   "hidden": true
+  },
+  {
+   "depth": 2,
+   "sel": "div.sc-card.card-v.v-ranking",
+   "hidden": true
+  },
+  {
+   "depth": 2,
+   "sel": "div.sc-card.card-v.v-convite",
+   "hidden": true
+  },
+  {
+   "id": 49,
+   "depth": 1,
+   "sel": "section.row",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 498,
+    "w": 361,
+    "h": 72
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "10px",
+    "margin": "12px 0px 0px"
+   },
+   "data": [
+    "data-id=shr.targets",
+    "data-compose=ShareTargets"
+   ]
+  },
+  {
+   "id": 50,
+   "depth": 2,
+   "sel": "button.tg",
+   "text": "Instagram",
+   "rect": {
+    "x": 16,
+    "y": 498,
+    "w": 113.7,
+    "h": 72
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "6px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "16px",
+    "font-size": "12px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "text-align": "center",
+    "transition": "transform 0.12s ease-out"
+   },
+   "data": [
+    "data-id=shr.targets.stories"
+   ]
+  },
+  {
+   "id": 51,
+   "depth": 3,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 61.8,
+    "y": 513,
+    "w": 22,
+    "h": 22
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=shr.targets.stories.ic",
+    "data-icon=material:PhotoCamera"
+   ],
+   "svg": "<svg data-id=\"shr.targets.stories.ic\" data-icon=\"material:PhotoCamera\" viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z\"></path><circle cx=\"12\" cy=\"13\" r=\"4\"></circle></svg>"
+  },
+  {
+   "id": 52,
+   "depth": 2,
+   "sel": "button.tg",
+   "text": "WhatsApp",
+   "rect": {
+    "x": 139.7,
+    "y": 498,
+    "w": 113.7,
+    "h": 72
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "6px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "16px",
+    "font-size": "12px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "text-align": "center",
+    "transition": "transform 0.12s ease-out"
+   },
+   "data": [
+    "data-id=shr.targets.msg"
+   ]
+  },
+  {
+   "id": 53,
+   "depth": 3,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 185.5,
+    "y": 513,
+    "w": 22,
+    "h": 22
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=shr.targets.msg.ic",
+    "data-icon=material:Link"
+   ],
+   "svg": "<svg data-id=\"shr.targets.msg.ic\" data-icon=\"material:Link\" viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71\"></path></svg>"
+  },
+  {
+   "id": 54,
+   "depth": 2,
+   "sel": "button.tg",
+   "text": "Mais",
+   "rect": {
+    "x": 263.3,
+    "y": 498,
+    "w": 113.7,
+    "h": 72
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "6px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "16px",
+    "font-size": "12px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "text-align": "center",
+    "transition": "transform 0.12s ease-out"
+   },
+   "data": [
+    "data-id=shr.targets.more"
+   ]
+  },
+  {
+   "id": 55,
+   "depth": 3,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 309.2,
+    "y": 513,
+    "w": 22,
+    "h": 22
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=shr.targets.more.ic",
+    "data-icon=material:MoreHoriz"
+   ],
+   "svg": "<svg data-id=\"shr.targets.more.ic\" data-icon=\"material:MoreHoriz\" viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"1.2\" aria-hidden=\"true\"><circle cx=\"5\" cy=\"12\" r=\"1.2\"></circle><circle cx=\"12\" cy=\"12\" r=\"1.2\"></circle><circle cx=\"19\" cy=\"12\" r=\"1.2\"></circle></svg>"
+  },
+  {
+   "id": 56,
+   "depth": 1,
+   "sel": "div.grow",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 570,
+    "w": 361,
+    "h": 198
+   },
+   "style": {
+    "flex-grow": "1"
+   },
+   "data": [
+    "data-id=shr.spacer"
+   ]
+  },
+  {
+   "id": 57,
+   "depth": 1,
+   "sel": "footer.dock",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 768,
+    "w": 393,
+    "h": 83
+   },
+   "style": {
+    "flex-shrink": "0",
+    "padding": "12px 16px 18px",
+    "margin": "0px -16px",
+    "background-color": "rgba(16, 18, 13, 0.9)",
+    "border-radius": "26px 26px 0px 0px"
+   },
+   "data": [
+    "data-id=shr.dock",
+    "data-compose=BottomActionBar"
+   ]
+  },
+  {
+   "id": 58,
+   "depth": 2,
+   "sel": "div.row",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 781,
+    "w": 361,
+    "h": 52
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "10px"
+   },
+   "data": [
+    "data-id=shr.dock.row"
+   ]
+  },
+  {
+   "id": 59,
+   "depth": 3,
+   "sel": "button.btn.btn-ghost.btn-icon",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 781,
+    "w": 48,
+    "h": 52
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "8px",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "24px",
+    "font-size": "15px",
+    "font-weight": "700",
+    "line-height": "20px",
+    "text-align": "center",
+    "transition": "transform 0.12s ease-out"
+   },
+   "aria": "Salvar imagem",
+   "data": [
+    "data-id=shr.dock.save"
+   ]
+  },
+  {
+   "id": 60,
+   "depth": 4,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 30,
+    "y": 797,
+    "w": 20,
+    "h": 20
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=shr.dock.save.ic",
+    "data-icon=material:Download"
+   ],
+   "svg": "<svg data-id=\"shr.dock.save.ic\" data-icon=\"material:Download\" viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3\"></path></svg>"
+  },
+  {
+   "id": 61,
+   "depth": 3,
+   "sel": "button.btn.btn-olive.grow",
+   "text": "Compartilhar card",
+   "rect": {
+    "x": 74,
+    "y": 781,
+    "w": 194.9,
+    "h": 52
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "8px",
+    "padding": "0px 18px",
+    "color": "rgb(14, 19, 6)",
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "24px",
+    "font-size": "15px",
+    "font-weight": "700",
+    "line-height": "20px",
+    "text-align": "center",
+    "transition": "transform 0.12s ease-out"
+   },
+   "data": [
+    "data-id=shr.dock.share"
+   ]
+  },
+  {
+   "id": 62,
+   "depth": 4,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 92,
+    "y": 798,
+    "w": 18,
+    "h": 18
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=shr.dock.share.ic",
+    "data-icon=material:Share"
+   ],
+   "svg": "<svg data-id=\"shr.dock.share.ic\" data-icon=\"material:Share\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"18\" cy=\"5\" r=\"3\"></circle><circle cx=\"6\" cy=\"12\" r=\"3\"></circle><circle cx=\"18\" cy=\"19\" r=\"3\"></circle><path d=\"M8.6 10.5l6.8-4M8.6 13.5l6.8 4\"></path></svg>"
+  }
+ ],
+ "root_selector": "main"
+}

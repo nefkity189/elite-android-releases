@@ -1,0 +1,543 @@
+{
+ "screen": {
+  "w": 1080,
+  "h": 1350
+ },
+ "tokens": {
+  "--ink": "#0A0B09",
+  "--card": "#161911",
+  "--elev": "#1D2116",
+  "--bone": "#ECE8DA",
+  "--muted": "#8F9384",
+  "--dim": "#5E6255",
+  "--olive": "#A3B565",
+  "--on-olive": "#0E1306",
+  "--red": "#D12B2B",
+  "--brass": "#C9A24B",
+  "--silver": "#B8BCB0",
+  "--bronze": "#A8703E",
+  "--skew": "-12deg"
+ },
+ "fonts": [
+  {
+   "family": "Inter",
+   "loaded": true
+  },
+  {
+   "family": "Barlow",
+   "loaded": false
+  }
+ ],
+ "media_queries": [],
+ "animations": [],
+ "elements": [
+  {
+   "id": 0,
+   "depth": 0,
+   "sel": "main.phone",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 1080,
+    "h": 1350
+   },
+   "style": {
+    "position": "relative",
+    "flex-shrink": "0",
+    "background-color": "rgb(10, 11, 9)",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-screen=convite",
+    "data-component=InviteCard"
+   ]
+  },
+  {
+   "id": 1,
+   "depth": 1,
+   "sel": "div.a",
+   "text": null,
+   "rect": {
+    "x": 560,
+    "y": 300,
+    "w": 700,
+    "h": 704
+   },
+   "style": {
+    "position": "absolute"
+   }
+  },
+  {
+   "id": 2,
+   "depth": 2,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 560,
+    "y": 300,
+    "w": 700,
+    "h": 700
+   },
+   "style": {
+    "opacity": "0.05",
+    "overflow": "hidden"
+   },
+   "svg": "<svg viewBox=\"0 0 64 64\" width=\"700\" height=\"700\" style=\"opacity:0.05\"><path fill=\"#A3B565\" d=\"M19.1,8.0 L55.1,8.0 L53.2,17.0 L27.2,17.0 L20.8,47.0 L46.8,47.0 L44.9,56.0 L8.9,56.0 Z\"></path><path fill=\"#A3B565\" d=\"M25.1,27.0 L45.1,27.0 L43.1,36.0 L23.1,36.0 Z\"></path></svg>"
+  },
+  {
+   "id": 3,
+   "depth": 1,
+   "sel": "div.z",
+   "text": null,
+   "rect": {
+    "x": 72,
+    "y": 72,
+    "w": 64,
+    "h": 64
+   },
+   "style": {
+    "position": "absolute",
+    "z-index": "2"
+   }
+  },
+  {
+   "id": 4,
+   "depth": 2,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 72,
+    "y": 72,
+    "w": 64,
+    "h": 64
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "svg": "<svg viewBox=\"0 0 64 64\" width=\"64\" height=\"64\" style=\"opacity:1\"><path fill=\"#ECE8DA\" d=\"M19.1,8.0 L55.1,8.0 L53.2,17.0 L27.2,17.0 L20.8,47.0 L46.8,47.0 L44.9,56.0 L8.9,56.0 Z\"></path><path fill=\"#D12B2B\" d=\"M25.1,27.0 L45.1,27.0 L43.1,36.0 L23.1,36.0 Z\"></path></svg>"
+  },
+  {
+   "id": 5,
+   "depth": 1,
+   "sel": "div.z.wm",
+   "text": "ELITE",
+   "rect": {
+    "x": 160,
+    "y": 76,
+    "w": 187.3,
+    "h": 56
+   },
+   "style": {
+    "position": "absolute",
+    "font-family": "Barlow",
+    "font-size": "44px",
+    "font-weight": "700",
+    "line-height": "56px",
+    "letter-spacing": "10.56px",
+    "z-index": "5"
+   }
+  },
+  {
+   "id": 6,
+   "depth": 1,
+   "sel": "div.z.ctx",
+   "text": "Convite",
+   "rect": {
+    "x": 911.2,
+    "y": 86,
+    "w": 96.8,
+    "h": 32
+   },
+   "style": {
+    "position": "absolute",
+    "color": "rgb(143, 147, 132)",
+    "font-family": "Inter",
+    "font-size": "26px",
+    "font-weight": "600",
+    "line-height": "32px",
+    "text-align": "right",
+    "z-index": "5"
+   }
+  },
+  {
+   "id": 7,
+   "depth": 1,
+   "sel": "div.z.bar",
+   "text": null,
+   "rect": {
+    "x": 72,
+    "y": 1232,
+    "w": 66.1,
+    "h": 10
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(209, 43, 43)",
+    "transform": "matrix(1, 0, -0.212557, 1, 0, 0)",
+    "z-index": "2"
+   }
+  },
+  {
+   "id": 8,
+   "depth": 1,
+   "sel": "div.z.tg",
+   "text": "Missão dada é missão cumprida",
+   "rect": {
+    "x": 72,
+    "y": 1262,
+    "w": 371.8,
+    "h": 30
+   },
+   "style": {
+    "position": "absolute",
+    "color": "rgb(143, 147, 132)",
+    "font-family": "Inter",
+    "font-size": "24px",
+    "font-weight": "600",
+    "line-height": "30px",
+    "z-index": "2"
+   }
+  },
+  {
+   "id": 9,
+   "depth": 1,
+   "sel": "div.z.tg",
+   "text": "Competição online",
+   "rect": {
+    "x": 790.8,
+    "y": 1262,
+    "w": 217.2,
+    "h": 30
+   },
+   "style": {
+    "position": "absolute",
+    "font-family": "Inter",
+    "font-size": "24px",
+    "font-weight": "600",
+    "line-height": "30px",
+    "z-index": "2"
+   }
+  },
+  {
+   "id": 10,
+   "depth": 1,
+   "sel": "div.z.lbl",
+   "text": "Corra a próxima prova com a gente",
+   "rect": {
+    "x": 72,
+    "y": 190,
+    "w": 539.6,
+    "h": 40
+   },
+   "style": {
+    "position": "absolute",
+    "color": "rgb(163, 181, 101)",
+    "font-family": "Inter",
+    "font-size": "32px",
+    "font-weight": "600",
+    "line-height": "40px",
+    "z-index": "3"
+   }
+  },
+  {
+   "id": 11,
+   "depth": 1,
+   "sel": "div.z.d.sk",
+   "text": "5K",
+   "rect": {
+    "x": 40,
+    "y": 230,
+    "w": 1145.9,
+    "h": 580
+   },
+   "style": {
+    "position": "absolute",
+    "color": "rgb(163, 181, 101)",
+    "font-family": "Barlow, sans-serif",
+    "font-size": "800px",
+    "font-weight": "700",
+    "line-height": "580px",
+    "transform": "matrix(1, 0, -0.212557, 1, 0, 0)",
+    "z-index": "2"
+   }
+  },
+  {
+   "id": 12,
+   "depth": 1,
+   "sel": "div.z.bar",
+   "text": null,
+   "rect": {
+    "x": 72,
+    "y": 846,
+    "w": 302.6,
+    "h": 12
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(209, 43, 43)",
+    "transform": "matrix(1, 0, -0.212557, 1, 0, 0)",
+    "z-index": "2"
+   }
+  },
+  {
+   "id": 13,
+   "depth": 1,
+   "sel": "div.z.d.sk",
+   "text": "LARGADA 13:00",
+   "rect": {
+    "x": 72,
+    "y": 872,
+    "w": 931.8,
+    "h": 128
+   },
+   "style": {
+    "position": "absolute",
+    "font-family": "Barlow, sans-serif",
+    "font-size": "116px",
+    "font-weight": "700",
+    "line-height": "128px",
+    "transform": "matrix(1, 0, -0.212557, 1, 0, 0)",
+    "z-index": "2"
+   }
+  },
+  {
+   "id": 14,
+   "depth": 1,
+   "sel": "div.a.sk",
+   "text": null,
+   "rect": {
+    "x": 72,
+    "y": 1010,
+    "w": 69.5,
+    "h": 26
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(163, 181, 101)",
+    "border": "3px solid rgb(163, 181, 101)",
+    "transform": "matrix(1, 0, -0.212557, 1, 0, 0)"
+   }
+  },
+  {
+   "id": 15,
+   "depth": 1,
+   "sel": "div.a.sk",
+   "text": null,
+   "rect": {
+    "x": 164,
+    "y": 1010,
+    "w": 69.5,
+    "h": 26
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(163, 181, 101)",
+    "border": "3px solid rgb(163, 181, 101)",
+    "transform": "matrix(1, 0, -0.212557, 1, 0, 0)"
+   }
+  },
+  {
+   "id": 16,
+   "depth": 1,
+   "sel": "div.a.sk",
+   "text": null,
+   "rect": {
+    "x": 256,
+    "y": 1010,
+    "w": 69.5,
+    "h": 26
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(163, 181, 101)",
+    "border": "3px solid rgb(163, 181, 101)",
+    "transform": "matrix(1, 0, -0.212557, 1, 0, 0)"
+   }
+  },
+  {
+   "id": 17,
+   "depth": 1,
+   "sel": "div.a.sk",
+   "text": null,
+   "rect": {
+    "x": 348,
+    "y": 1010,
+    "w": 69.5,
+    "h": 26
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(163, 181, 101)",
+    "border": "3px solid rgb(163, 181, 101)",
+    "transform": "matrix(1, 0, -0.212557, 1, 0, 0)"
+   }
+  },
+  {
+   "id": 18,
+   "depth": 1,
+   "sel": "div.a.sk",
+   "text": null,
+   "rect": {
+    "x": 440,
+    "y": 1010,
+    "w": 69.5,
+    "h": 26
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(163, 181, 101)",
+    "border": "3px solid rgb(163, 181, 101)",
+    "transform": "matrix(1, 0, -0.212557, 1, 0, 0)"
+   }
+  },
+  {
+   "id": 19,
+   "depth": 1,
+   "sel": "div.a.sk",
+   "text": null,
+   "rect": {
+    "x": 532,
+    "y": 1010,
+    "w": 69.5,
+    "h": 26
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(163, 181, 101)",
+    "border": "3px solid rgb(163, 181, 101)",
+    "transform": "matrix(1, 0, -0.212557, 1, 0, 0)"
+   }
+  },
+  {
+   "id": 20,
+   "depth": 1,
+   "sel": "div.a.sk",
+   "text": null,
+   "rect": {
+    "x": 624,
+    "y": 1010,
+    "w": 69.5,
+    "h": 26
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(163, 181, 101)",
+    "border": "3px solid rgb(163, 181, 101)",
+    "transform": "matrix(1, 0, -0.212557, 1, 0, 0)"
+   }
+  },
+  {
+   "id": 21,
+   "depth": 1,
+   "sel": "div.a.sk",
+   "text": null,
+   "rect": {
+    "x": 716,
+    "y": 1010,
+    "w": 69.5,
+    "h": 26
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(163, 181, 101)",
+    "border": "3px solid rgb(163, 181, 101)",
+    "transform": "matrix(1, 0, -0.212557, 1, 0, 0)"
+   }
+  },
+  {
+   "id": 22,
+   "depth": 1,
+   "sel": "div.a.sk",
+   "text": null,
+   "rect": {
+    "x": 808,
+    "y": 1010,
+    "w": 69.5,
+    "h": 26
+   },
+   "style": {
+    "position": "absolute",
+    "border": "3px solid rgb(163, 181, 101)",
+    "transform": "matrix(1, 0, -0.212557, 1, 0, 0)"
+   }
+  },
+  {
+   "id": 23,
+   "depth": 1,
+   "sel": "div.a.sk",
+   "text": null,
+   "rect": {
+    "x": 900,
+    "y": 1010,
+    "w": 69.5,
+    "h": 26
+   },
+   "style": {
+    "position": "absolute",
+    "border": "3px solid rgb(163, 181, 101)",
+    "transform": "matrix(1, 0, -0.212557, 1, 0, 0)"
+   }
+  },
+  {
+   "id": 24,
+   "depth": 1,
+   "sel": "div.z.k",
+   "text": "8 corredores inscritos, sua vaga está aberta",
+   "rect": {
+    "x": 72,
+    "y": 1056,
+    "w": 624.5,
+    "h": 32
+   },
+   "style": {
+    "position": "absolute",
+    "font-family": "Inter",
+    "font-size": "30px",
+    "line-height": "32px",
+    "z-index": "2"
+   }
+  },
+  {
+   "id": 25,
+   "depth": 1,
+   "sel": "div.a.sk",
+   "text": null,
+   "rect": {
+    "x": 72,
+    "y": 1100,
+    "w": 920.4,
+    "h": 96
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(163, 181, 101)",
+    "transform": "matrix(1, 0, -0.212557, 1, 0, 0)"
+   }
+  },
+  {
+   "id": 26,
+   "depth": 1,
+   "sel": "div.z",
+   "text": "Entre na sala da prova",
+   "rect": {
+    "x": 72,
+    "y": 1100,
+    "w": 900,
+    "h": 96
+   },
+   "style": {
+    "display": "flex",
+    "position": "absolute",
+    "justify-content": "center",
+    "align-items": "center",
+    "color": "rgb(14, 19, 6)",
+    "font-family": "Inter",
+    "font-size": "38px",
+    "font-weight": "600",
+    "z-index": "2"
+   }
+  }
+ ],
+ "root_selector": ".phone"
+}

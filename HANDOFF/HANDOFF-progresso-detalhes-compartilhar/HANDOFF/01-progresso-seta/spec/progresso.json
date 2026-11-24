@@ -1,0 +1,2003 @@
+{
+ "screen": {
+  "w": 393,
+  "h": 851
+ },
+ "tokens": {
+  "--page": "#000000",
+  "--bg": "#0a0b09",
+  "--surface": "#10120d",
+  "--card": "#161911",
+  "--card-elev": "#1d2116",
+  "--field": "#0d0f0a",
+  "--line": "rgba(236,232,218,.10)",
+  "--line-strong": "rgba(236,232,218,.18)",
+  "--text": "#ece8da",
+  "--muted": "#8f9384",
+  "--dim": "#5e6255",
+  "--olive": "#a3b565",
+  "--olive-dark": "#5d6b34",
+  "--olive-soft": "rgba(163,181,101,.14)",
+  "--on-olive": "#0e1306",
+  "--red": "#d12b2b",
+  "--on-red": "#fff4f0",
+  "--brass": "#c9a24b",
+  "--share-glow": "#1e2314",
+  "--route-halo": "#1c2015",
+  "--white": "#ffffff",
+  "--display": "\"Barlow Condensed\",\"Arial Narrow\",sans-serif",
+  "--body": "\"Inter\",sans-serif",
+  "--logo": "\"Saira Stencil One\",\"Barlow Condensed\",sans-serif"
+ },
+ "fonts": [
+  {
+   "family": "Inter",
+   "loaded": true
+  },
+  {
+   "family": "Barlow Condensed",
+   "loaded": false
+  }
+ ],
+ "media_queries": [
+  "(prefers-reduced-motion: reduce)"
+ ],
+ "animations": [],
+ "elements": [
+  {
+   "id": 0,
+   "depth": 0,
+   "sel": "main",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 851
+   },
+   "style": {
+    "position": "relative",
+    "flex-shrink": "0",
+    "background-color": "rgb(10, 11, 9)",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=screen",
+    "data-viewport=393x851",
+    "data-state=progresso"
+   ]
+  },
+  {
+   "id": 1,
+   "depth": 1,
+   "sel": "div.view",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 851
+   },
+   "style": {
+    "display": "flex",
+    "position": "absolute",
+    "flex-direction": "column",
+    "padding": "0px 20px",
+    "background-color": "rgb(10, 11, 9)"
+   },
+   "data": [
+    "data-id=app.progress",
+    "data-compose=ProgressScreen"
+   ]
+  },
+  {
+   "id": 2,
+   "depth": 2,
+   "sel": "div.statusbar",
+   "text": null,
+   "rect": {
+    "x": 20,
+    "y": 0,
+    "w": 353,
+    "h": 32
+   },
+   "style": {
+    "flex-shrink": "0"
+   },
+   "data": [
+    "data-id=prog.statusbar",
+    "data-compose=statusBarsPadding"
+   ]
+  },
+  {
+   "id": 3,
+   "depth": 2,
+   "sel": "header",
+   "text": null,
+   "rect": {
+    "x": 20,
+    "y": 32,
+    "w": 353,
+    "h": 56
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0"
+   },
+   "data": [
+    "data-id=prog.top",
+    "data-compose=EliteTopBar"
+   ]
+  },
+  {
+   "id": 4,
+   "depth": 3,
+   "sel": "h1",
+   "text": "Progresso",
+   "rect": {
+    "x": 20,
+    "y": 48.5,
+    "w": 106.1,
+    "h": 23
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "20px",
+    "font-weight": "600",
+    "line-height": "23px",
+    "letter-spacing": "0.8px"
+   },
+   "data": [
+    "data-id=prog.top.title"
+   ]
+  },
+  {
+   "id": 5,
+   "depth": 2,
+   "sel": "section",
+   "text": null,
+   "rect": {
+    "x": 20,
+    "y": 88,
+    "w": 353,
+    "h": 689
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "16px",
+    "padding": "4px 0px 0px",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=prog.list",
+    "data-compose=LazyColumn"
+   ]
+  },
+  {
+   "id": 6,
+   "depth": 3,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 20,
+    "y": 92,
+    "w": 353,
+    "h": 24
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "flex-shrink": "0"
+   },
+   "data": [
+    "data-id=prog.history"
+   ]
+  },
+  {
+   "id": 7,
+   "depth": 4,
+   "sel": "h2",
+   "text": "Histórico de Corridas",
+   "rect": {
+    "x": 20,
+    "y": 93,
+    "w": 167.8,
+    "h": 22
+   },
+   "style": {
+    "font-weight": "700",
+    "line-height": "22px",
+    "letter-spacing": "0.1px"
+   },
+   "data": [
+    "data-id=prog.history.title"
+   ]
+  },
+  {
+   "id": 8,
+   "depth": 4,
+   "sel": "span",
+   "text": "3 corridas",
+   "rect": {
+    "x": 293.2,
+    "y": 92,
+    "w": 79.8,
+    "h": 24
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "padding": "0px 12px",
+    "background-color": "rgb(29, 33, 22)",
+    "border-radius": "12px",
+    "font-size": "11px",
+    "font-weight": "700",
+    "line-height": "16px",
+    "letter-spacing": "0.13px"
+   },
+   "data": [
+    "data-id=prog.history.count",
+    "data-bind=logs.size"
+   ]
+  },
+  {
+   "id": 9,
+   "depth": 3,
+   "sel": "article.card.run",
+   "text": null,
+   "rect": {
+    "x": 20,
+    "y": 132,
+    "w": 353,
+    "h": 134.6
+   },
+   "style": {
+    "flex-shrink": "0",
+    "padding": "16px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "16px"
+   },
+   "data": [
+    "data-id=prog.run1",
+    "data-compose=CompletedRunCard"
+   ]
+  },
+  {
+   "id": 10,
+   "depth": 4,
+   "sel": "div.run-head",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 149,
+    "w": 319,
+    "h": 40
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "8px"
+   }
+  },
+  {
+   "id": 11,
+   "depth": 5,
+   "sel": "div.run-info",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 149,
+    "w": 211,
+    "h": 40
+   },
+   "style": {
+    "flex-grow": "1"
+   }
+  },
+  {
+   "id": 12,
+   "depth": 6,
+   "sel": "p.run-date",
+   "text": "Sábado, 22 de nov",
+   "rect": {
+    "x": 37,
+    "y": 149,
+    "w": 211,
+    "h": 16
+   },
+   "style": {
+    "font-size": "12.5px",
+    "font-weight": "600",
+    "line-height": "16px",
+    "letter-spacing": "0.15px"
+   },
+   "data": [
+    "data-id=prog.run1.date",
+    "data-bind=log.data"
+   ]
+  },
+  {
+   "id": 13,
+   "depth": 6,
+   "sel": "p.run-title",
+   "text": "Corrida Livre",
+   "rect": {
+    "x": 37,
+    "y": 167,
+    "w": 211,
+    "h": 22
+   },
+   "style": {
+    "margin": "2px 0px 0px",
+    "font-weight": "700",
+    "line-height": "22px",
+    "letter-spacing": "0.1px"
+   },
+   "data": [
+    "data-id=prog.run1.title",
+    "data-bind=workout.titulo"
+   ]
+  },
+  {
+   "id": 14,
+   "depth": 5,
+   "sel": "div.run-mini",
+   "text": null,
+   "rect": {
+    "x": 256,
+    "y": 151,
+    "w": 52,
+    "h": 36
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border-radius": "8px",
+    "grid-template-columns": "52px"
+   },
+   "data": [
+    "data-id=prog.run1.mini",
+    "data-compose=MiniRoute"
+   ]
+  },
+  {
+   "id": 15,
+   "depth": 6,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 260,
+    "y": 155,
+    "w": 44,
+    "h": 28
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=prog.run1.mini.svg"
+   ],
+   "svg": "<svg data-id=\"prog.run1.mini.svg\" aria-hidden=\"true\" viewBox=\"0 0 44 28\"><polyline class=\"mini-line\" points=\"4,20 10,12 18,8 28,6 38,11 40,19 32,24 20,25 10,24\"></polyline></svg>"
+  },
+  {
+   "id": 16,
+   "depth": 5,
+   "sel": "button.run-arrow",
+   "text": null,
+   "rect": {
+    "x": 316,
+    "y": 149,
+    "w": 40,
+    "h": 40
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "border-radius": "20px",
+    "text-align": "center",
+    "transition": "transform 0.1s ease-out",
+    "grid-template-columns": "40px"
+   },
+   "aria": "Ver detalhes da corrida",
+   "data": [
+    "data-id=prog.run1.arrow",
+    "data-goto=detalhes",
+    "data-compose=IconButton"
+   ]
+  },
+  {
+   "id": 17,
+   "depth": 6,
+   "sel": "span.run-arrow-bg",
+   "text": null,
+   "rect": {
+    "x": 320,
+    "y": 153,
+    "w": 32,
+    "h": 32
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border-radius": "16px",
+    "grid-template-columns": "32px"
+   },
+   "data": [
+    "data-id=prog.run1.arrow.bg"
+   ]
+  },
+  {
+   "id": 18,
+   "depth": 7,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 327,
+    "y": 160,
+    "w": 18,
+    "h": 18
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=prog.run1.arrow.icon",
+    "data-icon=material:AutoMirrored.Filled.ArrowForward"
+   ],
+   "svg": "<svg data-id=\"prog.run1.arrow.icon\" data-icon=\"material:AutoMirrored.Filled.ArrowForward\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"></path></svg>"
+  },
+  {
+   "id": 19,
+   "depth": 4,
+   "sel": "div.run-divider",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 201,
+    "w": 319,
+    "h": 1
+   },
+   "style": {
+    "margin": "12px 0px 10px",
+    "background-color": "rgba(236, 232, 218, 0.1)"
+   },
+   "data": [
+    "data-id=prog.run1.divider"
+   ]
+  },
+  {
+   "id": 20,
+   "depth": 4,
+   "sel": "div.run-metrics",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 212,
+    "w": 319,
+    "h": 37.6
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between"
+   },
+   "data": [
+    "data-id=prog.run1.metrics"
+   ]
+  },
+  {
+   "id": 21,
+   "depth": 5,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 212,
+    "w": 37.6,
+    "h": 37.6
+   },
+   "style": {},
+   "data": [
+    "data-id=prog.run1.m.time"
+   ]
+  },
+  {
+   "id": 22,
+   "depth": 6,
+   "sel": "p.run-metric-label",
+   "text": "Tempo",
+   "rect": {
+    "x": 37,
+    "y": 212,
+    "w": 37.6,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "500",
+    "line-height": "16px",
+    "letter-spacing": "0.13px"
+   },
+   "data": [
+    "data-id=prog.run1.m.time.l"
+   ]
+  },
+  {
+   "id": 23,
+   "depth": 6,
+   "sel": "p.run-metric-value",
+   "text": "28:41",
+   "rect": {
+    "x": 37,
+    "y": 230,
+    "w": 37.6,
+    "h": 19.6
+   },
+   "style": {
+    "margin": "2px 0px 0px",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "19.6px"
+   },
+   "data": [
+    "data-id=prog.run1.m.time.v"
+   ]
+  },
+  {
+   "id": 24,
+   "depth": 5,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 117.2,
+    "y": 212,
+    "w": 51.1,
+    "h": 37.6
+   },
+   "style": {},
+   "data": [
+    "data-id=prog.run1.m.dist"
+   ]
+  },
+  {
+   "id": 25,
+   "depth": 6,
+   "sel": "p.run-metric-label",
+   "text": "Distância",
+   "rect": {
+    "x": 117.2,
+    "y": 212,
+    "w": 51.1,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "500",
+    "line-height": "16px",
+    "letter-spacing": "0.13px"
+   },
+   "data": [
+    "data-id=prog.run1.m.dist.l"
+   ]
+  },
+  {
+   "id": 26,
+   "depth": 6,
+   "sel": "p.run-metric-value",
+   "text": "5,12 km",
+   "rect": {
+    "x": 117.2,
+    "y": 230,
+    "w": 51.1,
+    "h": 19.6
+   },
+   "style": {
+    "margin": "2px 0px 0px",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "19.6px"
+   },
+   "data": [
+    "data-id=prog.run1.m.dist.v"
+   ]
+  },
+  {
+   "id": 27,
+   "depth": 5,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 210.9,
+    "y": 212,
+    "w": 61.4,
+    "h": 37.6
+   },
+   "style": {},
+   "data": [
+    "data-id=prog.run1.m.pace"
+   ]
+  },
+  {
+   "id": 28,
+   "depth": 6,
+   "sel": "p.run-metric-label",
+   "text": "Ritmo",
+   "rect": {
+    "x": 210.9,
+    "y": 212,
+    "w": 61.4,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "500",
+    "line-height": "16px",
+    "letter-spacing": "0.13px"
+   },
+   "data": [
+    "data-id=prog.run1.m.pace.l"
+   ]
+  },
+  {
+   "id": 29,
+   "depth": 6,
+   "sel": "p.run-metric-value",
+   "text": "5:36 /km",
+   "rect": {
+    "x": 210.9,
+    "y": 230,
+    "w": 61.4,
+    "h": 19.6
+   },
+   "style": {
+    "margin": "2px 0px 0px",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "19.6px"
+   },
+   "data": [
+    "data-id=prog.run1.m.pace.v"
+   ]
+  },
+  {
+   "id": 30,
+   "depth": 5,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 315,
+    "y": 212,
+    "w": 41,
+    "h": 37.6
+   },
+   "style": {},
+   "data": [
+    "data-id=prog.run1.m.rpe"
+   ]
+  },
+  {
+   "id": 31,
+   "depth": 6,
+   "sel": "p.run-metric-label",
+   "text": "Esforço",
+   "rect": {
+    "x": 315,
+    "y": 212,
+    "w": 41,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "500",
+    "line-height": "16px",
+    "letter-spacing": "0.13px"
+   },
+   "data": [
+    "data-id=prog.run1.m.rpe.l"
+   ]
+  },
+  {
+   "id": 32,
+   "depth": 6,
+   "sel": "p.run-metric-value",
+   "text": "6/10",
+   "rect": {
+    "x": 315,
+    "y": 230,
+    "w": 41,
+    "h": 19.6
+   },
+   "style": {
+    "margin": "2px 0px 0px",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "19.6px"
+   },
+   "data": [
+    "data-id=prog.run1.m.rpe.v"
+   ]
+  },
+  {
+   "id": 33,
+   "depth": 3,
+   "sel": "article.card.run",
+   "text": null,
+   "rect": {
+    "x": 20,
+    "y": 282.6,
+    "w": 353,
+    "h": 134.6
+   },
+   "style": {
+    "flex-shrink": "0",
+    "padding": "16px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "16px"
+   },
+   "data": [
+    "data-id=prog.run2",
+    "data-compose=CompletedRunCard"
+   ]
+  },
+  {
+   "id": 34,
+   "depth": 4,
+   "sel": "div.run-head",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 299.6,
+    "w": 319,
+    "h": 40
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "8px"
+   }
+  },
+  {
+   "id": 35,
+   "depth": 5,
+   "sel": "div.run-info",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 299.6,
+    "w": 211,
+    "h": 40
+   },
+   "style": {
+    "flex-grow": "1"
+   }
+  },
+  {
+   "id": 36,
+   "depth": 6,
+   "sel": "p.run-date",
+   "text": "Quinta, 20 de nov",
+   "rect": {
+    "x": 37,
+    "y": 299.6,
+    "w": 211,
+    "h": 16
+   },
+   "style": {
+    "font-size": "12.5px",
+    "font-weight": "600",
+    "line-height": "16px",
+    "letter-spacing": "0.15px"
+   },
+   "data": [
+    "data-id=prog.run2.date"
+   ]
+  },
+  {
+   "id": 37,
+   "depth": 6,
+   "sel": "p.run-title",
+   "text": "Treino 7",
+   "rect": {
+    "x": 37,
+    "y": 317.6,
+    "w": 211,
+    "h": 22
+   },
+   "style": {
+    "margin": "2px 0px 0px",
+    "font-weight": "700",
+    "line-height": "22px",
+    "letter-spacing": "0.1px"
+   },
+   "data": [
+    "data-id=prog.run2.title"
+   ]
+  },
+  {
+   "id": 38,
+   "depth": 5,
+   "sel": "div.run-mini",
+   "text": null,
+   "rect": {
+    "x": 256,
+    "y": 301.6,
+    "w": 52,
+    "h": 36
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border-radius": "8px",
+    "grid-template-columns": "52px"
+   },
+   "data": [
+    "data-id=prog.run2.mini",
+    "data-compose=MiniRoute"
+   ]
+  },
+  {
+   "id": 39,
+   "depth": 6,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 260,
+    "y": 305.6,
+    "w": 44,
+    "h": 28
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=prog.run2.mini.svg"
+   ],
+   "svg": "<svg data-id=\"prog.run2.mini.svg\" aria-hidden=\"true\" viewBox=\"0 0 44 28\"><polyline class=\"mini-line\" points=\"4,22 12,16 20,18 28,10 36,12 40,6\"></polyline></svg>"
+  },
+  {
+   "id": 40,
+   "depth": 5,
+   "sel": "button.run-arrow",
+   "text": null,
+   "rect": {
+    "x": 316,
+    "y": 299.6,
+    "w": 40,
+    "h": 40
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "border-radius": "20px",
+    "text-align": "center",
+    "transition": "transform 0.1s ease-out",
+    "grid-template-columns": "40px"
+   },
+   "aria": "Ver detalhes da corrida",
+   "data": [
+    "data-id=prog.run2.arrow",
+    "data-goto=detalhes",
+    "data-compose=IconButton"
+   ]
+  },
+  {
+   "id": 41,
+   "depth": 6,
+   "sel": "span.run-arrow-bg",
+   "text": null,
+   "rect": {
+    "x": 320,
+    "y": 303.6,
+    "w": 32,
+    "h": 32
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border-radius": "16px",
+    "grid-template-columns": "32px"
+   },
+   "data": [
+    "data-id=prog.run2.arrow.bg"
+   ]
+  },
+  {
+   "id": 42,
+   "depth": 7,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 327,
+    "y": 310.6,
+    "w": 18,
+    "h": 18
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=prog.run2.arrow.icon",
+    "data-icon=material:AutoMirrored.Filled.ArrowForward"
+   ],
+   "svg": "<svg data-id=\"prog.run2.arrow.icon\" data-icon=\"material:AutoMirrored.Filled.ArrowForward\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"></path></svg>"
+  },
+  {
+   "id": 43,
+   "depth": 4,
+   "sel": "div.run-divider",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 351.6,
+    "w": 319,
+    "h": 1
+   },
+   "style": {
+    "margin": "12px 0px 10px",
+    "background-color": "rgba(236, 232, 218, 0.1)"
+   },
+   "data": [
+    "data-id=prog.run2.divider"
+   ]
+  },
+  {
+   "id": 44,
+   "depth": 4,
+   "sel": "div.run-metrics",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 362.6,
+    "w": 319,
+    "h": 37.6
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between"
+   },
+   "data": [
+    "data-id=prog.run2.metrics"
+   ]
+  },
+  {
+   "id": 45,
+   "depth": 5,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 362.6,
+    "w": 37.8,
+    "h": 37.6
+   },
+   "style": {},
+   "data": [
+    "data-id=prog.run2.m.time"
+   ]
+  },
+  {
+   "id": 46,
+   "depth": 6,
+   "sel": "p.run-metric-label",
+   "text": "Tempo",
+   "rect": {
+    "x": 37,
+    "y": 362.6,
+    "w": 37.8,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "500",
+    "line-height": "16px",
+    "letter-spacing": "0.13px"
+   },
+   "data": [
+    "data-id=prog.run2.m.time.l"
+   ]
+  },
+  {
+   "id": 47,
+   "depth": 6,
+   "sel": "p.run-metric-value",
+   "text": "22:10",
+   "rect": {
+    "x": 37,
+    "y": 380.6,
+    "w": 37.8,
+    "h": 19.6
+   },
+   "style": {
+    "margin": "2px 0px 0px",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "19.6px"
+   },
+   "data": [
+    "data-id=prog.run2.m.time.v"
+   ]
+  },
+  {
+   "id": 48,
+   "depth": 5,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 116.5,
+    "y": 362.6,
+    "w": 56.5,
+    "h": 37.6
+   },
+   "style": {},
+   "data": [
+    "data-id=prog.run2.m.dist"
+   ]
+  },
+  {
+   "id": 49,
+   "depth": 6,
+   "sel": "p.run-metric-label",
+   "text": "Distância",
+   "rect": {
+    "x": 116.5,
+    "y": 362.6,
+    "w": 56.5,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "500",
+    "line-height": "16px",
+    "letter-spacing": "0.13px"
+   },
+   "data": [
+    "data-id=prog.run2.m.dist.l"
+   ]
+  },
+  {
+   "id": 50,
+   "depth": 6,
+   "sel": "p.run-metric-value",
+   "text": "3,40 km",
+   "rect": {
+    "x": 116.5,
+    "y": 380.6,
+    "w": 56.5,
+    "h": 19.6
+   },
+   "style": {
+    "margin": "2px 0px 0px",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "19.6px"
+   },
+   "data": [
+    "data-id=prog.run2.m.dist.v"
+   ]
+  },
+  {
+   "id": 51,
+   "depth": 5,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 214.8,
+    "y": 362.6,
+    "w": 58.5,
+    "h": 37.6
+   },
+   "style": {},
+   "data": [
+    "data-id=prog.run2.m.pace"
+   ]
+  },
+  {
+   "id": 52,
+   "depth": 6,
+   "sel": "p.run-metric-label",
+   "text": "Ritmo",
+   "rect": {
+    "x": 214.8,
+    "y": 362.6,
+    "w": 58.5,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "500",
+    "line-height": "16px",
+    "letter-spacing": "0.13px"
+   },
+   "data": [
+    "data-id=prog.run2.m.pace.l"
+   ]
+  },
+  {
+   "id": 53,
+   "depth": 6,
+   "sel": "p.run-metric-value",
+   "text": "6:31 /km",
+   "rect": {
+    "x": 214.8,
+    "y": 380.6,
+    "w": 58.5,
+    "h": 19.6
+   },
+   "style": {
+    "margin": "2px 0px 0px",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "19.6px"
+   },
+   "data": [
+    "data-id=prog.run2.m.pace.v"
+   ]
+  },
+  {
+   "id": 54,
+   "depth": 5,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 315,
+    "y": 362.6,
+    "w": 41,
+    "h": 37.6
+   },
+   "style": {},
+   "data": [
+    "data-id=prog.run2.m.rpe"
+   ]
+  },
+  {
+   "id": 55,
+   "depth": 6,
+   "sel": "p.run-metric-label",
+   "text": "Esforço",
+   "rect": {
+    "x": 315,
+    "y": 362.6,
+    "w": 41,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "500",
+    "line-height": "16px",
+    "letter-spacing": "0.13px"
+   },
+   "data": [
+    "data-id=prog.run2.m.rpe.l"
+   ]
+  },
+  {
+   "id": 56,
+   "depth": 6,
+   "sel": "p.run-metric-value",
+   "text": "5/10",
+   "rect": {
+    "x": 315,
+    "y": 380.6,
+    "w": 41,
+    "h": 19.6
+   },
+   "style": {
+    "margin": "2px 0px 0px",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "19.6px"
+   },
+   "data": [
+    "data-id=prog.run2.m.rpe.v"
+   ]
+  },
+  {
+   "id": 57,
+   "depth": 3,
+   "sel": "article.card.run",
+   "text": null,
+   "rect": {
+    "x": 20,
+    "y": 433.2,
+    "w": 353,
+    "h": 134.6
+   },
+   "style": {
+    "flex-shrink": "0",
+    "padding": "16px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "16px"
+   },
+   "data": [
+    "data-id=prog.run3",
+    "data-compose=CompletedRunCard"
+   ]
+  },
+  {
+   "id": 58,
+   "depth": 4,
+   "sel": "div.run-head",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 450.2,
+    "w": 319,
+    "h": 40
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "8px"
+   }
+  },
+  {
+   "id": 59,
+   "depth": 5,
+   "sel": "div.run-info",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 450.2,
+    "w": 211,
+    "h": 40
+   },
+   "style": {
+    "flex-grow": "1"
+   }
+  },
+  {
+   "id": 60,
+   "depth": 6,
+   "sel": "p.run-date",
+   "text": "Terça, 18 de nov",
+   "rect": {
+    "x": 37,
+    "y": 450.2,
+    "w": 211,
+    "h": 16
+   },
+   "style": {
+    "font-size": "12.5px",
+    "font-weight": "600",
+    "line-height": "16px",
+    "letter-spacing": "0.15px"
+   },
+   "data": [
+    "data-id=prog.run3.date"
+   ]
+  },
+  {
+   "id": 61,
+   "depth": 6,
+   "sel": "p.run-title",
+   "text": "Treino 6",
+   "rect": {
+    "x": 37,
+    "y": 468.2,
+    "w": 211,
+    "h": 22
+   },
+   "style": {
+    "margin": "2px 0px 0px",
+    "font-weight": "700",
+    "line-height": "22px",
+    "letter-spacing": "0.1px"
+   },
+   "data": [
+    "data-id=prog.run3.title"
+   ]
+  },
+  {
+   "id": 62,
+   "depth": 5,
+   "sel": "div.run-mini",
+   "text": null,
+   "rect": {
+    "x": 256,
+    "y": 452.2,
+    "w": 52,
+    "h": 36
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border-radius": "8px",
+    "grid-template-columns": "52px"
+   },
+   "data": [
+    "data-id=prog.run3.mini",
+    "data-compose=MiniRoute"
+   ]
+  },
+  {
+   "id": 63,
+   "depth": 6,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 260,
+    "y": 456.2,
+    "w": 44,
+    "h": 28
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=prog.run3.mini.svg"
+   ],
+   "svg": "<svg data-id=\"prog.run3.mini.svg\" aria-hidden=\"true\" viewBox=\"0 0 44 28\"><polyline class=\"mini-line\" points=\"4,14 12,8 22,10 30,18 38,16 40,22\"></polyline></svg>"
+  },
+  {
+   "id": 64,
+   "depth": 5,
+   "sel": "button.run-arrow",
+   "text": null,
+   "rect": {
+    "x": 316,
+    "y": 450.2,
+    "w": 40,
+    "h": 40
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "border-radius": "20px",
+    "text-align": "center",
+    "transition": "transform 0.1s ease-out",
+    "grid-template-columns": "40px"
+   },
+   "aria": "Ver detalhes da corrida",
+   "data": [
+    "data-id=prog.run3.arrow",
+    "data-goto=detalhes",
+    "data-compose=IconButton"
+   ]
+  },
+  {
+   "id": 65,
+   "depth": 6,
+   "sel": "span.run-arrow-bg",
+   "text": null,
+   "rect": {
+    "x": 320,
+    "y": 454.2,
+    "w": 32,
+    "h": 32
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border-radius": "16px",
+    "grid-template-columns": "32px"
+   },
+   "data": [
+    "data-id=prog.run3.arrow.bg"
+   ]
+  },
+  {
+   "id": 66,
+   "depth": 7,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 327,
+    "y": 461.2,
+    "w": 18,
+    "h": 18
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=prog.run3.arrow.icon",
+    "data-icon=material:AutoMirrored.Filled.ArrowForward"
+   ],
+   "svg": "<svg data-id=\"prog.run3.arrow.icon\" data-icon=\"material:AutoMirrored.Filled.ArrowForward\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"></path></svg>"
+  },
+  {
+   "id": 67,
+   "depth": 4,
+   "sel": "div.run-divider",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 502.2,
+    "w": 319,
+    "h": 1
+   },
+   "style": {
+    "margin": "12px 0px 10px",
+    "background-color": "rgba(236, 232, 218, 0.1)"
+   },
+   "data": [
+    "data-id=prog.run3.divider"
+   ]
+  },
+  {
+   "id": 68,
+   "depth": 4,
+   "sel": "div.run-metrics",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 513.2,
+    "w": 319,
+    "h": 37.6
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between"
+   },
+   "data": [
+    "data-id=prog.run3.metrics"
+   ]
+  },
+  {
+   "id": 69,
+   "depth": 5,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 513.2,
+    "w": 38.2,
+    "h": 37.6
+   },
+   "style": {},
+   "data": [
+    "data-id=prog.run3.m.time"
+   ]
+  },
+  {
+   "id": 70,
+   "depth": 6,
+   "sel": "p.run-metric-label",
+   "text": "Tempo",
+   "rect": {
+    "x": 37,
+    "y": 513.2,
+    "w": 38.2,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "500",
+    "line-height": "16px",
+    "letter-spacing": "0.13px"
+   },
+   "data": [
+    "data-id=prog.run3.m.time.l"
+   ]
+  },
+  {
+   "id": 71,
+   "depth": 6,
+   "sel": "p.run-metric-value",
+   "text": "19:05",
+   "rect": {
+    "x": 37,
+    "y": 531.2,
+    "w": 38.2,
+    "h": 19.6
+   },
+   "style": {
+    "margin": "2px 0px 0px",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "19.6px"
+   },
+   "data": [
+    "data-id=prog.run3.m.time.v"
+   ]
+  },
+  {
+   "id": 72,
+   "depth": 5,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 116,
+    "y": 513.2,
+    "w": 56.1,
+    "h": 37.6
+   },
+   "style": {},
+   "data": [
+    "data-id=prog.run3.m.dist"
+   ]
+  },
+  {
+   "id": 73,
+   "depth": 6,
+   "sel": "p.run-metric-label",
+   "text": "Distância",
+   "rect": {
+    "x": 116,
+    "y": 513.2,
+    "w": 56.1,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "500",
+    "line-height": "16px",
+    "letter-spacing": "0.13px"
+   },
+   "data": [
+    "data-id=prog.run3.m.dist.l"
+   ]
+  },
+  {
+   "id": 74,
+   "depth": 6,
+   "sel": "p.run-metric-value",
+   "text": "2,90 km",
+   "rect": {
+    "x": 116,
+    "y": 531.2,
+    "w": 56.1,
+    "h": 19.6
+   },
+   "style": {
+    "margin": "2px 0px 0px",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "19.6px"
+   },
+   "data": [
+    "data-id=prog.run3.m.dist.v"
+   ]
+  },
+  {
+   "id": 75,
+   "depth": 5,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 212.8,
+    "y": 513.2,
+    "w": 61.4,
+    "h": 37.6
+   },
+   "style": {},
+   "data": [
+    "data-id=prog.run3.m.pace"
+   ]
+  },
+  {
+   "id": 76,
+   "depth": 6,
+   "sel": "p.run-metric-label",
+   "text": "Ritmo",
+   "rect": {
+    "x": 212.8,
+    "y": 513.2,
+    "w": 61.4,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "500",
+    "line-height": "16px",
+    "letter-spacing": "0.13px"
+   },
+   "data": [
+    "data-id=prog.run3.m.pace.l"
+   ]
+  },
+  {
+   "id": 77,
+   "depth": 6,
+   "sel": "p.run-metric-value",
+   "text": "6:35 /km",
+   "rect": {
+    "x": 212.8,
+    "y": 531.2,
+    "w": 61.4,
+    "h": 19.6
+   },
+   "style": {
+    "margin": "2px 0px 0px",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "19.6px"
+   },
+   "data": [
+    "data-id=prog.run3.m.pace.v"
+   ]
+  },
+  {
+   "id": 78,
+   "depth": 5,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 315,
+    "y": 513.2,
+    "w": 41,
+    "h": 37.6
+   },
+   "style": {},
+   "data": [
+    "data-id=prog.run3.m.rpe"
+   ]
+  },
+  {
+   "id": 79,
+   "depth": 6,
+   "sel": "p.run-metric-label",
+   "text": "Esforço",
+   "rect": {
+    "x": 315,
+    "y": 513.2,
+    "w": 41,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "500",
+    "line-height": "16px",
+    "letter-spacing": "0.13px"
+   },
+   "data": [
+    "data-id=prog.run3.m.rpe.l"
+   ]
+  },
+  {
+   "id": 80,
+   "depth": 6,
+   "sel": "p.run-metric-value",
+   "text": "5/10",
+   "rect": {
+    "x": 315,
+    "y": 531.2,
+    "w": 41,
+    "h": 19.6
+   },
+   "style": {
+    "margin": "2px 0px 0px",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "19.6px"
+   },
+   "data": [
+    "data-id=prog.run3.m.rpe.v"
+   ]
+  },
+  {
+   "id": 81,
+   "depth": 2,
+   "sel": "nav",
+   "text": null,
+   "rect": {
+    "x": 12,
+    "y": 777,
+    "w": 369,
+    "h": 74
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "flex-end",
+    "flex-shrink": "0",
+    "padding": "0px 0px 10px",
+    "margin": "0px -8px"
+   },
+   "data": [
+    "data-id=prog.nav",
+    "data-compose=RunnaBottomNav (EXISTENTE, não alterar; Progresso = selected 3)"
+   ]
+  },
+  {
+   "id": 82,
+   "depth": 3,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 12,
+    "y": 777,
+    "w": 369,
+    "h": 64
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-grow": "1",
+    "padding": "0px 6px",
+    "background-color": "rgb(16, 18, 13)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "24px"
+   },
+   "data": [
+    "data-id=nav.bar",
+    "data-compose=Row 64dp radius 24 Surface + border 1dp LineStrong"
+   ]
+  },
+  {
+   "id": 83,
+   "depth": 4,
+   "sel": "div.nav-item",
+   "text": "Hoje",
+   "rect": {
+    "x": 19,
+    "y": 778,
+    "w": 71,
+    "h": 62
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-grow": "1",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "500",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=nav.hoje",
+    "data-selected=false"
+   ]
+  },
+  {
+   "id": 84,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 43.5,
+    "y": 790,
+    "w": 22,
+    "h": 22
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z\"></path></svg>"
+  },
+  {
+   "id": 85,
+   "depth": 4,
+   "sel": "div.nav-item",
+   "text": "Plano",
+   "rect": {
+    "x": 90,
+    "y": 778,
+    "w": 71,
+    "h": 62
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-grow": "1",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "500",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=nav.plano",
+    "data-selected=false"
+   ]
+  },
+  {
+   "id": 86,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 114.5,
+    "y": 790,
+    "w": 22,
+    "h": 22
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V10h14zM7 12h4v4H7z\"></path></svg>"
+  },
+  {
+   "id": 87,
+   "depth": 4,
+   "sel": "div.nav-coach",
+   "text": null,
+   "rect": {
+    "x": 161,
+    "y": 785,
+    "w": 71,
+    "h": 48
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-grow": "1"
+   },
+   "data": [
+    "data-id=nav.coach.slot"
+   ]
+  },
+  {
+   "id": 88,
+   "depth": 5,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 172.5,
+    "y": 785,
+    "w": 48,
+    "h": 48
+   },
+   "style": {
+    "padding": "2px",
+    "background-image": "conic-gradient(rgb(163, 181, 101), rgb(209, 43, 43), rgb(201, 162, 75), rgb(163, 181, 101))",
+    "border-radius": "16px"
+   },
+   "data": [
+    "data-id=nav.coach",
+    "data-compose=CoachButton (existente)"
+   ]
+  },
+  {
+   "id": 89,
+   "depth": 6,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 174.5,
+    "y": 787,
+    "w": 44,
+    "h": 44
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "background-image": "radial-gradient(circle at 30% 20%, rgb(38, 43, 26), rgb(12, 14, 8) 70%)",
+    "border-radius": "14px",
+    "grid-template-columns": "44px"
+   }
+  },
+  {
+   "id": 90,
+   "depth": 7,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 183.5,
+    "y": 796,
+    "w": 26,
+    "h": 26
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "svg": "<svg viewBox=\"0 0 26 26\"><path d=\"M9 4h12l-1.6 4H12.5l-.8 3H18l-1.5 3.8h-5.1l-.9 3.2H19L17.4 22H5l3.2-12z\" fill=\"#d12b2b\"></path></svg>"
+  },
+  {
+   "id": 91,
+   "depth": 4,
+   "sel": "div.nav-item",
+   "text": "Progresso",
+   "rect": {
+    "x": 232,
+    "y": 778,
+    "w": 71,
+    "h": 62
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-grow": "1",
+    "color": "rgb(163, 181, 101)",
+    "font-size": "11px",
+    "font-weight": "500",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=nav.progresso",
+    "data-selected=true",
+    "data-compose=NavItem(selected = true)"
+   ]
+  },
+  {
+   "id": 92,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 256.5,
+    "y": 790,
+    "w": 22,
+    "h": 22
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z\"></path></svg>"
+  },
+  {
+   "id": 93,
+   "depth": 4,
+   "sel": "div.nav-item",
+   "text": "Perfil",
+   "rect": {
+    "x": 303,
+    "y": 778,
+    "w": 71,
+    "h": 62
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-grow": "1",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "500",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=nav.perfil",
+    "data-selected=false"
+   ]
+  },
+  {
+   "id": 94,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 327.5,
+    "y": 790,
+    "w": 22,
+    "h": 22
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\"></path></svg>"
+  },
+  {
+   "depth": 1,
+   "sel": "div.view",
+   "hidden": true
+  }
+ ],
+ "root_selector": "main"
+}

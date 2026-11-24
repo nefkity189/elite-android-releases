@@ -1,0 +1,691 @@
+{
+ "screen": {
+  "w": 393,
+  "h": 851
+ },
+ "tokens": {
+  "--bg": "#0A0B09",
+  "--s1": "#10120D",
+  "--card": "#161911",
+  "--card2": "#1D2116",
+  "--field": "#0D0F0A",
+  "--page": "#050604",
+  "--line": "rgba(236,232,218,.10)",
+  "--line2": "rgba(236,232,218,.18)",
+  "--text": "#ECE8DA",
+  "--mut": "#8F9384",
+  "--dim": "#5E6255",
+  "--olive": "#A3B565",
+  "--olive-d": "#5D6B34",
+  "--olive-s": "rgba(163,181,101,.14)",
+  "--on-olive": "#0E1306",
+  "--red": "#D12B2B",
+  "--red-s": "rgba(209,43,43,.15)",
+  "--on-red": "#FFF4F0",
+  "--brass": "#C9A24B",
+  "--amber": "#E0A93A",
+  "--ok": "#7FB069",
+  "--num": "\"Barlow Condensed\",\"Arial Narrow\",system-ui,sans-serif",
+  "--ui": "\"Inter\",system-ui,sans-serif",
+  "--sten": "\"Saira Stencil One\",\"Barlow Condensed\",Impact,sans-serif"
+ },
+ "fonts": [
+  {
+   "family": "Inter",
+   "loaded": true
+  },
+  {
+   "family": "Barlow Condensed",
+   "loaded": false
+  }
+ ],
+ "media_queries": [
+  "(prefers-reduced-motion: reduce)",
+  "(max-width: 430px)"
+ ],
+ "animations": [],
+ "elements": [
+  {
+   "id": 0,
+   "depth": 0,
+   "sel": "main.phone.st",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 851
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "flex-direction": "column",
+    "background-color": "rgb(10, 11, 9)",
+    "background-image": "repeating-linear-gradient(135deg, rgba(236, 232, 218, 0.016) 0px, rgba(236, 232, 218, 0.016) 1px, rgba(0, 0, 0, 0) 1px, rgba(0, 0, 0, 0) 8px)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-screen=6-como-foi-o-treino"
+   ]
+  },
+  {
+   "id": 1,
+   "depth": 1,
+   "sel": "div.scr",
+   "text": null,
+   "rect": {
+    "x": 1,
+    "y": 1,
+    "w": 391,
+    "h": 849
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "14px",
+    "padding": "22px 16px 0px"
+   }
+  },
+  {
+   "id": 2,
+   "depth": 2,
+   "sel": "div.top",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 23,
+    "w": 359,
+    "h": 44
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "10px"
+   }
+  },
+  {
+   "id": 3,
+   "depth": 3,
+   "sel": "h2",
+   "text": "Como foi o treino?",
+   "rect": {
+    "x": 17,
+    "y": 33,
+    "w": 359,
+    "h": 24
+   },
+   "style": {
+    "flex-grow": "1",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-size": "24px",
+    "font-weight": "700",
+    "line-height": "24px",
+    "letter-spacing": "0.96px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 4,
+   "depth": 2,
+   "sel": "span.lb",
+   "text": "Esforço",
+   "rect": {
+    "x": 17,
+    "y": 81,
+    "w": 359,
+    "h": 14
+   },
+   "style": {
+    "flex-shrink": "0",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 5,
+   "depth": 2,
+   "sel": "div.g2",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 109,
+    "w": 359,
+    "h": 109.2
+   },
+   "style": {
+    "display": "grid",
+    "flex-shrink": "0",
+    "gap": "10px",
+    "grid-template-columns": "174.5px 174.5px"
+   },
+   "data": [
+    "data-g=card"
+   ]
+  },
+  {
+   "id": 6,
+   "depth": 3,
+   "sel": "button.card",
+   "text": "Muito fácil",
+   "rect": {
+    "x": 17,
+    "y": 109,
+    "w": 174.5,
+    "h": 49.6
+   },
+   "style": {
+    "position": "relative",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px",
+    "font-weight": "600"
+   }
+  },
+  {
+   "id": 7,
+   "depth": 3,
+   "sel": "button.card",
+   "text": "Fácil",
+   "rect": {
+    "x": 201.5,
+    "y": 109,
+    "w": 174.5,
+    "h": 49.6
+   },
+   "style": {
+    "position": "relative",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px",
+    "font-weight": "600"
+   }
+  },
+  {
+   "id": 8,
+   "depth": 3,
+   "sel": "button.card.sel",
+   "text": "Difícil",
+   "rect": {
+    "x": 17,
+    "y": 168.6,
+    "w": 174.5,
+    "h": 49.6
+   },
+   "style": {
+    "position": "relative",
+    "padding": "14px",
+    "background-image": "linear-gradient(rgba(163, 181, 101, 0.14), rgb(22, 25, 17))",
+    "border": "1px solid rgb(163, 181, 101)",
+    "border-radius": "18px",
+    "font-weight": "600"
+   }
+  },
+  {
+   "depth": 4,
+   "sel": "button.card.sel::before",
+   "pseudo": true,
+   "content": "\"\"",
+   "rect": {
+    "w": "3px",
+    "h": "19.5938px",
+    "top": "14px",
+    "left": "-1px",
+    "inset": "14px 170.5px 14px -1px"
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "0px 3px 3px 0px"
+   }
+  },
+  {
+   "id": 9,
+   "depth": 3,
+   "sel": "button.card",
+   "text": "No limite",
+   "rect": {
+    "x": 201.5,
+    "y": 168.6,
+    "w": 174.5,
+    "h": 49.6
+   },
+   "style": {
+    "position": "relative",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px",
+    "font-weight": "600"
+   }
+  },
+  {
+   "id": 10,
+   "depth": 2,
+   "sel": "span.lb",
+   "text": "Sentiu dor?",
+   "rect": {
+    "x": 17,
+    "y": 232.2,
+    "w": 359,
+    "h": 14
+   },
+   "style": {
+    "flex-shrink": "0",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 11,
+   "depth": 2,
+   "sel": "div.seg",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 260.2,
+    "w": 359,
+    "h": 44
+   },
+   "style": {
+    "display": "flex",
+    "flex-shrink": "0",
+    "gap": "6px"
+   },
+   "data": [
+    "data-g=seg"
+   ]
+  },
+  {
+   "id": 12,
+   "depth": 3,
+   "sel": "div.s",
+   "text": "Não",
+   "rect": {
+    "x": 17,
+    "y": 260.2,
+    "w": 176.5,
+    "h": 44
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-grow": "1",
+    "color": "rgb(143, 147, 132)",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "14px",
+    "font-weight": "600",
+    "grid-template-columns": "174.5px"
+   }
+  },
+  {
+   "id": 13,
+   "depth": 3,
+   "sel": "div.s.on",
+   "text": "Sim",
+   "rect": {
+    "x": 199.5,
+    "y": 260.2,
+    "w": 176.5,
+    "h": 44
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-grow": "1",
+    "color": "rgb(14, 19, 6)",
+    "background-color": "rgb(163, 181, 101)",
+    "border": "1px solid rgba(0, 0, 0, 0)",
+    "border-radius": "14px",
+    "font-weight": "600",
+    "grid-template-columns": "174.5px"
+   }
+  },
+  {
+   "id": 14,
+   "depth": 2,
+   "sel": "span.lb",
+   "text": "Onde?",
+   "rect": {
+    "x": 17,
+    "y": 318.2,
+    "w": 359,
+    "h": 14
+   },
+   "style": {
+    "flex-shrink": "0",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 15,
+   "depth": 2,
+   "sel": "div.rw",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 346.2,
+    "w": 359,
+    "h": 72
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "12px"
+   },
+   "data": [
+    "data-g=x"
+   ]
+  },
+  {
+   "id": 16,
+   "depth": 3,
+   "sel": "span.chip",
+   "text": "Joelho",
+   "rect": {
+    "x": 17,
+    "y": 346.2,
+    "w": 65.8,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "7px",
+    "padding": "0px 12px",
+    "color": "rgb(143, 147, 132)",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "15px",
+    "font-size": "12.5px",
+    "line-height": "17.5px"
+   }
+  },
+  {
+   "id": 17,
+   "depth": 3,
+   "sel": "span.chip.on",
+   "text": "Canela",
+   "rect": {
+    "x": 94.8,
+    "y": 346.2,
+    "w": 66.9,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "7px",
+    "padding": "0px 12px",
+    "color": "rgb(163, 181, 101)",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border": "1px solid rgb(93, 107, 52)",
+    "border-radius": "15px",
+    "font-size": "12.5px",
+    "line-height": "17.5px"
+   }
+  },
+  {
+   "id": 18,
+   "depth": 3,
+   "sel": "span.chip",
+   "text": "Tornozelo",
+   "rect": {
+    "x": 173.7,
+    "y": 346.2,
+    "w": 84.7,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "7px",
+    "padding": "0px 12px",
+    "color": "rgb(143, 147, 132)",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "15px",
+    "font-size": "12.5px",
+    "line-height": "17.5px"
+   }
+  },
+  {
+   "id": 19,
+   "depth": 3,
+   "sel": "span.chip",
+   "text": "Quadril",
+   "rect": {
+    "x": 270.4,
+    "y": 346.2,
+    "w": 68.6,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "7px",
+    "padding": "0px 12px",
+    "color": "rgb(143, 147, 132)",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "15px",
+    "font-size": "12.5px",
+    "line-height": "17.5px"
+   }
+  },
+  {
+   "id": 20,
+   "depth": 3,
+   "sel": "span.chip",
+   "text": "Panturrilha",
+   "rect": {
+    "x": 17,
+    "y": 388.2,
+    "w": 90.1,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "7px",
+    "padding": "0px 12px",
+    "color": "rgb(143, 147, 132)",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "15px",
+    "font-size": "12.5px",
+    "line-height": "17.5px"
+   }
+  },
+  {
+   "id": 21,
+   "depth": 2,
+   "sel": "div.card.sel",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 432.2,
+    "w": 359,
+    "h": 89.2
+   },
+   "style": {
+    "position": "relative",
+    "flex-shrink": "0",
+    "padding": "14px",
+    "background-image": "linear-gradient(rgba(163, 181, 101, 0.14), rgb(22, 25, 17))",
+    "border": "1px solid rgb(163, 181, 101)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "depth": 3,
+   "sel": "div.card.sel::before",
+   "pseudo": true,
+   "content": "\"\"",
+   "rect": {
+    "w": "3px",
+    "h": "59.1875px",
+    "top": "14px",
+    "left": "-1px",
+    "inset": "14px 355px 14px -1px"
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "0px 3px 3px 0px"
+   }
+  },
+  {
+   "id": 22,
+   "depth": 3,
+   "sel": "span.lb.ol",
+   "text": "Próximo passo",
+   "rect": {
+    "x": 32,
+    "y": 450.2,
+    "w": 108.6,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 23,
+   "depth": 3,
+   "sel": "p.sm",
+   "text": "Plano mantido, com uma etapa mais leve no próximo treino. Terça-feira, 24 de novembro.",
+   "rect": {
+    "x": 32,
+    "y": 472.8,
+    "w": 329,
+    "h": 33.6
+   },
+   "style": {
+    "margin": "6px 0px 0px",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 24,
+   "depth": 2,
+   "sel": "div.card.rw",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 535.4,
+    "w": 359,
+    "h": 63.6
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "12px",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(209, 43, 43, 0.45)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 25,
+   "depth": 3,
+   "sel": "svg.ic",
+   "text": null,
+   "rect": {
+    "x": 32,
+    "y": 556.2,
+    "w": 22,
+    "h": 22
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "svg": "<svg class=\"ic\"><use href=\"#i-shield\"></use></svg>"
+  },
+  {
+   "id": 26,
+   "depth": 3,
+   "sel": "span.sm",
+   "text": "Dor forte? Pare e procure um profissional de saúde. O Elite não faz diagnóstico.",
+   "rect": {
+    "x": 66,
+    "y": 550.4,
+    "w": 295,
+    "h": 33.6
+   },
+   "style": {
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 27,
+   "depth": 2,
+   "sel": "div.sp",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 613,
+    "w": 359,
+    "h": 143
+   },
+   "style": {
+    "flex-grow": "1"
+   }
+  },
+  {
+   "id": 28,
+   "depth": 2,
+   "sel": "button.btn.pri",
+   "text": "Salvar",
+   "rect": {
+    "x": 17,
+    "y": 770,
+    "w": 359,
+    "h": 56
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "10px",
+    "margin": "0px 0px 24px",
+    "color": "rgb(255, 244, 240)",
+    "background-color": "rgb(209, 43, 43)",
+    "border-radius": "28px",
+    "font-size": "16px",
+    "font-weight": "700",
+    "letter-spacing": "0.32px",
+    "text-align": "center",
+    "transition": "transform 0.1s"
+   }
+  }
+ ],
+ "root_selector": ".phone"
+}

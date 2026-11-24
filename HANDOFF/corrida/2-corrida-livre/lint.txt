@@ -1,0 +1,3 @@
+WARN: touch target a.ol is 120x17 (<44dp)
+WARN: touch target button.mu is 21x24 (<44dp)
+root=.phone 393x851dp  errors=0 warnings=2

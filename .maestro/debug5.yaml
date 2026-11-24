@@ -1,0 +1,18 @@
+appId: com.elite.sch.app
+---
+- launchApp:
+    clearState: false
+- extendedWaitUntil:
+    visible: "Começar treino"
+    timeout: 10000
+- tapOn: "Começar treino"
+- takeScreenshot: "after_start_tap.png"
+- extendedWaitUntil:
+    visible: "Confirmar e iniciar treino"
+    timeout: 5000
+- tapOn: "Confirmar e iniciar treino"
+- takeScreenshot: "after_confirm.png"
+- extendedWaitUntil:
+    visible: "Pausar"
+    timeout: 15000
+- takeScreenshot: "after_pausar.png"

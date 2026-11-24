@@ -1,0 +1,8 @@
+[
+  {"name": "banners", "eval": "__setState('banners')", "wait": 200},
+  {"name": "push", "click": "[data-id='avi.tabs.p']", "wait": 300},
+  {"name": "sheet_promocao", "eval": "__setState('sheet_promocao')", "frames": [0, 120, 320, 600]},
+  {"name": "sheet_rebaixamento", "eval": "__setState('sheet_rebaixamento')", "wait": 600},
+  {"name": "sheet_fim", "eval": "__setState('sheet_fim')", "wait": 600},
+  {"name": "sheet_conquista", "eval": "__setState('sheet_conquista')", "wait": 600}
+]

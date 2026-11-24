@@ -1,0 +1,55 @@
+appId: com.elite.sch.app
+---
+# Test active run features
+- launchApp:
+    clearState: false
+- extendedWaitUntil:
+    visible:
+      id: "btn_comecar"
+    timeout: 10000
+- tapOn:
+    id: "input_user_name"
+- inputText: "TestUser"
+- tapOn:
+    id: "btn_comecar"
+- extendedWaitUntil:
+    visible: "Escolha seu plano"
+    timeout: 10000
+- tapOn: "Corrida livre"
+- extendedWaitUntil:
+    visible: "CORRIDA LIVRE"
+    timeout: 15000
+- tapOn: "Fechar aviso"
+- extendedWaitUntil:
+    visible: "Pausar"
+    timeout: 15000
+- takeScreenshot: "map_active_run.png"
+
+# Verify map is visible
+- assertVisible:
+    id: "map_view_realtime"
+
+# Test camera mode toggle
+- tapOn:
+    id: "btn_map_camera_mode"
+- extendedWaitUntil:
+    visible: "Rota completa"
+    timeout: 3000
+- takeScreenshot: "map_camera_mode_toggled.png"
+
+# Test recenter
+- tapOn:
+    id: "btn_map_recenter"
+- takeScreenshot: "map_recentered.png"
+
+# Finish run
+- longPressOn:
+    id: "btn_finish_run_hold"
+- extendedWaitUntil:
+    visible: "Encerrar e Salvar"
+    timeout: 5000
+- tapOn: "Encerrar e Salvar"
+- extendedWaitUntil:
+    visible: "Resumo"
+    timeout: 10000
+- takeScreenshot: "workout_summary.png"

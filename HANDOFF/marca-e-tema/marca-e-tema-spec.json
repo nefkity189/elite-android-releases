@@ -1,0 +1,4137 @@
+{
+ "screen": {
+  "w": 393,
+  "h": 5296.2
+ },
+ "tokens": {
+  "--bg": "#0A0B09",
+  "--s1": "#10120D",
+  "--card": "#161911",
+  "--card2": "#1D2116",
+  "--field": "#0D0F0A",
+  "--page": "#050604",
+  "--line": "rgba(236,232,218,.10)",
+  "--line2": "rgba(236,232,218,.18)",
+  "--text": "#ECE8DA",
+  "--mut": "#8F9384",
+  "--dim": "#5E6255",
+  "--olive": "#A3B565",
+  "--olive-d": "#5D6B34",
+  "--olive-s": "rgba(163,181,101,.14)",
+  "--on-olive": "#0E1306",
+  "--red": "#D12B2B",
+  "--red-s": "rgba(209,43,43,.15)",
+  "--on-red": "#FFF4F0",
+  "--brass": "#C9A24B",
+  "--amber": "#E0A93A",
+  "--ok": "#7FB069",
+  "--num": "\"Barlow Condensed\",\"Arial Narrow\",system-ui,sans-serif",
+  "--ui": "\"Inter\",system-ui,sans-serif",
+  "--sten": "\"Saira Stencil One\",\"Barlow Condensed\",Impact,sans-serif"
+ },
+ "fonts": [
+  {
+   "family": "Inter",
+   "loaded": true
+  },
+  {
+   "family": "Barlow Condensed",
+   "loaded": false
+  },
+  {
+   "family": "Saira Stencil One",
+   "loaded": true
+  },
+  {
+   "family": "monospace",
+   "loaded": false
+  }
+ ],
+ "media_queries": [
+  "(prefers-reduced-motion: reduce)",
+  "(max-width: 430px)"
+ ],
+ "animations": [
+  {
+   "name": "spin",
+   "type": "CSSAnimation",
+   "target": "button.cb",
+   "duration_ms": 5000,
+   "delay_ms": 0,
+   "iterations": "infinite",
+   "easing": "linear",
+   "direction": "normal",
+   "fill": "none",
+   "keyframes": [
+    {
+     "offset": 0,
+     "easing": "linear"
+    },
+    {
+     "offset": 1,
+     "easing": "linear"
+    }
+   ]
+  },
+  {
+   "name": "glow",
+   "type": "CSSAnimation",
+   "target": "button.cb",
+   "duration_ms": 3200,
+   "delay_ms": 0,
+   "iterations": "infinite",
+   "easing": "linear",
+   "direction": "normal",
+   "fill": "none",
+   "keyframes": [
+    {
+     "offset": 0,
+     "easing": "ease-in-out",
+     "boxShadow": "rgba(163, 181, 101, 0) 0px 0px 16px 2px"
+    },
+    {
+     "offset": 0.5,
+     "easing": "ease-in-out",
+     "boxShadow": "rgba(163, 181, 101, 0.35) 0px 0px 16px 2px"
+    },
+    {
+     "offset": 1,
+     "easing": "ease-in-out",
+     "boxShadow": "rgba(163, 181, 101, 0) 0px 0px 16px 2px"
+    }
+   ]
+  }
+ ],
+ "elements": [
+  {
+   "id": 0,
+   "depth": 0,
+   "sel": "body",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 5296.2
+   },
+   "style": {
+    "padding": "0px 0px 40px",
+    "color": "rgb(236, 232, 218)",
+    "background-color": "rgb(5, 6, 4)",
+    "font-family": "Inter, system-ui, sans-serif",
+    "font-size": "14px",
+    "line-height": "19.6px"
+   }
+  },
+  {
+   "id": 1,
+   "depth": 1,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0
+   },
+   "style": {
+    "position": "absolute",
+    "overflow": "hidden"
+   },
+   "svg": "<svg width=\"0\" height=\"0\" style=\"position:absolute\" aria-hidden=\"true\"><symbol id=\"i-home\" viewBox=\"0 0 24 24\"><path d=\"M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z\"></path></symbol><symbol id=\"i-cal\" viewBox=\"0 0 24 24\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"16\" rx=\"2\"></rect><path d=\"M3 10h18M8 3v4M16 3v4\"></path></symbol><symbol id=\"i-trend\" viewBox=\"0 0 24 24\"><path d=\"M3 17l6-6 4 4 8-9\"></path><path d=\"M15 6h6v6\"></path></symbol><symbol id=\"i-user\" viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"8\" r=\"4\"></circle><path d=\"M4 21c1-4 4-6 8-6s7 2 8 6\"></path></symbol><symbol id=\"i-gear\" viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z\"></path></symbol><symbol id=\"i-sound\" viewBox=\"0 0 24 24\"><path d=\"M11 5 6 9H3v6h3l5 4z\"></path><path d=\"M15.5 8.5a5 5 0 0 1 0 7\"></path></symbol><symbol id=\"i-vib\" viewBox=\"0 0 24 24\"><rect x=\"8\" y=\"4\" width=\"8\" height=\"16\" rx=\"2\"></rect><path d=\"M4 8v8M20 8v8\"></path></symbol><symbol id="
+  },
+  {
+   "id": 2,
+   "depth": 1,
+   "sel": "header.hd1",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 155.4
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "14px",
+    "padding": "16px",
+    "margin": "0px 0px 20px"
+   }
+  },
+  {
+   "id": 3,
+   "depth": 2,
+   "sel": "h1",
+   "text": "Elite · Marca e tema",
+   "rect": {
+    "x": 16,
+    "y": 16,
+    "w": 234.9,
+    "h": 31
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-size": "26px",
+    "font-weight": "700",
+    "letter-spacing": "1.56px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 4,
+   "depth": 2,
+   "sel": "p",
+   "text": "Identidade, paleta, tipografia, botão central animado e componentes. Tema escuro profissional inspirado em operações táticas (preto, oliva, osso e vermelho de sinalização).",
+   "rect": {
+    "x": 16,
+    "y": 61,
+    "w": 361,
+    "h": 78.4
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)"
+   }
+  },
+  {
+   "id": 5,
+   "depth": 1,
+   "sel": "div.sec",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 175.4,
+    "w": 393,
+    "h": 1253.2
+   },
+   "style": {
+    "margin": "0px 0px 36px"
+   }
+  },
+  {
+   "id": 6,
+   "depth": 2,
+   "sel": "h3",
+   "text": "1 · Marca",
+   "rect": {
+    "x": 0,
+    "y": 175.4,
+    "w": 393,
+    "h": 31
+   },
+   "style": {
+    "padding": "0px 0px 8px",
+    "margin": "0px 0px 14px",
+    "color": "rgb(163, 181, 101)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-size": "18px",
+    "font-weight": "700",
+    "letter-spacing": "2.52px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 7,
+   "depth": 2,
+   "sel": "div.grid",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 220.4,
+    "w": 393,
+    "h": 1129
+   },
+   "style": {
+    "display": "grid",
+    "gap": "14px",
+    "grid-template-columns": "393px"
+   }
+  },
+  {
+   "id": 8,
+   "depth": 3,
+   "sel": "div.tile",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 220.4,
+    "w": 393,
+    "h": 170
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "padding": "24px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 9,
+   "depth": 4,
+   "sel": "div.lg",
+   "text": null,
+   "rect": {
+    "x": 62.7,
+    "y": 280.4,
+    "w": 267.6,
+    "h": 50
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "12px"
+   }
+  },
+  {
+   "id": 10,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 62.7,
+    "y": 280.4,
+    "w": 44,
+    "h": 50
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "svg": "<svg viewBox=\"0 0 64 64\" aria-hidden=\"true\"><use href=\"#mark\"></use></svg>"
+  },
+  {
+   "id": 11,
+   "depth": 5,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 118.7,
+    "y": 283.9,
+    "w": 211.6,
+    "h": 43
+   },
+   "style": {}
+  },
+  {
+   "id": 12,
+   "depth": 6,
+   "sel": "div.wm",
+   "text": "Elite",
+   "rect": {
+    "x": 118.7,
+    "y": 283.9,
+    "w": 217.8,
+    "h": 26
+   },
+   "style": {
+    "margin": "0px -6.24px 0px 0px",
+    "font-family": "\"Saira Stencil One\", \"Barlow Condensed\", Impact, sans-serif",
+    "font-size": "26px",
+    "line-height": "26px",
+    "letter-spacing": "6.24px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 13,
+   "depth": 6,
+   "sel": "div.tg",
+   "text": "Missão dada é missão cumprida",
+   "rect": {
+    "x": 118.7,
+    "y": 315.9,
+    "w": 211.6,
+    "h": 11
+   },
+   "style": {
+    "margin": "6px 0px 0px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "9px",
+    "font-weight": "600",
+    "letter-spacing": "1.8px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 14,
+   "depth": 3,
+   "sel": "div.tile",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 404.4,
+    "w": 393,
+    "h": 197
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "padding": "24px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 15,
+   "depth": 4,
+   "sel": "div.lg.v",
+   "text": null,
+   "rect": {
+    "x": 90.7,
+    "y": 429.4,
+    "w": 211.6,
+    "h": 147
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "center",
+    "gap": "10px",
+    "text-align": "center"
+   }
+  },
+  {
+   "id": 16,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 160.5,
+    "y": 429.4,
+    "w": 72,
+    "h": 82
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "svg": "<svg viewBox=\"0 0 64 64\" aria-hidden=\"true\"><use href=\"#mark\"></use></svg>"
+  },
+  {
+   "id": 17,
+   "depth": 5,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 90.7,
+    "y": 521.4,
+    "w": 211.6,
+    "h": 55
+   },
+   "style": {}
+  },
+  {
+   "id": 18,
+   "depth": 6,
+   "sel": "div.wm",
+   "text": "Elite",
+   "rect": {
+    "x": 90.7,
+    "y": 521.4,
+    "w": 220.7,
+    "h": 38
+   },
+   "style": {
+    "margin": "0px -9.12px 0px 0px",
+    "font-family": "\"Saira Stencil One\", \"Barlow Condensed\", Impact, sans-serif",
+    "font-size": "38px",
+    "line-height": "38px",
+    "letter-spacing": "9.12px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 19,
+   "depth": 6,
+   "sel": "div.tg",
+   "text": "Missão dada é missão cumprida",
+   "rect": {
+    "x": 90.7,
+    "y": 565.4,
+    "w": 211.6,
+    "h": 11
+   },
+   "style": {
+    "margin": "6px 0px 0px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "9px",
+    "font-weight": "600",
+    "letter-spacing": "1.8px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 20,
+   "depth": 3,
+   "sel": "div.tile.ol",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 615.4,
+    "w": 393,
+    "h": 170
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "padding": "24px",
+    "color": "rgb(163, 181, 101)",
+    "background-color": "rgb(163, 181, 101)",
+    "border": "1px solid rgba(0, 0, 0, 0)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 21,
+   "depth": 4,
+   "sel": "div.lg",
+   "text": null,
+   "rect": {
+    "x": 121.1,
+    "y": 675.4,
+    "w": 150.8,
+    "h": 50
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "12px"
+   }
+  },
+  {
+   "id": 22,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 121.1,
+    "y": 675.4,
+    "w": 44,
+    "h": 50
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "svg": "<svg viewBox=\"0 0 64 64\" aria-hidden=\"true\"><use href=\"#mark\"></use></svg>"
+  },
+  {
+   "id": 23,
+   "depth": 5,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 177.1,
+    "y": 687.4,
+    "w": 94.8,
+    "h": 26
+   },
+   "style": {}
+  },
+  {
+   "id": 24,
+   "depth": 6,
+   "sel": "div.wm",
+   "text": "Elite",
+   "rect": {
+    "x": 177.1,
+    "y": 687.4,
+    "w": 101,
+    "h": 26
+   },
+   "style": {
+    "margin": "0px -6.24px 0px 0px",
+    "color": "rgb(10, 11, 9)",
+    "font-family": "\"Saira Stencil One\", \"Barlow Condensed\", Impact, sans-serif",
+    "font-size": "26px",
+    "line-height": "26px",
+    "letter-spacing": "6.24px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 25,
+   "depth": 3,
+   "sel": "div.tile.bn",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 799.4,
+    "w": 393,
+    "h": 170
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "padding": "24px",
+    "background-color": "rgb(236, 232, 218)",
+    "border": "1px solid rgba(0, 0, 0, 0)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 26,
+   "depth": 4,
+   "sel": "div.lg",
+   "text": null,
+   "rect": {
+    "x": 121.1,
+    "y": 859.4,
+    "w": 150.8,
+    "h": 50
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "12px"
+   }
+  },
+  {
+   "id": 27,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 121.1,
+    "y": 859.4,
+    "w": 44,
+    "h": 50
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "svg": "<svg viewBox=\"0 0 64 64\" aria-hidden=\"true\"><use href=\"#mark\"></use></svg>"
+  },
+  {
+   "id": 28,
+   "depth": 5,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 177.1,
+    "y": 871.4,
+    "w": 94.8,
+    "h": 26
+   },
+   "style": {}
+  },
+  {
+   "id": 29,
+   "depth": 6,
+   "sel": "div.wm",
+   "text": "Elite",
+   "rect": {
+    "x": 177.1,
+    "y": 871.4,
+    "w": 101,
+    "h": 26
+   },
+   "style": {
+    "margin": "0px -6.24px 0px 0px",
+    "color": "rgb(10, 11, 9)",
+    "font-family": "\"Saira Stencil One\", \"Barlow Condensed\", Impact, sans-serif",
+    "font-size": "26px",
+    "line-height": "26px",
+    "letter-spacing": "6.24px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 30,
+   "depth": 3,
+   "sel": "div.tile",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 983.4,
+    "w": 393,
+    "h": 182
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "padding": "24px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 31,
+   "depth": 4,
+   "sel": "div.ai",
+   "text": null,
+   "rect": {
+    "x": 130.5,
+    "y": 1008.4,
+    "w": 132,
+    "h": 132
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "background-image": "radial-gradient(circle at 30% 20%, rgb(38, 43, 26), rgb(10, 11, 9) 72%)",
+    "border": "2px solid rgb(93, 107, 52)",
+    "border-radius": "30px",
+    "grid-template-columns": "128px"
+   }
+  },
+  {
+   "id": 32,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 157.5,
+    "y": 1030.4,
+    "w": 78,
+    "h": 88
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "svg": "<svg viewBox=\"0 0 64 64\" aria-hidden=\"true\"><use href=\"#mark\"></use></svg>"
+  },
+  {
+   "id": 33,
+   "depth": 3,
+   "sel": "div.tile",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 1179.4,
+    "w": 393,
+    "h": 170
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "padding": "24px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 34,
+   "depth": 4,
+   "sel": "div.demo",
+   "text": null,
+   "rect": {
+    "x": 76.5,
+    "y": 1228.4,
+    "w": 240,
+    "h": 72
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "18px"
+   }
+  },
+  {
+   "id": 35,
+   "depth": 5,
+   "sel": "button.cb",
+   "text": null,
+   "rect": {
+    "x": 76.5,
+    "y": 1228.4,
+    "w": 72,
+    "h": 72
+   },
+   "style": {
+    "display": "grid",
+    "position": "relative",
+    "align-items": "center",
+    "background-image": "conic-gradient(from 46.7928deg, rgb(163, 181, 101), rgb(209, 43, 43), rgb(201, 162, 75), rgb(163, 181, 101))",
+    "border-radius": "22px",
+    "box-shadow": "rgba(163, 181, 101, 0.118) 0px 0px 16px 2px",
+    "text-align": "center",
+    "transition": "transform 0.18s",
+    "animation": "5s linear infinite spin, 3.2s ease-in-out infinite glow",
+    "grid-template-columns": "72px"
+   },
+   "aria": "Botão central animado"
+  },
+  {
+   "depth": 6,
+   "sel": "button.cb::before",
+   "pseudo": true,
+   "content": "\"\"",
+   "rect": {
+    "w": "68px",
+    "h": "68px",
+    "top": "2px",
+    "left": "2px",
+    "inset": "2px"
+   },
+   "style": {
+    "position": "absolute",
+    "background-image": "radial-gradient(circle at 30% 20%, rgb(38, 43, 26), rgb(12, 14, 8) 70%)",
+    "border-radius": "20px"
+   }
+  },
+  {
+   "depth": 6,
+   "sel": "button.cb::after",
+   "pseudo": true,
+   "content": "\"\"",
+   "rect": {
+    "w": "72px",
+    "h": "72px",
+    "top": "0px",
+    "left": "0px",
+    "inset": "0px"
+   },
+   "style": {
+    "position": "absolute",
+    "border": "2px solid rgb(163, 181, 101)",
+    "border-radius": "16px",
+    "opacity": "0"
+   }
+  },
+  {
+   "id": 36,
+   "depth": 6,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 93.5,
+    "y": 1245.4,
+    "w": 38,
+    "h": 38
+   },
+   "style": {
+    "position": "relative",
+    "color": "rgb(163, 181, 101)",
+    "overflow": "hidden"
+   },
+   "svg": "<svg viewBox=\"0 0 64 64\" aria-hidden=\"true\"><use href=\"#blade\"></use></svg>"
+  },
+  {
+   "id": 37,
+   "depth": 5,
+   "sel": "div.mu.sm",
+   "text": "Toque no botão: pulo, giro do símbolo e onda.",
+   "rect": {
+    "x": 166.5,
+    "y": 1247.6,
+    "w": 150,
+    "h": 33.6
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 38,
+   "depth": 2,
+   "sel": "p.mu.sm",
+   "text": "Símbolo: escudo com uma lâmina em forma de “E”; a ponta da lâmina é vermelha. Logotipo: Saira Stencil One, caixa alta, espaçamento de 0,24 em. O botão central do menu : é a lâmina “E” (símbolo sem o escudo).",
+   "rect": {
+    "x": 0,
+    "y": 1361.4,
+    "w": 393,
+    "h": 67.2
+   },
+   "style": {
+    "margin": "12px 0px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 39,
+   "depth": 3,
+   "sel": "b",
+   "text": "não é mais o “A”",
+   "rect": {
+    "x": 0,
+    "y": 1395,
+    "w": 367.8,
+    "h": 31.8
+   },
+   "style": {
+    "font-weight": "700"
+   }
+  },
+  {
+   "id": 40,
+   "depth": 1,
+   "sel": "div.sec",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 1464.6,
+    "w": 393,
+    "h": 1460.8
+   },
+   "style": {
+    "margin": "0px 0px 36px"
+   }
+  },
+  {
+   "id": 41,
+   "depth": 2,
+   "sel": "h3",
+   "text": "2 · Paleta",
+   "rect": {
+    "x": 0,
+    "y": 1464.6,
+    "w": 393,
+    "h": 31
+   },
+   "style": {
+    "padding": "0px 0px 8px",
+    "margin": "0px 0px 14px",
+    "color": "rgb(163, 181, 101)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-size": "18px",
+    "font-weight": "700",
+    "letter-spacing": "2.52px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 42,
+   "depth": 2,
+   "sel": "div.grid",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 1509.6,
+    "w": 393,
+    "h": 1415.8
+   },
+   "style": {
+    "display": "grid",
+    "gap": "14px",
+    "grid-template-columns": "393px"
+   }
+  },
+  {
+   "id": 43,
+   "depth": 3,
+   "sel": "div.sw2",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 1509.6,
+    "w": 393,
+    "h": 129
+   },
+   "style": {
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "16px",
+    "overflow": "hidden"
+   }
+  },
+  {
+   "id": 44,
+   "depth": 4,
+   "sel": "i",
+   "text": null,
+   "rect": {
+    "x": 1,
+    "y": 1510.6,
+    "w": 391,
+    "h": 72
+   },
+   "style": {
+    "background-color": "rgb(10, 11, 9)"
+   }
+  },
+  {
+   "id": 45,
+   "depth": 4,
+   "sel": "div",
+   "text": "Fundo das telas",
+   "rect": {
+    "x": 1,
+    "y": 1582.6,
+    "w": 391,
+    "h": 55
+   },
+   "style": {
+    "padding": "10px 12px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 46,
+   "depth": 5,
+   "sel": "b",
+   "text": "Preto tático #0A0B09",
+   "rect": {
+    "x": 13,
+    "y": 1592.6,
+    "w": 367,
+    "h": 18.2
+   },
+   "style": {
+    "color": "rgb(236, 232, 218)",
+    "font-size": "13px",
+    "font-weight": "700",
+    "line-height": "18.2px"
+   }
+  },
+  {
+   "id": 47,
+   "depth": 3,
+   "sel": "div.sw2",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 1652.5,
+    "w": 393,
+    "h": 129
+   },
+   "style": {
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "16px",
+    "overflow": "hidden"
+   }
+  },
+  {
+   "id": 48,
+   "depth": 4,
+   "sel": "i",
+   "text": null,
+   "rect": {
+    "x": 1,
+    "y": 1653.5,
+    "w": 391,
+    "h": 72
+   },
+   "style": {
+    "background-color": "rgb(16, 18, 13)"
+   }
+  },
+  {
+   "id": 49,
+   "depth": 4,
+   "sel": "div",
+   "text": "Barra inferior, sheets",
+   "rect": {
+    "x": 1,
+    "y": 1725.5,
+    "w": 391,
+    "h": 55
+   },
+   "style": {
+    "padding": "10px 12px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 50,
+   "depth": 5,
+   "sel": "b",
+   "text": "Superfície #10120D",
+   "rect": {
+    "x": 13,
+    "y": 1735.5,
+    "w": 367,
+    "h": 18.2
+   },
+   "style": {
+    "color": "rgb(236, 232, 218)",
+    "font-size": "13px",
+    "font-weight": "700",
+    "line-height": "18.2px"
+   }
+  },
+  {
+   "id": 51,
+   "depth": 3,
+   "sel": "div.sw2",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 1795.5,
+    "w": 393,
+    "h": 129
+   },
+   "style": {
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "16px",
+    "overflow": "hidden"
+   }
+  },
+  {
+   "id": 52,
+   "depth": 4,
+   "sel": "i",
+   "text": null,
+   "rect": {
+    "x": 1,
+    "y": 1796.5,
+    "w": 391,
+    "h": 72
+   },
+   "style": {
+    "background-color": "rgb(22, 25, 17)"
+   }
+  },
+  {
+   "id": 53,
+   "depth": 4,
+   "sel": "div",
+   "text": "Cards, trilhas",
+   "rect": {
+    "x": 1,
+    "y": 1868.5,
+    "w": 391,
+    "h": 55
+   },
+   "style": {
+    "padding": "10px 12px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 54,
+   "depth": 5,
+   "sel": "b",
+   "text": "Card #161911 / #1D2116",
+   "rect": {
+    "x": 13,
+    "y": 1878.5,
+    "w": 367,
+    "h": 18.2
+   },
+   "style": {
+    "color": "rgb(236, 232, 218)",
+    "font-size": "13px",
+    "font-weight": "700",
+    "line-height": "18.2px"
+   }
+  },
+  {
+   "id": 55,
+   "depth": 3,
+   "sel": "div.sw2",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 1938.5,
+    "w": 393,
+    "h": 129
+   },
+   "style": {
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "16px",
+    "overflow": "hidden"
+   }
+  },
+  {
+   "id": 56,
+   "depth": 4,
+   "sel": "i",
+   "text": null,
+   "rect": {
+    "x": 1,
+    "y": 1939.5,
+    "w": 391,
+    "h": 72
+   },
+   "style": {
+    "background-color": "rgb(236, 232, 218)"
+   }
+  },
+  {
+   "id": 57,
+   "depth": 4,
+   "sel": "div",
+   "text": "Texto principal",
+   "rect": {
+    "x": 1,
+    "y": 2011.5,
+    "w": 391,
+    "h": 55
+   },
+   "style": {
+    "padding": "10px 12px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 58,
+   "depth": 5,
+   "sel": "b",
+   "text": "Osso #ECE8DA",
+   "rect": {
+    "x": 13,
+    "y": 2021.5,
+    "w": 367,
+    "h": 18.2
+   },
+   "style": {
+    "color": "rgb(236, 232, 218)",
+    "font-size": "13px",
+    "font-weight": "700",
+    "line-height": "18.2px"
+   }
+  },
+  {
+   "id": 59,
+   "depth": 3,
+   "sel": "div.sw2",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 2081.5,
+    "w": 393,
+    "h": 129
+   },
+   "style": {
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "16px",
+    "overflow": "hidden"
+   }
+  },
+  {
+   "id": 60,
+   "depth": 4,
+   "sel": "i",
+   "text": null,
+   "rect": {
+    "x": 1,
+    "y": 2082.5,
+    "w": 391,
+    "h": 72
+   },
+   "style": {
+    "background-color": "rgb(143, 147, 132)"
+   }
+  },
+  {
+   "id": 61,
+   "depth": 4,
+   "sel": "div",
+   "text": "Texto secundário",
+   "rect": {
+    "x": 1,
+    "y": 2154.5,
+    "w": 391,
+    "h": 55
+   },
+   "style": {
+    "padding": "10px 12px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 62,
+   "depth": 5,
+   "sel": "b",
+   "text": "Cinza oliva #8F9384",
+   "rect": {
+    "x": 13,
+    "y": 2164.5,
+    "w": 367,
+    "h": 18.2
+   },
+   "style": {
+    "color": "rgb(236, 232, 218)",
+    "font-size": "13px",
+    "font-weight": "700",
+    "line-height": "18.2px"
+   }
+  },
+  {
+   "id": 63,
+   "depth": 3,
+   "sel": "div.sw2",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 2224.5,
+    "w": 393,
+    "h": 129
+   },
+   "style": {
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "16px",
+    "overflow": "hidden"
+   }
+  },
+  {
+   "id": 64,
+   "depth": 4,
+   "sel": "i",
+   "text": null,
+   "rect": {
+    "x": 1,
+    "y": 2225.5,
+    "w": 391,
+    "h": 72
+   },
+   "style": {
+    "background-color": "rgb(163, 181, 101)"
+   }
+  },
+  {
+   "id": 65,
+   "depth": 4,
+   "sel": "div",
+   "text": "Seleção, Pausar, abas ativas",
+   "rect": {
+    "x": 1,
+    "y": 2297.5,
+    "w": 391,
+    "h": 55
+   },
+   "style": {
+    "padding": "10px 12px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 66,
+   "depth": 5,
+   "sel": "b",
+   "text": "Oliva #A3B565",
+   "rect": {
+    "x": 13,
+    "y": 2307.5,
+    "w": 367,
+    "h": 18.2
+   },
+   "style": {
+    "color": "rgb(236, 232, 218)",
+    "font-size": "13px",
+    "font-weight": "700",
+    "line-height": "18.2px"
+   }
+  },
+  {
+   "id": 67,
+   "depth": 3,
+   "sel": "div.sw2",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 2367.5,
+    "w": 393,
+    "h": 129
+   },
+   "style": {
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "16px",
+    "overflow": "hidden"
+   }
+  },
+  {
+   "id": 68,
+   "depth": 4,
+   "sel": "i",
+   "text": null,
+   "rect": {
+    "x": 1,
+    "y": 2368.5,
+    "w": 391,
+    "h": 72
+   },
+   "style": {
+    "background-color": "rgb(93, 107, 52)"
+   }
+  },
+  {
+   "id": 69,
+   "depth": 4,
+   "sel": "div",
+   "text": "Switch ligado, bordas",
+   "rect": {
+    "x": 1,
+    "y": 2440.5,
+    "w": 391,
+    "h": 55
+   },
+   "style": {
+    "padding": "10px 12px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 70,
+   "depth": 5,
+   "sel": "b",
+   "text": "Oliva escuro #5D6B34",
+   "rect": {
+    "x": 13,
+    "y": 2450.5,
+    "w": 367,
+    "h": 18.2
+   },
+   "style": {
+    "color": "rgb(236, 232, 218)",
+    "font-size": "13px",
+    "font-weight": "700",
+    "line-height": "18.2px"
+   }
+  },
+  {
+   "id": 71,
+   "depth": 3,
+   "sel": "div.sw2",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 2510.5,
+    "w": 393,
+    "h": 129
+   },
+   "style": {
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "16px",
+    "overflow": "hidden"
+   }
+  },
+  {
+   "id": 72,
+   "depth": 4,
+   "sel": "i",
+   "text": null,
+   "rect": {
+    "x": 1,
+    "y": 2511.5,
+    "w": 391,
+    "h": 72
+   },
+   "style": {
+    "background-color": "rgb(209, 43, 43)"
+   }
+  },
+  {
+   "id": 73,
+   "depth": 4,
+   "sel": "div",
+   "text": "Ação principal, Parar",
+   "rect": {
+    "x": 1,
+    "y": 2583.5,
+    "w": 391,
+    "h": 55
+   },
+   "style": {
+    "padding": "10px 12px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 74,
+   "depth": 5,
+   "sel": "b",
+   "text": "Vermelho operacional #D12B2B",
+   "rect": {
+    "x": 13,
+    "y": 2593.5,
+    "w": 367,
+    "h": 18.2
+   },
+   "style": {
+    "color": "rgb(236, 232, 218)",
+    "font-size": "13px",
+    "font-weight": "700",
+    "line-height": "18.2px"
+   }
+  },
+  {
+   "id": 75,
+   "depth": 3,
+   "sel": "div.sw2",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 2653.4,
+    "w": 393,
+    "h": 129
+   },
+   "style": {
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "16px",
+    "overflow": "hidden"
+   }
+  },
+  {
+   "id": 76,
+   "depth": 4,
+   "sel": "i",
+   "text": null,
+   "rect": {
+    "x": 1,
+    "y": 2654.4,
+    "w": 391,
+    "h": 72
+   },
+   "style": {
+    "background-color": "rgb(201, 162, 75)"
+   }
+  },
+  {
+   "id": 77,
+   "depth": 4,
+   "sel": "div",
+   "text": "Conquistas e patentes",
+   "rect": {
+    "x": 1,
+    "y": 2726.4,
+    "w": 391,
+    "h": 55
+   },
+   "style": {
+    "padding": "10px 12px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 78,
+   "depth": 5,
+   "sel": "b",
+   "text": "Latão #C9A24B",
+   "rect": {
+    "x": 13,
+    "y": 2736.4,
+    "w": 367,
+    "h": 18.2
+   },
+   "style": {
+    "color": "rgb(236, 232, 218)",
+    "font-size": "13px",
+    "font-weight": "700",
+    "line-height": "18.2px"
+   }
+  },
+  {
+   "id": 79,
+   "depth": 3,
+   "sel": "div.sw2",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 2796.4,
+    "w": 393,
+    "h": 129
+   },
+   "style": {
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "16px",
+    "overflow": "hidden"
+   }
+  },
+  {
+   "id": 80,
+   "depth": 4,
+   "sel": "i",
+   "text": null,
+   "rect": {
+    "x": 1,
+    "y": 2797.4,
+    "w": 391,
+    "h": 72
+   },
+   "style": {
+    "background-color": "rgb(224, 169, 58)"
+   }
+  },
+  {
+   "id": 81,
+   "depth": 4,
+   "sel": "div",
+   "text": "Avisos",
+   "rect": {
+    "x": 1,
+    "y": 2869.4,
+    "w": 391,
+    "h": 55
+   },
+   "style": {
+    "padding": "10px 12px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 82,
+   "depth": 5,
+   "sel": "b",
+   "text": "Âmbar #E0A93A",
+   "rect": {
+    "x": 13,
+    "y": 2879.4,
+    "w": 367,
+    "h": 18.2
+   },
+   "style": {
+    "color": "rgb(236, 232, 218)",
+    "font-size": "13px",
+    "font-weight": "700",
+    "line-height": "18.2px"
+   }
+  },
+  {
+   "id": 83,
+   "depth": 1,
+   "sel": "div.sec",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 2961.4,
+    "w": 393,
+    "h": 655.4
+   },
+   "style": {
+    "margin": "0px 0px 36px"
+   }
+  },
+  {
+   "id": 84,
+   "depth": 2,
+   "sel": "h3",
+   "text": "3 · Mapa de tokens (app atual → Elite)",
+   "rect": {
+    "x": 0,
+    "y": 2961.4,
+    "w": 393,
+    "h": 31
+   },
+   "style": {
+    "padding": "0px 0px 8px",
+    "margin": "0px 0px 14px",
+    "color": "rgb(163, 181, 101)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-size": "18px",
+    "font-weight": "700",
+    "letter-spacing": "2.52px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 85,
+   "depth": 2,
+   "sel": "table",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3006.4,
+    "w": 393,
+    "h": 610.4
+   },
+   "style": {
+    "display": "table",
+    "font-size": "13px",
+    "line-height": "18.2px"
+   }
+  },
+  {
+   "id": 86,
+   "depth": 3,
+   "sel": "tbody",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3006.4,
+    "w": 393,
+    "h": 609.9
+   },
+   "style": {
+    "display": "table-row-group"
+   }
+  },
+  {
+   "id": 87,
+   "depth": 4,
+   "sel": "tr",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3006.4,
+    "w": 393,
+    "h": 32.5
+   },
+   "style": {
+    "display": "table-row"
+   }
+  },
+  {
+   "id": 88,
+   "depth": 5,
+   "sel": "th",
+   "text": "Token atual",
+   "rect": {
+    "x": 0,
+    "y": 3006.4,
+    "w": 160.1,
+    "h": 32.5
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.1px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 89,
+   "depth": 5,
+   "sel": "th",
+   "text": "Novo valor",
+   "rect": {
+    "x": 160.1,
+    "y": 3006.4,
+    "w": 112.3,
+    "h": 32.5
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.1px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 90,
+   "depth": 5,
+   "sel": "th",
+   "text": "Uso",
+   "rect": {
+    "x": 272.5,
+    "y": 3006.4,
+    "w": 120.5,
+    "h": 32.5
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.1px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 91,
+   "depth": 4,
+   "sel": "tr",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3038.9,
+    "w": 393,
+    "h": 56.6
+   },
+   "style": {
+    "display": "table-row"
+   }
+  },
+  {
+   "id": 92,
+   "depth": 5,
+   "sel": "td",
+   "text": "/",
+   "rect": {
+    "x": 0,
+    "y": 3038.9,
+    "w": 160.1,
+    "h": 56.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 93,
+   "depth": 6,
+   "sel": "code",
+   "text": "RunnaBackground",
+   "rect": {
+    "x": 10,
+    "y": 3051.4,
+    "w": 99,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-family": "monospace",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 94,
+   "depth": 6,
+   "sel": "code",
+   "text": "AisleBackground",
+   "rect": {
+    "x": 10,
+    "y": 3070.2,
+    "w": 99,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-family": "monospace",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 95,
+   "depth": 5,
+   "sel": "td",
+   "text": "#0A0B09",
+   "rect": {
+    "x": 160.1,
+    "y": 3038.9,
+    "w": 112.3,
+    "h": 56.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 96,
+   "depth": 5,
+   "sel": "td",
+   "text": "fundo",
+   "rect": {
+    "x": 272.5,
+    "y": 3038.9,
+    "w": 120.5,
+    "h": 56.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 97,
+   "depth": 4,
+   "sel": "tr",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3095.5,
+    "w": 393,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-row"
+   }
+  },
+  {
+   "id": 98,
+   "depth": 5,
+   "sel": "td",
+   "text": "(82%)",
+   "rect": {
+    "x": 0,
+    "y": 3095.5,
+    "w": 160.1,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 99,
+   "depth": 6,
+   "sel": "code",
+   "text": "RunnaGlass",
+   "rect": {
+    "x": 10,
+    "y": 3108,
+    "w": 66,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-family": "monospace",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 100,
+   "depth": 5,
+   "sel": "td",
+   "text": "#10120D a 82%",
+   "rect": {
+    "x": 160.1,
+    "y": 3095.5,
+    "w": 112.3,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 101,
+   "depth": 5,
+   "sel": "td",
+   "text": "chips, banner, barra de ações",
+   "rect": {
+    "x": 272.5,
+    "y": 3095.5,
+    "w": 120.5,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 102,
+   "depth": 4,
+   "sel": "tr",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3150.9,
+    "w": 393,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-row"
+   }
+  },
+  {
+   "id": 103,
+   "depth": 5,
+   "sel": "td",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3150.9,
+    "w": 160.1,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 104,
+   "depth": 6,
+   "sel": "code",
+   "text": "RunnaGlassElevated",
+   "rect": {
+    "x": 10,
+    "y": 3163.4,
+    "w": 118.8,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-family": "monospace",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 105,
+   "depth": 5,
+   "sel": "td",
+   "text": "#1D2116 a 92%",
+   "rect": {
+    "x": 160.1,
+    "y": 3150.9,
+    "w": 112.3,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 106,
+   "depth": 5,
+   "sel": "td",
+   "text": "arco do menu radial",
+   "rect": {
+    "x": 272.5,
+    "y": 3150.9,
+    "w": 120.5,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 107,
+   "depth": 4,
+   "sel": "tr",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3206.3,
+    "w": 393,
+    "h": 56.6
+   },
+   "style": {
+    "display": "table-row"
+   }
+  },
+  {
+   "id": 108,
+   "depth": 5,
+   "sel": "td",
+   "text": "/",
+   "rect": {
+    "x": 0,
+    "y": 3206.3,
+    "w": 160.1,
+    "h": 56.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 109,
+   "depth": 6,
+   "sel": "code",
+   "text": "RunnaTeal",
+   "rect": {
+    "x": 10,
+    "y": 3218.8,
+    "w": 59.4,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-family": "monospace",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 110,
+   "depth": 6,
+   "sel": "code",
+   "text": "AisleTurquoise",
+   "rect": {
+    "x": 10,
+    "y": 3237.5,
+    "w": 92.4,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-family": "monospace",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 111,
+   "depth": 5,
+   "sel": "td",
+   "text": "#A3B565 (oliva)",
+   "rect": {
+    "x": 160.1,
+    "y": 3206.3,
+    "w": 112.3,
+    "h": 56.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 112,
+   "depth": 5,
+   "sel": "td",
+   "text": "seleção, Pausar, progresso",
+   "rect": {
+    "x": 272.5,
+    "y": 3206.3,
+    "w": 120.5,
+    "h": 56.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 113,
+   "depth": 4,
+   "sel": "tr",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3262.8,
+    "w": 393,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-row"
+   }
+  },
+  {
+   "id": 114,
+   "depth": 5,
+   "sel": "td",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3262.8,
+    "w": 160.1,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 115,
+   "depth": 6,
+   "sel": "code",
+   "text": "RunnaTealOn",
+   "rect": {
+    "x": 10,
+    "y": 3275.3,
+    "w": 72.6,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-family": "monospace",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 116,
+   "depth": 5,
+   "sel": "td",
+   "text": "#0E1306",
+   "rect": {
+    "x": 160.1,
+    "y": 3262.8,
+    "w": 112.3,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 117,
+   "depth": 5,
+   "sel": "td",
+   "text": "texto sobre oliva",
+   "rect": {
+    "x": 272.5,
+    "y": 3262.8,
+    "w": 120.5,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 118,
+   "depth": 4,
+   "sel": "tr",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3318.2,
+    "w": 393,
+    "h": 56.6
+   },
+   "style": {
+    "display": "table-row"
+   }
+  },
+  {
+   "id": 119,
+   "depth": 5,
+   "sel": "td",
+   "text": "/",
+   "rect": {
+    "x": 0,
+    "y": 3318.2,
+    "w": 160.1,
+    "h": 56.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 120,
+   "depth": 6,
+   "sel": "code",
+   "text": "RunnaOrange",
+   "rect": {
+    "x": 10,
+    "y": 3330.7,
+    "w": 72.6,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-family": "monospace",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 121,
+   "depth": 6,
+   "sel": "code",
+   "text": "AisleActionOrange",
+   "rect": {
+    "x": 10,
+    "y": 3349.5,
+    "w": 112.2,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-family": "monospace",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 122,
+   "depth": 5,
+   "sel": "td",
+   "text": "#D12B2B (vermelho)",
+   "rect": {
+    "x": 160.1,
+    "y": 3318.2,
+    "w": 112.3,
+    "h": 56.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 123,
+   "depth": 5,
+   "sel": "td",
+   "text": "Começar treino, Parar",
+   "rect": {
+    "x": 272.5,
+    "y": 3318.2,
+    "w": 120.5,
+    "h": 56.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 124,
+   "depth": 4,
+   "sel": "tr",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3374.8,
+    "w": 393,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-row"
+   }
+  },
+  {
+   "id": 125,
+   "depth": 5,
+   "sel": "td",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3374.8,
+    "w": 160.1,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 126,
+   "depth": 6,
+   "sel": "code",
+   "text": "RunnaOrangeOn",
+   "rect": {
+    "x": 10,
+    "y": 3387.3,
+    "w": 85.8,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-family": "monospace",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 127,
+   "depth": 5,
+   "sel": "td",
+   "text": "#FFF4F0",
+   "rect": {
+    "x": 160.1,
+    "y": 3374.8,
+    "w": 112.3,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 128,
+   "depth": 5,
+   "sel": "td",
+   "text": "texto sobre vermelho",
+   "rect": {
+    "x": 272.5,
+    "y": 3374.8,
+    "w": 120.5,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 129,
+   "depth": 4,
+   "sel": "tr",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3430.2,
+    "w": 393,
+    "h": 73.6
+   },
+   "style": {
+    "display": "table-row"
+   }
+  },
+  {
+   "id": 130,
+   "depth": 5,
+   "sel": "td",
+   "text": ",",
+   "rect": {
+    "x": 0,
+    "y": 3430.2,
+    "w": 160.1,
+    "h": 73.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 131,
+   "depth": 6,
+   "sel": "code",
+   "text": "AislePurple",
+   "rect": {
+    "x": 10,
+    "y": 3442.7,
+    "w": 72.6,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-family": "monospace",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 132,
+   "depth": 6,
+   "sel": "code",
+   "text": "BrandGradient",
+   "rect": {
+    "x": 10,
+    "y": 3461.5,
+    "w": 85.8,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-family": "monospace",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 133,
+   "depth": 5,
+   "sel": "td",
+   "text": "removidos; usar oliva sólido",
+   "rect": {
+    "x": 160.1,
+    "y": 3430.2,
+    "w": 112.3,
+    "h": 73.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 134,
+   "depth": 5,
+   "sel": "td",
+   "text": "sem gradiente teal→roxo",
+   "rect": {
+    "x": 272.5,
+    "y": 3430.2,
+    "w": 120.5,
+    "h": 73.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 135,
+   "depth": 4,
+   "sel": "tr",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3503.8,
+    "w": 393,
+    "h": 56
+   },
+   "style": {
+    "display": "table-row"
+   }
+  },
+  {
+   "id": 136,
+   "depth": 5,
+   "sel": "td",
+   "text": "(lilás)",
+   "rect": {
+    "x": 0,
+    "y": 3503.8,
+    "w": 160.1,
+    "h": 56
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 137,
+   "depth": 6,
+   "sel": "code",
+   "text": "AisleTextAccent2",
+   "rect": {
+    "x": 10,
+    "y": 3516.3,
+    "w": 105.6,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-family": "monospace",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 138,
+   "depth": 5,
+   "sel": "td",
+   "text": "#C9A24B (latão)",
+   "rect": {
+    "x": 160.1,
+    "y": 3503.8,
+    "w": 112.3,
+    "h": 56
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 139,
+   "depth": 5,
+   "sel": "td",
+   "text": "destaques secundários",
+   "rect": {
+    "x": 272.5,
+    "y": 3503.8,
+    "w": 120.5,
+    "h": 56
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 140,
+   "depth": 4,
+   "sel": "tr",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3559.7,
+    "w": 393,
+    "h": 56.6
+   },
+   "style": {
+    "display": "table-row"
+   }
+  },
+  {
+   "id": 141,
+   "depth": 5,
+   "sel": "td",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3559.7,
+    "w": 160.1,
+    "h": 56.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 142,
+   "depth": 6,
+   "sel": "code",
+   "text": "RunnaTextPrimary / Secondary",
+   "rect": {
+    "x": 10,
+    "y": 3572.2,
+    "w": 118.8,
+    "h": 32.8
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-family": "monospace",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 143,
+   "depth": 5,
+   "sel": "td",
+   "text": "#ECE8DA / #8F9384",
+   "rect": {
+    "x": 160.1,
+    "y": 3559.7,
+    "w": 112.3,
+    "h": 56.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 144,
+   "depth": 5,
+   "sel": "td",
+   "text": "textos",
+   "rect": {
+    "x": 272.5,
+    "y": 3559.7,
+    "w": 120.5,
+    "h": 56.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 145,
+   "depth": 1,
+   "sel": "div.sec.ty",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3652.8,
+    "w": 393,
+    "h": 192.6
+   },
+   "style": {
+    "margin": "0px 0px 36px"
+   }
+  },
+  {
+   "id": 146,
+   "depth": 2,
+   "sel": "h3",
+   "text": "4 · Tipografia",
+   "rect": {
+    "x": 0,
+    "y": 3652.8,
+    "w": 393,
+    "h": 31
+   },
+   "style": {
+    "padding": "0px 0px 8px",
+    "margin": "0px 0px 14px",
+    "color": "rgb(163, 181, 101)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-size": "18px",
+    "font-weight": "700",
+    "letter-spacing": "2.52px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 147,
+   "depth": 2,
+   "sel": "p",
+   "text": "Missão de hoje · 05:42",
+   "rect": {
+    "x": 0,
+    "y": 3697.8,
+    "w": 393,
+    "h": 38
+   },
+   "style": {
+    "margin": "0px 0px 10px",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-size": "38px",
+    "font-weight": "700",
+    "line-height": "38px",
+    "letter-spacing": "1.52px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 148,
+   "depth": 2,
+   "sel": "p.mu.sm",
+   "text": "Títulos e números: 600/700, caixa alta nos títulos, números tabulares. Logotipo: (só na marca).",
+   "rect": {
+    "x": 0,
+    "y": 3745.8,
+    "w": 393,
+    "h": 50.4
+   },
+   "style": {
+    "margin": "0px 0px 10px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 149,
+   "depth": 3,
+   "sel": "b",
+   "text": "Barlow Condensed",
+   "rect": {
+    "x": 108.2,
+    "y": 3745.8,
+    "w": 110.8,
+    "h": 15
+   },
+   "style": {
+    "color": "rgb(236, 232, 218)",
+    "font-weight": "700"
+   }
+  },
+  {
+   "id": 150,
+   "depth": 3,
+   "sel": "b",
+   "text": "Saira Stencil One",
+   "rect": {
+    "x": 210.1,
+    "y": 3762.6,
+    "w": 99.6,
+    "h": 15
+   },
+   "style": {
+    "color": "rgb(236, 232, 218)",
+    "font-weight": "700"
+   }
+  },
+  {
+   "id": 151,
+   "depth": 2,
+   "sel": "p",
+   "text": "Texto e interface: 400/500/600/700. Corpo 14/20, rótulos 11 com 0,12 em de espaçamento em caixa alta.",
+   "rect": {
+    "x": 0,
+    "y": 3806.2,
+    "w": 393,
+    "h": 39.2
+   },
+   "style": {
+    "margin": "0px 0px 10px"
+   }
+  },
+  {
+   "id": 152,
+   "depth": 3,
+   "sel": "b",
+   "text": "Inter",
+   "rect": {
+    "x": 119.3,
+    "y": 3807.2,
+    "w": 31.7,
+    "h": 17
+   },
+   "style": {
+    "font-weight": "700"
+   }
+  },
+  {
+   "id": 153,
+   "depth": 1,
+   "sel": "div.sec",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3881.4,
+    "w": 393,
+    "h": 538.4
+   },
+   "style": {
+    "margin": "0px 0px 36px"
+   }
+  },
+  {
+   "id": 154,
+   "depth": 2,
+   "sel": "h3",
+   "text": "5 · Animações",
+   "rect": {
+    "x": 0,
+    "y": 3881.4,
+    "w": 393,
+    "h": 31
+   },
+   "style": {
+    "padding": "0px 0px 8px",
+    "margin": "0px 0px 14px",
+    "color": "rgb(163, 181, 101)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-size": "18px",
+    "font-weight": "700",
+    "letter-spacing": "2.52px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 155,
+   "depth": 2,
+   "sel": "table",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3926.4,
+    "w": 393,
+    "h": 493.4
+   },
+   "style": {
+    "display": "table",
+    "font-size": "13px",
+    "line-height": "18.2px"
+   }
+  },
+  {
+   "id": 156,
+   "depth": 3,
+   "sel": "tbody",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3926.4,
+    "w": 393,
+    "h": 492.9
+   },
+   "style": {
+    "display": "table-row-group"
+   }
+  },
+  {
+   "id": 157,
+   "depth": 4,
+   "sel": "tr",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3926.4,
+    "w": 393,
+    "h": 32.5
+   },
+   "style": {
+    "display": "table-row"
+   }
+  },
+  {
+   "id": 158,
+   "depth": 5,
+   "sel": "th",
+   "text": "Elemento",
+   "rect": {
+    "x": 0,
+    "y": 3926.4,
+    "w": 105.3,
+    "h": 32.5
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.1px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 159,
+   "depth": 5,
+   "sel": "th",
+   "text": "Gatilho",
+   "rect": {
+    "x": 105.3,
+    "y": 3926.4,
+    "w": 100.7,
+    "h": 32.5
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.1px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 160,
+   "depth": 5,
+   "sel": "th",
+   "text": "Detalhe",
+   "rect": {
+    "x": 205.9,
+    "y": 3926.4,
+    "w": 187.1,
+    "h": 32.5
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.1px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 161,
+   "depth": 4,
+   "sel": "tr",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 3958.9,
+    "w": 393,
+    "h": 73.6
+   },
+   "style": {
+    "display": "table-row"
+   }
+  },
+  {
+   "id": 162,
+   "depth": 5,
+   "sel": "td",
+   "text": "Borda do botão central",
+   "rect": {
+    "x": 0,
+    "y": 3958.9,
+    "w": 105.3,
+    "h": 73.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 163,
+   "depth": 5,
+   "sel": "td",
+   "text": "repouso",
+   "rect": {
+    "x": 105.3,
+    "y": 3958.9,
+    "w": 100.7,
+    "h": 73.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 164,
+   "depth": 5,
+   "sel": "td",
+   "text": "gradiente cônico (oliva, vermelho, latão) girando, 5 s por volta, linear",
+   "rect": {
+    "x": 205.9,
+    "y": 3958.9,
+    "w": 187.1,
+    "h": 73.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 165,
+   "depth": 4,
+   "sel": "tr",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 4032.5,
+    "w": 393,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-row"
+   }
+  },
+  {
+   "id": 166,
+   "depth": 5,
+   "sel": "td",
+   "text": "Brilho do botão central",
+   "rect": {
+    "x": 0,
+    "y": 4032.5,
+    "w": 105.3,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 167,
+   "depth": 5,
+   "sel": "td",
+   "text": "repouso",
+   "rect": {
+    "x": 105.3,
+    "y": 4032.5,
+    "w": 100.7,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 168,
+   "depth": 5,
+   "sel": "td",
+   "text": "respira até 35% de oliva, 3,2 s ease-in-out",
+   "rect": {
+    "x": 205.9,
+    "y": 4032.5,
+    "w": 187.1,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 169,
+   "depth": 4,
+   "sel": "tr",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 4087.8,
+    "w": 393,
+    "h": 73.6
+   },
+   "style": {
+    "display": "table-row"
+   }
+  },
+  {
+   "id": 170,
+   "depth": 5,
+   "sel": "td",
+   "text": "Toque no botão central",
+   "rect": {
+    "x": 0,
+    "y": 4087.8,
+    "w": 105.3,
+    "h": 73.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 171,
+   "depth": 5,
+   "sel": "td",
+   "text": "tap",
+   "rect": {
+    "x": 105.3,
+    "y": 4087.8,
+    "w": 100.7,
+    "h": 73.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 172,
+   "depth": 5,
+   "sel": "td",
+   "text": "pulo elástico 0,5 s, giro do símbolo 0,6 s, onda 0,6 s (escala 1 → 1,7)",
+   "rect": {
+    "x": 205.9,
+    "y": 4087.8,
+    "w": 187.1,
+    "h": 73.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 173,
+   "depth": 4,
+   "sel": "tr",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 4161.4,
+    "w": 393,
+    "h": 73.6
+   },
+   "style": {
+    "display": "table-row"
+   }
+  },
+  {
+   "id": 174,
+   "depth": 5,
+   "sel": "td",
+   "text": "Pulso do ponto no mapa",
+   "rect": {
+    "x": 0,
+    "y": 4161.4,
+    "w": 105.3,
+    "h": 73.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 175,
+   "depth": 5,
+   "sel": "td",
+   "text": "repouso",
+   "rect": {
+    "x": 105.3,
+    "y": 4161.4,
+    "w": 100.7,
+    "h": 73.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 176,
+   "depth": 5,
+   "sel": "td",
+   "text": "escala 0,6 → 2,2 e opacidade 0,5 → 0, 2 s ease-out, infinito",
+   "rect": {
+    "x": 205.9,
+    "y": 4161.4,
+    "w": 187.1,
+    "h": 73.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 177,
+   "depth": 4,
+   "sel": "tr",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 4235,
+    "w": 393,
+    "h": 73.6
+   },
+   "style": {
+    "display": "table-row"
+   }
+  },
+  {
+   "id": 178,
+   "depth": 5,
+   "sel": "td",
+   "text": "Menu radial",
+   "rect": {
+    "x": 0,
+    "y": 4235,
+    "w": 105.3,
+    "h": 73.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 179,
+   "depth": 5,
+   "sel": "td",
+   "text": "abrir",
+   "rect": {
+    "x": 105.3,
+    "y": 4235,
+    "w": 100.7,
+    "h": 73.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 180,
+   "depth": 5,
+   "sel": "td",
+   "text": "arco 0,25 s e itens 0,28 s, cubic-bezier(.2,.8,.2,1); botão gira 90°",
+   "rect": {
+    "x": 205.9,
+    "y": 4235,
+    "w": 187.1,
+    "h": 73.6
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 181,
+   "depth": 4,
+   "sel": "tr",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 4308.5,
+    "w": 393,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-row"
+   }
+  },
+  {
+   "id": 182,
+   "depth": 5,
+   "sel": "td",
+   "text": "Bottom sheets",
+   "rect": {
+    "x": 0,
+    "y": 4308.5,
+    "w": 105.3,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 183,
+   "depth": 5,
+   "sel": "td",
+   "text": "abrir/fechar",
+   "rect": {
+    "x": 105.3,
+    "y": 4308.5,
+    "w": 100.7,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 184,
+   "depth": 5,
+   "sel": "td",
+   "text": "sobe 0,3 s; fundo escurece 0,2 s",
+   "rect": {
+    "x": 205.9,
+    "y": 4308.5,
+    "w": 187.1,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 185,
+   "depth": 4,
+   "sel": "tr",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 4363.9,
+    "w": 393,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-row"
+   }
+  },
+  {
+   "id": 186,
+   "depth": 5,
+   "sel": "td",
+   "text": "Todas",
+   "rect": {
+    "x": 0,
+    "y": 4363.9,
+    "w": 105.3,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 187,
+   "depth": 5,
+   "sel": "td",
+   "text": "reduzir movimento",
+   "rect": {
+    "x": 105.3,
+    "y": 4363.9,
+    "w": 100.7,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 188,
+   "depth": 5,
+   "sel": "td",
+   "text": "sem animação nem transição",
+   "rect": {
+    "x": 205.9,
+    "y": 4363.9,
+    "w": 187.1,
+    "h": 55.4
+   },
+   "style": {
+    "display": "table-cell",
+    "padding": "9px 10px"
+   }
+  },
+  {
+   "id": 189,
+   "depth": 1,
+   "sel": "div.sec",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 4455.8,
+    "w": 393,
+    "h": 764.4
+   },
+   "style": {
+    "margin": "0px 0px 36px"
+   }
+  },
+  {
+   "id": 190,
+   "depth": 2,
+   "sel": "h3",
+   "text": "6 · Componentes",
+   "rect": {
+    "x": 0,
+    "y": 4455.8,
+    "w": 393,
+    "h": 31
+   },
+   "style": {
+    "padding": "0px 0px 8px",
+    "margin": "0px 0px 14px",
+    "color": "rgb(163, 181, 101)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-size": "18px",
+    "font-weight": "700",
+    "letter-spacing": "2.52px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 191,
+   "depth": 2,
+   "sel": "div.grid",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 4500.8,
+    "w": 393,
+    "h": 719.4
+   },
+   "style": {
+    "display": "grid",
+    "gap": "14px",
+    "grid-template-columns": "393px"
+   }
+  },
+  {
+   "id": 192,
+   "depth": 3,
+   "sel": "div.card.cl",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 4500.8,
+    "w": 393,
+    "h": 236
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "flex-direction": "column",
+    "gap": "8px",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 193,
+   "depth": 4,
+   "sel": "span.lb",
+   "text": "Botões",
+   "rect": {
+    "x": 15,
+    "y": 4515.8,
+    "w": 363,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 194,
+   "depth": 4,
+   "sel": "button.btn.pri",
+   "text": "Começar treino",
+   "rect": {
+    "x": 15,
+    "y": 4537.8,
+    "w": 363,
+    "h": 56
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "gap": "10px",
+    "color": "rgb(255, 244, 240)",
+    "background-color": "rgb(209, 43, 43)",
+    "border-radius": "28px",
+    "font-size": "16px",
+    "font-weight": "700",
+    "letter-spacing": "0.32px",
+    "text-align": "center",
+    "transition": "transform 0.1s"
+   }
+  },
+  {
+   "id": 195,
+   "depth": 5,
+   "sel": "svg.ic.fl",
+   "text": null,
+   "rect": {
+    "x": 120,
+    "y": 4556.8,
+    "w": 18,
+    "h": 18
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "svg": "<svg class=\"ic fl\"><use href=\"#i-play\"></use></svg>"
+  },
+  {
+   "id": 196,
+   "depth": 4,
+   "sel": "button.btn.olv",
+   "text": "Pausar",
+   "rect": {
+    "x": 15,
+    "y": 4601.8,
+    "w": 363,
+    "h": 56
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "gap": "10px",
+    "color": "rgb(14, 19, 6)",
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "28px",
+    "font-size": "16px",
+    "font-weight": "700",
+    "letter-spacing": "0.32px",
+    "text-align": "center",
+    "transition": "transform 0.1s"
+   }
+  },
+  {
+   "id": 197,
+   "depth": 5,
+   "sel": "svg.ic.fl",
+   "text": null,
+   "rect": {
+    "x": 154.4,
+    "y": 4620.8,
+    "w": 18,
+    "h": 18
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "svg": "<svg class=\"ic fl\"><use href=\"#i-pause\"></use></svg>"
+  },
+  {
+   "id": 198,
+   "depth": 4,
+   "sel": "button.btn.gh",
+   "text": "Agora não",
+   "rect": {
+    "x": 15,
+    "y": 4665.8,
+    "w": 363,
+    "h": 56
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "gap": "10px",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "28px",
+    "font-size": "16px",
+    "font-weight": "700",
+    "letter-spacing": "0.32px",
+    "text-align": "center",
+    "transition": "transform 0.1s"
+   }
+  },
+  {
+   "id": 199,
+   "depth": 3,
+   "sel": "div.card.cl",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 4750.8,
+    "w": 393,
+    "h": 192
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "flex-direction": "column",
+    "gap": "8px",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 200,
+   "depth": 4,
+   "sel": "span.lb",
+   "text": "Chips e tags",
+   "rect": {
+    "x": 15,
+    "y": 4765.8,
+    "w": 363,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 201,
+   "depth": 4,
+   "sel": "div.rw",
+   "text": null,
+   "rect": {
+    "x": 15,
+    "y": 4787.8,
+    "w": 363,
+    "h": 60
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "12px"
+   }
+  },
+  {
+   "id": 202,
+   "depth": 5,
+   "sel": "span.chip",
+   "text": "Sem sinal",
+   "rect": {
+    "x": 15,
+    "y": 4787.8,
+    "w": 96.8,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "7px",
+    "padding": "0px 12px",
+    "color": "rgb(143, 147, 132)",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "15px",
+    "font-size": "12.5px",
+    "line-height": "17.5px"
+   }
+  },
+  {
+   "id": 203,
+   "depth": 6,
+   "sel": "i.dot",
+   "text": null,
+   "rect": {
+    "x": 28,
+    "y": 4799.3,
+    "w": 7,
+    "h": 7
+   },
+   "style": {
+    "background-color": "rgb(209, 43, 43)",
+    "border-radius": "50%"
+   }
+  },
+  {
+   "id": 204,
+   "depth": 5,
+   "sel": "span.chip.on",
+   "text": "Seguindo você",
+   "rect": {
+    "x": 123.8,
+    "y": 4787.8,
+    "w": 114.2,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "7px",
+    "padding": "0px 12px",
+    "color": "rgb(163, 181, 101)",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border": "1px solid rgb(93, 107, 52)",
+    "border-radius": "15px",
+    "font-size": "12.5px",
+    "line-height": "17.5px"
+   },
+   "data": [
+    "data-g=x"
+   ]
+  },
+  {
+   "id": 205,
+   "depth": 5,
+   "sel": "span.chip.rd",
+   "text": "Dor",
+   "rect": {
+    "x": 250,
+    "y": 4787.8,
+    "w": 47.2,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "7px",
+    "padding": "0px 12px",
+    "color": "rgb(240, 128, 124)",
+    "background-color": "rgba(209, 43, 43, 0.15)",
+    "border": "1px solid rgba(209, 43, 43, 0.4)",
+    "border-radius": "15px",
+    "font-size": "12.5px",
+    "line-height": "17.5px"
+   }
+  },
+  {
+   "id": 206,
+   "depth": 5,
+   "sel": "span.tag",
+   "text": "Etapa 3",
+   "rect": {
+    "x": 309.2,
+    "y": 4793.8,
+    "w": 64.3,
+    "h": 18
+   },
+   "style": {
+    "padding": "3px 8px",
+    "color": "rgb(163, 181, 101)",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border-radius": "6px",
+    "font-size": "10px",
+    "font-weight": "700",
+    "letter-spacing": "1px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 207,
+   "depth": 5,
+   "sel": "span.tag.br",
+   "text": "Recruta",
+   "rect": {
+    "x": 15,
+    "y": 4829.8,
+    "w": 70.2,
+    "h": 18
+   },
+   "style": {
+    "padding": "3px 8px",
+    "color": "rgb(201, 162, 75)",
+    "background-color": "rgba(201, 162, 75, 0.15)",
+    "border-radius": "6px",
+    "font-size": "10px",
+    "font-weight": "700",
+    "letter-spacing": "1px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 208,
+   "depth": 4,
+   "sel": "span.lb",
+   "text": "Seleção",
+   "rect": {
+    "x": 15,
+    "y": 4861.8,
+    "w": 363,
+    "h": 14
+   },
+   "style": {
+    "margin": "6px 0px 0px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 209,
+   "depth": 4,
+   "sel": "div.seg",
+   "text": null,
+   "rect": {
+    "x": 15,
+    "y": 4883.8,
+    "w": 363,
+    "h": 44
+   },
+   "style": {
+    "display": "flex",
+    "gap": "6px"
+   },
+   "data": [
+    "data-g=seg"
+   ]
+  },
+  {
+   "id": 210,
+   "depth": 5,
+   "sel": "div.s",
+   "text": "2",
+   "rect": {
+    "x": 15,
+    "y": 4883.8,
+    "w": 117,
+    "h": 44
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-grow": "1",
+    "color": "rgb(143, 147, 132)",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "14px",
+    "font-weight": "600",
+    "grid-template-columns": "115px"
+   }
+  },
+  {
+   "id": 211,
+   "depth": 5,
+   "sel": "div.s.on",
+   "text": "3",
+   "rect": {
+    "x": 138,
+    "y": 4883.8,
+    "w": 117,
+    "h": 44
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-grow": "1",
+    "color": "rgb(14, 19, 6)",
+    "background-color": "rgb(163, 181, 101)",
+    "border": "1px solid rgba(0, 0, 0, 0)",
+    "border-radius": "14px",
+    "font-weight": "600",
+    "grid-template-columns": "115px"
+   }
+  },
+  {
+   "id": 212,
+   "depth": 5,
+   "sel": "div.s",
+   "text": "4",
+   "rect": {
+    "x": 261,
+    "y": 4883.8,
+    "w": 117,
+    "h": 44
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-grow": "1",
+    "color": "rgb(143, 147, 132)",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "14px",
+    "font-weight": "600",
+    "grid-template-columns": "115px"
+   }
+  },
+  {
+   "id": 213,
+   "depth": 3,
+   "sel": "div.card.cl",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 4956.8,
+    "w": 393,
+    "h": 156
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "flex-direction": "column",
+    "gap": "8px",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 214,
+   "depth": 4,
+   "sel": "span.lb",
+   "text": "Switch, progresso, campo",
+   "rect": {
+    "x": 15,
+    "y": 4971.8,
+    "w": 363,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 215,
+   "depth": 4,
+   "sel": "div.rw.b",
+   "text": null,
+   "rect": {
+    "x": 15,
+    "y": 4993.8,
+    "w": 363,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "gap": "12px"
+   }
+  },
+  {
+   "id": 216,
+   "depth": 5,
+   "sel": "span",
+   "text": "Voz do treinador",
+   "rect": {
+    "x": 15,
+    "y": 4999,
+    "w": 109.3,
+    "h": 19.6
+   },
+   "style": {}
+  },
+  {
+   "id": 217,
+   "depth": 5,
+   "sel": "button.sw",
+   "text": null,
+   "rect": {
+    "x": 328,
+    "y": 4993.8,
+    "w": 50,
+    "h": 30
+   },
+   "style": {
+    "position": "relative",
+    "flex-shrink": "0",
+    "background-color": "rgb(93, 107, 52)",
+    "border": "1px solid rgba(0, 0, 0, 0)",
+    "border-radius": "15px",
+    "text-align": "center",
+    "transition": "background 0.2s"
+   },
+   "aria": "Voz"
+  },
+  {
+   "depth": 6,
+   "sel": "button.sw::after",
+   "pseudo": true,
+   "content": "\"\"",
+   "rect": {
+    "w": "22px",
+    "h": "22px",
+    "top": "3px",
+    "left": "3px",
+    "inset": "3px 23px 3px 3px"
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(236, 232, 218)",
+    "border-radius": "50%",
+    "transform": "matrix(1, 0, 0, 1, 20, 0)",
+    "transition": "transform 0.2s, background 0.2s"
+   }
+  },
+  {
+   "id": 218,
+   "depth": 4,
+   "sel": "div.bar",
+   "text": null,
+   "rect": {
+    "x": 15,
+    "y": 5031.8,
+    "w": 363,
+    "h": 6
+   },
+   "style": {
+    "background-color": "rgb(29, 33, 22)",
+    "border-radius": "3px",
+    "overflow": "hidden"
+   }
+  },
+  {
+   "id": 219,
+   "depth": 5,
+   "sel": "i",
+   "text": null,
+   "rect": {
+    "x": 15,
+    "y": 5031.8,
+    "w": 159.7,
+    "h": 6
+   },
+   "style": {
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "3px"
+   }
+  },
+  {
+   "id": 220,
+   "depth": 4,
+   "sel": "div.fld.f",
+   "text": "Seu nome ou apelido",
+   "rect": {
+    "x": 15,
+    "y": 5045.8,
+    "w": 363,
+    "h": 52
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "padding": "0px 14px",
+    "background-color": "rgb(13, 15, 10)",
+    "border": "1px solid rgb(163, 181, 101)",
+    "border-radius": "14px"
+   }
+  },
+  {
+   "id": 221,
+   "depth": 3,
+   "sel": "div.card.sel",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 5126.8,
+    "w": 393,
+    "h": 93.4
+   },
+   "style": {
+    "position": "relative",
+    "padding": "14px",
+    "background-image": "linear-gradient(rgba(163, 181, 101, 0.14), rgb(22, 25, 17))",
+    "border": "1px solid rgb(163, 181, 101)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "depth": 4,
+   "sel": "div.card.sel::before",
+   "pseudo": true,
+   "content": "\"\"",
+   "rect": {
+    "w": "3px",
+    "h": "63.3906px",
+    "top": "14px",
+    "left": "-1px",
+    "inset": "14px 389px 14px -1px"
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "0px 3px 3px 0px"
+   }
+  },
+  {
+   "id": 222,
+   "depth": 4,
+   "sel": "span.lb",
+   "text": "Card selecionado",
+   "rect": {
+    "x": 15,
+    "y": 5145.8,
+    "w": 133.9,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 223,
+   "depth": 4,
+   "sel": "div.t2",
+   "text": "Primeiros 5K",
+   "rect": {
+    "x": 15,
+    "y": 5165.4,
+    "w": 363,
+    "h": 23
+   },
+   "style": {
+    "margin": "4px 0px 0px",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-size": "20px",
+    "font-weight": "600",
+    "line-height": "23px",
+    "letter-spacing": "0.8px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 224,
+   "depth": 4,
+   "sel": "div.mu.sm",
+   "text": "9 semanas · 2 ou 3 treinos por semana",
+   "rect": {
+    "x": 15,
+    "y": 5188.4,
+    "w": 363,
+    "h": 16.8
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  }
+ ],
+ "root_selector": "body"
+}

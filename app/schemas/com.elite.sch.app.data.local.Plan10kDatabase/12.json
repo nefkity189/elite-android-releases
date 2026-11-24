@@ -1,0 +1,834 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 12,
+    "identityHash": "30efaec87cc83bb95ab1c85c4cc687f8",
+    "entities": [
+      {
+        "tableName": "runner_profile",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `nome` TEXT, `tempoSemCorrer` TEXT NOT NULL, `frequenciaExercicio` TEXT NOT NULL, `tipoExercicio` TEXT NOT NULL, `diasPorSemana` INTEGER NOT NULL, `diasSelecionadosJson` TEXT NOT NULL, `dataInicio` TEXT NOT NULL, `totalSemanas` INTEGER NOT NULL, `dismissBatteryWarning` INTEGER NOT NULL, `vozAtiva` INTEGER NOT NULL, `vibracaoAtiva` INTEGER NOT NULL, `lembretesAtivos` INTEGER NOT NULL, `lembreteHora` INTEGER NOT NULL, `lembreteMinuto` INTEGER NOT NULL, `ajustesAutomaticos` INTEGER NOT NULL, `modoAjuste` TEXT NOT NULL, `atualizadoEm` INTEGER NOT NULL, `ritmoAtualSegKm` INTEGER, `ritmoOrigem` TEXT, `alertasRitmoAtivos` INTEGER NOT NULL, `avisoDistanciaAtivo` INTEGER NOT NULL, `avisoDistanciaMetros` INTEGER NOT NULL, `showMapDuringRun` INTEGER NOT NULL, `defaultCameraMode` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nome",
+            "columnName": "nome",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "tempoSemCorrer",
+            "columnName": "tempoSemCorrer",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "frequenciaExercicio",
+            "columnName": "frequenciaExercicio",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tipoExercicio",
+            "columnName": "tipoExercicio",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "diasPorSemana",
+            "columnName": "diasPorSemana",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "diasSelecionadosJson",
+            "columnName": "diasSelecionadosJson",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dataInicio",
+            "columnName": "dataInicio",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalSemanas",
+            "columnName": "totalSemanas",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dismissBatteryWarning",
+            "columnName": "dismissBatteryWarning",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "vozAtiva",
+            "columnName": "vozAtiva",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "vibracaoAtiva",
+            "columnName": "vibracaoAtiva",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lembretesAtivos",
+            "columnName": "lembretesAtivos",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lembreteHora",
+            "columnName": "lembreteHora",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lembreteMinuto",
+            "columnName": "lembreteMinuto",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ajustesAutomaticos",
+            "columnName": "ajustesAutomaticos",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "modoAjuste",
+            "columnName": "modoAjuste",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "atualizadoEm",
+            "columnName": "atualizadoEm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ritmoAtualSegKm",
+            "columnName": "ritmoAtualSegKm",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "ritmoOrigem",
+            "columnName": "ritmoOrigem",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "alertasRitmoAtivos",
+            "columnName": "alertasRitmoAtivos",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "avisoDistanciaAtivo",
+            "columnName": "avisoDistanciaAtivo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "avisoDistanciaMetros",
+            "columnName": "avisoDistanciaMetros",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "showMapDuringRun",
+            "columnName": "showMapDuringRun",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "defaultCameraMode",
+            "columnName": "defaultCameraMode",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "plan",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `status` TEXT NOT NULL, `dataInicio` TEXT NOT NULL, `dataFim` TEXT NOT NULL, `totalSemanas` INTEGER NOT NULL, `diasPorSemana` INTEGER NOT NULL, `etapaInicial` INTEGER NOT NULL, `termoAceito` INTEGER NOT NULL, `criadoEm` INTEGER NOT NULL, `modalidade` TEXT NOT NULL, `distanciaAlvoM` INTEGER NOT NULL, `acceptedAt` INTEGER NOT NULL, `acceptedTermsVersion` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dataInicio",
+            "columnName": "dataInicio",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dataFim",
+            "columnName": "dataFim",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalSemanas",
+            "columnName": "totalSemanas",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "diasPorSemana",
+            "columnName": "diasPorSemana",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "etapaInicial",
+            "columnName": "etapaInicial",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "termoAceito",
+            "columnName": "termoAceito",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "criadoEm",
+            "columnName": "criadoEm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "modalidade",
+            "columnName": "modalidade",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "distanciaAlvoM",
+            "columnName": "distanciaAlvoM",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "acceptedAt",
+            "columnName": "acceptedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "acceptedTermsVersion",
+            "columnName": "acceptedTermsVersion",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "workout",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `planId` INTEGER NOT NULL, `semanaIndex` INTEGER NOT NULL, `treinoIndexNaSemana` INTEGER NOT NULL, `etapaIndex` INTEGER NOT NULL, `data` TEXT NOT NULL, `titulo` TEXT NOT NULL, `resumoEtapa` TEXT NOT NULL, `passosJson` TEXT NOT NULL, `duracaoMinutos` INTEGER NOT NULL, `duracaoCorridaMinutos` INTEGER NOT NULL, `status` TEXT NOT NULL, `concluidoEm` INTEGER, `distanciaAlvoM` INTEGER, `modoConclusao` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "planId",
+            "columnName": "planId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "semanaIndex",
+            "columnName": "semanaIndex",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "treinoIndexNaSemana",
+            "columnName": "treinoIndexNaSemana",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "etapaIndex",
+            "columnName": "etapaIndex",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "data",
+            "columnName": "data",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "titulo",
+            "columnName": "titulo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "resumoEtapa",
+            "columnName": "resumoEtapa",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "passosJson",
+            "columnName": "passosJson",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "duracaoMinutos",
+            "columnName": "duracaoMinutos",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "duracaoCorridaMinutos",
+            "columnName": "duracaoCorridaMinutos",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "concluidoEm",
+            "columnName": "concluidoEm",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "distanciaAlvoM",
+            "columnName": "distanciaAlvoM",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "modoConclusao",
+            "columnName": "modoConclusao",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_workout_planId",
+            "unique": false,
+            "columnNames": [
+              "planId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_workout_planId` ON `${TABLE_NAME}` (`planId`)"
+          },
+          {
+            "name": "index_workout_data_status",
+            "unique": false,
+            "columnNames": [
+              "data",
+              "status"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_workout_data_status` ON `${TABLE_NAME}` (`data`, `status`)"
+          }
+        ]
+      },
+      {
+        "tableName": "route_point",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `workoutId` INTEGER NOT NULL, `latitude` REAL NOT NULL, `longitude` REAL NOT NULL, `accuracy` REAL NOT NULL, `timestampMillis` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "workoutId",
+            "columnName": "workoutId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "latitude",
+            "columnName": "latitude",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "longitude",
+            "columnName": "longitude",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "accuracy",
+            "columnName": "accuracy",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timestampMillis",
+            "columnName": "timestampMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_route_point_workoutId",
+            "unique": false,
+            "columnNames": [
+              "workoutId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_route_point_workoutId` ON `${TABLE_NAME}` (`workoutId`)"
+          }
+        ]
+      },
+      {
+        "tableName": "workout_log",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `workoutId` INTEGER NOT NULL, `duracaoSegundos` INTEGER NOT NULL, `distanciaMetros` REAL NOT NULL, `ritmoMedioSegundos` REAL, `esforcoPercebido` INTEGER NOT NULL, `finalizadoEm` INTEGER NOT NULL, `anotacoes` TEXT, `gpsRecebidas` INTEGER NOT NULL, `gpsAceitas` INTEGER NOT NULL, `gpsRejPrecisao` INTEGER NOT NULL, `gpsRejAnteriores` INTEGER NOT NULL, `gpsRejVelocidade` INTEGER NOT NULL, `gpsRejDeslocamento` INTEGER NOT NULL, `gpsRejInicio` INTEGER NOT NULL, `gpsMaiorIntervaloMs` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "workoutId",
+            "columnName": "workoutId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "duracaoSegundos",
+            "columnName": "duracaoSegundos",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "distanciaMetros",
+            "columnName": "distanciaMetros",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ritmoMedioSegundos",
+            "columnName": "ritmoMedioSegundos",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "esforcoPercebido",
+            "columnName": "esforcoPercebido",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "finalizadoEm",
+            "columnName": "finalizadoEm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "anotacoes",
+            "columnName": "anotacoes",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "gpsRecebidas",
+            "columnName": "gpsRecebidas",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gpsAceitas",
+            "columnName": "gpsAceitas",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gpsRejPrecisao",
+            "columnName": "gpsRejPrecisao",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gpsRejAnteriores",
+            "columnName": "gpsRejAnteriores",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gpsRejVelocidade",
+            "columnName": "gpsRejVelocidade",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gpsRejDeslocamento",
+            "columnName": "gpsRejDeslocamento",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gpsRejInicio",
+            "columnName": "gpsRejInicio",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gpsMaiorIntervaloMs",
+            "columnName": "gpsMaiorIntervaloMs",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_workout_log_workoutId",
+            "unique": false,
+            "columnNames": [
+              "workoutId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_workout_log_workoutId` ON `${TABLE_NAME}` (`workoutId`)"
+          }
+        ]
+      },
+      {
+        "tableName": "active_run",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`workoutId` INTEGER NOT NULL, `startTimeMillis` INTEGER NOT NULL, `elapsedRealtimeBase` INTEGER NOT NULL, `pausedElapsedMillis` INTEGER NOT NULL, `isPaused` INTEGER NOT NULL, `totalDistanceMeters` REAL NOT NULL, `lastUpdatedMillis` INTEGER NOT NULL, `modality` TEXT NOT NULL, PRIMARY KEY(`workoutId`))",
+        "fields": [
+          {
+            "fieldPath": "workoutId",
+            "columnName": "workoutId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "startTimeMillis",
+            "columnName": "startTimeMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "elapsedRealtimeBase",
+            "columnName": "elapsedRealtimeBase",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pausedElapsedMillis",
+            "columnName": "pausedElapsedMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isPaused",
+            "columnName": "isPaused",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalDistanceMeters",
+            "columnName": "totalDistanceMeters",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastUpdatedMillis",
+            "columnName": "lastUpdatedMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "modality",
+            "columnName": "modality",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "workoutId"
+          ]
+        }
+      },
+      {
+        "tableName": "plan_adjustment",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `planId` INTEGER NOT NULL, `tipo` TEXT NOT NULL, `inicio` TEXT NOT NULL, `fim` TEXT NOT NULL, `nivel` TEXT NOT NULL, `retorno` TEXT NOT NULL, `criadoEm` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "planId",
+            "columnName": "planId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tipo",
+            "columnName": "tipo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "inicio",
+            "columnName": "inicio",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fim",
+            "columnName": "fim",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nivel",
+            "columnName": "nivel",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "retorno",
+            "columnName": "retorno",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "criadoEm",
+            "columnName": "criadoEm",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_plan_adjustment_planId",
+            "unique": false,
+            "columnNames": [
+              "planId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_plan_adjustment_planId` ON `${TABLE_NAME}` (`planId`)"
+          }
+        ]
+      },
+      {
+        "tableName": "checkin",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `workoutId` INTEGER, `momento` TEXT NOT NULL, `energia` INTEGER, `sono` INTEGER, `dor` INTEGER NOT NULL, `regiaoDor` TEXT, `criadoEm` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "workoutId",
+            "columnName": "workoutId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "momento",
+            "columnName": "momento",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "energia",
+            "columnName": "energia",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "sono",
+            "columnName": "sono",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "dor",
+            "columnName": "dor",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "regiaoDor",
+            "columnName": "regiaoDor",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "criadoEm",
+            "columnName": "criadoEm",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_checkin_workoutId",
+            "unique": false,
+            "columnNames": [
+              "workoutId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_checkin_workoutId` ON `${TABLE_NAME}` (`workoutId`)"
+          }
+        ]
+      },
+      {
+        "tableName": "auto_adjustment",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `planId` INTEGER NOT NULL, `workoutOrigemId` INTEGER NOT NULL, `regra` TEXT NOT NULL, `antesJson` TEXT NOT NULL, `depoisJson` TEXT NOT NULL, `ativo` INTEGER NOT NULL, `deslocamentoEtapa` INTEGER NOT NULL, `criadoEm` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "planId",
+            "columnName": "planId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "workoutOrigemId",
+            "columnName": "workoutOrigemId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "regra",
+            "columnName": "regra",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "antesJson",
+            "columnName": "antesJson",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "depoisJson",
+            "columnName": "depoisJson",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ativo",
+            "columnName": "ativo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deslocamentoEtapa",
+            "columnName": "deslocamentoEtapa",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "criadoEm",
+            "columnName": "criadoEm",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_auto_adjustment_planId",
+            "unique": false,
+            "columnNames": [
+              "planId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_auto_adjustment_planId` ON `${TABLE_NAME}` (`planId`)"
+          }
+        ]
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '30efaec87cc83bb95ab1c85c4cc687f8')"
+    ]
+  }
+}

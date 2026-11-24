@@ -1,0 +1,20 @@
+appId: com.elite.sch.app
+---
+# Acceptance D: Polyline em tempo real desenhando a rota percorrida
+- launchApp:
+    clearState: false
+- assertVisible:
+    id: "screen_today"
+- tapOn:
+    id: "btn_free_run_descanso"
+- assertVisible:
+    id: "screen_active_run"
+- assertVisible:
+    id: "map_view_realtime"
+# Enquadra a rota completa para evidenciar a polyline desenhada
+- tapOn:
+    id: "btn_map_camera_mode"
+- assertVisible:
+    text: "Rota completa"
+- takeScreenshot:
+    path: "accept_d_polyline.png"

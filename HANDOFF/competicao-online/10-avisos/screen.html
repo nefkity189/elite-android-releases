@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elite - Avisos e notificações</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --page:#050604;
+  --bg:#0a0b09; --surface:#10120d; --card:#161911; --card-el:#1d2116; --field:#0d0f0a;
+  --line:rgba(236,232,218,.10); --line-strong:rgba(236,232,218,.18);
+  --text:#ece8da; --muted:#8f9384; --dim:#5e6255;
+  --olive:#a3b565; --olive-dark:#5d6b34; --olive-soft:rgba(163,181,101,.14); --on-olive:#0e1306;
+  --red:#d12b2b; --red-soft:rgba(209,43,43,.15); --on-red:#fff4f0;
+  --brass:#c9a24b; --brass-soft:rgba(201,162,75,.16); --amber:#e0a93a; --amber-soft:rgba(224,169,58,.14); --ok:#7fb069; --ok-soft:rgba(127,176,105,.15); --amber-line:rgba(224,169,58,.45); --red-line:rgba(209,43,43,.5); --ok-line:rgba(127,176,105,.45); --brass-line:rgba(201,162,75,.5);
+  --glass:rgba(16,18,13,.82); --glass-bar:rgba(16,18,13,.90); --scrim:rgba(0,0,0,.62);
+  --lg-bronze:#b07a4a; --lg-prata:#b4bab8; --lg-ouro:#c9a24b; --lg-platina:#86bdb3; --lg-diamante:#7fb4de; --lg-elite:#e7e2d0;
+  --av1:#3b4426; --av2:#4a3f1e; --av3:#2e3b3a; --av4:#46301f; --av5:#3a2e3f;
+  --num:"Barlow Condensed","Arial Narrow",sans-serif; --ui:"Inter",sans-serif; --logo:"Saira Stencil One","Impact",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--page);font-family:var(--ui);color:var(--text);display:flex;justify-content:center;padding:0;-webkit-font-smoothing:antialiased}
+button{font-family:var(--ui);color:inherit;background:none;border:0;cursor:pointer}
+[data-id="screen"]{flex:none;position:relative;width:393px;height:851px;overflow:hidden;background:var(--bg);display:flex;flex-direction:column;padding:28px 16px 0}
+svg{display:block;flex:none}
+
+/* ---- tipografia ---- */
+.t1{font:700 30px/32px var(--num);text-transform:uppercase;letter-spacing:.9px}
+.t1s{font:700 24px/26px var(--num);text-transform:uppercase;letter-spacing:.96px}
+.t2{font:600 20px/23px var(--num);text-transform:uppercase;letter-spacing:.8px}
+.t3{font:600 16px/20px var(--ui)}
+.body{font:400 14px/19.6px var(--ui)}
+.cap{font:400 12px/16px var(--ui);color:var(--muted)}
+.eyebrow{font:600 11px/14px var(--ui);text-transform:uppercase;letter-spacing:1.3px;color:var(--muted)}
+.num{font-family:var(--num);font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+.olive{color:var(--olive)} .red{color:var(--red)} .brass{color:var(--brass)} .ok{color:var(--ok)} .amber{color:var(--amber)} .muted{color:var(--muted)}
+.row{display:flex;align-items:center}
+.col{display:flex;flex-direction:column}
+.grow{flex:1;min-width:0}
+.ell{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ---- cartões ---- */
+.card{background:var(--card);border:1px solid var(--line-strong);border-radius:18px}
+.card-sel{border-color:var(--olive);background:linear-gradient(180deg,var(--olive-soft),var(--card))}
+.card-brass{border-color:var(--brass);background:linear-gradient(180deg,var(--brass-soft),var(--card))}
+.card-dash{background:transparent;border:1px dashed var(--line-strong);border-radius:18px}
+
+/* ---- botões ---- */
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 18px;border-radius:24px;font:700 15px/20px var(--ui);transition:transform .12s ease-out;flex:none}
+.btn:active{transform:scale(.96)}
+.btn-lg{height:56px;border-radius:28px;font-size:16px}
+.btn-red{background:var(--red);color:var(--on-red)}
+.btn-olive{background:var(--olive);color:var(--on-olive)}
+.btn-ghost{background:transparent;border:1px solid var(--line-strong);color:var(--text)}
+.btn-share{background:var(--olive-soft);border:1px solid var(--olive-dark);color:var(--olive)}
+.btn-off{background:var(--card-el);color:var(--dim);border:1px solid var(--line)}
+.btn-icon{width:48px;padding:0;flex:none}
+.btn-back{width:40px;height:40px;border-radius:20px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex:none;transition:transform .12s ease-out}
+.btn-back:active{transform:scale(.92)}
+
+/* ---- badges / chips ---- */
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font:700 10.5px/12px var(--ui);text-transform:uppercase;letter-spacing:.6px;flex:none;white-space:nowrap}
+.b-open{background:var(--olive-soft);color:var(--olive)}
+.b-one{background:var(--amber-soft);color:var(--amber)}
+.b-conf{background:var(--ok);color:var(--on-olive)}
+.b-live{background:var(--red-soft);color:var(--red)}
+.b-done{background:var(--card-el);color:var(--muted)}
+.b-none{background:transparent;border:1px solid var(--line-strong);color:var(--muted)}
+.b-brass{background:var(--brass-soft);color:var(--brass)}
+.dot{width:7px;height:7px;border-radius:4px;background:currentColor;flex:none}
+.chip{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:15px;background:var(--card-el);border:1px solid var(--line);font:600 12px/16px var(--ui);flex:none;white-space:nowrap}
+.chip-on{background:var(--olive-soft);border-color:var(--olive-dark);color:var(--olive)}
+.dist{display:inline-flex;align-items:center;justify-content:center;height:24px;padding:0 9px;border-radius:7px;background:var(--card-el);border:1px solid var(--line-strong);font:700 14px/16px var(--num);letter-spacing:.5px}
+
+/* ---- segmentado ---- */
+.seg{display:flex;gap:4px;padding:4px;background:var(--field);border:1px solid var(--line);border-radius:24px;height:48px}
+.seg>button{flex:1;border-radius:20px;font:700 20px/20px var(--num);color:var(--muted);letter-spacing:.5px;transition:background .18s ease-out,color .18s ease-out}
+.seg>button.on{background:var(--olive-soft);color:var(--olive);box-shadow:inset 0 0 0 1px var(--olive-dark)}
+.seg-sm{height:40px;border-radius:20px}
+.seg-sm>button{font:600 13px/16px var(--ui)}
+.tabs{display:flex;gap:20px;height:32px;border-bottom:1px solid var(--line)}
+.tabs>button{font:600 13px/16px var(--ui);color:var(--muted);padding:0 2px 10px;border-bottom:2px solid transparent}
+.tabs>button.on{color:var(--olive);border-bottom-color:var(--olive)}
+
+/* ---- avatares ---- */
+.av{border-radius:50%;display:flex;align-items:center;justify-content:center;font:700 14px/14px var(--num);letter-spacing:.5px;border:1.5px solid var(--line-strong);flex:none;color:var(--text)}
+.av-me{border-color:var(--olive);box-shadow:0 0 0 2px var(--olive-soft)}
+.av-empty{background:transparent;border:1.5px dashed var(--line-strong);color:var(--dim)}
+.stack{display:flex}
+.stack>*+*{margin-left:-8px}
+
+/* ---- barras ---- */
+.bar{height:6px;border-radius:3px;background:var(--card-el);overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:3px;background:var(--olive)}
+.bar-brass>i{background:var(--brass)}
+.hr{height:1px;background:var(--line);flex:none}
+
+.sc-ic{width:32px;height:32px;border-radius:16px;background:var(--brass-soft);color:var(--brass);display:flex;align-items:center;justify-content:center;flex:none}
+
+/* ---- topbar ---- */
+.topbar{display:flex;align-items:center;gap:12px;height:48px;flex:none}
+.logo{display:flex;align-items:center;gap:8px}
+.logo-t{font:400 17px/20px var(--logo);letter-spacing:3.4px}
+
+/* ---- barra inferior fixa ---- */
+.dock{flex:none;margin:0 -16px;padding:14px 16px 18px;background:var(--glass-bar);border-top:1px solid var(--line-strong);border-radius:26px 26px 0 0}
+
+/* ---- cartão de missão ---- */
+.m{display:flex;flex-direction:column;padding:14px;flex:none}
+.m-time{font:700 36px/36px var(--num);font-variant-numeric:tabular-nums;letter-spacing:.5px}
+.m-compact{padding:12px 14px}
+
+/* ---- linha de ranking ---- */
+.rk{display:flex;align-items:center;gap:10px;height:56px;padding:0 12px;border-radius:14px;flex:none}
+.rk-me{background:var(--olive-soft);box-shadow:inset 0 0 0 1px var(--olive-dark)}
+.rk-pos{width:30px;text-align:center;font:700 20px/20px var(--num);font-variant-numeric:tabular-nums;color:var(--muted)}
+.rk-elo{font:700 18px/18px var(--num);font-variant-numeric:tabular-nums;text-align:right}
+.trend{display:flex;align-items:center;justify-content:flex-end;gap:2px;font:600 11px/12px var(--ui);width:36px}
+.t-up{color:var(--ok)} .t-down{color:var(--red)} .t-eq{color:var(--dim)}
+
+/* ---- banners ---- */
+.banner{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;border:1px solid var(--line-strong);background:var(--card);flex:none}
+.banner-ico{width:36px;height:36px;border-radius:18px;display:flex;align-items:center;justify-content:center;flex:none}
+.bn-amber{border-color:var(--amber-line);background:linear-gradient(90deg,var(--amber-soft),var(--card))} .bn-amber .banner-ico{background:var(--amber-soft);color:var(--amber)}
+.bn-red{border-color:var(--red-line);background:linear-gradient(90deg,var(--red-soft),var(--card))} .bn-red .banner-ico{background:var(--red-soft);color:var(--red)}
+.bn-ok{border-color:var(--ok-line);background:linear-gradient(90deg,var(--ok-soft),var(--card))} .bn-ok .banner-ico{background:var(--ok-soft);color:var(--ok)}
+.bn-olive{border-color:var(--olive-dark);background:linear-gradient(90deg,var(--olive-soft),var(--card))} .bn-olive .banner-ico{background:var(--olive-soft);color:var(--olive)}
+.bn-brass{border-color:var(--brass-line);background:linear-gradient(90deg,var(--brass-soft),var(--card))} .bn-brass .banner-ico{background:var(--brass-soft);color:var(--brass)}
+.bn-mute .banner-ico{background:var(--card-el);color:var(--muted)}
+
+@media (prefers-reduced-motion:reduce){
+  .btn,.btn-back,.seg>button{transition:none}
+}
+
+/* ---- mini card de convite (miniatura do card compartilhável) ---- */
+.mini{display:flex;flex-direction:column;justify-content:space-between;padding:12px;border-radius:14px;background:linear-gradient(160deg,var(--card-el),var(--bg));border:1px solid var(--olive-dark)}
+.stripe{height:4px;width:100%;background:var(--red);border-radius:2px;transform:skewX(-20deg)}
+
+.invite{padding:14px;background:linear-gradient(135deg,var(--olive-soft),var(--card) 70%);border:1px solid var(--olive-dark);border-radius:18px;display:flex;flex-direction:column;gap:10px;flex:none}
+
+.kv{flex:1;display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.kv .num{font-size:28px}
+
+.num{white-space:nowrap}
+.sc-chip{white-space:nowrap}
+
+[data-id="avi.scroll"]{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;display:flex;flex-direction:column;gap:8px;padding-bottom:12px}
+[data-id="avi.scroll"]::-webkit-scrollbar{display:none}
+.pg-b,.pg-p,.sheet-wrap,.sh{display:none}
+[data-state="banners"] .pg-b,[data-state^="sheet"] .pg-b{display:flex}
+[data-state="push"] .pg-p{display:flex}
+[data-state^="sheet"] .sheet-wrap{display:flex}
+[data-state="sheet_promocao"] .sh-promo,[data-state="sheet_rebaixamento"] .sh-rebx,[data-state="sheet_fim"] .sh-fim,[data-state="sheet_conquista"] .sh-conq{display:flex}
+.sheet-wrap{position:absolute;inset:0;z-index:10;flex-direction:column;justify-content:flex-end}
+.sh{flex-direction:column;align-items:center;gap:10px;text-align:center}
+.push{display:flex;flex-direction:column;gap:6px;padding:12px 14px;border-radius:22px;background:var(--surface);border:1px solid var(--line-strong);flex:none}
+.push-h{display:flex;align-items:center;gap:6px;font:500 11px/12px var(--ui);color:var(--muted)}
+.push-h svg{color:var(--olive)}
+.sec{font:700 10px/12px var(--ui);letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);margin:6px 2px 0}
+
+.scrim{position:absolute;inset:0;background:var(--scrim);animation:fade-in .24s ease-out both}
+.sheet{position:relative;background:var(--surface);border:1px solid var(--line-strong);border-bottom:0;border-radius:26px 26px 0 0;padding:10px 16px 24px;animation:sheet-up .32s cubic-bezier(.2,.8,.2,1) both}
+.grab{width:40px;height:4px;border-radius:2px;background:var(--line-strong);margin:0 auto 14px}
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+@keyframes sheet-up{from{transform:translateY(100%)}to{transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){.scrim,.sheet{animation:none}}
+
+</style>
+</head>
+<body>
+<main data-id="screen" data-viewport="393x851" data-state="banners">
+  <header data-id="avi.topbar" class="topbar">
+    <button data-id="avi.topbar.back" class="btn-back" aria-label="Voltar"><svg data-id="avi.topbar.back.ic" data-icon="material:ArrowBack" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <h1 data-id="avi.topbar.title" class="t1 grow">Avisos</h1>
+  </header>
+  <nav data-id="avi.tabs" class="tabs" style="margin-top:6px;flex:none"><button data-id="avi.tabs.b" class="on">Banners</button><button data-id="avi.tabs.p">Push</button></nav>
+  <div data-id="avi.scroll" style="margin-top:12px" data-compose="LazyColumn">
+    <div data-id="avi.blist" class="col pg-b" style="gap:8px;flex:none"><span data-id="avi.blist.label" class="sec" style="margin-top:0">Banners dentro do app</span>
+<aside data-id="avi.b10" class="banner bn-amber" data-compose="WarningBanner" role="status"><div data-id="avi.b10.banner-ico" class="banner-ico"><svg data-id="avi.b10.ic" data-icon="material:Notifications" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><div data-id="avi.b10.col" class="col grow" style="gap:2px"><p data-id="avi.b10.title" class="t3" style="font-size:14px">Faltam 10 minutos</p><p data-id="avi.b10.text" class="cap">Complete o mínimo de 2 competidores. Convide alguém.</p></div><button data-id="avi.b10.cta" class="btn btn-share" style="height:36px;padding:0 12px;font-size:12px">Convidar</button></aside>
+<aside data-id="avi.b5" class="banner bn-red" data-compose="WarningBanner" role="status"><div data-id="avi.b5.banner-ico" class="banner-ico"><svg data-id="avi.b5.ic" data-icon="material:Warning" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0zM12 9v4M12 17h.01"/></svg></div><div data-id="avi.b5.col" class="col grow" style="gap:2px"><p data-id="avi.b5.title" class="t3" style="font-size:14px">Faltam 5 minutos</p><p data-id="avi.b5.text" class="cap">Sem 2 competidores, a missão não inicia.</p></div><button data-id="avi.b5.cta" class="btn btn-share" style="height:36px;padding:0 12px;font-size:12px">Convidar</button></aside>
+<aside data-id="avi.bin" class="banner bn-olive" data-compose="WarningBanner" role="status"><div data-id="avi.bin.banner-ico" class="banner-ico"><svg data-id="avi.bin.ic" data-icon="material:Check" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div><div data-id="avi.bin.col" class="col grow" style="gap:2px"><p data-id="avi.bin.title" class="t3" style="font-size:14px">Entrada confirmada</p><p data-id="avi.bin.text" class="cap">Você está na Missão 5K das 13:00.</p></div></aside>
+<aside data-id="avi.bone" class="banner bn-amber" data-compose="WarningBanner" role="status"><div data-id="avi.bone.banner-ico" class="banner-ico"><svg data-id="avi.bone.ic" data-icon="material:Groups" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div data-id="avi.bone.col" class="col grow" style="gap:2px"><p data-id="avi.bone.title" class="t3" style="font-size:14px">Falta 1 competidor para a missão iniciar</p><p data-id="avi.bone.text" class="cap">Compartilhe o convite.</p></div><button data-id="avi.bone.cta" class="btn btn-share" style="height:36px;padding:0 12px;font-size:12px">Convidar</button></aside>
+<aside data-id="avi.bconf" class="banner bn-ok" data-compose="WarningBanner" role="status"><div data-id="avi.bconf.banner-ico" class="banner-ico"><svg data-id="avi.bconf.ic" data-icon="material:Flag" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg></div><div data-id="avi.bconf.col" class="col grow" style="gap:2px"><p data-id="avi.bconf.title" class="t3" style="font-size:14px">Missão confirmada. Prepare-se.</p><p data-id="avi.bconf.text" class="cap">Início às 13:00.</p></div></aside>
+<aside data-id="avi.bnone" class="banner bn-mute" data-compose="WarningBanner" role="status"><div data-id="avi.bnone.banner-ico" class="banner-ico"><svg data-id="avi.bnone.ic" data-icon="material:Schedule" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div data-id="avi.bnone.col" class="col grow" style="gap:2px"><p data-id="avi.bnone.title" class="t3" style="font-size:14px">Missão não iniciada por falta de competidores</p><p data-id="avi.bnone.text" class="cap">Missão 5K das 13:00.</p></div><button data-id="avi.bnone.cta" class="btn btn-share" style="height:36px;padding:0 12px;font-size:12px">Convocar</button></aside>
+<aside data-id="avi.bach" class="banner bn-brass" data-compose="WarningBanner" role="status"><div data-id="avi.bach.banner-ico" class="banner-ico"><svg data-id="avi.bach.ic" data-icon="material:EmojiEvents" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div><div data-id="avi.bach.col" class="col grow" style="gap:2px"><p data-id="avi.bach.title" class="t3" style="font-size:14px">Conquista desbloqueada</p><p data-id="avi.bach.text" class="cap">Pódio · global</p></div></aside>
+<aside data-id="avi.bachl" class="banner bn-brass" data-compose="WarningBanner" role="status"><div data-id="avi.bachl.banner-ico" class="banner-ico"><svg data-id="avi.bachl.ic" data-icon="material:Place" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div data-id="avi.bachl.col" class="col grow" style="gap:2px"><p data-id="avi.bachl.title" class="t3" style="font-size:14px">Conquista local desbloqueada</p><p data-id="avi.bachl.text" class="cap">Top 10 do estado · MT</p></div></aside>
+<aside data-id="avi.bup" class="banner bn-ok" data-compose="WarningBanner" role="status"><div data-id="avi.bup.banner-ico" class="banner-ico"><svg data-id="avi.bup.ic" data-icon="material:BarChart" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div><div data-id="avi.bup.col" class="col grow" style="gap:2px"><p data-id="avi.bup.title" class="t3" style="font-size:14px">Você subiu para Ouro I</p><p data-id="avi.bup.text" class="cap">Promoção de liga na temporada 1.</p></div></aside>
+<aside data-id="avi.bdown" class="banner bn-red" data-compose="WarningBanner" role="status"><div data-id="avi.bdown.banner-ico" class="banner-ico"><svg data-id="avi.bdown.ic" data-icon="material:BarChart" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div><div data-id="avi.bdown.col" class="col grow" style="gap:2px"><p data-id="avi.bdown.title" class="t3" style="font-size:14px">Você caiu para Ouro III</p><p data-id="avi.bdown.text" class="cap">Rebaixamento de divisão.</p></div></aside>
+<aside data-id="avi.bend" class="banner bn-amber" data-compose="WarningBanner" role="status"><div data-id="avi.bend.banner-ico" class="banner-ico"><svg data-id="avi.bend.ic" data-icon="material:CalendarMonth" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><div data-id="avi.bend.col" class="col grow" style="gap:2px"><p data-id="avi.bend.title" class="t3" style="font-size:14px">Fim da Temporada 1</p><p data-id="avi.bend.text" class="cap">Reset parcial de pontos em 12d 04h.</p></div></aside>
+    </div>
+    <div data-id="avi.plist" class="col pg-p" style="gap:8px;flex:none"><span data-id="avi.plist.label" class="sec" style="margin-top:0">Notificações push (Android)</span>
+<div data-id="avi.p1" class="push" data-compose="NotificationCompat"><div data-id="avi.p1.push-h" class="push-h"><svg data-id="avi.p1.ic" data-icon="material:Bolt" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg><span data-id="avi.p1.app">Elite · Competição online</span><span style="margin-left:auto" data-id="avi.p1.time">agora</span></div><span data-id="avi.p1.title" class="t3" style="font-size:14px">Missão 5K começa em 10 minutos</span><span data-id="avi.p1.text" class="cap" style="color:var(--text)">Falta 1 competidor. Toque para convidar.</span></div>
+<div data-id="avi.p2" class="push" data-compose="NotificationCompat"><div data-id="avi.p2.push-h" class="push-h"><svg data-id="avi.p2.ic" data-icon="material:Bolt" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg><span data-id="avi.p2.app">Elite · Competição online</span><span style="margin-left:auto" data-id="avi.p2.time">agora</span></div><span data-id="avi.p2.title" class="t3" style="font-size:14px">Missão confirmada. Prepare-se.</span><span data-id="avi.p2.text" class="cap" style="color:var(--text)">Missão 5K das 13:00 · 2 competidores.</span></div>
+<div data-id="avi.p3" class="push" data-compose="NotificationCompat"><div data-id="avi.p3.push-h" class="push-h"><svg data-id="avi.p3.ic" data-icon="material:Bolt" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg><span data-id="avi.p3.app">Elite · Competição online</span><span style="margin-left:auto" data-id="avi.p3.time">agora</span></div><span data-id="avi.p3.title" class="t3" style="font-size:14px">Missão não iniciada</span><span data-id="avi.p3.text" class="cap" style="color:var(--text)">Não houve competidores suficientes às 13:00.</span></div>
+<div data-id="avi.p4" class="push" data-compose="NotificationCompat"><div data-id="avi.p4.push-h" class="push-h"><svg data-id="avi.p4.ic" data-icon="material:Bolt" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg><span data-id="avi.p4.app">Elite · Competição online</span><span style="margin-left:auto" data-id="avi.p4.time">agora</span></div><span data-id="avi.p4.title" class="t3" style="font-size:14px">Conquista desbloqueada: Pódio</span><span data-id="avi.p4.text" class="cap" style="color:var(--text)">Veja como compartilhar.</span></div>
+<div data-id="avi.p5" class="push" data-compose="NotificationCompat"><div data-id="avi.p5.push-h" class="push-h"><svg data-id="avi.p5.ic" data-icon="material:Bolt" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg><span data-id="avi.p5.app">Elite · Competição online</span><span style="margin-left:auto" data-id="avi.p5.time">agora</span></div><span data-id="avi.p5.title" class="t3" style="font-size:14px">Você subiu para Ouro I</span><span data-id="avi.p5.text" class="cap" style="color:var(--text)">Ranking atualizado.</span></div>
+<div data-id="avi.p6" class="push" data-compose="NotificationCompat"><div data-id="avi.p6.push-h" class="push-h"><svg data-id="avi.p6.ic" data-icon="material:Bolt" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg><span data-id="avi.p6.app">Elite · Competição online</span><span style="margin-left:auto" data-id="avi.p6.time">agora</span></div><span data-id="avi.p6.title" class="t3" style="font-size:14px">A Temporada 1 termina em 24 horas</span><span data-id="avi.p6.text" class="cap" style="color:var(--text)">Garanta sua divisão final.</span></div>
+    </div>
+  </div>
+  <div data-id="avi.sheet" class="sheet-wrap" data-compose="ModalBottomSheet">
+    <div data-id="avi.sheet.scrim" class="scrim"></div>
+    <div data-id="avi.sheet.panel" class="sheet"><div data-id="avi.sheet.grab" class="grab"></div>
+<div data-id="avi.sh-promo" class="sh sh-promo" data-compose="EventBottomSheet"><div data-id="avi.sh-promo.sc-ic" class="sc-ic" style="width:64px;height:64px;border-radius:32px;background:var(--card-el);color:var(--brass)"><svg data-id="avi.sh-promo.badge" data-icon="custom:ic_league_ouro_1" viewBox="0 0 24 24" width="40" height="40" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-ouro)"/><path d="M7.8 8L12 11L16.2 8" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 16L12 19L16.2 16" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h2 data-id="avi.sh-promo.title" class="t1s">Você subiu para Ouro I</h2><p data-id="avi.sh-promo.text" class="body muted">Sua pontuação passou de 1.600. Continue para chegar a Platina.</p><button data-id="avi.sh-promo.primary" class="btn btn-olive btn-lg" style="width:100%;margin-top:6px">Compartilhar liga</button><button data-id="avi.sh-promo.secondary" class="btn btn-ghost" style="width:100%">Fechar</button></div>
+<div data-id="avi.sh-rebx" class="sh sh-rebx" data-compose="EventBottomSheet"><div data-id="avi.sh-rebx.sc-ic" class="sc-ic" style="width:64px;height:64px;border-radius:32px;background:var(--card-el);color:var(--red)"><svg data-id="avi.sh-rebx.ic" data-icon="material:BarChart" viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div><h2 data-id="avi.sh-rebx.title" class="t1s">Você caiu para Ouro III</h2><p data-id="avi.sh-rebx.text" class="body muted">Sua pontuação ficou abaixo de 1.400. Corra uma missão para voltar.</p><button data-id="avi.sh-rebx.primary" class="btn btn-olive btn-lg" style="width:100%;margin-top:6px">Ver missões</button><button data-id="avi.sh-rebx.secondary" class="btn btn-ghost" style="width:100%">Fechar</button></div>
+<div data-id="avi.sh-fim" class="sh sh-fim" data-compose="EventBottomSheet"><div data-id="avi.sh-fim.sc-ic" class="sc-ic" style="width:64px;height:64px;border-radius:32px;background:var(--card-el);color:var(--amber)"><svg data-id="avi.sh-fim.ic" data-icon="material:CalendarMonth" viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><h2 data-id="avi.sh-fim.title" class="t1s">Temporada 1 encerrada</h2><p data-id="avi.sh-fim.text" class="body muted">Seus pontos sofreram reset parcial. Você terminou em Ouro II.</p><button data-id="avi.sh-fim.primary" class="btn btn-olive btn-lg" style="width:100%;margin-top:6px">Ver recompensas</button><button data-id="avi.sh-fim.secondary" class="btn btn-ghost" style="width:100%">Fechar</button></div>
+<div data-id="avi.sh-conq" class="sh sh-conq" data-compose="EventBottomSheet"><div data-id="avi.sh-conq.sc-ic" class="sc-ic" style="width:64px;height:64px;border-radius:32px;background:var(--card-el);color:var(--brass)"><svg data-id="avi.sh-conq.ic" data-icon="material:EmojiEvents" viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div><h2 data-id="avi.sh-conq.title" class="t1s">Conquista desbloqueada: Pódio</h2><p data-id="avi.sh-conq.text" class="body muted">Você terminou em 2º na Missão 5K das 13:00.</p><button data-id="avi.sh-conq.primary" class="btn btn-olive btn-lg" style="width:100%;margin-top:6px">Compartilhar conquista</button><button data-id="avi.sh-conq.secondary" class="btn btn-ghost" style="width:100%">Fechar</button></div>
+    </div>
+  </div>
+  <script>
+  (function(){
+    var root=document.querySelector('[data-id="screen"]'),tb=document.querySelector('[data-id="avi.tabs.b"]'),tp=document.querySelector('[data-id="avi.tabs.p"]');
+    function set(n){root.setAttribute('data-state',n);tb.classList.toggle('on',n!=='push');tp.classList.toggle('on',n==='push');}
+    tb.addEventListener('click',function(){set('banners')});tp.addEventListener('click',function(){set('push')});
+    window.__setState=set;
+  })();
+  </script>
+</main>
+
+</body>
+</html>

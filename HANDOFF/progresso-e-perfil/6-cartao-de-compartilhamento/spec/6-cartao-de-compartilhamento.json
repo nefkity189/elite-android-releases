@@ -1,0 +1,516 @@
+{
+ "screen": {
+  "w": 393,
+  "h": 851
+ },
+ "tokens": {
+  "--bg": "#0A0B09",
+  "--s1": "#10120D",
+  "--card": "#161911",
+  "--card2": "#1D2116",
+  "--field": "#0D0F0A",
+  "--page": "#050604",
+  "--line": "rgba(236,232,218,.10)",
+  "--line2": "rgba(236,232,218,.18)",
+  "--text": "#ECE8DA",
+  "--mut": "#8F9384",
+  "--dim": "#5E6255",
+  "--olive": "#A3B565",
+  "--olive-d": "#5D6B34",
+  "--olive-s": "rgba(163,181,101,.14)",
+  "--on-olive": "#0E1306",
+  "--red": "#D12B2B",
+  "--red-s": "rgba(209,43,43,.15)",
+  "--on-red": "#FFF4F0",
+  "--brass": "#C9A24B",
+  "--amber": "#E0A93A",
+  "--ok": "#7FB069",
+  "--num": "\"Barlow Condensed\",\"Arial Narrow\",system-ui,sans-serif",
+  "--ui": "\"Inter\",system-ui,sans-serif",
+  "--sten": "\"Saira Stencil One\",\"Barlow Condensed\",Impact,sans-serif"
+ },
+ "fonts": [
+  {
+   "family": "Inter",
+   "loaded": true
+  },
+  {
+   "family": "Saira Stencil One",
+   "loaded": false
+  },
+  {
+   "family": "Barlow Condensed",
+   "loaded": false
+  }
+ ],
+ "media_queries": [
+  "(prefers-reduced-motion: reduce)",
+  "(max-width: 430px)"
+ ],
+ "animations": [],
+ "elements": [
+  {
+   "id": 0,
+   "depth": 0,
+   "sel": "main.phone.st",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 851
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "flex-direction": "column",
+    "background-color": "rgb(10, 11, 9)",
+    "background-image": "repeating-linear-gradient(135deg, rgba(236, 232, 218, 0.016) 0px, rgba(236, 232, 218, 0.016) 1px, rgba(0, 0, 0, 0) 1px, rgba(0, 0, 0, 0) 8px)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-screen=6-cartão-de-compartilhamento"
+   ]
+  },
+  {
+   "id": 1,
+   "depth": 1,
+   "sel": "div.scr",
+   "text": null,
+   "rect": {
+    "x": 1,
+    "y": 1,
+    "w": 391,
+    "h": 849
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "16px",
+    "padding": "20px 16px"
+   }
+  },
+  {
+   "id": 2,
+   "depth": 2,
+   "sel": "span.lb",
+   "text": "Compartilhar no Elite",
+   "rect": {
+    "x": 112.5,
+    "y": 156.1,
+    "w": 167.9,
+    "h": 14
+   },
+   "style": {
+    "flex-shrink": "0",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 3,
+   "depth": 2,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 186.1,
+    "w": 359,
+    "h": 448.8
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-shrink": "0",
+    "gap": "12px",
+    "padding": "20px",
+    "background-image": "radial-gradient(circle at 30% 0px, rgb(30, 35, 20), rgb(10, 11, 9) 70%)",
+    "border": "1px solid rgb(93, 107, 52)",
+    "border-radius": "22px"
+   }
+  },
+  {
+   "id": 4,
+   "depth": 3,
+   "sel": "div.rw.b",
+   "text": null,
+   "rect": {
+    "x": 38,
+    "y": 207.1,
+    "w": 317,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "gap": "12px"
+   }
+  },
+  {
+   "id": 5,
+   "depth": 4,
+   "sel": "span.lg",
+   "text": null,
+   "rect": {
+    "x": 38,
+    "y": 207.1,
+    "w": 101.3,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "8px"
+   }
+  },
+  {
+   "id": 6,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 38,
+    "y": 207.1,
+    "w": 26,
+    "h": 30
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "svg": "<svg style=\"width:26px;height:30px\" viewBox=\"0 0 64 64\"><use href=\"#mark\"></use></svg>"
+  },
+  {
+   "id": 7,
+   "depth": 5,
+   "sel": "span.wm",
+   "text": "Elite",
+   "rect": {
+    "x": 72,
+    "y": 213.1,
+    "w": 71.6,
+    "h": 18
+   },
+   "style": {
+    "margin": "0px -4.32px 0px 0px",
+    "font-family": "\"Saira Stencil One\", \"Barlow Condensed\", Impact, sans-serif",
+    "font-size": "18px",
+    "line-height": "18px",
+    "letter-spacing": "4.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 8,
+   "depth": 4,
+   "sel": "span.tag",
+   "text": "Treino concluído",
+   "rect": {
+    "x": 222.3,
+    "y": 213.1,
+    "w": 132.7,
+    "h": 18
+   },
+   "style": {
+    "padding": "3px 8px",
+    "color": "rgb(163, 181, 101)",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border-radius": "6px",
+    "font-size": "10px",
+    "font-weight": "700",
+    "letter-spacing": "1px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 9,
+   "depth": 3,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 38,
+    "y": 249.1,
+    "w": 317,
+    "h": 150
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "aria": "Trajeto",
+   "svg": "<svg aria-label=\"Trajeto\" height=\"150\" viewBox=\"0 0 320 150\" width=\"100%\"><path d=\"M0 110Q80 90 160 105T320 70\" fill=\"none\" stroke=\"#1C2015\" stroke-width=\"8\"></path><path d=\"M30 118C60 80 100 112 140 74S210 40 250 68 300 40 305 30\" fill=\"none\" stroke=\"#A3B565\" stroke-linecap=\"round\" stroke-width=\"4\"></path><circle cx=\"30\" cy=\"118\" fill=\"#A3B565\" r=\"6\"></circle><circle cx=\"305\" cy=\"30\" fill=\"#D12B2B\" r=\"6\"></circle></svg>"
+  },
+  {
+   "id": 10,
+   "depth": 3,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 38,
+    "y": 411.1,
+    "w": 317,
+    "h": 82.4
+   },
+   "style": {}
+  },
+  {
+   "id": 11,
+   "depth": 4,
+   "sel": "div.lb",
+   "text": "Distância",
+   "rect": {
+    "x": 38,
+    "y": 411.1,
+    "w": 317,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 12,
+   "depth": 4,
+   "sel": "div.num",
+   "text": "2,40",
+   "rect": {
+    "x": 38,
+    "y": 425.1,
+    "w": 317,
+    "h": 68.4
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-size": "72px",
+    "font-weight": "600",
+    "line-height": "68.4px",
+    "font-variant-numeric": "tabular-nums"
+   }
+  },
+  {
+   "id": 13,
+   "depth": 5,
+   "sel": "small",
+   "text": "km",
+   "rect": {
+    "x": 197.1,
+    "y": 461.1,
+    "w": 41.7,
+    "h": 29
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "24px",
+    "line-height": "22.8px"
+   }
+  },
+  {
+   "id": 14,
+   "depth": 3,
+   "sel": "div.g2",
+   "text": null,
+   "rect": {
+    "x": 38,
+    "y": 505.5,
+    "w": 317,
+    "h": 56
+   },
+   "style": {
+    "display": "grid",
+    "gap": "10px",
+    "grid-template-columns": "153.5px 153.5px"
+   }
+  },
+  {
+   "id": 15,
+   "depth": 4,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 38,
+    "y": 505.5,
+    "w": 153.5,
+    "h": 56
+   },
+   "style": {}
+  },
+  {
+   "id": 16,
+   "depth": 5,
+   "sel": "div.lb",
+   "text": "Tempo",
+   "rect": {
+    "x": 38,
+    "y": 505.5,
+    "w": 153.5,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 17,
+   "depth": 5,
+   "sel": "b.num",
+   "text": "28:12",
+   "rect": {
+    "x": 38,
+    "y": 522.5,
+    "w": 85.7,
+    "h": 36
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-size": "30px",
+    "font-weight": "600",
+    "line-height": "42px",
+    "font-variant-numeric": "tabular-nums"
+   }
+  },
+  {
+   "id": 18,
+   "depth": 4,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 201.5,
+    "y": 505.5,
+    "w": 153.5,
+    "h": 56
+   },
+   "style": {}
+  },
+  {
+   "id": 19,
+   "depth": 5,
+   "sel": "div.lb",
+   "text": "Ritmo",
+   "rect": {
+    "x": 201.5,
+    "y": 505.5,
+    "w": 153.5,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 20,
+   "depth": 5,
+   "sel": "b.num",
+   "text": "6:05 /km",
+   "rect": {
+    "x": 201.5,
+    "y": 522.5,
+    "w": 129.8,
+    "h": 36
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-size": "30px",
+    "font-weight": "600",
+    "line-height": "42px",
+    "font-variant-numeric": "tabular-nums"
+   }
+  },
+  {
+   "id": 21,
+   "depth": 3,
+   "sel": "div.sp",
+   "text": null,
+   "rect": {
+    "x": 38,
+    "y": 573.5,
+    "w": 317,
+    "h": 17.4
+   },
+   "style": {
+    "flex-grow": "1"
+   }
+  },
+  {
+   "id": 22,
+   "depth": 3,
+   "sel": "div.tg",
+   "text": "Elite · Missão dada é missão cumprida",
+   "rect": {
+    "x": 38,
+    "y": 602.9,
+    "w": 317,
+    "h": 11
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "9px",
+    "font-weight": "600",
+    "letter-spacing": "1.8px",
+    "text-align": "center",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 23,
+   "depth": 2,
+   "sel": "button.btn.pri.sm2",
+   "text": "Compartilhar",
+   "rect": {
+    "x": 17,
+    "y": 650.9,
+    "w": 359,
+    "h": 44
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "10px",
+    "color": "rgb(255, 244, 240)",
+    "background-color": "rgb(209, 43, 43)",
+    "border-radius": "22px",
+    "font-weight": "700",
+    "letter-spacing": "0.28px",
+    "text-align": "center",
+    "transition": "transform 0.1s"
+   }
+  },
+  {
+   "id": 24,
+   "depth": 3,
+   "sel": "svg.ic",
+   "text": null,
+   "rect": {
+    "x": 135.8,
+    "y": 663.9,
+    "w": 18,
+    "h": 18
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "svg": "<svg class=\"ic\"><use href=\"#i-share\"></use></svg>"
+  }
+ ],
+ "root_selector": ".phone"
+}

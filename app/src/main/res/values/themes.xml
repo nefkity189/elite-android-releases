@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="aisle_window_background">#FF0B1020</color>
+    <!-- Mesmo fundo do protótipo (bg #070b12): evita o "flash" de cor diferente ao abrir o app -->
+    <color name="elite_window_background">#FF070B12</color>
+
+    <!-- Tema de partida (Android 12+ usa a API nativa; Android 6 a 11 usa a compat).
+         Fundo preto tático, sem ícone, para a animação do Compose começar de um fundo limpo. -->
+    <style name="Theme.Elite.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#0A0B09</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_empty</item>
+        <item name="windowSplashScreenAnimationDuration">0</item>
+        <item name="postSplashScreenTheme">@style/Theme.MyApplication</item>
+    </style>
 
     <style name="Theme.MyApplication" parent="android:Theme.Material.NoActionBar">
-        <item name="android:windowBackground">@color/aisle_window_background</item>
+        <item name="android:windowBackground">@color/elite_window_background</item>
+        <item name="android:colorBackground">@color/elite_window_background</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="android:colorBackground">@color/aisle_window_background</item>
+        <!-- Ícones claros nas barras do sistema (fundo escuro) -->
         <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <!-- Sem a faixa/linha cinza que o Android põe atrás da barra de navegação -->
+        <item name="android:navigationBarDividerColor">@android:color/transparent</item>
+        <item name="android:enforceNavigationBarContrast">false</item>
+        <item name="android:enforceStatusBarContrast">false</item>
     </style>
 </resources>

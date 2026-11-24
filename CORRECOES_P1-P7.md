@@ -21,7 +21,7 @@ permissões de GPS, aviso de bateria, gráfico de ritmo, corridas recentes e bot
      todos os blocos (atual em destaque), métricas entre dois divisores, 'A seguir', botões fixos no rodapé
      com 72 dp. Parâmetro novo opcional: steps.
 3. MainActivity.kt: passa steps (blocos do treino em andamento) para ActiveRunScreen.
-4. ui/components/AisleControls.kt: AisleTopBar ganhou titleStyle (opcional).
+4. ui/components/EliteControls.kt: EliteTopBar ganhou titleStyle (opcional).
 5. ui/screens/ProgressScreen.kt: título como headline, sem seta de voltar (é aba), testTags
    screen_progress e dialog_run_detail de volta.
 6. ui/screens/FullPlanScreen.kt: título como headline, seta de voltar só quando aberta como sub-tela,

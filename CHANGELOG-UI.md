@@ -2,10 +2,10 @@
 
 Não compilado nem testado aqui (sem Android SDK). Rode `./gradlew test` e abra o app antes de seguir.
 
-- Novo `ui/components/AisleDialogs.kt`: `AisleStepper` (− e + de 48 dp, repete ao segurar), `AisleSwitchRow` e `AisleDialog` (com `confirmTestTag`).
-- Boas-vindas reescrita: `AisleLogo`, "Do zero aos 5 km", 3 benefícios, campo de nome, CTA fixo acima do teclado, entrada única com fade e subida (respeita animações desligadas). testTags `input_user_name` e `btn_comecar` mantidos.
-- Dias, Duração e Prévia: `TopAppBar` e `Button` trocados por `AisleTopBar` e `AisleButton` (testTags mantidos).
-- Duração, Corrida (encerrar) e Perfil (apagar dados, 2 etapas): `AlertDialog` trocado por `AisleDialog`.
+- Novo `ui/components/EliteDialogs.kt`: `EliteStepper` (− e + de 48 dp, repete ao segurar), `EliteSwitchRow` e `EliteDialog` (com `confirmTestTag`).
+- Boas-vindas reescrita: `EliteLogo`, "Do zero aos 5 km", 3 benefícios, campo de nome, CTA fixo acima do teclado, entrada única com fade e subida (respeita animações desligadas). testTags `input_user_name` e `btn_comecar` mantidos.
+- Dias, Duração e Prévia: `TopAppBar` e `Button` trocados por `EliteTopBar` e `EliteButton` (testTags mantidos).
+- Duração, Corrida (encerrar) e Perfil (apagar dados, 2 etapas): `AlertDialog` trocado por `EliteDialog`.
 
 Pendente: fontes Barlow (colocar .ttf em res/font), Cards das telas Dias/Duração/Prévia, e Material cru em Plano, Perfil, Hoje e Progresso (prompts P04 a P08).
 
@@ -69,8 +69,8 @@ Base: entrega anterior. Esta entrega não foi compilada aqui: rode `./gradlew :a
 
 ## Entrega 2 (6 nov 2026)
 Base: o seu AISLE_1.zip, que compilou (APK e 7.json gerados). Esta entrega não foi compilada aqui.
-- Perfil: Voz, Vibração e Lembrete diário agora usam `AisleSwitchRow` (testTags `switch_voice`, `switch_vibration`, `switch_reminders` mantidos). O diálogo de horário usa `AisleDialog` com dois `AisleStepper` (hora de 1 em 1, minuto de 5 em 5, giro 23→0 e 55→0; testTags `btn_hour_*`, `btn_min_*`, `btn_confirm_time` mantidos).
-- `AisleDialog` aceita conteúdo próprio; `AisleStepper` aceita passo, giro e testTags.
+- Perfil: Voz, Vibração e Lembrete diário agora usam `EliteSwitchRow` (testTags `switch_voice`, `switch_vibration`, `switch_reminders` mantidos). O diálogo de horário usa `EliteDialog` com dois `EliteStepper` (hora de 1 em 1, minuto de 5 em 5, giro 23→0 e 55→0; testTags `btn_hour_*`, `btn_min_*`, `btn_confirm_time` mantidos).
+- `EliteDialog` aceita conteúdo próprio; `EliteStepper` aceita passo, giro e testTags.
 
 ## Entrega 3 (6 nov 2026): P11, motor de ajuste (Plano que respira)
 Base: AISLE_2.zip. Esta entrega não foi compilada aqui: rode `./gradlew test` (gera o schema 8.json) antes de testar no celular. Sem novas dependências.

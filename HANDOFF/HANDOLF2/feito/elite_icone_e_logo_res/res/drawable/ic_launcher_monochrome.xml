@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Icone tematico (Android 13+): somente a lamina. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+    <group android:translateX="18.8" android:translateY="21" android:scaleX="1.1" android:scaleY="1.1">
+        <path android:fillColor="#FFFFFFFF" android:pathData="M24,6L30,16H46V24H30V30H42V38H30V46H46V54H18V16Z" />
+    </group>
+</vector>

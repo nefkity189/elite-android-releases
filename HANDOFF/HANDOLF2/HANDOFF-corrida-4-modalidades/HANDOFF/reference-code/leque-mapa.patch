@@ -1,0 +1,486 @@
+diff -ruN pa/app/MainActivity.kt pb/app/MainActivity.kt
+--- pa/app/MainActivity.kt	2026-11-21 08:45:56.972379413 +0000
++++ pb/app/MainActivity.kt	2026-11-21 08:45:56.988324893 +0000
+@@ -844,7 +844,11 @@
+                 val isFreeRun = runState.modality == "livre"
+ 
+                 // Estado do mapa (controlado localmente na tela, persistido via ViewModel)
+-                var cameraMode by remember { mutableStateOf<com.elite.sch.app.ui.state.CameraMode>(com.elite.sch.app.ui.state.CameraMode.FollowUser) }
++                var cameraMode by remember(state.defaultCameraMode) {
++                    mutableStateOf<com.elite.sch.app.ui.state.CameraMode>(
++                        com.elite.sch.app.ui.state.MapPreferences(state.showMapDuringRun, state.defaultCameraMode).toCameraMode()
++                    )
++                }
+                 var showMapDuringRun by remember { mutableStateOf(state.showMapDuringRun) }
+                 var mapPreferences by remember(state) {
+                     mutableStateOf(
+diff -ruN pa/app/ui/components/MapComponents.kt pb/app/ui/components/MapComponents.kt
+--- pa/app/ui/components/MapComponents.kt	2026-11-21 08:45:56.967814086 +0000
++++ pb/app/ui/components/MapComponents.kt	2026-11-21 08:45:56.983642238 +0000
+@@ -50,6 +50,7 @@
+ import androidx.lifecycle.LifecycleOwner
+ import com.elite.sch.app.R
+ import com.elite.sch.app.ui.state.CameraMode
++import com.elite.sch.app.ui.state.MapBaseStyle
+ import com.elite.sch.app.ui.state.MapPoint
+ import com.elite.sch.app.ui.state.MapPreferences
+ import com.elite.sch.app.ui.theme.EliteActionOrange
+@@ -141,6 +142,8 @@
+  * @param onRecenter Callback para recentralizar no usuário
+  * @param mapPreferences Preferências persistidas (mostrar mapa, modo padrão)
+  * @param isOfflineMode Se true, usa mapa offline (PMTiles local); se false, usa OpenFreeMap online
++ * @param showStreetNames Se false, esconde nomes de ruas/POIs (recarrega o estilo ao mudar)
++ * @param mapStyleUrl URL do estilo online (OpenFreeMap). Ao mudar, o estilo é recarregado e as camadas da corrida são recriadas
+  * @param modifier Modifier do Compose
+  */
+ @Composable
+@@ -153,6 +156,7 @@
+     mapPreferences: MapPreferences,
+     isOfflineMode: Boolean = false,
+     showStreetNames: Boolean = true,
++    mapStyleUrl: String = MapBaseStyle.STANDARD.url,
+     modifier: Modifier = Modifier
+ ) {
+     val context = LocalContext.current
+@@ -354,6 +358,26 @@
+         onDispose {}
+     }
+ 
++    // Carrega e RECARREGA o estilo quando muda o tipo de mapa, o modo escuro, os nomes de ruas
++    // ou o modo offline. Segundo a documentação do MapLibre, setStyle() descarta as fontes, camadas
++    // e imagens adicionadas por código; por isso styleLoaded cai para false e só volta a true depois
++    // de setupMapLayers(). Isso faz os efeitos da rota, do marcador e do início repovoarem as fontes
++    // GeoJSON (eles têm styleLoaded.value como chave). A câmera não é afetada pela troca de estilo.
++    LaunchedEffect(mapReady.value, mapStyleUrl, showStreetNames, isOfflineMode) {
++        if (!mapReady.value) return@LaunchedEffect
++        val map = mapLibreMapRef.get() ?: return@LaunchedEffect
++        styleLoaded.value = false
++        if (isOfflineMode) {
++            loadOfflineStyle(map, context, styleLoaded, polylineWidthPx, showStreetNames)
++        } else {
++            map.setStyle(mapStyleUrl) { style ->
++                if (!showStreetNames) hideAllLabels(style)
++                setupMapLayers(style, polylineWidthPx)
++                styleLoaded.value = true
++            }
++        }
++    }
++
+     // MapView via AndroidView - aguarda inicialização do MapLibre
+     Box(
+         modifier = modifier
+@@ -387,20 +411,9 @@
+ 
+                         mv.getMapAsync { map ->
+                             mapLibreMapRef.set(map)
++                            // O estilo (online/offline, tipo, escuro, nomes de ruas) é carregado
++                            // pelo LaunchedEffect acima assim que mapReady vira true.
+                             mapReady.value = true
+-
+-                            // Carrega estilo baseado no modo (online ou offline)
+-                            if (isOfflineMode) {
+-                                // Modo offline: carrega estilo local com PMTiles
+-                                loadOfflineStyle(map, context, styleLoaded, polylineWidthPx, showStreetNames)
+-                            } else {
+-                                // Modo online: usa OpenFreeMap Liberty
+-                                map.setStyle("https://tiles.openfreemap.org/styles/liberty") { style ->
+-                                    if (!showStreetNames) hideAllLabels(style)
+-                                    setupMapLayers(style, polylineWidthPx)
+-                                    styleLoaded.value = true
+-                                }
+-                            }
+                         }
+                     }
+                 },
+diff -ruN pa/app/ui/components/MapStyleFan.kt pb/app/ui/components/MapStyleFan.kt
+--- pa/app/ui/components/MapStyleFan.kt	1970-01-01 00:00:00.000000000 +0000
++++ pb/app/ui/components/MapStyleFan.kt	2026-11-21 08:45:56.984065777 +0000
+@@ -0,0 +1,190 @@
++package com.elite.sch.app.ui.components
++
++import androidx.compose.animation.core.animateFloatAsState
++import androidx.compose.animation.core.tween
++import androidx.compose.foundation.BorderStroke
++import androidx.compose.foundation.background
++import androidx.compose.foundation.border
++import androidx.compose.foundation.clickable
++import androidx.compose.foundation.layout.Box
++import androidx.compose.foundation.layout.BoxScope
++import androidx.compose.foundation.layout.offset
++import androidx.compose.foundation.layout.size
++import androidx.compose.foundation.shape.CircleShape
++import androidx.compose.foundation.shape.RoundedCornerShape
++import androidx.compose.material.icons.Icons
++import androidx.compose.material.icons.filled.Close
++import androidx.compose.material.icons.filled.DarkMode
++import androidx.compose.material.icons.filled.Layers
++import androidx.compose.material.icons.filled.Map
++import androidx.compose.material.icons.filled.MyLocation
++import androidx.compose.material.icons.filled.TextFields
++import androidx.compose.material3.Icon
++import androidx.compose.runtime.Composable
++import androidx.compose.ui.Alignment
++import androidx.compose.ui.Modifier
++import androidx.compose.ui.draw.clip
++import androidx.compose.ui.graphics.TransformOrigin
++import androidx.compose.ui.graphics.graphicsLayer
++import androidx.compose.ui.graphics.vector.ImageVector
++import androidx.compose.ui.platform.testTag
++import androidx.compose.ui.semantics.contentDescription
++import androidx.compose.ui.semantics.semantics
++import androidx.compose.ui.semantics.stateDescription
++import androidx.compose.ui.unit.dp
++import com.elite.sch.app.ui.theme.rememberReducedMotion
++import kotlin.math.PI
++import kotlin.math.cos
++import kotlin.math.sin
++
++/**
++ * Leque de opções do mapa, ancorado no canto inferior direito (espelho do RadialMenu).
++ *
++ * Substitui o antigo botão "Centralizar no mapa", que não tinha ação. Itens (de cima para a esquerda):
++ *  90° Centralizar · 120° Modo escuro · 150° Tipo de mapa · 180° Nomes de ruas
++ *
++ * Geometria: contêiner de 160dp; o botão âncora (46dp) fica no canto inferior direito, centro em
++ * (137, 137). Botões de 44dp a 96dp do centro. O contêiner é grande de propósito: no Compose, toques
++ * fora dos limites do pai não chegam aos filhos. Por isso o leque deve ficar na RAIZ da tela:
++ *   Modifier.align(BottomEnd).padding(end = 16.dp, bottom = alturaDaActionBar + 10.dp)
++ */
++@Composable
++fun MapStyleFan(
++    open: Boolean,
++    onOpenChange: (Boolean) -> Unit,
++    darkEnabled: Boolean,
++    streetNamesEnabled: Boolean,
++    styleSwitchEnabled: Boolean,
++    onRecenter: () -> Unit,
++    onDarkToggle: () -> Unit,
++    onCycleBaseStyle: () -> Unit,
++    onStreetNamesToggle: () -> Unit,
++    modifier: Modifier = Modifier,
++    testTag: String = "map_style_fan"
++) {
++    val reducedMotion = rememberReducedMotion()
++    fun ms(v: Int) = if (reducedMotion) 0 else v
++
++    val arcP = animateFloatAsState(if (open) 1f else 0f, tween(ms(250)), label = "fanArc").value
++
++    val items = listOf(
++        FanItem(Icons.Default.MyLocation, FanKind.ACTION, true, true, "Centralizar no mapa", 90f, "fan_recenter", onRecenter),
++        FanItem(Icons.Default.DarkMode, FanKind.TOGGLE, darkEnabled, styleSwitchEnabled, "Modo escuro", 120f, "fan_dark", onDarkToggle),
++        FanItem(Icons.Default.Map, FanKind.ACTION, false, styleSwitchEnabled, "Tipo de mapa", 150f, "fan_type", onCycleBaseStyle),
++        FanItem(Icons.Default.TextFields, FanKind.TOGGLE, streetNamesEnabled, true, "Nomes de ruas", 180f, "fan_labels", onStreetNamesToggle)
++    )
++
++    Box(modifier = modifier.size(FanBox).testTag(testTag)) {
++        // Quarto de círculo de vidro: o canto inferior direito é o centro do botão âncora
++        Box(
++            modifier = Modifier
++                .align(Alignment.BottomEnd)
++                .offset(x = (-23).dp, y = (-23).dp)
++                .size(RunnaTheme.ArcSize)
++                .graphicsLayer {
++                    scaleX = 0.2f + 0.8f * arcP
++                    scaleY = 0.2f + 0.8f * arcP
++                    transformOrigin = TransformOrigin(1f, 1f)
++                    alpha = arcP
++                }
++                .clip(FanArcShape)
++                .background(RunnaTheme.GlassElevated)
++                .border(BorderStroke(1.dp, RunnaTheme.Line), FanArcShape)
++        )
++
++        items.forEachIndexed { index, item -> FanButton(item, index, open, ::ms) }
++
++        // Botão âncora
++        Box(
++            modifier = Modifier
++                .align(Alignment.BottomEnd)
++                .size(RunnaTheme.LocateSize)
++                .clip(CircleShape)
++                .background(if (open) RunnaTheme.Teal else RunnaTheme.Glass)
++                .border(BorderStroke(1.dp, RunnaTheme.Line), CircleShape)
++                .clickable { onOpenChange(!open) }
++                .semantics {
++                    contentDescription = "Opções do mapa"
++                    stateDescription = if (open) "Aberto" else "Fechado"
++                }
++                .testTag("btn_map_recenter"),
++            contentAlignment = Alignment.Center
++        ) {
++            Icon(
++                imageVector = if (open) Icons.Default.Close else Icons.Default.Layers,
++                contentDescription = null,
++                tint = if (open) RunnaTheme.TealOn else RunnaTheme.Teal,
++                modifier = Modifier.size(RunnaTheme.IconSize)
++            )
++        }
++    }
++}
++
++private val FanBox = 160.dp
++private val FanArcShape = RoundedCornerShape(topStart = 132.dp)
++private const val FanRadius = 96f
++
++private enum class FanKind { ACTION, TOGGLE }
++
++private data class FanItem(
++    val icon: ImageVector,
++    val kind: FanKind,
++    val active: Boolean,
++    val enabled: Boolean,
++    val label: String,
++    val angleDeg: Float,
++    val tag: String,
++    val onClick: () -> Unit
++)
++
++@Composable
++private fun BoxScope.FanButton(item: FanItem, index: Int, open: Boolean, ms: (Int) -> Int) {
++    val p = animateFloatAsState(
++        targetValue = if (open) 1f else 0f,
++        animationSpec = tween(ms(280), delayMillis = if (open) ms(index * 50) else 0),
++        label = "fanItem$index"
++    ).value
++    // Totalmente fechado: não compõe o botão (não recebe toque nem foco do TalkBack)
++    if (p == 0f && !open) return
++
++    val rad = item.angleDeg * PI.toFloat() / 180f
++    val dx = FanRadius * cos(rad)       // 180° -> -96 (esquerda)
++    val dy = -FanRadius * sin(rad)      // 90°  -> -96 (para cima)
++    // Centro da âncora = (137, 137) no contêiner de 160dp; o botão tem 44dp -> canto = centro - 22
++    val x = (115f + dx * p).dp
++    val y = (115f + dy * p).dp
++
++    val filled = item.kind == FanKind.TOGGLE && item.active
++    Box(
++        modifier = Modifier
++            .align(Alignment.TopStart)
++            .offset(x = x, y = y)
++            .size(RunnaTheme.ItemSize)
++            .graphicsLayer {
++                scaleX = 0.5f + 0.5f * p
++                scaleY = 0.5f + 0.5f * p
++                alpha = p * (if (item.enabled) 1f else 0.4f)
++            }
++            .clip(CircleShape)
++            .background(if (filled) RunnaTheme.Teal else RunnaTheme.ItemOffBg)
++            .border(BorderStroke(1.dp, RunnaTheme.Line), CircleShape)
++            .clickable(enabled = open) { item.onClick() }
++            .semantics {
++                contentDescription = item.label
++                if (item.kind == FanKind.TOGGLE) stateDescription = if (item.active) "Ligado" else "Desligado"
++            }
++            .testTag(item.tag),
++        contentAlignment = Alignment.Center
++    ) {
++        Icon(
++            imageVector = item.icon,
++            contentDescription = null,
++            tint = when {
++                filled -> RunnaTheme.TealOn
++                item.kind == FanKind.ACTION -> RunnaTheme.Teal
++                else -> RunnaTheme.Muted
++            },
++            modifier = Modifier.size(RunnaTheme.ItemIconSize)
++        )
++    }
++}
+diff -ruN pa/app/ui/screens/ActiveRunScreen.kt pb/app/ui/screens/ActiveRunScreen.kt
+--- pa/app/ui/screens/ActiveRunScreen.kt	2026-11-21 08:45:56.970992784 +0000
++++ pb/app/ui/screens/ActiveRunScreen.kt	2026-11-21 08:45:56.986934580 +0000
+@@ -92,6 +92,12 @@
+ import androidx.compose.runtime.remember
+ import androidx.compose.runtime.setValue
+ import androidx.compose.runtime.rememberCoroutineScope
++import androidx.compose.runtime.saveable.rememberSaveable
++import androidx.compose.ui.layout.onSizeChanged
++import android.widget.Toast
++import com.elite.sch.app.ui.components.MapStyleFan
++import com.elite.sch.app.ui.state.MapBaseStyle
++import com.elite.sch.app.ui.state.pillLabel
+ import kotlinx.coroutines.launch
+ import androidx.compose.ui.Alignment
+ import androidx.compose.ui.Modifier
+@@ -242,6 +248,18 @@
+     var showMapMenu by remember { mutableStateOf(false) }
+     var radialOpen by remember { mutableStateOf(false) }
+ 
++    // Leque de opções do mapa (botão inferior direito)
++    var mapFanOpen by remember { mutableStateOf(false) }
++    var mapBaseStyleName by rememberSaveable { mutableStateOf(MapBaseStyle.STANDARD.name) }
++    var mapDark by rememberSaveable { mutableStateOf(false) }
++    var mapStreetNames by rememberSaveable { mutableStateOf(true) }
++    // Altura do bloco inferior (card "A seguir", quando existe, + ActionBar). O leque fica 10dp acima dele.
++    var bottomBlockHeightPx by remember { mutableStateOf(0) }
++    val mapBaseStyle = remember(mapBaseStyleName) { MapBaseStyle.valueOf(mapBaseStyleName) }
++    val effectiveMapStyle = if (mapDark) MapBaseStyle.DARK else mapBaseStyle
++    val mapOnline = !mapPreferences.useOfflineMap
++    val toastOnlineOnly = { Toast.makeText(context, "Disponível só no mapa online", Toast.LENGTH_SHORT).show() }
++
+     // Estados do Radial Menu
+     var radialMenuOpen by remember { mutableStateOf(false) }
+     var radialSoundEnabled by remember { mutableStateOf(runState.voiceEnabled) }
+@@ -344,6 +362,8 @@
+                 onRecenter = onRecenter,
+                 mapPreferences = mapPreferences,
+                 isOfflineMode = mapPreferences.useOfflineMap,
++                showStreetNames = mapStreetNames,
++                mapStyleUrl = effectiveMapStyle.url,
+                 modifier = Modifier
+                     .fillMaxSize()
+                     .testTag("map_view_realtime")
+@@ -510,8 +530,9 @@
+ 
+                     // "Seguindo você" pill - canto inferior esquerdo do spacer
+                     // HTML: .follow{position:absolute;left:16px;bottom:14px;padding:7px 13px;border-radius:15px}
+-                    val showFollow = cameraMode is CameraMode.FollowUser || cameraMode is CameraMode.FollowUserWithBearing
+-                    if (showFollow) {
++                    // O texto muda conforme o modo escolhido em Perfil > Modo de câmera padrão
++                    // (Seguindo você / Seguindo com direção / Rota completa).
++                    run {
+                         Surface(
+                             shape = RunnaTheme.FollowPillShape,
+                             color = RunnaTheme.Glass,
+@@ -522,7 +543,7 @@
+                                 .testTag("map_pill_following")
+                         ) {
+                             Text(
+-                                text = "Seguindo você",
++                                text = cameraMode.pillLabel(),
+                                 fontSize = RunnaTheme.FollowTextSize,
+                                 color = RunnaTheme.Text,
+                                 modifier = Modifier.padding(horizontal = 13.dp, vertical = 7.dp)
+@@ -530,26 +551,8 @@
+                         }
+                     }
+ 
+-                    // Botão recenter - canto inferior direito do spacer
+-                    // HTML: .locate{position:absolute;right:16px;bottom:10px;width:46px;height:46px}
+-                    Surface(
+-                        shape = CircleShape,
+-                        color = RunnaTheme.Glass,
+-                        border = BorderStroke(1.dp, RunnaTheme.Line),
+-                        modifier = Modifier
+-                            .align(Alignment.BottomEnd)
+-                            .padding(end = 16.dp, bottom = 10.dp)
+-                            .size(RunnaTheme.LocateSize)
+-                            .semantics { contentDescription = "Centralizar no mapa" }
+-                            .testTag("btn_map_recenter")
+-                    ) {
+-                        Icon(
+-                            imageVector = Icons.Default.MyLocation,
+-                            contentDescription = null,
+-                            tint = RunnaTheme.Teal,
+-                            modifier = Modifier.padding(12.dp)
+-                        )
+-                    }
++                    // O botão do canto inferior direito agora é o MapStyleFan, desenhado na raiz
++                    // (abaixo), para o leque abrir por cima de tudo e receber toques.
+                 }
+             }
+ 
+@@ -557,7 +560,7 @@
+             // HTML: .actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:16px 16px calc(18px+safe-area);border-radius:26px 26px 0 0;backdrop-filter:blur(14px)}
+             if (showMapDuringRun && runState.isGpsRequested) {
+                             Column(
+-                    modifier = Modifier.fillMaxWidth(),
++                    modifier = Modifier.fillMaxWidth().onSizeChanged { bottomBlockHeightPx = it.height },
+                                 verticalArrangement = Arrangement.Bottom
+                             ) {
+                                 if (runState.nextStep != null && !isFreeRun) {
+@@ -690,6 +693,46 @@
+                     ) { radialOpen = false }
+             )
+         }
++        // ============ OVERLAY: leque de opções do mapa (canto inferior direito) ============
++        if (showMapDuringRun && runState.isGpsRequested) {
++            if (mapFanOpen) {
++                Box(
++                    modifier = Modifier
++                        .fillMaxSize()
++                        .clickable(
++                            interactionSource = remember { androidx.compose.foundation.interaction.MutableInteractionSource() },
++                            indication = null
++                        ) { mapFanOpen = false }
++                )
++            }
++            MapStyleFan(
++                open = mapFanOpen,
++                onOpenChange = { mapFanOpen = it; if (it) radialOpen = false },
++                darkEnabled = mapDark,
++                streetNamesEnabled = mapStreetNames,
++                styleSwitchEnabled = mapOnline,
++                onRecenter = {
++                    // Volta ao modo escolhido no Perfil (não força "seguir você")
++                    onCameraModeChange(mapPreferences.toCameraMode())
++                    onRecenter()
++                    mapFanOpen = false
++                },
++                onDarkToggle = { if (mapOnline) mapDark = !mapDark else toastOnlineOnly() },
++                onCycleBaseStyle = {
++                    if (mapOnline) {
++                        val next = mapBaseStyle.nextSelectable()
++                        mapBaseStyleName = next.name
++                        mapDark = false
++                        Toast.makeText(context, "Mapa: ${next.label}", Toast.LENGTH_SHORT).show()
++                    } else toastOnlineOnly()
++                },
++                onStreetNamesToggle = { mapStreetNames = !mapStreetNames },
++                modifier = Modifier
++                    .align(Alignment.BottomEnd)
++                    .padding(end = 16.dp, bottom = with(LocalDensity.current) { bottomBlockHeightPx.toDp() } + 10.dp)
++            )
++        }
++
+         RadialMenu(
+             soundEnabled = radialSoundEnabled,
+             vibrationEnabled = radialVibrationEnabled,
+@@ -698,7 +741,7 @@
+             onVibrationToggle = { enabled -> radialVibrationEnabled = enabled; onToggleVibration() },
+             onGpsKeepAliveToggle = { enabled -> radialGpsKeepAliveEnabled = enabled },
+             open = radialOpen,
+-            onOpenChange = { radialOpen = it },
++            onOpenChange = { radialOpen = it; if (it) mapFanOpen = false },
+             modifier = Modifier
+                 .align(Alignment.TopEnd)
+                 .padding(top = RunnaTheme.TopPadding, end = RunnaTheme.TopPadding)
+diff -ruN pa/app/ui/state/MapState.kt pb/app/ui/state/MapState.kt
+--- pa/app/ui/state/MapState.kt	2026-11-21 08:45:56.969236235 +0000
++++ pb/app/ui/state/MapState.kt	2026-11-21 08:45:56.985069638 +0000
+@@ -46,4 +46,33 @@
+     val longitude: Double,
+     val accuracy: Float,
+     val timestampMillis: Long
+-)
+\ No newline at end of file
++)
++
++/**
++ * Estilos de mapa base (OpenFreeMap, vetorial, sem chave de API).
++ * "Escuro" é aplicado pelo botão de modo escuro; os outros três são escolhidos em "Tipo de mapa".
++ */
++enum class MapBaseStyle(val label: String, val url: String) {
++    STANDARD("Padrão", "https://tiles.openfreemap.org/styles/liberty"),
++    LIGHT("Claro", "https://tiles.openfreemap.org/styles/positron"),
++    CONTRAST("Contraste", "https://tiles.openfreemap.org/styles/bright"),
++    DARK("Escuro", "https://tiles.openfreemap.org/styles/dark");
++
++    /** Próximo tipo no botão "Tipo de mapa" (o escuro fica de fora: tem botão próprio). */
++    fun nextSelectable(): MapBaseStyle = when (this) {
++        STANDARD -> LIGHT
++        LIGHT -> CONTRAST
++        else -> STANDARD
++    }
++}
++
++/**
++ * Texto do pill do canto inferior esquerdo do mapa, conforme o modo de câmera.
++ * O modo inicial vem de Perfil > "Modo de câmera padrão" (Seguir você / Com direção / Rota completa).
++ */
++fun CameraMode.pillLabel(): String = when (this) {
++    CameraMode.FollowUser -> "Seguindo você"
++    CameraMode.FollowUserWithBearing -> "Seguindo com direção"
++    CameraMode.ShowFullRoute -> "Rota completa"
++    CameraMode.Free -> "Mapa livre"
++}

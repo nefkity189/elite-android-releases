@@ -1,0 +1,22 @@
+appId: com.elite.sch.app
+---
+# Acceptance C: Camera bearing dinâmico (FollowUserWithBearing)
+- launchApp:
+    clearState: false
+- assertVisible:
+    id: "screen_today"
+- tapOn:
+    id: "btn_free_run_descanso"
+- assertVisible:
+    id: "screen_active_run"
+- assertVisible:
+    id: "map_view_realtime"
+# Cicla o modo de câmera até chegar em "Seguindo com direção" (bearing dinâmico)
+- tapOn:
+    id: "btn_map_camera_mode"
+- tapOn:
+    id: "btn_map_camera_mode"
+- assertVisible:
+    text: "Seguindo com direção"
+- takeScreenshot:
+    path: "accept_c_camera_bearing.png"

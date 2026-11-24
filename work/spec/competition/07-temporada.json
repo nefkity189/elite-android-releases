@@ -1,0 +1,3328 @@
+{
+ "screen": {
+  "w": 393,
+  "h": 851
+ },
+ "tokens": {
+  "--page": "#050604",
+  "--bg": "#0a0b09",
+  "--surface": "#10120d",
+  "--card": "#161911",
+  "--card-el": "#1d2116",
+  "--field": "#0d0f0a",
+  "--line": "rgba(236,232,218,.10)",
+  "--line-strong": "rgba(236,232,218,.18)",
+  "--text": "#ece8da",
+  "--muted": "#8f9384",
+  "--dim": "#5e6255",
+  "--olive": "#a3b565",
+  "--olive-dark": "#5d6b34",
+  "--olive-soft": "rgba(163,181,101,.14)",
+  "--on-olive": "#0e1306",
+  "--red": "#d12b2b",
+  "--red-soft": "rgba(209,43,43,.15)",
+  "--on-red": "#fff4f0",
+  "--brass": "#c9a24b",
+  "--brass-soft": "rgba(201,162,75,.16)",
+  "--amber": "#e0a93a",
+  "--amber-soft": "rgba(224,169,58,.14)",
+  "--ok": "#7fb069",
+  "--ok-soft": "rgba(127,176,105,.15)",
+  "--amber-line": "rgba(224,169,58,.45)",
+  "--red-line": "rgba(209,43,43,.5)",
+  "--ok-line": "rgba(127,176,105,.45)",
+  "--brass-line": "rgba(201,162,75,.5)",
+  "--glass": "rgba(16,18,13,.82)",
+  "--glass-bar": "rgba(16,18,13,.90)",
+  "--scrim": "rgba(0,0,0,.62)",
+  "--lg-bronze": "#b07a4a",
+  "--lg-prata": "#b4bab8",
+  "--lg-ouro": "#c9a24b",
+  "--lg-platina": "#86bdb3",
+  "--lg-diamante": "#7fb4de",
+  "--lg-elite": "#e7e2d0",
+  "--av1": "#3b4426",
+  "--av2": "#4a3f1e",
+  "--av3": "#2e3b3a",
+  "--av4": "#46301f",
+  "--av5": "#3a2e3f",
+  "--num": "\"Barlow Condensed\",\"Arial Narrow\",sans-serif",
+  "--ui": "\"Inter\",sans-serif",
+  "--logo": "\"Saira Stencil One\",\"Impact\",sans-serif"
+ },
+ "fonts": [
+  {
+   "family": "Inter",
+   "loaded": true
+  },
+  {
+   "family": "Barlow Condensed",
+   "loaded": false
+  }
+ ],
+ "media_queries": [
+  "(prefers-reduced-motion: reduce)",
+  "(prefers-reduced-motion: reduce)"
+ ],
+ "animations": [],
+ "elements": [
+  {
+   "id": 0,
+   "depth": 0,
+   "sel": "main",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 851
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "flex-direction": "column",
+    "flex-shrink": "0",
+    "padding": "28px 16px 0px",
+    "background-color": "rgb(10, 11, 9)",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=screen",
+    "data-viewport=393x851",
+    "data-state=padrao"
+   ]
+  },
+  {
+   "id": 1,
+   "depth": 1,
+   "sel": "header.topbar",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 28,
+    "w": 361,
+    "h": 48
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "12px"
+   },
+   "data": [
+    "data-id=ssn.topbar"
+   ]
+  },
+  {
+   "id": 2,
+   "depth": 2,
+   "sel": "button.btn-back",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 32,
+    "w": 40,
+    "h": 40
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "20px",
+    "font-size": "13.3333px",
+    "text-align": "center",
+    "transition": "transform 0.12s ease-out"
+   },
+   "aria": "Voltar",
+   "data": [
+    "data-id=ssn.topbar.back"
+   ]
+  },
+  {
+   "id": 3,
+   "depth": 3,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 26,
+    "y": 42,
+    "w": 20,
+    "h": 20
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.topbar.back.ic",
+    "data-icon=material:ArrowBack"
+   ],
+   "svg": "<svg data-id=\"ssn.topbar.back.ic\" data-icon=\"material:ArrowBack\" viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M15 18l-6-6 6-6\"></path></svg>"
+  },
+  {
+   "id": 4,
+   "depth": 2,
+   "sel": "h1.t1.grow",
+   "text": "Temporada 1",
+   "rect": {
+    "x": 68,
+    "y": 36,
+    "w": 257,
+    "h": 32
+   },
+   "style": {
+    "flex-grow": "1",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "30px",
+    "font-weight": "700",
+    "line-height": "32px",
+    "letter-spacing": "0.9px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=ssn.topbar.title"
+   ]
+  },
+  {
+   "id": 5,
+   "depth": 2,
+   "sel": "button.btn-back",
+   "text": null,
+   "rect": {
+    "x": 337,
+    "y": 32,
+    "w": 40,
+    "h": 40
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "20px",
+    "font-size": "13.3333px",
+    "text-align": "center",
+    "transition": "transform 0.12s ease-out"
+   },
+   "aria": "Compartilhar liga",
+   "data": [
+    "data-id=ssn.topbar.share"
+   ]
+  },
+  {
+   "id": 6,
+   "depth": 3,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 348,
+    "y": 43,
+    "w": 18,
+    "h": 18
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.topbar.share.ic",
+    "data-icon=material:Share"
+   ],
+   "svg": "<svg data-id=\"ssn.topbar.share.ic\" data-icon=\"material:Share\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"18\" cy=\"5\" r=\"3\"></circle><circle cx=\"6\" cy=\"12\" r=\"3\"></circle><circle cx=\"18\" cy=\"19\" r=\"3\"></circle><path d=\"M8.6 10.5l6.8-4M8.6 13.5l6.8 4\"></path></svg>"
+  },
+  {
+   "id": 7,
+   "depth": 1,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 84,
+    "w": 361,
+    "h": 684
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "10px",
+    "padding": "0px 0px 12px",
+    "margin": "8px 0px 0px",
+    "overflow": "hidden auto"
+   },
+   "data": [
+    "data-id=ssn.scroll",
+    "data-compose=LazyColumn"
+   ]
+  },
+  {
+   "id": 8,
+   "depth": 2,
+   "sel": "section.card",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 84,
+    "w": 361,
+    "h": 108
+   },
+   "style": {
+    "flex-shrink": "0",
+    "padding": "14px 16px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "18px"
+   },
+   "data": [
+    "data-id=ssn.time",
+    "data-compose=SeasonTimeCard"
+   ]
+  },
+  {
+   "id": 9,
+   "depth": 3,
+   "sel": "div.row",
+   "text": null,
+   "rect": {
+    "x": 33,
+    "y": 99,
+    "w": 327,
+    "h": 22
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between",
+    "align-items": "center"
+   },
+   "data": [
+    "data-id=ssn.time.row"
+   ]
+  },
+  {
+   "id": 10,
+   "depth": 4,
+   "sel": "span.eyebrow",
+   "text": "Fim de temporada",
+   "rect": {
+    "x": 33,
+    "y": 103,
+    "w": 130.9,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "letter-spacing": "1.3px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=ssn.time.label"
+   ]
+  },
+  {
+   "id": 11,
+   "depth": 4,
+   "sel": "span.num.amber",
+   "text": "12d 04h",
+   "rect": {
+    "x": 292.1,
+    "y": 99,
+    "w": 67.9,
+    "h": 22
+   },
+   "style": {
+    "color": "rgb(224, 169, 58)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "22px",
+    "font-weight": "700",
+    "line-height": "22px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=ssn.time.left",
+    "data-bind=season.remaining"
+   ]
+  },
+  {
+   "id": 12,
+   "depth": 3,
+   "sel": "div.bar",
+   "text": null,
+   "rect": {
+    "x": 33,
+    "y": 131,
+    "w": 327,
+    "h": 6
+   },
+   "style": {
+    "margin": "10px 0px 0px",
+    "background-color": "rgb(29, 33, 22)",
+    "border-radius": "3px",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.time.bar"
+   ]
+  },
+  {
+   "id": 13,
+   "depth": 4,
+   "sel": "i",
+   "text": null,
+   "rect": {
+    "x": 33,
+    "y": 131,
+    "w": 196.2,
+    "h": 6
+   },
+   "style": {
+    "background-color": "rgb(224, 169, 58)",
+    "border-radius": "3px"
+   },
+   "data": [
+    "data-id=ssn.time.fill"
+   ]
+  },
+  {
+   "id": 14,
+   "depth": 3,
+   "sel": "p.cap",
+   "text": "Ao final, os pontos sofrem reset parcial e a divisão alcançada define as recompensas.",
+   "rect": {
+    "x": 33,
+    "y": 145,
+    "w": 327,
+    "h": 32
+   },
+   "style": {
+    "margin": "8px 0px 0px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=ssn.time.text"
+   ]
+  },
+  {
+   "id": 15,
+   "depth": 2,
+   "sel": "section.card.card-brass",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 202,
+    "w": 361,
+    "h": 148
+   },
+   "style": {
+    "flex-shrink": "0",
+    "padding": "14px 16px",
+    "background-image": "linear-gradient(rgba(201, 162, 75, 0.16), rgb(22, 25, 17))",
+    "border": "1px solid rgb(201, 162, 75)",
+    "border-radius": "18px"
+   },
+   "data": [
+    "data-id=ssn.me",
+    "data-compose=LeagueProgressCard"
+   ]
+  },
+  {
+   "id": 16,
+   "depth": 3,
+   "sel": "div.row",
+   "text": null,
+   "rect": {
+    "x": 33,
+    "y": 217,
+    "w": 327,
+    "h": 72
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "14px"
+   },
+   "data": [
+    "data-id=ssn.me.row"
+   ]
+  },
+  {
+   "id": 17,
+   "depth": 4,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 33,
+    "y": 217,
+    "w": 72,
+    "h": 72
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.me.badge",
+    "data-icon=custom:ic_league_ouro_2"
+   ],
+   "svg": "<svg data-id=\"ssn.me.badge\" data-icon=\"custom:ic_league_ouro_2\" viewBox=\"0 0 24 24\" width=\"72\" height=\"72\" aria-hidden=\"true\"><path d=\"M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z\" style=\"fill:var(--lg-ouro)\"></path><path d=\"M7.8 10L12 13L16.2 10\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 14.5L12 17.5L16.2 14.5\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>"
+  },
+  {
+   "id": 18,
+   "depth": 4,
+   "sel": "div.col.grow",
+   "text": null,
+   "rect": {
+    "x": 119,
+    "y": 227.5,
+    "w": 241,
+    "h": 51
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "3px"
+   },
+   "data": [
+    "data-id=ssn.me.row.col"
+   ]
+  },
+  {
+   "id": 19,
+   "depth": 5,
+   "sel": "span.t1",
+   "text": "Liga Ouro II",
+   "rect": {
+    "x": 119,
+    "y": 227.5,
+    "w": 241,
+    "h": 32
+   },
+   "style": {
+    "color": "rgb(201, 162, 75)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "30px",
+    "font-weight": "700",
+    "line-height": "32px",
+    "letter-spacing": "0.9px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=ssn.me.name"
+   ]
+  },
+  {
+   "id": 20,
+   "depth": 5,
+   "sel": "span.cap",
+   "text": "pts · faixa 1.400–1.599",
+   "rect": {
+    "x": 119,
+    "y": 262.5,
+    "w": 241,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=ssn.me.pts"
+   ]
+  },
+  {
+   "id": 21,
+   "depth": 6,
+   "sel": "b",
+   "text": "1.542",
+   "rect": {
+    "x": 119,
+    "y": 262.5,
+    "w": 32.3,
+    "h": 15
+   },
+   "style": {
+    "color": "rgb(236, 232, 218)",
+    "font-weight": "700"
+   },
+   "data": [
+    "data-id=ssn.me.pts.b",
+    "data-bind=user.elo"
+   ]
+  },
+  {
+   "id": 22,
+   "depth": 3,
+   "sel": "div.bar.bar-brass",
+   "text": null,
+   "rect": {
+    "x": 33,
+    "y": 303,
+    "w": 327,
+    "h": 8
+   },
+   "style": {
+    "margin": "14px 0px 0px",
+    "background-color": "rgb(29, 33, 22)",
+    "border-radius": "4px",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.me.bar"
+   ]
+  },
+  {
+   "id": 23,
+   "depth": 4,
+   "sel": "i",
+   "text": null,
+   "rect": {
+    "x": 33,
+    "y": 303,
+    "w": 232.2,
+    "h": 8
+   },
+   "style": {
+    "background-color": "rgb(201, 162, 75)",
+    "border-radius": "3px"
+   },
+   "data": [
+    "data-id=ssn.me.fill"
+   ]
+  },
+  {
+   "id": 24,
+   "depth": 3,
+   "sel": "div.row",
+   "text": null,
+   "rect": {
+    "x": 33,
+    "y": 319,
+    "w": 327,
+    "h": 16
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "margin": "8px 0px 0px"
+   },
+   "data": [
+    "data-id=ssn.me.row2"
+   ]
+  },
+  {
+   "id": 25,
+   "depth": 4,
+   "sel": "span.cap",
+   "text": "Faltam para subir de divisão",
+   "rect": {
+    "x": 33,
+    "y": 319,
+    "w": 221.8,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=ssn.me.next"
+   ]
+  },
+  {
+   "id": 26,
+   "depth": 5,
+   "sel": "b",
+   "text": "58 pontos",
+   "rect": {
+    "x": 74.2,
+    "y": 319,
+    "w": 58.9,
+    "h": 15
+   },
+   "style": {
+    "color": "rgb(236, 232, 218)",
+    "font-weight": "700"
+   },
+   "data": [
+    "data-id=ssn.me.next.b"
+   ]
+  },
+  {
+   "id": 27,
+   "depth": 4,
+   "sel": "span.row.cap",
+   "text": "Ouro I",
+   "rect": {
+    "x": 304.6,
+    "y": 319,
+    "w": 55.4,
+    "h": 16
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "5px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=ssn.me.target"
+   ]
+  },
+  {
+   "id": 28,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 304.6,
+    "y": 319,
+    "w": 16,
+    "h": 16
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.me.target.badge",
+    "data-icon=custom:ic_league_ouro_1"
+   ],
+   "svg": "<svg data-id=\"ssn.me.target.badge\" data-icon=\"custom:ic_league_ouro_1\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z\" style=\"fill:var(--lg-ouro)\"></path><path d=\"M7.8 8L12 11L16.2 8\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 12L12 15L16.2 12\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 16L12 19L16.2 16\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>"
+  },
+  {
+   "id": 29,
+   "depth": 2,
+   "sel": "section.card",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 360,
+    "w": 361,
+    "h": 312
+   },
+   "style": {
+    "flex-shrink": "0",
+    "padding": "12px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "18px"
+   },
+   "data": [
+    "data-id=ssn.ladder",
+    "data-compose=LeagueLadder"
+   ]
+  },
+  {
+   "id": 30,
+   "depth": 3,
+   "sel": "h2.t2",
+   "text": "Ligas e divisões",
+   "rect": {
+    "x": 31,
+    "y": 373,
+    "w": 331,
+    "h": 23
+   },
+   "style": {
+    "margin": "0px 2px 10px",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "20px",
+    "font-weight": "600",
+    "line-height": "23px",
+    "letter-spacing": "0.8px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=ssn.ladder.title"
+   ]
+  },
+  {
+   "id": 31,
+   "depth": 3,
+   "sel": "div.ladder",
+   "text": null,
+   "rect": {
+    "x": 29,
+    "y": 406,
+    "w": 335,
+    "h": 71
+   },
+   "style": {
+    "display": "flex",
+    "gap": "8px"
+   },
+   "data": [
+    "data-id=ssn.ladder.row"
+   ]
+  },
+  {
+   "id": 32,
+   "depth": 4,
+   "sel": "button.lgi",
+   "text": null,
+   "rect": {
+    "x": 29,
+    "y": 406,
+    "w": 49,
+    "h": 71
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "5px",
+    "padding": "10px 0px 8px",
+    "background-color": "rgb(13, 15, 10)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "14px",
+    "font-size": "13.3333px",
+    "text-align": "center",
+    "transition": "background 0.18s ease-out, border-color 0.18s ease-out"
+   },
+   "aria": "Liga Bronze",
+   "data": [
+    "data-id=ssn.ladder.bronze",
+    "data-l=bronze"
+   ]
+  },
+  {
+   "id": 33,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 36.5,
+    "y": 417,
+    "w": 34,
+    "h": 34
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.ladder.bronze.badge",
+    "data-icon=custom:ic_league_bronze_1"
+   ],
+   "svg": "<svg data-id=\"ssn.ladder.bronze.badge\" data-icon=\"custom:ic_league_bronze_1\" viewBox=\"0 0 24 24\" width=\"34\" height=\"34\" aria-hidden=\"true\"><path d=\"M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z\" style=\"fill:var(--lg-bronze)\"></path><path d=\"M7.8 8L12 11L16.2 8\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 12L12 15L16.2 12\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 16L12 19L16.2 16\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>"
+  },
+  {
+   "id": 34,
+   "depth": 5,
+   "sel": "span",
+   "text": "Bronze",
+   "rect": {
+    "x": 35.7,
+    "y": 456,
+    "w": 35.6,
+    "h": 12
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "10.5px",
+    "font-weight": "600",
+    "line-height": "12px"
+   },
+   "data": [
+    "data-id=ssn.ladder.bronze.name"
+   ]
+  },
+  {
+   "id": 35,
+   "depth": 4,
+   "sel": "button.lgi",
+   "text": null,
+   "rect": {
+    "x": 86,
+    "y": 406,
+    "w": 49,
+    "h": 71
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "5px",
+    "padding": "10px 0px 8px",
+    "background-color": "rgb(13, 15, 10)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "14px",
+    "font-size": "13.3333px",
+    "text-align": "center",
+    "transition": "background 0.18s ease-out, border-color 0.18s ease-out"
+   },
+   "aria": "Liga Prata",
+   "data": [
+    "data-id=ssn.ladder.prata",
+    "data-l=prata"
+   ]
+  },
+  {
+   "id": 36,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 93.5,
+    "y": 417,
+    "w": 34,
+    "h": 34
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.ladder.prata.badge",
+    "data-icon=custom:ic_league_prata_1"
+   ],
+   "svg": "<svg data-id=\"ssn.ladder.prata.badge\" data-icon=\"custom:ic_league_prata_1\" viewBox=\"0 0 24 24\" width=\"34\" height=\"34\" aria-hidden=\"true\"><path d=\"M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z\" style=\"fill:var(--lg-prata)\"></path><path d=\"M7.8 8L12 11L16.2 8\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 12L12 15L16.2 12\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 16L12 19L16.2 16\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>"
+  },
+  {
+   "id": 37,
+   "depth": 5,
+   "sel": "span",
+   "text": "Prata",
+   "rect": {
+    "x": 97.1,
+    "y": 456,
+    "w": 26.7,
+    "h": 12
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "10.5px",
+    "font-weight": "600",
+    "line-height": "12px"
+   },
+   "data": [
+    "data-id=ssn.ladder.prata.name"
+   ]
+  },
+  {
+   "id": 38,
+   "depth": 4,
+   "sel": "button.lgi.on.here",
+   "text": null,
+   "rect": {
+    "x": 143,
+    "y": 406,
+    "w": 49,
+    "h": 71
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "5px",
+    "padding": "10px 0px 8px",
+    "background-color": "rgba(201, 162, 75, 0.16)",
+    "border": "1px solid rgb(201, 162, 75)",
+    "border-radius": "14px",
+    "box-shadow": "rgba(163, 181, 101, 0.14) 0px 0px 0px 2px",
+    "font-size": "13.3333px",
+    "text-align": "center",
+    "transition": "background 0.18s ease-out, border-color 0.18s ease-out"
+   },
+   "aria": "Liga Ouro",
+   "data": [
+    "data-id=ssn.ladder.ouro",
+    "data-l=ouro"
+   ]
+  },
+  {
+   "id": 39,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 150.4,
+    "y": 417,
+    "w": 34,
+    "h": 34
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.ladder.ouro.badge",
+    "data-icon=custom:ic_league_ouro_1"
+   ],
+   "svg": "<svg data-id=\"ssn.ladder.ouro.badge\" data-icon=\"custom:ic_league_ouro_1\" viewBox=\"0 0 24 24\" width=\"34\" height=\"34\" aria-hidden=\"true\"><path d=\"M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z\" style=\"fill:var(--lg-ouro)\"></path><path d=\"M7.8 8L12 11L16.2 8\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 12L12 15L16.2 12\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 16L12 19L16.2 16\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>"
+  },
+  {
+   "id": 40,
+   "depth": 5,
+   "sel": "span",
+   "text": "Ouro",
+   "rect": {
+    "x": 155,
+    "y": 456,
+    "w": 24.8,
+    "h": 12
+   },
+   "style": {
+    "font-size": "10.5px",
+    "font-weight": "600",
+    "line-height": "12px"
+   },
+   "data": [
+    "data-id=ssn.ladder.ouro.name"
+   ]
+  },
+  {
+   "id": 41,
+   "depth": 4,
+   "sel": "button.lgi",
+   "text": null,
+   "rect": {
+    "x": 199.9,
+    "y": 406,
+    "w": 49,
+    "h": 71
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "5px",
+    "padding": "10px 0px 8px",
+    "background-color": "rgb(13, 15, 10)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "14px",
+    "font-size": "13.3333px",
+    "text-align": "center",
+    "transition": "background 0.18s ease-out, border-color 0.18s ease-out"
+   },
+   "aria": "Liga Platina",
+   "data": [
+    "data-id=ssn.ladder.platina",
+    "data-l=platina"
+   ]
+  },
+  {
+   "id": 42,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 207.4,
+    "y": 417,
+    "w": 34,
+    "h": 34
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.ladder.platina.badge",
+    "data-icon=custom:ic_league_platina_1"
+   ],
+   "svg": "<svg data-id=\"ssn.ladder.platina.badge\" data-icon=\"custom:ic_league_platina_1\" viewBox=\"0 0 24 24\" width=\"34\" height=\"34\" aria-hidden=\"true\"><path d=\"M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z\" style=\"fill:var(--lg-platina)\"></path><path d=\"M7.8 8L12 11L16.2 8\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 12L12 15L16.2 12\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 16L12 19L16.2 16\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>"
+  },
+  {
+   "id": 43,
+   "depth": 5,
+   "sel": "span",
+   "text": "Platina",
+   "rect": {
+    "x": 207.2,
+    "y": 456,
+    "w": 34.5,
+    "h": 12
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "10.5px",
+    "font-weight": "600",
+    "line-height": "12px"
+   },
+   "data": [
+    "data-id=ssn.ladder.platina.name"
+   ]
+  },
+  {
+   "id": 44,
+   "depth": 4,
+   "sel": "button.lgi",
+   "text": null,
+   "rect": {
+    "x": 256.9,
+    "y": 406,
+    "w": 50.1,
+    "h": 71
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "5px",
+    "padding": "10px 0px 8px",
+    "background-color": "rgb(13, 15, 10)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "14px",
+    "font-size": "13.3333px",
+    "text-align": "center",
+    "transition": "background 0.18s ease-out, border-color 0.18s ease-out"
+   },
+   "aria": "Liga Diamante",
+   "data": [
+    "data-id=ssn.ladder.diamante",
+    "data-l=diamante"
+   ]
+  },
+  {
+   "id": 45,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 265,
+    "y": 417,
+    "w": 34,
+    "h": 34
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.ladder.diamante.badge",
+    "data-icon=custom:ic_league_diamante_1"
+   ],
+   "svg": "<svg data-id=\"ssn.ladder.diamante.badge\" data-icon=\"custom:ic_league_diamante_1\" viewBox=\"0 0 24 24\" width=\"34\" height=\"34\" aria-hidden=\"true\"><path d=\"M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z\" style=\"fill:var(--lg-diamante)\"></path><path d=\"M7.8 8L12 11L16.2 8\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 12L12 15L16.2 12\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 16L12 19L16.2 16\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>"
+  },
+  {
+   "id": 46,
+   "depth": 5,
+   "sel": "span",
+   "text": "Diamante",
+   "rect": {
+    "x": 257.9,
+    "y": 456,
+    "w": 48.1,
+    "h": 12
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "10.5px",
+    "font-weight": "600",
+    "line-height": "12px"
+   },
+   "data": [
+    "data-id=ssn.ladder.diamante.name"
+   ]
+  },
+  {
+   "id": 47,
+   "depth": 4,
+   "sel": "button.lgi",
+   "text": null,
+   "rect": {
+    "x": 315,
+    "y": 406,
+    "w": 49,
+    "h": 71
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "5px",
+    "padding": "10px 0px 8px",
+    "background-color": "rgb(13, 15, 10)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "14px",
+    "font-size": "13.3333px",
+    "text-align": "center",
+    "transition": "background 0.18s ease-out, border-color 0.18s ease-out"
+   },
+   "aria": "Liga Elite",
+   "data": [
+    "data-id=ssn.ladder.elite",
+    "data-l=elite"
+   ]
+  },
+  {
+   "id": 48,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 322.5,
+    "y": 417,
+    "w": 34,
+    "h": 34
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.ladder.elite.badge",
+    "data-icon=custom:ic_league_elite_0"
+   ],
+   "svg": "<svg data-id=\"ssn.ladder.elite.badge\" data-icon=\"custom:ic_league_elite_0\" viewBox=\"0 0 24 24\" width=\"34\" height=\"34\" aria-hidden=\"true\"><path d=\"M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z\" style=\"fill:var(--lg-elite)\"></path><path d=\"M10.2 7.2H17L16.6 8.9H11.7L10.5 14.6H15.4L15 16.3H8.3Z\" style=\"fill:var(--bg)\"></path><path d=\"M11.3 10.8H15.1L14.8 12.3H11Z\" style=\"fill:var(--red)\"></path></svg>"
+  },
+  {
+   "id": 49,
+   "depth": 5,
+   "sel": "span",
+   "text": "Elite",
+   "rect": {
+    "x": 328.7,
+    "y": 456,
+    "w": 21.7,
+    "h": 12
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "10.5px",
+    "font-weight": "600",
+    "line-height": "12px"
+   },
+   "data": [
+    "data-id=ssn.ladder.elite.name"
+   ]
+  },
+  {
+   "id": 50,
+   "depth": 3,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 29,
+    "y": 487,
+    "w": 335,
+    "h": 172
+   },
+   "style": {
+    "margin": "10px 0px 0px"
+   },
+   "data": [
+    "data-id=ssn.dv",
+    "data-compose=DivisionList"
+   ]
+  },
+  {
+   "depth": 4,
+   "sel": "div.dl.dl-bronze",
+   "hidden": true
+  },
+  {
+   "depth": 4,
+   "sel": "div.dl.dl-prata",
+   "hidden": true
+  },
+  {
+   "id": 51,
+   "depth": 4,
+   "sel": "div.dl.dl-ouro",
+   "text": null,
+   "rect": {
+    "x": 29,
+    "y": 487,
+    "w": 335,
+    "h": 172
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "gap": "8px"
+   },
+   "data": [
+    "data-id=ssn.dl.ouro"
+   ]
+  },
+  {
+   "id": 52,
+   "depth": 5,
+   "sel": "div.dvr",
+   "text": null,
+   "rect": {
+    "x": 29,
+    "y": 487,
+    "w": 335,
+    "h": 52
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "12px",
+    "padding": "0px 12px",
+    "background-color": "rgb(13, 15, 10)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "14px"
+   },
+   "data": [
+    "data-id=ssn.dv.ouro.i"
+   ]
+  },
+  {
+   "id": 53,
+   "depth": 6,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 42,
+    "y": 500,
+    "w": 26,
+    "h": 26
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.dv.ouro.i.insig",
+    "data-icon=custom:ic_league_ouro_1"
+   ],
+   "svg": "<svg data-id=\"ssn.dv.ouro.i.insig\" data-icon=\"custom:ic_league_ouro_1\" viewBox=\"0 0 24 24\" width=\"26\" height=\"26\" aria-hidden=\"true\"><path d=\"M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z\" style=\"fill:var(--lg-ouro)\"></path><path d=\"M7.8 8L12 11L16.2 8\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 12L12 15L16.2 12\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 16L12 19L16.2 16\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>"
+  },
+  {
+   "id": 54,
+   "depth": 6,
+   "sel": "div.col.grow",
+   "text": null,
+   "rect": {
+    "x": 80,
+    "y": 494.5,
+    "w": 185.2,
+    "h": 37
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "1px"
+   },
+   "data": [
+    "data-id=ssn.dv.ouro.i.col"
+   ]
+  },
+  {
+   "id": 55,
+   "depth": 7,
+   "sel": "span.t3",
+   "text": "Ouro I",
+   "rect": {
+    "x": 80,
+    "y": 494.5,
+    "w": 185.2,
+    "h": 20
+   },
+   "style": {
+    "font-size": "14px",
+    "font-weight": "600",
+    "line-height": "20px"
+   },
+   "data": [
+    "data-id=ssn.dv.ouro.i.name"
+   ]
+  },
+  {
+   "id": 56,
+   "depth": 7,
+   "sel": "span.cap",
+   "text": "1.600–1.799 pts",
+   "rect": {
+    "x": 80,
+    "y": 515.5,
+    "w": 185.2,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=ssn.dv.ouro.i.range"
+   ]
+  },
+  {
+   "id": 57,
+   "depth": 6,
+   "sel": "span.badge.b-brass",
+   "text": "Próxima",
+   "rect": {
+    "x": 277.2,
+    "y": 503,
+    "w": 73.8,
+    "h": 20
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "6px",
+    "padding": "0px 10px",
+    "color": "rgb(201, 162, 75)",
+    "background-color": "rgba(201, 162, 75, 0.16)",
+    "border-radius": "12px",
+    "font-size": "10.5px",
+    "font-weight": "700",
+    "line-height": "12px",
+    "letter-spacing": "0.6px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=ssn.dv.ouro.i.badge"
+   ]
+  },
+  {
+   "id": 58,
+   "depth": 5,
+   "sel": "div.dvr.dvr-me",
+   "text": null,
+   "rect": {
+    "x": 29,
+    "y": 547,
+    "w": 335,
+    "h": 52
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "12px",
+    "padding": "0px 12px",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border": "1px solid rgb(93, 107, 52)",
+    "border-radius": "14px"
+   },
+   "data": [
+    "data-id=ssn.dv.ouro.ii"
+   ]
+  },
+  {
+   "id": 59,
+   "depth": 6,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 42,
+    "y": 560,
+    "w": 26,
+    "h": 26
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.dv.ouro.ii.insig",
+    "data-icon=custom:ic_league_ouro_2"
+   ],
+   "svg": "<svg data-id=\"ssn.dv.ouro.ii.insig\" data-icon=\"custom:ic_league_ouro_2\" viewBox=\"0 0 24 24\" width=\"26\" height=\"26\" aria-hidden=\"true\"><path d=\"M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z\" style=\"fill:var(--lg-ouro)\"></path><path d=\"M7.8 10L12 13L16.2 10\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 14.5L12 17.5L16.2 14.5\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>"
+  },
+  {
+   "id": 60,
+   "depth": 6,
+   "sel": "div.col.grow",
+   "text": null,
+   "rect": {
+    "x": 80,
+    "y": 554.5,
+    "w": 206.9,
+    "h": 37
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "1px"
+   },
+   "data": [
+    "data-id=ssn.dv.ouro.ii.col"
+   ]
+  },
+  {
+   "id": 61,
+   "depth": 7,
+   "sel": "span.t3",
+   "text": "Ouro II",
+   "rect": {
+    "x": 80,
+    "y": 554.5,
+    "w": 206.9,
+    "h": 20
+   },
+   "style": {
+    "font-size": "14px",
+    "font-weight": "600",
+    "line-height": "20px"
+   },
+   "data": [
+    "data-id=ssn.dv.ouro.ii.name"
+   ]
+  },
+  {
+   "id": 62,
+   "depth": 7,
+   "sel": "span.cap",
+   "text": "1.400–1.599 pts",
+   "rect": {
+    "x": 80,
+    "y": 575.5,
+    "w": 206.9,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=ssn.dv.ouro.ii.range"
+   ]
+  },
+  {
+   "id": 63,
+   "depth": 6,
+   "sel": "span.badge.b-open",
+   "text": "Você",
+   "rect": {
+    "x": 298.9,
+    "y": 563,
+    "w": 52.1,
+    "h": 20
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "6px",
+    "padding": "0px 10px",
+    "color": "rgb(163, 181, 101)",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border-radius": "12px",
+    "font-size": "10.5px",
+    "font-weight": "700",
+    "line-height": "12px",
+    "letter-spacing": "0.6px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=ssn.dv.ouro.ii.badge"
+   ]
+  },
+  {
+   "id": 64,
+   "depth": 5,
+   "sel": "div.dvr",
+   "text": null,
+   "rect": {
+    "x": 29,
+    "y": 607,
+    "w": 335,
+    "h": 52
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "12px",
+    "padding": "0px 12px",
+    "background-color": "rgb(13, 15, 10)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "14px"
+   },
+   "data": [
+    "data-id=ssn.dv.ouro.iii"
+   ]
+  },
+  {
+   "id": 65,
+   "depth": 6,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 42,
+    "y": 620,
+    "w": 26,
+    "h": 26
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.dv.ouro.iii.insig",
+    "data-icon=custom:ic_league_ouro_3"
+   ],
+   "svg": "<svg data-id=\"ssn.dv.ouro.iii.insig\" data-icon=\"custom:ic_league_ouro_3\" viewBox=\"0 0 24 24\" width=\"26\" height=\"26\" aria-hidden=\"true\"><path d=\"M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z\" style=\"fill:var(--lg-ouro)\"></path><path d=\"M7.8 12L12 15L16.2 12\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>"
+  },
+  {
+   "id": 66,
+   "depth": 6,
+   "sel": "div.col.grow",
+   "text": null,
+   "rect": {
+    "x": 80,
+    "y": 614.5,
+    "w": 271,
+    "h": 37
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "1px"
+   },
+   "data": [
+    "data-id=ssn.dv.ouro.iii.col"
+   ]
+  },
+  {
+   "id": 67,
+   "depth": 7,
+   "sel": "span.t3",
+   "text": "Ouro III",
+   "rect": {
+    "x": 80,
+    "y": 614.5,
+    "w": 271,
+    "h": 20
+   },
+   "style": {
+    "font-size": "14px",
+    "font-weight": "600",
+    "line-height": "20px"
+   },
+   "data": [
+    "data-id=ssn.dv.ouro.iii.name"
+   ]
+  },
+  {
+   "id": 68,
+   "depth": 7,
+   "sel": "span.cap",
+   "text": "1.200–1.399 pts",
+   "rect": {
+    "x": 80,
+    "y": 635.5,
+    "w": 271,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=ssn.dv.ouro.iii.range"
+   ]
+  },
+  {
+   "depth": 4,
+   "sel": "div.dl.dl-platina",
+   "hidden": true
+  },
+  {
+   "depth": 4,
+   "sel": "div.dl.dl-diamante",
+   "hidden": true
+  },
+  {
+   "depth": 4,
+   "sel": "div.dl.dl-elite",
+   "hidden": true
+  },
+  {
+   "id": 69,
+   "depth": 2,
+   "sel": "section.card",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 682,
+    "w": 361,
+    "h": 342
+   },
+   "style": {
+    "flex-shrink": "0",
+    "padding": "12px 14px 6px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "18px"
+   },
+   "data": [
+    "data-id=ssn.rewards",
+    "data-compose=SeasonRewardsCard"
+   ]
+  },
+  {
+   "id": 70,
+   "depth": 3,
+   "sel": "div.row",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 695,
+    "w": 331,
+    "h": 23
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "8px",
+    "margin": "0px 0px 6px"
+   },
+   "data": [
+    "data-id=ssn.rewards.row"
+   ]
+  },
+  {
+   "id": 71,
+   "depth": 4,
+   "sel": "span.brass",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 697.5,
+    "w": 18,
+    "h": 18
+   },
+   "style": {
+    "color": "rgb(201, 162, 75)"
+   },
+   "data": [
+    "data-id=ssn.rewards.row.brass"
+   ]
+  },
+  {
+   "id": 72,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 697.5,
+    "w": 18,
+    "h": 18
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.rewards.ic",
+    "data-icon=material:CardGiftcard"
+   ],
+   "svg": "<svg data-id=\"ssn.rewards.ic\" data-icon=\"material:CardGiftcard\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"8\" width=\"18\" height=\"4\" rx=\"1\"></rect><path d=\"M12 8v14M5 12v9h14v-9M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5\"></path></svg>"
+  },
+  {
+   "id": 73,
+   "depth": 4,
+   "sel": "h2.t2",
+   "text": "Recompensas da temporada",
+   "rect": {
+    "x": 57,
+    "y": 695,
+    "w": 230.2,
+    "h": 23
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "20px",
+    "font-weight": "600",
+    "line-height": "23px",
+    "letter-spacing": "0.8px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=ssn.rewards.title"
+   ]
+  },
+  {
+   "id": 74,
+   "depth": 3,
+   "sel": "div.rw",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 724,
+    "w": 331,
+    "h": 48
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "12px"
+   },
+   "data": [
+    "data-id=ssn.rw.bronze"
+   ]
+  },
+  {
+   "id": 75,
+   "depth": 4,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 735,
+    "w": 26,
+    "h": 26
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.rw.bronze.badge",
+    "data-icon=custom:ic_league_bronze_1"
+   ],
+   "svg": "<svg data-id=\"ssn.rw.bronze.badge\" data-icon=\"custom:ic_league_bronze_1\" viewBox=\"0 0 24 24\" width=\"26\" height=\"26\" aria-hidden=\"true\"><path d=\"M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z\" style=\"fill:var(--lg-bronze)\"></path><path d=\"M7.8 8L12 11L16.2 8\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 12L12 15L16.2 12\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 16L12 19L16.2 16\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>"
+  },
+  {
+   "id": 76,
+   "depth": 4,
+   "sel": "div.col.grow",
+   "text": null,
+   "rect": {
+    "x": 69,
+    "y": 729.5,
+    "w": 293,
+    "h": 37
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "1px"
+   },
+   "data": [
+    "data-id=ssn.rw.bronze.col"
+   ]
+  },
+  {
+   "id": 77,
+   "depth": 5,
+   "sel": "span.t3",
+   "text": "Bronze",
+   "rect": {
+    "x": 69,
+    "y": 729.5,
+    "w": 293,
+    "h": 20
+   },
+   "style": {
+    "font-size": "14px",
+    "font-weight": "600",
+    "line-height": "20px"
+   },
+   "data": [
+    "data-id=ssn.rw.bronze.name"
+   ]
+  },
+  {
+   "id": 78,
+   "depth": 5,
+   "sel": "span.cap",
+   "text": "Insígnia de bronze no perfil",
+   "rect": {
+    "x": 69,
+    "y": 750.5,
+    "w": 293,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=ssn.rw.bronze.text"
+   ]
+  },
+  {
+   "id": 79,
+   "depth": 3,
+   "sel": "div.hr",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 772,
+    "w": 331,
+    "h": 1
+   },
+   "style": {
+    "flex-shrink": "0",
+    "background-color": "rgba(236, 232, 218, 0.1)"
+   },
+   "data": [
+    "data-id=ssn.rewards.hr"
+   ]
+  },
+  {
+   "id": 80,
+   "depth": 3,
+   "sel": "div.rw",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 773,
+    "w": 331,
+    "h": 48
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "12px"
+   },
+   "data": [
+    "data-id=ssn.rw.prata"
+   ]
+  },
+  {
+   "id": 81,
+   "depth": 4,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 784,
+    "w": 26,
+    "h": 26
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.rw.prata.badge",
+    "data-icon=custom:ic_league_prata_1"
+   ],
+   "svg": "<svg data-id=\"ssn.rw.prata.badge\" data-icon=\"custom:ic_league_prata_1\" viewBox=\"0 0 24 24\" width=\"26\" height=\"26\" aria-hidden=\"true\"><path d=\"M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z\" style=\"fill:var(--lg-prata)\"></path><path d=\"M7.8 8L12 11L16.2 8\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 12L12 15L16.2 12\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 16L12 19L16.2 16\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>"
+  },
+  {
+   "id": 82,
+   "depth": 4,
+   "sel": "div.col.grow",
+   "text": null,
+   "rect": {
+    "x": 69,
+    "y": 778.5,
+    "w": 293,
+    "h": 37
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "1px"
+   },
+   "data": [
+    "data-id=ssn.rw.prata.col"
+   ]
+  },
+  {
+   "id": 83,
+   "depth": 5,
+   "sel": "span.t3",
+   "text": "Prata",
+   "rect": {
+    "x": 69,
+    "y": 778.5,
+    "w": 293,
+    "h": 20
+   },
+   "style": {
+    "font-size": "14px",
+    "font-weight": "600",
+    "line-height": "20px"
+   },
+   "data": [
+    "data-id=ssn.rw.prata.name"
+   ]
+  },
+  {
+   "id": 84,
+   "depth": 5,
+   "sel": "span.cap",
+   "text": "Insígnia de prata no perfil",
+   "rect": {
+    "x": 69,
+    "y": 799.5,
+    "w": 293,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=ssn.rw.prata.text"
+   ]
+  },
+  {
+   "id": 85,
+   "depth": 3,
+   "sel": "div.hr",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 821,
+    "w": 331,
+    "h": 1
+   },
+   "style": {
+    "flex-shrink": "0",
+    "background-color": "rgba(236, 232, 218, 0.1)"
+   },
+   "data": [
+    "data-id=ssn.rewards.hr2"
+   ]
+  },
+  {
+   "id": 86,
+   "depth": 3,
+   "sel": "div.rw",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 822,
+    "w": 331,
+    "h": 48
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "12px"
+   },
+   "data": [
+    "data-id=ssn.rw.ouro"
+   ]
+  },
+  {
+   "id": 87,
+   "depth": 4,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 833,
+    "w": 26,
+    "h": 26
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.rw.ouro.badge",
+    "data-icon=custom:ic_league_ouro_1"
+   ],
+   "svg": "<svg data-id=\"ssn.rw.ouro.badge\" data-icon=\"custom:ic_league_ouro_1\" viewBox=\"0 0 24 24\" width=\"26\" height=\"26\" aria-hidden=\"true\"><path d=\"M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z\" style=\"fill:var(--lg-ouro)\"></path><path d=\"M7.8 8L12 11L16.2 8\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 12L12 15L16.2 12\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 16L12 19L16.2 16\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>"
+  },
+  {
+   "id": 88,
+   "depth": 4,
+   "sel": "div.col.grow",
+   "text": null,
+   "rect": {
+    "x": 69,
+    "y": 827.5,
+    "w": 293,
+    "h": 37
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "1px"
+   },
+   "data": [
+    "data-id=ssn.rw.ouro.col"
+   ]
+  },
+  {
+   "id": 89,
+   "depth": 5,
+   "sel": "span.t3",
+   "text": "Ouro",
+   "rect": {
+    "x": 69,
+    "y": 827.5,
+    "w": 293,
+    "h": 20
+   },
+   "style": {
+    "font-size": "14px",
+    "font-weight": "600",
+    "line-height": "20px"
+   },
+   "data": [
+    "data-id=ssn.rw.ouro.name"
+   ]
+  },
+  {
+   "id": 90,
+   "depth": 5,
+   "sel": "span.cap",
+   "text": "Moldura dourada no avatar",
+   "rect": {
+    "x": 69,
+    "y": 848.5,
+    "w": 293,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=ssn.rw.ouro.text"
+   ]
+  },
+  {
+   "id": 91,
+   "depth": 3,
+   "sel": "div.hr",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 870,
+    "w": 331,
+    "h": 1
+   },
+   "style": {
+    "flex-shrink": "0",
+    "background-color": "rgba(236, 232, 218, 0.1)"
+   },
+   "data": [
+    "data-id=ssn.rewards.hr3"
+   ]
+  },
+  {
+   "id": 92,
+   "depth": 3,
+   "sel": "div.rw",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 871,
+    "w": 331,
+    "h": 48
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "12px"
+   },
+   "data": [
+    "data-id=ssn.rw.platina"
+   ]
+  },
+  {
+   "id": 93,
+   "depth": 4,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 882,
+    "w": 26,
+    "h": 26
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.rw.platina.badge",
+    "data-icon=custom:ic_league_platina_1"
+   ],
+   "svg": "<svg data-id=\"ssn.rw.platina.badge\" data-icon=\"custom:ic_league_platina_1\" viewBox=\"0 0 24 24\" width=\"26\" height=\"26\" aria-hidden=\"true\"><path d=\"M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z\" style=\"fill:var(--lg-platina)\"></path><path d=\"M7.8 8L12 11L16.2 8\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 12L12 15L16.2 12\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 16L12 19L16.2 16\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>"
+  },
+  {
+   "id": 94,
+   "depth": 4,
+   "sel": "div.col.grow",
+   "text": null,
+   "rect": {
+    "x": 69,
+    "y": 876.5,
+    "w": 293,
+    "h": 37
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "1px"
+   },
+   "data": [
+    "data-id=ssn.rw.platina.col"
+   ]
+  },
+  {
+   "id": 95,
+   "depth": 5,
+   "sel": "span.t3",
+   "text": "Platina",
+   "rect": {
+    "x": 69,
+    "y": 876.5,
+    "w": 293,
+    "h": 20
+   },
+   "style": {
+    "font-size": "14px",
+    "font-weight": "600",
+    "line-height": "20px"
+   },
+   "data": [
+    "data-id=ssn.rw.platina.name"
+   ]
+  },
+  {
+   "id": 96,
+   "depth": 5,
+   "sel": "span.cap",
+   "text": "Moldura platina + título da liga",
+   "rect": {
+    "x": 69,
+    "y": 897.5,
+    "w": 293,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=ssn.rw.platina.text"
+   ]
+  },
+  {
+   "id": 97,
+   "depth": 3,
+   "sel": "div.hr",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 919,
+    "w": 331,
+    "h": 1
+   },
+   "style": {
+    "flex-shrink": "0",
+    "background-color": "rgba(236, 232, 218, 0.1)"
+   },
+   "data": [
+    "data-id=ssn.rewards.hr4"
+   ]
+  },
+  {
+   "id": 98,
+   "depth": 3,
+   "sel": "div.rw",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 920,
+    "w": 331,
+    "h": 48
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "12px"
+   },
+   "data": [
+    "data-id=ssn.rw.diamante"
+   ]
+  },
+  {
+   "id": 99,
+   "depth": 4,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 931,
+    "w": 26,
+    "h": 26
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.rw.diamante.badge",
+    "data-icon=custom:ic_league_diamante_1"
+   ],
+   "svg": "<svg data-id=\"ssn.rw.diamante.badge\" data-icon=\"custom:ic_league_diamante_1\" viewBox=\"0 0 24 24\" width=\"26\" height=\"26\" aria-hidden=\"true\"><path d=\"M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z\" style=\"fill:var(--lg-diamante)\"></path><path d=\"M7.8 8L12 11L16.2 8\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 12L12 15L16.2 12\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M7.8 16L12 19L16.2 16\" fill=\"none\" style=\"stroke:var(--bg)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>"
+  },
+  {
+   "id": 100,
+   "depth": 4,
+   "sel": "div.col.grow",
+   "text": null,
+   "rect": {
+    "x": 69,
+    "y": 925.5,
+    "w": 293,
+    "h": 37
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "1px"
+   },
+   "data": [
+    "data-id=ssn.rw.diamante.col"
+   ]
+  },
+  {
+   "id": 101,
+   "depth": 5,
+   "sel": "span.t3",
+   "text": "Diamante",
+   "rect": {
+    "x": 69,
+    "y": 925.5,
+    "w": 293,
+    "h": 20
+   },
+   "style": {
+    "font-size": "14px",
+    "font-weight": "600",
+    "line-height": "20px"
+   },
+   "data": [
+    "data-id=ssn.rw.diamante.name"
+   ]
+  },
+  {
+   "id": 102,
+   "depth": 5,
+   "sel": "span.cap",
+   "text": "Moldura diamante + card exclusivo",
+   "rect": {
+    "x": 69,
+    "y": 946.5,
+    "w": 293,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=ssn.rw.diamante.text"
+   ]
+  },
+  {
+   "id": 103,
+   "depth": 3,
+   "sel": "div.hr",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 968,
+    "w": 331,
+    "h": 1
+   },
+   "style": {
+    "flex-shrink": "0",
+    "background-color": "rgba(236, 232, 218, 0.1)"
+   },
+   "data": [
+    "data-id=ssn.rewards.hr5"
+   ]
+  },
+  {
+   "id": 104,
+   "depth": 3,
+   "sel": "div.rw",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 969,
+    "w": 331,
+    "h": 48
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "12px"
+   },
+   "data": [
+    "data-id=ssn.rw.elite"
+   ]
+  },
+  {
+   "id": 105,
+   "depth": 4,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 980,
+    "w": 26,
+    "h": 26
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.rw.elite.badge",
+    "data-icon=custom:ic_league_elite_0"
+   ],
+   "svg": "<svg data-id=\"ssn.rw.elite.badge\" data-icon=\"custom:ic_league_elite_0\" viewBox=\"0 0 24 24\" width=\"26\" height=\"26\" aria-hidden=\"true\"><path d=\"M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z\" style=\"fill:var(--lg-elite)\"></path><path d=\"M10.2 7.2H17L16.6 8.9H11.7L10.5 14.6H15.4L15 16.3H8.3Z\" style=\"fill:var(--bg)\"></path><path d=\"M11.3 10.8H15.1L14.8 12.3H11Z\" style=\"fill:var(--red)\"></path></svg>"
+  },
+  {
+   "id": 106,
+   "depth": 4,
+   "sel": "div.col.grow",
+   "text": null,
+   "rect": {
+    "x": 69,
+    "y": 974.5,
+    "w": 293,
+    "h": 37
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "1px"
+   },
+   "data": [
+    "data-id=ssn.rw.elite.col"
+   ]
+  },
+  {
+   "id": 107,
+   "depth": 5,
+   "sel": "span.t3",
+   "text": "Elite",
+   "rect": {
+    "x": 69,
+    "y": 974.5,
+    "w": 293,
+    "h": 20
+   },
+   "style": {
+    "font-size": "14px",
+    "font-weight": "600",
+    "line-height": "20px"
+   },
+   "data": [
+    "data-id=ssn.rw.elite.name"
+   ]
+  },
+  {
+   "id": 108,
+   "depth": 5,
+   "sel": "span.cap",
+   "text": "Título “Elite da temporada” + card exclusivo",
+   "rect": {
+    "x": 69,
+    "y": 995.5,
+    "w": 293,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=ssn.rw.elite.text"
+   ]
+  },
+  {
+   "id": 109,
+   "depth": 2,
+   "sel": "section.card",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 1034,
+    "w": 361,
+    "h": 105
+   },
+   "style": {
+    "flex-shrink": "0",
+    "padding": "12px 14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "18px"
+   },
+   "data": [
+    "data-id=ssn.best",
+    "data-compose=SeasonBestCard"
+   ]
+  },
+  {
+   "id": 110,
+   "depth": 3,
+   "sel": "h2.t2",
+   "text": "Suas melhores posições",
+   "rect": {
+    "x": 31,
+    "y": 1047,
+    "w": 331,
+    "h": 23
+   },
+   "style": {
+    "margin": "0px 0px 10px",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "20px",
+    "font-weight": "600",
+    "line-height": "23px",
+    "letter-spacing": "0.8px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=ssn.best.title"
+   ]
+  },
+  {
+   "id": 111,
+   "depth": 3,
+   "sel": "div.row",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 1080,
+    "w": 331,
+    "h": 46
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "10px"
+   },
+   "data": [
+    "data-id=ssn.best.row"
+   ]
+  },
+  {
+   "id": 112,
+   "depth": 4,
+   "sel": "div.kv",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 1080,
+    "w": 103.7,
+    "h": 46
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "flow-start",
+    "flex-grow": "1",
+    "gap": "4px"
+   },
+   "data": [
+    "data-id=ssn.best.row.kv"
+   ]
+  },
+  {
+   "id": 113,
+   "depth": 5,
+   "sel": "span.eyebrow",
+   "text": "Global",
+   "rect": {
+    "x": 31,
+    "y": 1080,
+    "w": 47.9,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "10px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "letter-spacing": "1.3px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=ssn.best.row.kv.eyebrow"
+   ]
+  },
+  {
+   "id": 114,
+   "depth": 5,
+   "sel": "span.num",
+   "text": "#94",
+   "rect": {
+    "x": 31,
+    "y": 1098,
+    "w": 45.1,
+    "h": 28
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "28px",
+    "font-weight": "700",
+    "line-height": "28px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=ssn.best.g"
+   ]
+  },
+  {
+   "id": 115,
+   "depth": 4,
+   "sel": "div.kv",
+   "text": null,
+   "rect": {
+    "x": 144.7,
+    "y": 1080,
+    "w": 103.7,
+    "h": 46
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "flow-start",
+    "flex-grow": "1",
+    "gap": "4px"
+   },
+   "data": [
+    "data-id=ssn.best.row.kv2"
+   ]
+  },
+  {
+   "id": 116,
+   "depth": 5,
+   "sel": "span.eyebrow",
+   "text": "Estado MT",
+   "rect": {
+    "x": 144.7,
+    "y": 1080,
+    "w": 70.5,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "10px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "letter-spacing": "1.3px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=ssn.best.row.kv2.eyebrow"
+   ]
+  },
+  {
+   "id": 117,
+   "depth": 5,
+   "sel": "span.num",
+   "text": "#3",
+   "rect": {
+    "x": 144.7,
+    "y": 1098,
+    "w": 31.2,
+    "h": 28
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "28px",
+    "font-weight": "700",
+    "line-height": "28px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=ssn.best.e"
+   ]
+  },
+  {
+   "id": 118,
+   "depth": 4,
+   "sel": "div.kv",
+   "text": null,
+   "rect": {
+    "x": 258.3,
+    "y": 1083,
+    "w": 103.7,
+    "h": 40
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "flow-start",
+    "flex-grow": "1",
+    "gap": "4px"
+   },
+   "data": [
+    "data-id=ssn.best.row.kv3"
+   ]
+  },
+  {
+   "id": 119,
+   "depth": 5,
+   "sel": "span.eyebrow",
+   "text": "Melhor liga",
+   "rect": {
+    "x": 258.3,
+    "y": 1083,
+    "w": 82.3,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "10px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "letter-spacing": "1.3px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=ssn.best.row.kv3.eyebrow"
+   ]
+  },
+  {
+   "id": 120,
+   "depth": 5,
+   "sel": "span.num.brass",
+   "text": "Ouro I",
+   "rect": {
+    "x": 258.3,
+    "y": 1101,
+    "w": 46.4,
+    "h": 22
+   },
+   "style": {
+    "color": "rgb(201, 162, 75)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "22px",
+    "font-weight": "700",
+    "line-height": "22px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=ssn.best.l"
+   ]
+  },
+  {
+   "id": 121,
+   "depth": 2,
+   "sel": "section.card",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 1149,
+    "w": 361,
+    "h": 177
+   },
+   "style": {
+    "flex-shrink": "0",
+    "padding": "12px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "18px"
+   },
+   "data": [
+    "data-id=ssn.achv",
+    "data-compose=RankingAchievementsRow"
+   ]
+  },
+  {
+   "id": 122,
+   "depth": 3,
+   "sel": "div.row",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 1162,
+    "w": 331,
+    "h": 23
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "margin": "0px 2px 10px"
+   },
+   "data": [
+    "data-id=ssn.achv.row"
+   ]
+  },
+  {
+   "id": 123,
+   "depth": 4,
+   "sel": "h2.t2",
+   "text": "Conquistas do ranking",
+   "rect": {
+    "x": 31,
+    "y": 1162,
+    "w": 191.3,
+    "h": 23
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "20px",
+    "font-weight": "600",
+    "line-height": "23px",
+    "letter-spacing": "0.8px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=ssn.achv.title"
+   ]
+  },
+  {
+   "id": 124,
+   "depth": 4,
+   "sel": "button.row.olive",
+   "text": "Ver todas",
+   "rect": {
+    "x": 292.7,
+    "y": 1166.5,
+    "w": 69.3,
+    "h": 14
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "2px",
+    "color": "rgb(163, 181, 101)",
+    "font-size": "12px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=ssn.achv.all"
+   ]
+  },
+  {
+   "id": 125,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 350,
+    "y": 1167.5,
+    "w": 12,
+    "h": 12
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.achv.all.ic",
+    "data-icon=material:ChevronRight"
+   ],
+   "svg": "<svg data-id=\"ssn.achv.all.ic\" data-icon=\"material:ChevronRight\" viewBox=\"0 0 24 24\" width=\"12\" height=\"12\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 6l6 6-6 6\"></path></svg>"
+  },
+  {
+   "id": 126,
+   "depth": 3,
+   "sel": "div.row",
+   "text": null,
+   "rect": {
+    "x": 29,
+    "y": 1195,
+    "w": 335,
+    "h": 118
+   },
+   "style": {
+    "display": "flex",
+    "gap": "8px"
+   },
+   "data": [
+    "data-id=ssn.achv.row2"
+   ]
+  },
+  {
+   "id": 127,
+   "depth": 4,
+   "sel": "div.mini-a",
+   "text": null,
+   "rect": {
+    "x": 29,
+    "y": 1195,
+    "w": 106.3,
+    "h": 118
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "6px",
+    "padding": "12px 6px",
+    "background-color": "rgb(13, 15, 10)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "14px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=ssn.achv.a1"
+   ]
+  },
+  {
+   "id": 128,
+   "depth": 5,
+   "sel": "div.ic",
+   "text": null,
+   "rect": {
+    "x": 64.2,
+    "y": 1208,
+    "w": 36,
+    "h": 36
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "color": "rgb(94, 98, 85)",
+    "background-color": "rgb(29, 33, 22)",
+    "border-radius": "18px"
+   },
+   "data": [
+    "data-id=ssn.achv.a1.ic"
+   ]
+  },
+  {
+   "id": 129,
+   "depth": 6,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 73.2,
+    "y": 1217,
+    "w": 18,
+    "h": 18
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.achv.a1.icon",
+    "data-icon=material:Lock"
+   ],
+   "svg": "<svg data-id=\"ssn.achv.a1.icon\" data-icon=\"material:Lock\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"11\" width=\"18\" height=\"11\" rx=\"2\"></rect><path d=\"M7 11V7a5 5 0 0 1 10 0v4\"></path></svg>"
+  },
+  {
+   "id": 130,
+   "depth": 5,
+   "sel": "span.n",
+   "text": "Top 10 global",
+   "rect": {
+    "x": 44,
+    "y": 1250,
+    "w": 76.4,
+    "h": 14
+   },
+   "style": {
+    "font-size": "12px",
+    "font-weight": "600",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=ssn.achv.a1.n"
+   ]
+  },
+  {
+   "id": 131,
+   "depth": 5,
+   "sel": "span.cap",
+   "text": "#128",
+   "rect": {
+    "x": 69.7,
+    "y": 1270,
+    "w": 25,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=ssn.achv.a1.cap"
+   ]
+  },
+  {
+   "id": 132,
+   "depth": 4,
+   "sel": "div.mini-a.ok",
+   "text": null,
+   "rect": {
+    "x": 143.3,
+    "y": 1195,
+    "w": 106.3,
+    "h": 118
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "6px",
+    "padding": "12px 6px",
+    "color": "rgb(127, 176, 105)",
+    "background-color": "rgba(201, 162, 75, 0.16)",
+    "border": "1px solid rgba(201, 162, 75, 0.5)",
+    "border-radius": "14px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=ssn.achv.a2"
+   ]
+  },
+  {
+   "id": 133,
+   "depth": 5,
+   "sel": "div.ic",
+   "text": null,
+   "rect": {
+    "x": 178.5,
+    "y": 1208,
+    "w": 36,
+    "h": 36
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "color": "rgb(201, 162, 75)",
+    "background-color": "rgba(201, 162, 75, 0.16)",
+    "border-radius": "18px"
+   },
+   "data": [
+    "data-id=ssn.achv.a2.ic"
+   ]
+  },
+  {
+   "id": 134,
+   "depth": 6,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 187.5,
+    "y": 1217,
+    "w": 18,
+    "h": 18
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.achv.a2.icon",
+    "data-icon=material:Place"
+   ],
+   "svg": "<svg data-id=\"ssn.achv.a2.icon\" data-icon=\"material:Place\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z\"></path><circle cx=\"12\" cy=\"10\" r=\"3\"></circle></svg>"
+  },
+  {
+   "id": 135,
+   "depth": 5,
+   "sel": "span.n",
+   "text": "Top 10 local",
+   "rect": {
+    "x": 162.3,
+    "y": 1250,
+    "w": 68.4,
+    "h": 14
+   },
+   "style": {
+    "font-size": "12px",
+    "font-weight": "600",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=ssn.achv.a2.n"
+   ]
+  },
+  {
+   "id": 136,
+   "depth": 5,
+   "sel": "span.cap.brass",
+   "text": "Desbloqueada",
+   "rect": {
+    "x": 159,
+    "y": 1270,
+    "w": 75,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(201, 162, 75)",
+    "font-size": "11px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=ssn.achv.a2.cap"
+   ]
+  },
+  {
+   "id": 137,
+   "depth": 4,
+   "sel": "div.mini-a",
+   "text": null,
+   "rect": {
+    "x": 257.7,
+    "y": 1195,
+    "w": 106.3,
+    "h": 118
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "6px",
+    "padding": "12px 6px",
+    "background-color": "rgb(13, 15, 10)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "14px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=ssn.achv.a3"
+   ]
+  },
+  {
+   "id": 138,
+   "depth": 5,
+   "sel": "div.ic",
+   "text": null,
+   "rect": {
+    "x": 292.8,
+    "y": 1208,
+    "w": 36,
+    "h": 36
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "color": "rgb(94, 98, 85)",
+    "background-color": "rgb(29, 33, 22)",
+    "border-radius": "18px"
+   },
+   "data": [
+    "data-id=ssn.achv.a3.ic"
+   ]
+  },
+  {
+   "id": 139,
+   "depth": 6,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 301.8,
+    "y": 1217,
+    "w": 18,
+    "h": 18
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.achv.a3.icon",
+    "data-icon=material:Stars"
+   ],
+   "svg": "<svg data-id=\"ssn.achv.a3.icon\" data-icon=\"material:Stars\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 8l4 4 5-7 5 7 4-4-2 12H5z\"></path></svg>"
+  },
+  {
+   "id": 140,
+   "depth": 5,
+   "sel": "span.n",
+   "text": "Elite da temporada",
+   "rect": {
+    "x": 264.7,
+    "y": 1250,
+    "w": 92.3,
+    "h": 28
+   },
+   "style": {
+    "font-size": "12px",
+    "font-weight": "600",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=ssn.achv.a3.n"
+   ]
+  },
+  {
+   "id": 141,
+   "depth": 5,
+   "sel": "span.cap",
+   "text": "Ouro II",
+   "rect": {
+    "x": 293.6,
+    "y": 1284,
+    "w": 34.5,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=ssn.achv.a3.cap"
+   ]
+  },
+  {
+   "id": 142,
+   "depth": 1,
+   "sel": "footer.dock",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 768,
+    "w": 393,
+    "h": 83
+   },
+   "style": {
+    "flex-shrink": "0",
+    "padding": "12px 16px 18px",
+    "margin": "0px -16px",
+    "background-color": "rgba(16, 18, 13, 0.9)",
+    "border-radius": "26px 26px 0px 0px"
+   },
+   "data": [
+    "data-id=ssn.dock",
+    "data-compose=BottomActionBar"
+   ]
+  },
+  {
+   "id": 143,
+   "depth": 2,
+   "sel": "div.row",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 781,
+    "w": 361,
+    "h": 52
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "10px"
+   },
+   "data": [
+    "data-id=ssn.dock.row"
+   ]
+  },
+  {
+   "id": 144,
+   "depth": 3,
+   "sel": "button.btn.btn-olive",
+   "text": "Compartilhar posição",
+   "rect": {
+    "x": 16,
+    "y": 781,
+    "w": 174.5,
+    "h": 52
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "8px",
+    "padding": "0px 10px",
+    "color": "rgb(14, 19, 6)",
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "24px",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "16px",
+    "text-align": "center",
+    "transition": "transform 0.12s ease-out"
+   },
+   "data": [
+    "data-id=ssn.dock.pos"
+   ]
+  },
+  {
+   "id": 145,
+   "depth": 4,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 26,
+    "y": 798,
+    "w": 18,
+    "h": 18
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=ssn.dock.pos.ic",
+    "data-icon=material:Share"
+   ],
+   "svg": "<svg data-id=\"ssn.dock.pos.ic\" data-icon=\"material:Share\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"18\" cy=\"5\" r=\"3\"></circle><circle cx=\"6\" cy=\"12\" r=\"3\"></circle><circle cx=\"18\" cy=\"19\" r=\"3\"></circle><path d=\"M8.6 10.5l6.8-4M8.6 13.5l6.8 4\"></path></svg>"
+  },
+  {
+   "id": 146,
+   "depth": 3,
+   "sel": "button.btn.btn-ghost",
+   "text": "Compartilhar liga",
+   "rect": {
+    "x": 200.5,
+    "y": 781,
+    "w": 176.5,
+    "h": 52
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "8px",
+    "padding": "0px 10px",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "24px",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "16px",
+    "text-align": "center",
+    "transition": "transform 0.12s ease-out"
+   },
+   "data": [
+    "data-id=ssn.dock.league"
+   ]
+  }
+ ],
+ "root_selector": "main"
+}

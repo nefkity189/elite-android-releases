@@ -1,0 +1,6 @@
+[
+  {"name": "padrao", "eval": "__setState('padrao')", "wait": 800},
+  {"name": "entrada", "eval": "__replay()", "frames": [0, 100, 200, 350, 600]},
+  {"name": "aba_estado", "click": "[data-id='res.ranking.tab-e']", "wait": 300},
+  {"name": "botao_compartilhar_pressionado", "press": "[data-id='res.dock.share']", "wait": 300}
+]

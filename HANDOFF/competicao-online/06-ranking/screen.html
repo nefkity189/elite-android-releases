@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elite - Ranking geral</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --page:#050604;
+  --bg:#0a0b09; --surface:#10120d; --card:#161911; --card-el:#1d2116; --field:#0d0f0a;
+  --line:rgba(236,232,218,.10); --line-strong:rgba(236,232,218,.18);
+  --text:#ece8da; --muted:#8f9384; --dim:#5e6255;
+  --olive:#a3b565; --olive-dark:#5d6b34; --olive-soft:rgba(163,181,101,.14); --on-olive:#0e1306;
+  --red:#d12b2b; --red-soft:rgba(209,43,43,.15); --on-red:#fff4f0;
+  --brass:#c9a24b; --brass-soft:rgba(201,162,75,.16); --amber:#e0a93a; --amber-soft:rgba(224,169,58,.14); --ok:#7fb069; --ok-soft:rgba(127,176,105,.15); --amber-line:rgba(224,169,58,.45); --red-line:rgba(209,43,43,.5); --ok-line:rgba(127,176,105,.45); --brass-line:rgba(201,162,75,.5);
+  --glass:rgba(16,18,13,.82); --glass-bar:rgba(16,18,13,.90); --scrim:rgba(0,0,0,.62);
+  --lg-bronze:#b07a4a; --lg-prata:#b4bab8; --lg-ouro:#c9a24b; --lg-platina:#86bdb3; --lg-diamante:#7fb4de; --lg-elite:#e7e2d0;
+  --av1:#3b4426; --av2:#4a3f1e; --av3:#2e3b3a; --av4:#46301f; --av5:#3a2e3f;
+  --num:"Barlow Condensed","Arial Narrow",sans-serif; --ui:"Inter",sans-serif; --logo:"Saira Stencil One","Impact",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--page);font-family:var(--ui);color:var(--text);display:flex;justify-content:center;padding:0;-webkit-font-smoothing:antialiased}
+button{font-family:var(--ui);color:inherit;background:none;border:0;cursor:pointer}
+[data-id="screen"]{flex:none;position:relative;width:393px;height:851px;overflow:hidden;background:var(--bg);display:flex;flex-direction:column;padding:28px 16px 0}
+svg{display:block;flex:none}
+
+/* ---- tipografia ---- */
+.t1{font:700 30px/32px var(--num);text-transform:uppercase;letter-spacing:.9px}
+.t1s{font:700 24px/26px var(--num);text-transform:uppercase;letter-spacing:.96px}
+.t2{font:600 20px/23px var(--num);text-transform:uppercase;letter-spacing:.8px}
+.t3{font:600 16px/20px var(--ui)}
+.body{font:400 14px/19.6px var(--ui)}
+.cap{font:400 12px/16px var(--ui);color:var(--muted)}
+.eyebrow{font:600 11px/14px var(--ui);text-transform:uppercase;letter-spacing:1.3px;color:var(--muted)}
+.num{font-family:var(--num);font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+.olive{color:var(--olive)} .red{color:var(--red)} .brass{color:var(--brass)} .ok{color:var(--ok)} .amber{color:var(--amber)} .muted{color:var(--muted)}
+.row{display:flex;align-items:center}
+.col{display:flex;flex-direction:column}
+.grow{flex:1;min-width:0}
+.ell{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ---- cartões ---- */
+.card{background:var(--card);border:1px solid var(--line-strong);border-radius:18px}
+.card-sel{border-color:var(--olive);background:linear-gradient(180deg,var(--olive-soft),var(--card))}
+.card-brass{border-color:var(--brass);background:linear-gradient(180deg,var(--brass-soft),var(--card))}
+.card-dash{background:transparent;border:1px dashed var(--line-strong);border-radius:18px}
+
+/* ---- botões ---- */
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 18px;border-radius:24px;font:700 15px/20px var(--ui);transition:transform .12s ease-out;flex:none}
+.btn:active{transform:scale(.96)}
+.btn-lg{height:56px;border-radius:28px;font-size:16px}
+.btn-red{background:var(--red);color:var(--on-red)}
+.btn-olive{background:var(--olive);color:var(--on-olive)}
+.btn-ghost{background:transparent;border:1px solid var(--line-strong);color:var(--text)}
+.btn-share{background:var(--olive-soft);border:1px solid var(--olive-dark);color:var(--olive)}
+.btn-off{background:var(--card-el);color:var(--dim);border:1px solid var(--line)}
+.btn-icon{width:48px;padding:0;flex:none}
+.btn-back{width:40px;height:40px;border-radius:20px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex:none;transition:transform .12s ease-out}
+.btn-back:active{transform:scale(.92)}
+
+/* ---- badges / chips ---- */
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font:700 10.5px/12px var(--ui);text-transform:uppercase;letter-spacing:.6px;flex:none;white-space:nowrap}
+.b-open{background:var(--olive-soft);color:var(--olive)}
+.b-one{background:var(--amber-soft);color:var(--amber)}
+.b-conf{background:var(--ok);color:var(--on-olive)}
+.b-live{background:var(--red-soft);color:var(--red)}
+.b-done{background:var(--card-el);color:var(--muted)}
+.b-none{background:transparent;border:1px solid var(--line-strong);color:var(--muted)}
+.b-brass{background:var(--brass-soft);color:var(--brass)}
+.dot{width:7px;height:7px;border-radius:4px;background:currentColor;flex:none}
+.chip{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:15px;background:var(--card-el);border:1px solid var(--line);font:600 12px/16px var(--ui);flex:none;white-space:nowrap}
+.chip-on{background:var(--olive-soft);border-color:var(--olive-dark);color:var(--olive)}
+.dist{display:inline-flex;align-items:center;justify-content:center;height:24px;padding:0 9px;border-radius:7px;background:var(--card-el);border:1px solid var(--line-strong);font:700 14px/16px var(--num);letter-spacing:.5px}
+
+/* ---- segmentado ---- */
+.seg{display:flex;gap:4px;padding:4px;background:var(--field);border:1px solid var(--line);border-radius:24px;height:48px}
+.seg>button{flex:1;border-radius:20px;font:700 20px/20px var(--num);color:var(--muted);letter-spacing:.5px;transition:background .18s ease-out,color .18s ease-out}
+.seg>button.on{background:var(--olive-soft);color:var(--olive);box-shadow:inset 0 0 0 1px var(--olive-dark)}
+.seg-sm{height:40px;border-radius:20px}
+.seg-sm>button{font:600 13px/16px var(--ui)}
+.tabs{display:flex;gap:20px;height:32px;border-bottom:1px solid var(--line)}
+.tabs>button{font:600 13px/16px var(--ui);color:var(--muted);padding:0 2px 10px;border-bottom:2px solid transparent}
+.tabs>button.on{color:var(--olive);border-bottom-color:var(--olive)}
+
+/* ---- avatares ---- */
+.av{border-radius:50%;display:flex;align-items:center;justify-content:center;font:700 14px/14px var(--num);letter-spacing:.5px;border:1.5px solid var(--line-strong);flex:none;color:var(--text)}
+.av-me{border-color:var(--olive);box-shadow:0 0 0 2px var(--olive-soft)}
+.av-empty{background:transparent;border:1.5px dashed var(--line-strong);color:var(--dim)}
+.stack{display:flex}
+.stack>*+*{margin-left:-8px}
+
+/* ---- barras ---- */
+.bar{height:6px;border-radius:3px;background:var(--card-el);overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:3px;background:var(--olive)}
+.bar-brass>i{background:var(--brass)}
+.hr{height:1px;background:var(--line);flex:none}
+
+.sc-ic{width:32px;height:32px;border-radius:16px;background:var(--brass-soft);color:var(--brass);display:flex;align-items:center;justify-content:center;flex:none}
+
+/* ---- topbar ---- */
+.topbar{display:flex;align-items:center;gap:12px;height:48px;flex:none}
+.logo{display:flex;align-items:center;gap:8px}
+.logo-t{font:400 17px/20px var(--logo);letter-spacing:3.4px}
+
+/* ---- barra inferior fixa ---- */
+.dock{flex:none;margin:0 -16px;padding:14px 16px 18px;background:var(--glass-bar);border-top:1px solid var(--line-strong);border-radius:26px 26px 0 0}
+
+/* ---- cartão de missão ---- */
+.m{display:flex;flex-direction:column;padding:14px;flex:none}
+.m-time{font:700 36px/36px var(--num);font-variant-numeric:tabular-nums;letter-spacing:.5px}
+.m-compact{padding:12px 14px}
+
+/* ---- linha de ranking ---- */
+.rk{display:flex;align-items:center;gap:10px;height:56px;padding:0 12px;border-radius:14px;flex:none}
+.rk-me{background:var(--olive-soft);box-shadow:inset 0 0 0 1px var(--olive-dark)}
+.rk-pos{width:30px;text-align:center;font:700 20px/20px var(--num);font-variant-numeric:tabular-nums;color:var(--muted)}
+.rk-elo{font:700 18px/18px var(--num);font-variant-numeric:tabular-nums;text-align:right}
+.trend{display:flex;align-items:center;justify-content:flex-end;gap:2px;font:600 11px/12px var(--ui);width:36px}
+.t-up{color:var(--ok)} .t-down{color:var(--red)} .t-eq{color:var(--dim)}
+
+/* ---- banners ---- */
+.banner{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;border:1px solid var(--line-strong);background:var(--card);flex:none}
+.banner-ico{width:36px;height:36px;border-radius:18px;display:flex;align-items:center;justify-content:center;flex:none}
+.bn-amber{border-color:var(--amber-line);background:linear-gradient(90deg,var(--amber-soft),var(--card))} .bn-amber .banner-ico{background:var(--amber-soft);color:var(--amber)}
+.bn-red{border-color:var(--red-line);background:linear-gradient(90deg,var(--red-soft),var(--card))} .bn-red .banner-ico{background:var(--red-soft);color:var(--red)}
+.bn-ok{border-color:var(--ok-line);background:linear-gradient(90deg,var(--ok-soft),var(--card))} .bn-ok .banner-ico{background:var(--ok-soft);color:var(--ok)}
+.bn-olive{border-color:var(--olive-dark);background:linear-gradient(90deg,var(--olive-soft),var(--card))} .bn-olive .banner-ico{background:var(--olive-soft);color:var(--olive)}
+.bn-brass{border-color:var(--brass-line);background:linear-gradient(90deg,var(--brass-soft),var(--card))} .bn-brass .banner-ico{background:var(--brass-soft);color:var(--brass)}
+.bn-mute .banner-ico{background:var(--card-el);color:var(--muted)}
+
+@media (prefers-reduced-motion:reduce){
+  .btn,.btn-back,.seg>button{transition:none}
+}
+
+/* ---- mini card de convite (miniatura do card compartilhável) ---- */
+.mini{display:flex;flex-direction:column;justify-content:space-between;padding:12px;border-radius:14px;background:linear-gradient(160deg,var(--card-el),var(--bg));border:1px solid var(--olive-dark)}
+.stripe{height:4px;width:100%;background:var(--red);border-radius:2px;transform:skewX(-20deg)}
+
+.invite{padding:14px;background:linear-gradient(135deg,var(--olive-soft),var(--card) 70%);border:1px solid var(--olive-dark);border-radius:18px;display:flex;flex-direction:column;gap:10px;flex:none}
+
+.kv{flex:1;display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.kv .num{font-size:28px}
+
+.num{white-space:nowrap}
+.sc-chip{white-space:nowrap}
+
+[data-id="rank.list"]{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;display:flex;flex-direction:column;gap:6px;padding-bottom:12px}
+[data-id="rank.list"]::-webkit-scrollbar{display:none}
+.pod{display:flex;align-items:flex-end;gap:8px;padding:6px 0 0;flex:none}
+.pod-c{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0}
+.pod-c .nm{font:600 12px/14px var(--ui);max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pod-b{width:100%;border-radius:12px 12px 0 0;display:flex;align-items:center;justify-content:center;font:700 26px/26px var(--num)}
+.dv{display:flex;align-items:center;gap:8px;height:26px;flex:none;margin-top:4px}
+.dv i{flex:1;height:1px;background:var(--line-strong);display:block}
+.dv span{font:700 10px/12px var(--ui);letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.z-up{box-shadow:inset 3px 0 0 var(--olive)}
+.z-down{box-shadow:inset 3px 0 0 var(--red)}
+.rk .lg{display:flex;align-items:center;gap:4px;font:400 11px/12px var(--ui);color:var(--muted)}
+.fchips{display:flex;gap:6px}
+.fchips .chip{flex:1;justify-content:center;height:34px;border-radius:17px;font-size:13px}
+.empty-r{display:none}
+.v-top,.v-near,.v-vazio,.sheet-wrap{display:none}
+[data-state="padrao"] .v-top,[data-state="perfil_publico"] .v-top{display:flex}
+[data-state="perto_de_voce"] .v-near{display:flex}
+[data-state="vazio"] .v-vazio{display:flex}
+[data-state="perfil_publico"] .sheet-wrap{display:flex}
+.sheet-wrap{position:absolute;inset:0;z-index:10;flex-direction:column;justify-content:flex-end}
+.ld{display:flex;justify-content:center;gap:6px;padding:12px 0;flex:none}
+.ld i{width:6px;height:6px;border-radius:3px;background:var(--dim);display:block}
+
+.scrim{position:absolute;inset:0;background:var(--scrim);animation:fade-in .24s ease-out both}
+.sheet{position:relative;background:var(--surface);border:1px solid var(--line-strong);border-bottom:0;border-radius:26px 26px 0 0;padding:10px 16px 24px;animation:sheet-up .32s cubic-bezier(.2,.8,.2,1) both}
+.grab{width:40px;height:4px;border-radius:2px;background:var(--line-strong);margin:0 auto 14px}
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+@keyframes sheet-up{from{transform:translateY(100%)}to{transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){.scrim,.sheet{animation:none}}
+
+</style>
+</head>
+<body>
+<main data-id="screen" data-viewport="393x851" data-state="padrao">
+  <header data-id="rank.topbar" class="topbar">
+    <button data-id="rank.topbar.back" class="btn-back" aria-label="Voltar"><svg data-id="rank.topbar.back.ic" data-icon="material:ArrowBack" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <h1 data-id="rank.topbar.title" class="t1 grow">Ranking</h1>
+    <button data-id="rank.topbar.share" class="btn-back" aria-label="Compartilhar minha posição"><svg data-id="rank.topbar.share.ic" data-icon="material:Share" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5l6.8-4M8.6 13.5l6.8 4"/></svg></button>
+  </header>
+
+  <button data-id="rank.season" class="card row" style="height:56px;padding:0 14px;gap:10px;margin-top:8px;flex:none;text-align:left" data-compose="SeasonStrip" aria-label="Abrir temporada">
+    <div data-id="rank.season.col" class="col grow" style="gap:2px;align-items:flex-start"><span data-id="rank.season.name" class="t3" data-bind="season.name">Temporada 1</span><span data-id="rank.season.left" class="cap" data-bind="season.remaining">termina em 12d 04h</span></div>
+    <span data-id="rank.season.league" class="chip" style="height:36px;padding:0 12px 0 8px;background:var(--brass-soft);border-color:var(--brass-line);color:var(--brass)"><svg data-id="rank.season.league.badge" data-icon="custom:ic_league_ouro_2" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-ouro)"/><path d="M7.8 10L12 13L16.2 10" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 14.5L12 17.5L16.2 14.5" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Liga Ouro II</span>
+    <svg data-id="rank.season.go" data-icon="material:ChevronRight" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+  </button>
+
+  <section data-id="rank.me" class="card card-brass" style="padding:12px 14px;margin-top:8px;flex:none" data-compose="PlayerRankCard">
+    <div data-id="rank.me.row" class="row" style="gap:10px">
+      <div data-id="rank.me.av" class="av av-me" style="width:40px;height:40px;background:var(--av1);font-size:15px">RN</div>
+      <div data-id="rank.me.row.col" class="col grow" style="gap:2px"><span data-id="rank.me.name" class="t3" style="font-size:14px" data-bind="user.name">Rafael Nunes</span><span data-id="rank.me.league" class="row cap" style="gap:5px;white-space:nowrap"><svg data-id="rank.me.league.badge" data-icon="custom:ic_league_ouro_2" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-ouro)"/><path d="M7.8 10L12 13L16.2 10" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 14.5L12 17.5L16.2 14.5" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ouro II · <b data-id="rank.me.elo" style="color:var(--text)" data-bind="user.elo">1.542</b> pts</span></div>
+      <div data-id="rank.me.row.col2" class="col" style="align-items:center;gap:1px;padding:0 4px"><span data-id="rank.me.row.col2.eyebrow" class="eyebrow" style="font-size:9.5px">Global</span><span data-id="rank.me.global" class="num" style="font-size:24px">#128</span></div>
+      <div data-id="rank.me.row.col3" class="col" style="align-items:center;gap:1px;padding-left:8px;border-left:1px solid var(--line)"><span data-id="rank.me.row.col3.eyebrow" class="eyebrow" style="font-size:9.5px">Estado MT</span><span data-id="rank.me.state" class="num" style="font-size:24px">#7</span></div>
+    </div>
+    <div data-id="rank.me.row2" class="row" style="gap:10px;margin-top:10px"><div class="bar grow" data-id="rank.me.bar" style="height:6px"><i data-id="rank.me.bar.fill" style="width:71%"></i></div><span data-id="rank.me.delta" class="row t-up" style="font:700 12px/14px var(--ui);gap:2px"><svg data-id="rank.me.delta.ic" data-icon="material:ArrowDropUp" viewBox="0 0 24 24" width="9" height="9" fill="currentColor" aria-hidden="true"><path d="M12 5l8 14H4z"/></svg>+18 pts</span></div>
+    <div data-id="rank.me.row3" class="row" style="justify-content:space-between;margin-top:6px"><span data-id="rank.me.next" class="cap">Faltam <b data-id="rank.me.next.b" style="color:var(--text)">58 pts</b> para Ouro I</span><button data-id="rank.me.profile" class="row olive" style="font:600 12px/14px var(--ui);gap:2px">Ver meu perfil no ranking<svg data-id="rank.me.profile.ic" data-icon="material:ChevronRight" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
+  </section>
+
+  <section data-id="rank.filters" class="col" style="gap:8px;margin-top:10px;flex:none" data-compose="RankingFilters">
+    <nav data-id="rank.filters.scope" class="seg seg-sm" aria-label="Escopo"><button data-id="rank.filters.scope.g" class="on">Global</button><button data-id="rank.filters.scope.e">Meu estado</button></nav>
+    <nav data-id="rank.filters.dist" class="fchips" aria-label="Distância"><button data-id="rank.filters.dist.all" class="chip chip-on">Geral</button><button data-id="rank.filters.dist.d25" class="chip">2,5K</button><button data-id="rank.filters.dist.d5" class="chip">5K</button><button data-id="rank.filters.dist.d10" class="chip">10K</button></nav>
+    <nav data-id="rank.filters.period" class="tabs" aria-label="Período"><button data-id="rank.filters.period.season" class="on">Temporada atual</button><button data-id="rank.filters.period.all">Geral histórico</button></nav>
+  </section>
+
+  <div data-id="rank.list" style="margin-top:8px" data-compose="LazyColumn (paginação infinita)">
+    <!-- Visão do topo -->
+    <div data-id="rank.podium" class="pod v-top" data-compose="RankingPodium">
+      <div data-id="rank.podium.p2" class="pod-c"><div data-id="rank.podium.p2.av" class="av" style="width:44px;height:44px;background:var(--av3);font-size:16px">FA</div><span data-id="rank.podium.p2.name" class="nm">Felipe Arruda</span><span data-id="rank.podium.p2.elo" class="num" style="font-size:18px">3.241</span><div data-id="rank.podium.p2.block" class="pod-b" style="height:40px;background:var(--card-el);color:var(--lg-prata)">2</div></div>
+      <div data-id="rank.podium.p1" class="pod-c"><span data-id="rank.podium.p1.brass" class="brass"><svg data-id="rank.podium.p1.crown" data-icon="material:Stars" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8l4 4 5-7 5 7 4-4-2 12H5z"/></svg></span><div data-id="rank.podium.p1.av" class="av" style="width:52px;height:52px;background:var(--av2);font-size:19px">MS</div><span data-id="rank.podium.p1.name" class="nm">Marina Siqueira</span><span data-id="rank.podium.p1.elo" class="num brass" style="font-size:20px">3.286</span><div data-id="rank.podium.p1.block" class="pod-b" style="height:56px;background:var(--brass-soft);color:var(--brass)">1</div></div>
+      <div data-id="rank.podium.p3" class="pod-c"><div data-id="rank.podium.p3.av" class="av" style="width:44px;height:44px;background:var(--av5);font-size:16px">PL</div><span data-id="rank.podium.p3.name" class="nm">Patrícia Lemos</span><span data-id="rank.podium.p3.elo" class="num" style="font-size:18px">3.198</span><div data-id="rank.podium.p3.block" class="pod-b" style="height:30px;background:var(--card-el);color:var(--lg-bronze)">3</div></div>
+    </div>
+    <div data-id="rank.legend" class="row v-top" style="gap:14px;justify-content:center;margin:6px 0 2px"><span data-id="rank.legend.cap" class="cap row" style="gap:5px"><i data-id="rank.legend.cap.dot" class="dot olive"></i>Zona de promoção</span><span data-id="rank.legend.cap2" class="cap row" style="gap:5px"><i data-id="rank.legend.cap2.dot" class="dot red"></i>Zona de rebaixamento</span></div>
+    <div data-id="rank.r4" class="rk v-top z-up" style="background:var(--card)"><span data-id="rank.r4.rk-pos" class="rk-pos">4</span><div data-id="rank.r4.av" class="av" style="width:32px;height:32px;background:var(--av4);font-size:12px">GR</div><div data-id="rank.r4.col" class="col grow" style="gap:2px;min-width:0"><span data-id="rank.r4.name" class="t3 ell" style="font-size:14px">Gustavo Ribeiro</span><span data-id="rank.r4.col.lg" class="lg"><svg data-id="rank.r4.badge" data-icon="custom:ic_league_elite_0" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-elite)"/><path d="M10.2 7.2H17L16.6 8.9H11.7L10.5 14.6H15.4L15 16.3H8.3Z" style="fill:var(--bg)"/><path d="M11.3 10.8H15.1L14.8 12.3H11Z" style="fill:var(--red)"/></svg>Elite</span></div><span data-id="rank.r4.elo" class="rk-elo">3.120</span><span data-id="rank.r4.trend" class="trend t-eq">—</span></div>
+    <div data-id="rank.r5" class="rk v-top z-down" style="background:var(--card)"><span data-id="rank.r5.rk-pos" class="rk-pos">5</span><div data-id="rank.r5.av" class="av" style="width:32px;height:32px;background:var(--av1);font-size:12px">AM</div><div data-id="rank.r5.col" class="col grow" style="gap:2px;min-width:0"><span data-id="rank.r5.name" class="t3 ell" style="font-size:14px">Ana Beatriz Moura</span><span data-id="rank.r5.col.lg" class="lg"><svg data-id="rank.r5.badge" data-icon="custom:ic_league_elite_0" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-elite)"/><path d="M10.2 7.2H17L16.6 8.9H11.7L10.5 14.6H15.4L15 16.3H8.3Z" style="fill:var(--bg)"/><path d="M11.3 10.8H15.1L14.8 12.3H11Z" style="fill:var(--red)"/></svg>Elite</span></div><span data-id="rank.r5.elo" class="rk-elo">3.047</span><span data-id="rank.r5.trend" class="trend t-down"><svg data-id="rank.r5.tr" data-icon="material:ArrowDropUp" viewBox="0 0 24 24" width="8" height="8" fill="currentColor" aria-hidden="true"><path d="M12 19L4 5h16z"/></svg>2</span></div>
+    <div data-id="rank.dv1" class="dv v-top"><i data-id="rank.dv1.i"></i><span data-id="rank.dv1.row" class="row" style="gap:6px"><svg data-id="rank.dv1.badge" data-icon="custom:ic_league_diamante_1" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-diamante)"/><path d="M7.8 8L12 11L16.2 8" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 16L12 19L16.2 16" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Diamante I · 2.800–2.999</span><i data-id="rank.dv1.i2"></i></div>
+    <div data-id="rank.r6" class="rk v-top z-up" style="background:var(--card)"><span data-id="rank.r6.rk-pos" class="rk-pos">6</span><div data-id="rank.r6.av" class="av" style="width:32px;height:32px;background:var(--av2);font-size:12px">HC</div><div data-id="rank.r6.col" class="col grow" style="gap:2px;min-width:0"><span data-id="rank.r6.name" class="t3 ell" style="font-size:14px">Henrique Castro</span><span data-id="rank.r6.col.lg" class="lg"><svg data-id="rank.r6.badge" data-icon="custom:ic_league_diamante_1" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-diamante)"/><path d="M7.8 8L12 11L16.2 8" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 16L12 19L16.2 16" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Diamante I</span></div><span data-id="rank.r6.elo" class="rk-elo">2.986</span><span data-id="rank.r6.trend" class="trend t-up"><svg data-id="rank.r6.tr" data-icon="material:ArrowDropUp" viewBox="0 0 24 24" width="8" height="8" fill="currentColor" aria-hidden="true"><path d="M12 5l8 14H4z"/></svg>1</span></div>
+    <div data-id="rank.r7" class="rk v-top z-up" style="background:var(--card)"><span data-id="rank.r7.rk-pos" class="rk-pos">7</span><div data-id="rank.r7.av" class="av" style="width:32px;height:32px;background:var(--av3);font-size:12px">BV</div><div data-id="rank.r7.col" class="col grow" style="gap:2px;min-width:0"><span data-id="rank.r7.name" class="t3 ell" style="font-size:14px">Bianca Vasques</span><span data-id="rank.r7.col.lg" class="lg"><svg data-id="rank.r7.badge" data-icon="custom:ic_league_diamante_1" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-diamante)"/><path d="M7.8 8L12 11L16.2 8" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 16L12 19L16.2 16" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Diamante I</span></div><span data-id="rank.r7.elo" class="rk-elo">2.951</span><span data-id="rank.r7.trend" class="trend t-up"><svg data-id="rank.r7.tr" data-icon="material:ArrowDropUp" viewBox="0 0 24 24" width="8" height="8" fill="currentColor" aria-hidden="true"><path d="M12 5l8 14H4z"/></svg>4</span></div>
+    <div data-id="rank.r8" class="rk v-top" style="background:var(--card)"><span data-id="rank.r8.rk-pos" class="rk-pos">8</span><div data-id="rank.r8.av" class="av" style="width:32px;height:32px;background:var(--av5);font-size:12px">CM</div><div data-id="rank.r8.col" class="col grow" style="gap:2px;min-width:0"><span data-id="rank.r8.name" class="t3 ell" style="font-size:14px">Caio Menezes</span><span data-id="rank.r8.col.lg" class="lg"><svg data-id="rank.r8.badge" data-icon="custom:ic_league_diamante_1" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-diamante)"/><path d="M7.8 8L12 11L16.2 8" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12L12 15L16.2 12" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 16L12 19L16.2 16" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Diamante I</span></div><span data-id="rank.r8.elo" class="rk-elo">2.902</span><span data-id="rank.r8.trend" class="trend t-down"><svg data-id="rank.r8.tr" data-icon="material:ArrowDropUp" viewBox="0 0 24 24" width="8" height="8" fill="currentColor" aria-hidden="true"><path d="M12 19L4 5h16z"/></svg>1</span></div>
+
+    <!-- Visão perto do usuário (rolagem até a posição do jogador) -->
+    <div data-id="rank.gap" class="cap v-near" style="justify-content:center;padding:6px 0">… posições 9 a 125 carregadas ao rolar …</div>
+    <div data-id="rank.dv2" class="dv v-near"><i data-id="rank.dv2.i"></i><span data-id="rank.dv2.row" class="row" style="gap:6px"><svg data-id="rank.dv2.badge" data-icon="custom:ic_league_ouro_2" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-ouro)"/><path d="M7.8 10L12 13L16.2 10" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 14.5L12 17.5L16.2 14.5" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ouro II · 1.400–1.599</span><i data-id="rank.dv2.i2"></i></div>
+    <div data-id="rank.n1" class="rk v-near z-up" style="background:var(--card)"><span data-id="rank.n1.rk-pos" class="rk-pos">126</span><div data-id="rank.n1.av" class="av" style="width:32px;height:32px;background:var(--av4);font-size:12px">LP</div><div data-id="rank.n1.col" class="col grow" style="gap:2px;min-width:0"><span data-id="rank.n1.name" class="t3 ell" style="font-size:14px">Larissa Prado</span><span data-id="rank.n1.col.lg" class="lg"><svg data-id="rank.n1.badge" data-icon="custom:ic_league_ouro_2" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-ouro)"/><path d="M7.8 10L12 13L16.2 10" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 14.5L12 17.5L16.2 14.5" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ouro II</span></div><span data-id="rank.n1.elo" class="rk-elo">1.553</span><span data-id="rank.n1.trend" class="trend t-up"><svg data-id="rank.n1.tr" data-icon="material:ArrowDropUp" viewBox="0 0 24 24" width="8" height="8" fill="currentColor" aria-hidden="true"><path d="M12 5l8 14H4z"/></svg>2</span></div>
+    <div data-id="rank.n2" class="rk v-near" style="background:var(--card)"><span data-id="rank.n2.rk-pos" class="rk-pos">127</span><div data-id="rank.n2.av" class="av" style="width:32px;height:32px;background:var(--av5);font-size:12px">TM</div><div data-id="rank.n2.col" class="col grow" style="gap:2px;min-width:0"><span data-id="rank.n2.name" class="t3 ell" style="font-size:14px">Thiago Menezes</span><span data-id="rank.n2.col.lg" class="lg"><svg data-id="rank.n2.badge" data-icon="custom:ic_league_ouro_2" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-ouro)"/><path d="M7.8 10L12 13L16.2 10" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 14.5L12 17.5L16.2 14.5" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ouro II</span></div><span data-id="rank.n2.elo" class="rk-elo">1.547</span><span data-id="rank.n2.trend" class="trend t-down"><svg data-id="rank.n2.tr" data-icon="material:ArrowDropUp" viewBox="0 0 24 24" width="8" height="8" fill="currentColor" aria-hidden="true"><path d="M12 19L4 5h16z"/></svg>1</span></div>
+    <div data-id="rank.n3" class="rk rk-me v-near"><span data-id="rank.n3.rk-pos" class="rk-pos olive">128</span><div data-id="rank.n3.av" class="av av-me" style="width:32px;height:32px;background:var(--av1);font-size:12px">RN</div><div data-id="rank.n3.col" class="col grow" style="gap:2px;min-width:0"><span data-id="rank.n3.name" class="t3 ell" style="font-size:14px">Você</span><span data-id="rank.n3.col.lg" class="lg"><svg data-id="rank.n3.badge" data-icon="custom:ic_league_ouro_2" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-ouro)"/><path d="M7.8 10L12 13L16.2 10" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 14.5L12 17.5L16.2 14.5" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ouro II</span></div><span data-id="rank.n3.elo" class="rk-elo olive">1.542</span><span data-id="rank.n3.trend" class="trend t-up"><svg data-id="rank.n3.tr" data-icon="material:ArrowDropUp" viewBox="0 0 24 24" width="8" height="8" fill="currentColor" aria-hidden="true"><path d="M12 5l8 14H4z"/></svg>9</span></div>
+    <div data-id="rank.n4" class="rk v-near" style="background:var(--card)"><span data-id="rank.n4.rk-pos" class="rk-pos">129</span><div data-id="rank.n4.av" class="av" style="width:32px;height:32px;background:var(--av3);font-size:12px">DS</div><div data-id="rank.n4.col" class="col grow" style="gap:2px;min-width:0"><span data-id="rank.n4.name" class="t3 ell" style="font-size:14px">Débora Salles</span><span data-id="rank.n4.col.lg" class="lg"><svg data-id="rank.n4.badge" data-icon="custom:ic_league_ouro_2" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-ouro)"/><path d="M7.8 10L12 13L16.2 10" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 14.5L12 17.5L16.2 14.5" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ouro II</span></div><span data-id="rank.n4.elo" class="rk-elo">1.538</span><span data-id="rank.n4.trend" class="trend t-eq">—</span></div>
+    <div data-id="rank.n5" class="rk v-near z-down" style="background:var(--card)"><span data-id="rank.n5.rk-pos" class="rk-pos">130</span><div data-id="rank.n5.av" class="av" style="width:32px;height:32px;background:var(--av2);font-size:12px">MV</div><div data-id="rank.n5.col" class="col grow" style="gap:2px;min-width:0"><span data-id="rank.n5.name" class="t3 ell" style="font-size:14px">Marcos Vidal</span><span data-id="rank.n5.col.lg" class="lg"><svg data-id="rank.n5.badge" data-icon="custom:ic_league_ouro_2" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-ouro)"/><path d="M7.8 10L12 13L16.2 10" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 14.5L12 17.5L16.2 14.5" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ouro II</span></div><span data-id="rank.n5.elo" class="rk-elo">1.533</span><span data-id="rank.n5.trend" class="trend t-down"><svg data-id="rank.n5.tr" data-icon="material:ArrowDropUp" viewBox="0 0 24 24" width="8" height="8" fill="currentColor" aria-hidden="true"><path d="M12 19L4 5h16z"/></svg>3</span></div>
+    <div data-id="rank.loader" class="ld v-near" aria-label="Carregando mais"><i data-id="rank.loader.i"></i><i data-id="rank.loader.i2"></i><i data-id="rank.loader.i3"></i></div>
+
+    <!-- Vazio -->
+    <div data-id="rank.empty" class="card-dash col v-vazio" style="flex:1;align-items:center;justify-content:center;gap:8px;padding:24px;text-align:center" data-compose="RankingEmptyState">
+      <div class="sc-ic" data-id="rank.empty.icon" style="width:52px;height:52px;border-radius:26px;background:var(--card-el);color:var(--muted)"><svg data-id="rank.empty.icon.ic" data-icon="material:BarChart" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+      <h3 data-id="rank.empty.title" class="t2">Sem competidores neste filtro</h3>
+      <p data-id="rank.empty.text" class="cap">Ninguém do seu estado pontuou nos 10K desta temporada ainda. Corra uma missão e abra o ranking.</p>
+      <button data-id="rank.empty.cta" class="btn btn-share" style="margin-top:6px">Ver missões 10K</button>
+    </div>
+  </div>
+
+  <div data-id="rank.sheet" class="sheet-wrap" data-compose="PublicProfileSheet (ModalBottomSheet)">
+    <div data-id="rank.sheet.scrim" class="scrim"></div>
+    <div data-id="rank.sheet.panel" class="sheet">
+      <div data-id="rank.sheet.grab" class="grab"></div>
+      <div data-id="rank.sheet.panel.row" class="row" style="gap:14px">
+        <div data-id="rank.sheet.av" class="av" style="width:64px;height:64px;background:var(--av2);font-size:24px">MS</div>
+        <div data-id="rank.sheet.panel.row.col" class="col grow" style="gap:4px"><span data-id="rank.sheet.name" class="t2" style="font-size:22px">Marina Siqueira</span><span data-id="rank.sheet.sub" class="row cap" style="gap:6px"><svg data-id="rank.sheet.badge" data-icon="custom:ic_league_elite_0" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-elite)"/><path d="M10.2 7.2H17L16.6 8.9H11.7L10.5 14.6H15.4L15 16.3H8.3Z" style="fill:var(--bg)"/><path d="M11.3 10.8H15.1L14.8 12.3H11Z" style="fill:var(--red)"/></svg>Liga Elite · Goiás (GO)</span></div>
+        <button data-id="rank.sheet.close" class="btn-back" aria-label="Fechar perfil"><svg data-id="rank.sheet.close.ic" data-icon="material:Close" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+      </div>
+      <div data-id="rank.sheet.panel.row2" class="row" style="gap:10px;margin-top:16px">
+        <div data-id="rank.sheet.panel.row2.kv" class="kv card" style="padding:10px 12px;border-radius:14px"><span data-id="rank.sheet.panel.row2.kv.eyebrow" class="eyebrow" style="font-size:10px">Global</span><span data-id="rank.sheet.k1" class="num brass">#1</span></div>
+        <div data-id="rank.sheet.panel.row2.kv2" class="kv card" style="padding:10px 12px;border-radius:14px"><span data-id="rank.sheet.panel.row2.kv2.eyebrow" class="eyebrow" style="font-size:10px">Elo</span><span data-id="rank.sheet.k2" class="num">3.286</span></div>
+        <div data-id="rank.sheet.panel.row2.kv3" class="kv card" style="padding:10px 12px;border-radius:14px"><span data-id="rank.sheet.panel.row2.kv3.eyebrow" class="eyebrow" style="font-size:10px">Vitórias</span><span data-id="rank.sheet.k3" class="num">41</span></div>
+      </div>
+      <div data-id="rank.sheet.panel.row3" class="row" style="gap:10px;margin-top:10px">
+        <div data-id="rank.sheet.panel.row3.kv" class="kv card" style="padding:10px 12px;border-radius:14px"><span data-id="rank.sheet.panel.row3.kv.eyebrow" class="eyebrow" style="font-size:10px">Missões</span><span data-id="rank.sheet.k4" class="num">96</span></div>
+        <div data-id="rank.sheet.panel.row3.kv2" class="kv card" style="padding:10px 12px;border-radius:14px"><span data-id="rank.sheet.panel.row3.kv2.eyebrow" class="eyebrow" style="font-size:10px">Melhor pace</span><span data-id="rank.sheet.k5" class="num">3:58</span></div>
+        <div data-id="rank.sheet.panel.row3.kv3" class="kv card" style="padding:10px 12px;border-radius:14px"><span data-id="rank.sheet.panel.row3.kv3.eyebrow" class="eyebrow" style="font-size:10px">Pódios</span><span data-id="rank.sheet.k6" class="num">63</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    var root=document.querySelector('[data-id="screen"]'),l=document.querySelector('[data-id="rank.list"]');
+    function on(sel,cls){var els=document.querySelectorAll(sel+' button');els.forEach(function(b){b.addEventListener('click',function(){els.forEach(function(x){x.classList.remove(cls)});b.classList.add(cls);});});}
+    on('[data-id="rank.filters.scope"]','on');on('[data-id="rank.filters.dist"]','chip-on');on('[data-id="rank.filters.period"]','on');
+    document.querySelector('[data-id="rank.r4"]').addEventListener('click',function(){window.__setState('perfil_publico')});
+    document.querySelector('[data-id="rank.sheet.close"]').addEventListener('click',function(){window.__setState('padrao')});
+    window.__setState=function(n){root.setAttribute('data-state',n);l.scrollTop=0;if(n==='perto_de_voce'){var t=document.querySelector('[data-id="rank.n3"]');l.scrollTop=0;}};
+  })();
+  </script>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+appId: com.elite.sch.app
+---
+- launchApp
+- takeScreenshot: "01_welcome"
+- tapOn:
+    id: "input_user_name"
+- inputText: "Teste"
+- tapOn:
+    id: "btn_comecar"
+- takeScreenshot: "02_after_name"
+- waitForAnimationToEnd
+- tapOn:
+    text: "Perfil"
+- takeScreenshot: "03_profile"

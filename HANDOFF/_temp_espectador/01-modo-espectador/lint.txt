@@ -1,0 +1,8 @@
+WARN: touch target button.back is 40x40 (<44dp)
+ERROR: text "6" in span.ppos is covered by button.act.sec2 (needs position:relative; z-index above the layer)
+ERROR: text "EL" in span.av.a1 is covered by button.act.sec2 (needs position:relative; z-index above the layer)
+ERROR: text "Elisa Costa" in p.pname is covered by button.act.sec2 (needs position:relative; z-index above the layer)
+ERROR: text "Tempo: 22:12" in span is covered by button.act.sec2 (needs position:relative; z-index above the layer)
+ERROR: text "2,45 km" in p.pkm is covered by button.act.sec2 (needs position:relative; z-index above the layer)
+ERROR: text "9:01 /km" in p.pmv is covered by button.act.sec2 (needs position:relative; z-index above the layer)
+root=main 393x851dp  errors=6 warnings=1

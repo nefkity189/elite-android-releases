@@ -36,7 +36,7 @@ O aplicativo **Primeiro 5K** opera no modelo On-Device First:
 
 ## 2. Camadas do Sistema
 
-### 2.1 Apresentação (`com.example.ui`)
+### 2.1 Apresentação (`com.elite.sch.app.ui`)
 - **Jetpack Compose + Material 3**: UI moderna, reativa, responsiva e com suporte a temas claro/escuro.
 - **`MainViewModel`**: Expõe `uiState: StateFlow<MainUiState>` consumido com `collectAsStateWithLifecycle()`.
 - **Navegação & Telas**:
@@ -48,12 +48,12 @@ O aplicativo **Primeiro 5K** opera no modelo On-Device First:
   - `TodayScreen`: Treino do dia com passos (ou descanso) e ações de conclusão/pulo.
   - `FullPlanScreen`: Navegação completa por semanas e progresso acumulado.
 
-### 2.2 Domínio e Motor de Treino (`com.example.generator`, `com.example.model`)
+### 2.2 Domínio e Motor de Treino (`com.elite.sch.app.generator`, `com.elite.sch.app.model`)
 - **`PlanGenerator`**: Função Kotlin pura e determinística. Calcula a distribuição de semanas, comprime ou repete etapas e agenda as datas respeitando a proibição de treinos em dias consecutivos.
 - **`ProgressionTable`**: Arquivo isolado e desacoplado que centraliza as 9 etapas provisórias de treino para fácil revisão e ajustes por profissionais de saúde.
 - **`WorkoutStep` & `StageProgression`**: Modelos puros representando cada fração de aquecimento, corrida, caminhada e desaquecimento.
 
-### 2.3 Persistência Local (`com.example.data.local`)
+### 2.3 Persistência Local (`com.elite.sch.app.data.local`)
 - **Room Database** (`primeiro_5k.db`):
   - `RunnerProfileEntity`: Perfil e respostas de triagem do corredor.
   - `PlanEntity`: Metadados do plano ativo (início, término, total de semanas, termo aceito).

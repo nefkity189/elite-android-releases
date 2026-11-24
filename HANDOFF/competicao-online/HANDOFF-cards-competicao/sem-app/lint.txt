@@ -1,0 +1,4 @@
+WARN: div.a extends outside the screen: 600,120,1120,644 (screen 1080x1350)
+WARN: div.z.d.sk extends outside the screen: 72,240,1188,592 (screen 1080x1350)
+WARN: br extends outside the screen: 1145,216,1193,439 (screen 1080x1350)
+root=.phone 1080x1350dp  errors=0 warnings=3

@@ -1,0 +1,5 @@
+[
+  {"name": "globais", "eval": "__setState('padrao')", "wait": 200},
+  {"name": "locais", "click": "[data-id='ach.tabs.l']", "wait": 300},
+  {"name": "compartilhar_conquista_pressionado", "press": "[data-id='ach.new.share']", "wait": 300}
+]

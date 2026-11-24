@@ -1,0 +1,58 @@
+[
+ {
+  "name": "detalhes_topo",
+  "wait": 300
+ },
+ {
+  "name": "detalhes_rolado_cards",
+  "eval": "document.querySelector('[data-id=\"det.scroll\"]').scrollTop=520",
+  "wait": 200
+ },
+ {
+  "name": "detalhes_rolado_fim",
+  "eval": "document.querySelector('[data-id=\"det.scroll\"]').scrollTop=2000",
+  "wait": 200
+ },
+ {
+  "name": "botao_compartilhar_pressionado",
+  "press": "[data-id='det.top.share']",
+  "wait": 300
+ },
+ {
+  "name": "cta_compartilhar_pressionado",
+  "press": "[data-id='det.share.cta']",
+  "wait": 300
+ },
+ {
+  "name": "preview_aberto_pelo_topo",
+  "click": "[data-id='det.top.share']",
+  "frames": [
+   0,
+   80,
+   160,
+   220,
+   400
+  ]
+ },
+ {
+  "name": "preview_aberto_pelo_cartao",
+  "click": "[data-id='det.share.cta']",
+  "frames": [
+   0,
+   80,
+   160,
+   220,
+   400
+  ]
+ },
+ {
+  "name": "preview_compartilhar",
+  "eval": "__goto('compartilhar')",
+  "frames": [
+   0,
+   100,
+   220,
+   400
+  ]
+ }
+]

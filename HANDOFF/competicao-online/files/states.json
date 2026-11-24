@@ -1,0 +1,13 @@
+[
+  {"name": "deslogado", "eval": "__setState('deslogado')", "wait": 300},
+  {"name": "entrando", "eval": "__setState('entrando')", "wait": 300},
+  {"name": "entrando_spinner", "eval": "__setState('entrando')", "frames": [0, 250, 500, 750]},
+  {"name": "erro", "eval": "__setState('erro')", "wait": 300},
+  {"name": "logado", "eval": "__setState('logado')", "wait": 300},
+  {"name": "logado_sem_uf", "eval": "__setState('logado_sem_uf')", "wait": 300},
+  {"name": "uf_sheet", "eval": "__setState('uf_sheet')", "wait": 300},
+  {"name": "sair_dialog", "eval": "__setState('sair_dialog')", "wait": 300},
+  {"name": "excluir_dialog", "eval": "__setState('excluir_dialog')", "wait": 300},
+  {"name": "google_pressionado", "press": "[data-id='acct.out.google']", "wait": 300},
+  {"name": "sair_pressionado", "setup": ["[data-id='preview.logado']"], "press": "[data-id='acct.in.signout']", "wait": 300}
+]

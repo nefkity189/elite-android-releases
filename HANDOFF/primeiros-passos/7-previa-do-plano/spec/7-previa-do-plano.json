@@ -1,0 +1,888 @@
+{
+ "screen": {
+  "w": 393,
+  "h": 851
+ },
+ "tokens": {
+  "--bg": "#0A0B09",
+  "--s1": "#10120D",
+  "--card": "#161911",
+  "--card2": "#1D2116",
+  "--field": "#0D0F0A",
+  "--page": "#050604",
+  "--line": "rgba(236,232,218,.10)",
+  "--line2": "rgba(236,232,218,.18)",
+  "--text": "#ECE8DA",
+  "--mut": "#8F9384",
+  "--dim": "#5E6255",
+  "--olive": "#A3B565",
+  "--olive-d": "#5D6B34",
+  "--olive-s": "rgba(163,181,101,.14)",
+  "--on-olive": "#0E1306",
+  "--red": "#D12B2B",
+  "--red-s": "rgba(209,43,43,.15)",
+  "--on-red": "#FFF4F0",
+  "--brass": "#C9A24B",
+  "--amber": "#E0A93A",
+  "--ok": "#7FB069",
+  "--num": "\"Barlow Condensed\",\"Arial Narrow\",system-ui,sans-serif",
+  "--ui": "\"Inter\",system-ui,sans-serif",
+  "--sten": "\"Saira Stencil One\",\"Barlow Condensed\",Impact,sans-serif"
+ },
+ "fonts": [
+  {
+   "family": "Inter",
+   "loaded": true
+  },
+  {
+   "family": "Barlow Condensed",
+   "loaded": false
+  }
+ ],
+ "media_queries": [
+  "(prefers-reduced-motion: reduce)",
+  "(max-width: 430px)"
+ ],
+ "animations": [],
+ "elements": [
+  {
+   "id": 0,
+   "depth": 0,
+   "sel": "main.phone.st",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 851
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "flex-direction": "column",
+    "background-color": "rgb(10, 11, 9)",
+    "background-image": "repeating-linear-gradient(135deg, rgba(236, 232, 218, 0.016) 0px, rgba(236, 232, 218, 0.016) 1px, rgba(0, 0, 0, 0) 1px, rgba(0, 0, 0, 0) 8px)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-screen=7-prévia-do-plano"
+   ]
+  },
+  {
+   "id": 1,
+   "depth": 1,
+   "sel": "div.scr.sc",
+   "text": null,
+   "rect": {
+    "x": 1,
+    "y": 1,
+    "w": 391,
+    "h": 849
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "14px",
+    "padding": "22px 16px 24px"
+   }
+  },
+  {
+   "id": 2,
+   "depth": 2,
+   "sel": "div.top",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 23,
+    "w": 359,
+    "h": 44
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "10px"
+   }
+  },
+  {
+   "id": 3,
+   "depth": 3,
+   "sel": "button.ib",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 23,
+    "w": 44,
+    "h": 44
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "50%",
+    "text-align": "center",
+    "grid-template-columns": "42px"
+   },
+   "aria": "Voltar"
+  },
+  {
+   "id": 4,
+   "depth": 4,
+   "sel": "svg.ic",
+   "text": null,
+   "rect": {
+    "x": 28,
+    "y": 34,
+    "w": 22,
+    "h": 22
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "svg": "<svg class=\"ic\"><use href=\"#i-back\"></use></svg>"
+  },
+  {
+   "id": 5,
+   "depth": 2,
+   "sel": "div.cl",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 81,
+    "w": 359,
+    "h": 55.5
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-shrink": "0",
+    "gap": "6px"
+   }
+  },
+  {
+   "id": 6,
+   "depth": 3,
+   "sel": "h1.t1",
+   "text": "Prévia do seu plano",
+   "rect": {
+    "x": 17,
+    "y": 81,
+    "w": 359,
+    "h": 31.5
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-size": "30px",
+    "font-weight": "700",
+    "line-height": "31.5px",
+    "letter-spacing": "0.9px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 7,
+   "depth": 3,
+   "sel": "div.rw",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 118.5,
+    "w": 359,
+    "h": 18
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "12px"
+   }
+  },
+  {
+   "id": 8,
+   "depth": 4,
+   "sel": "span.tag",
+   "text": "Plano 5k",
+   "rect": {
+    "x": 17,
+    "y": 118.5,
+    "w": 74.9,
+    "h": 18
+   },
+   "style": {
+    "padding": "3px 8px",
+    "color": "rgb(163, 181, 101)",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border-radius": "6px",
+    "font-size": "10px",
+    "font-weight": "700",
+    "letter-spacing": "1px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 9,
+   "depth": 4,
+   "sel": "span.mu.sm",
+   "text": "Início: 23 de novembro · Meta 5K: 24 de janeiro",
+   "rect": {
+    "x": 103.9,
+    "y": 119.1,
+    "w": 268.2,
+    "h": 16.8
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 10,
+   "depth": 2,
+   "sel": "div.card",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 150.5,
+    "w": 359,
+    "h": 135.6
+   },
+   "style": {
+    "position": "relative",
+    "flex-shrink": "0",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(224, 169, 58, 0.4)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 11,
+   "depth": 3,
+   "sel": "div.rw",
+   "text": null,
+   "rect": {
+    "x": 32,
+    "y": 165.5,
+    "w": 329,
+    "h": 22
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "12px",
+    "color": "rgb(224, 169, 58)"
+   }
+  },
+  {
+   "id": 12,
+   "depth": 4,
+   "sel": "svg.ic",
+   "text": null,
+   "rect": {
+    "x": 32,
+    "y": 165.5,
+    "w": 22,
+    "h": 22
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "svg": "<svg class=\"ic\"><use href=\"#i-shield\"></use></svg>"
+  },
+  {
+   "id": 13,
+   "depth": 4,
+   "sel": "b",
+   "text": "Aviso de Saúde",
+   "rect": {
+    "x": 66,
+    "y": 166.7,
+    "w": 105.1,
+    "h": 19.6
+   },
+   "style": {
+    "font-weight": "700"
+   }
+  },
+  {
+   "id": 14,
+   "depth": 3,
+   "sel": "p.mu.sm",
+   "text": "Se estiver doente ou com dor, não treine e procure um profissional de saúde. O Elite não faz diagnóstico.",
+   "rect": {
+    "x": 32,
+    "y": 195.5,
+    "w": 329,
+    "h": 33.6
+   },
+   "style": {
+    "margin": "8px 0px 12px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 15,
+   "depth": 3,
+   "sel": "div.rw",
+   "text": null,
+   "rect": {
+    "x": 32,
+    "y": 241.1,
+    "w": 329,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "12px"
+   },
+   "data": [
+    "data-g=x"
+   ]
+  },
+  {
+   "id": 16,
+   "depth": 4,
+   "sel": "button.sw",
+   "text": null,
+   "rect": {
+    "x": 32,
+    "y": 241.1,
+    "w": 50,
+    "h": 30
+   },
+   "style": {
+    "position": "relative",
+    "flex-shrink": "0",
+    "background-color": "rgb(93, 107, 52)",
+    "border": "1px solid rgba(0, 0, 0, 0)",
+    "border-radius": "15px",
+    "text-align": "center",
+    "transition": "background 0.2s"
+   },
+   "aria": "Li e entendi"
+  },
+  {
+   "depth": 5,
+   "sel": "button.sw::after",
+   "pseudo": true,
+   "content": "\"\"",
+   "rect": {
+    "w": "22px",
+    "h": "22px",
+    "top": "3px",
+    "left": "3px",
+    "inset": "3px 23px 3px 3px"
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(236, 232, 218)",
+    "border-radius": "50%",
+    "transform": "matrix(1, 0, 0, 1, 20, 0)",
+    "transition": "transform 0.2s, background 0.2s"
+   }
+  },
+  {
+   "id": 17,
+   "depth": 4,
+   "sel": "span",
+   "text": "Li e entendi o aviso de saúde",
+   "rect": {
+    "x": 94,
+    "y": 246.3,
+    "w": 192.5,
+    "h": 19.6
+   },
+   "style": {}
+  },
+  {
+   "id": 18,
+   "depth": 2,
+   "sel": "span.lb",
+   "text": "Cronograma semana a semana",
+   "rect": {
+    "x": 17,
+    "y": 300.1,
+    "w": 359,
+    "h": 14
+   },
+   "style": {
+    "flex-shrink": "0",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 19,
+   "depth": 2,
+   "sel": "div.card.rw.b",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 328.1,
+    "w": 359,
+    "h": 66.4
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "12px",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 20,
+   "depth": 3,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 32,
+    "y": 343.1,
+    "w": 68.9,
+    "h": 36.4
+   },
+   "style": {}
+  },
+  {
+   "id": 21,
+   "depth": 4,
+   "sel": "b",
+   "text": "Semana 1",
+   "rect": {
+    "x": 32,
+    "y": 344.1,
+    "w": 64.6,
+    "h": 17
+   },
+   "style": {
+    "font-weight": "700"
+   }
+  },
+  {
+   "id": 22,
+   "depth": 4,
+   "sel": "div.mu.sm",
+   "text": "Etapa 1 de 9",
+   "rect": {
+    "x": 32,
+    "y": 362.7,
+    "w": 68.9,
+    "h": 16.8
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 23,
+   "depth": 3,
+   "sel": "span.mu.sm",
+   "text": "3 treinos",
+   "rect": {
+    "x": 311.4,
+    "y": 352.9,
+    "w": 49.6,
+    "h": 16.8
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 24,
+   "depth": 2,
+   "sel": "div.card.rw.b",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 408.5,
+    "w": 359,
+    "h": 66.4
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "12px",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 25,
+   "depth": 3,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 32,
+    "y": 423.5,
+    "w": 71.4,
+    "h": 36.4
+   },
+   "style": {}
+  },
+  {
+   "id": 26,
+   "depth": 4,
+   "sel": "b",
+   "text": "Semana 2",
+   "rect": {
+    "x": 32,
+    "y": 424.5,
+    "w": 67.4,
+    "h": 17
+   },
+   "style": {
+    "font-weight": "700"
+   }
+  },
+  {
+   "id": 27,
+   "depth": 4,
+   "sel": "div.mu.sm",
+   "text": "Etapa 2 de 9",
+   "rect": {
+    "x": 32,
+    "y": 443.1,
+    "w": 71.4,
+    "h": 16.8
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 28,
+   "depth": 3,
+   "sel": "span.mu.sm",
+   "text": "3 treinos",
+   "rect": {
+    "x": 311.4,
+    "y": 433.3,
+    "w": 49.6,
+    "h": 16.8
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 29,
+   "depth": 2,
+   "sel": "div.card.rw.b",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 488.9,
+    "w": 359,
+    "h": 66.4
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "12px",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 30,
+   "depth": 3,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 32,
+    "y": 503.9,
+    "w": 71.5,
+    "h": 36.4
+   },
+   "style": {}
+  },
+  {
+   "id": 31,
+   "depth": 4,
+   "sel": "b",
+   "text": "Semana 3",
+   "rect": {
+    "x": 32,
+    "y": 504.9,
+    "w": 67.6,
+    "h": 17
+   },
+   "style": {
+    "font-weight": "700"
+   }
+  },
+  {
+   "id": 32,
+   "depth": 4,
+   "sel": "div.mu.sm",
+   "text": "Etapa 3 de 9",
+   "rect": {
+    "x": 32,
+    "y": 523.5,
+    "w": 71.5,
+    "h": 16.8
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 33,
+   "depth": 3,
+   "sel": "span.mu.sm",
+   "text": "3 treinos",
+   "rect": {
+    "x": 311.4,
+    "y": 513.7,
+    "w": 49.6,
+    "h": 16.8
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 34,
+   "depth": 2,
+   "sel": "div.card.rw.b",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 569.3,
+    "w": 359,
+    "h": 66.4
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "12px",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 35,
+   "depth": 3,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 32,
+    "y": 584.3,
+    "w": 71.8,
+    "h": 36.4
+   },
+   "style": {}
+  },
+  {
+   "id": 36,
+   "depth": 4,
+   "sel": "b",
+   "text": "Semana 4",
+   "rect": {
+    "x": 32,
+    "y": 585.3,
+    "w": 68,
+    "h": 17
+   },
+   "style": {
+    "font-weight": "700"
+   }
+  },
+  {
+   "id": 37,
+   "depth": 4,
+   "sel": "div.mu.sm",
+   "text": "Etapa 4 de 9",
+   "rect": {
+    "x": 32,
+    "y": 603.9,
+    "w": 71.8,
+    "h": 16.8
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 38,
+   "depth": 3,
+   "sel": "span.mu.sm",
+   "text": "3 treinos",
+   "rect": {
+    "x": 311.4,
+    "y": 594.1,
+    "w": 49.6,
+    "h": 16.8
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 39,
+   "depth": 2,
+   "sel": "div.card.rw.b",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 649.7,
+    "w": 359,
+    "h": 66.4
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "12px",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 40,
+   "depth": 3,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 32,
+    "y": 664.7,
+    "w": 71.3,
+    "h": 36.4
+   },
+   "style": {}
+  },
+  {
+   "id": 41,
+   "depth": 4,
+   "sel": "b",
+   "text": "Semana 5",
+   "rect": {
+    "x": 32,
+    "y": 665.7,
+    "w": 67.5,
+    "h": 17
+   },
+   "style": {
+    "font-weight": "700"
+   }
+  },
+  {
+   "id": 42,
+   "depth": 4,
+   "sel": "div.mu.sm",
+   "text": "Etapa 5 de 9",
+   "rect": {
+    "x": 32,
+    "y": 684.3,
+    "w": 71.3,
+    "h": 16.8
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 43,
+   "depth": 3,
+   "sel": "span.mu.sm",
+   "text": "3 treinos",
+   "rect": {
+    "x": 311.4,
+    "y": 674.5,
+    "w": 49.6,
+    "h": 16.8
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 44,
+   "depth": 2,
+   "sel": "button.btn.pri.stk",
+   "text": "Começar meu plano",
+   "rect": {
+    "x": 17,
+    "y": 770,
+    "w": 359,
+    "h": 56
+   },
+   "style": {
+    "display": "flex",
+    "position": "sticky",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "10px",
+    "margin": "39.9531px 0px 0px",
+    "color": "rgb(255, 244, 240)",
+    "background-color": "rgb(209, 43, 43)",
+    "border-radius": "28px",
+    "box-shadow": "rgb(10, 11, 9) 0px -14px 14px -6px",
+    "font-size": "16px",
+    "font-weight": "700",
+    "letter-spacing": "0.32px",
+    "text-align": "center",
+    "transition": "transform 0.1s"
+   }
+  }
+ ],
+ "root_selector": ".phone"
+}

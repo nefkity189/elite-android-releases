@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elite - Resultado da missão</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --page:#050604;
+  --bg:#0a0b09; --surface:#10120d; --card:#161911; --card-el:#1d2116; --field:#0d0f0a;
+  --line:rgba(236,232,218,.10); --line-strong:rgba(236,232,218,.18);
+  --text:#ece8da; --muted:#8f9384; --dim:#5e6255;
+  --olive:#a3b565; --olive-dark:#5d6b34; --olive-soft:rgba(163,181,101,.14); --on-olive:#0e1306;
+  --red:#d12b2b; --red-soft:rgba(209,43,43,.15); --on-red:#fff4f0;
+  --brass:#c9a24b; --brass-soft:rgba(201,162,75,.16); --amber:#e0a93a; --amber-soft:rgba(224,169,58,.14); --ok:#7fb069; --ok-soft:rgba(127,176,105,.15); --amber-line:rgba(224,169,58,.45); --red-line:rgba(209,43,43,.5); --ok-line:rgba(127,176,105,.45); --brass-line:rgba(201,162,75,.5);
+  --glass:rgba(16,18,13,.82); --glass-bar:rgba(16,18,13,.90); --scrim:rgba(0,0,0,.62);
+  --lg-bronze:#b07a4a; --lg-prata:#b4bab8; --lg-ouro:#c9a24b; --lg-platina:#86bdb3; --lg-diamante:#7fb4de; --lg-elite:#e7e2d0;
+  --av1:#3b4426; --av2:#4a3f1e; --av3:#2e3b3a; --av4:#46301f; --av5:#3a2e3f;
+  --num:"Barlow Condensed","Arial Narrow",sans-serif; --ui:"Inter",sans-serif; --logo:"Saira Stencil One","Impact",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--page);font-family:var(--ui);color:var(--text);display:flex;justify-content:center;padding:0;-webkit-font-smoothing:antialiased}
+button{font-family:var(--ui);color:inherit;background:none;border:0;cursor:pointer}
+[data-id="screen"]{flex:none;position:relative;width:393px;height:851px;overflow:hidden;background:var(--bg);display:flex;flex-direction:column;padding:28px 16px 0}
+svg{display:block;flex:none}
+
+/* ---- tipografia ---- */
+.t1{font:700 30px/32px var(--num);text-transform:uppercase;letter-spacing:.9px}
+.t1s{font:700 24px/26px var(--num);text-transform:uppercase;letter-spacing:.96px}
+.t2{font:600 20px/23px var(--num);text-transform:uppercase;letter-spacing:.8px}
+.t3{font:600 16px/20px var(--ui)}
+.body{font:400 14px/19.6px var(--ui)}
+.cap{font:400 12px/16px var(--ui);color:var(--muted)}
+.eyebrow{font:600 11px/14px var(--ui);text-transform:uppercase;letter-spacing:1.3px;color:var(--muted)}
+.num{font-family:var(--num);font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+.olive{color:var(--olive)} .red{color:var(--red)} .brass{color:var(--brass)} .ok{color:var(--ok)} .amber{color:var(--amber)} .muted{color:var(--muted)}
+.row{display:flex;align-items:center}
+.col{display:flex;flex-direction:column}
+.grow{flex:1;min-width:0}
+.ell{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ---- cartões ---- */
+.card{background:var(--card);border:1px solid var(--line-strong);border-radius:18px}
+.card-sel{border-color:var(--olive);background:linear-gradient(180deg,var(--olive-soft),var(--card))}
+.card-brass{border-color:var(--brass);background:linear-gradient(180deg,var(--brass-soft),var(--card))}
+.card-dash{background:transparent;border:1px dashed var(--line-strong);border-radius:18px}
+
+/* ---- botões ---- */
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 18px;border-radius:24px;font:700 15px/20px var(--ui);transition:transform .12s ease-out;flex:none}
+.btn:active{transform:scale(.96)}
+.btn-lg{height:56px;border-radius:28px;font-size:16px}
+.btn-red{background:var(--red);color:var(--on-red)}
+.btn-olive{background:var(--olive);color:var(--on-olive)}
+.btn-ghost{background:transparent;border:1px solid var(--line-strong);color:var(--text)}
+.btn-share{background:var(--olive-soft);border:1px solid var(--olive-dark);color:var(--olive)}
+.btn-off{background:var(--card-el);color:var(--dim);border:1px solid var(--line)}
+.btn-icon{width:48px;padding:0;flex:none}
+.btn-back{width:40px;height:40px;border-radius:20px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex:none;transition:transform .12s ease-out}
+.btn-back:active{transform:scale(.92)}
+
+/* ---- badges / chips ---- */
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font:700 10.5px/12px var(--ui);text-transform:uppercase;letter-spacing:.6px;flex:none;white-space:nowrap}
+.b-open{background:var(--olive-soft);color:var(--olive)}
+.b-one{background:var(--amber-soft);color:var(--amber)}
+.b-conf{background:var(--ok);color:var(--on-olive)}
+.b-live{background:var(--red-soft);color:var(--red)}
+.b-done{background:var(--card-el);color:var(--muted)}
+.b-none{background:transparent;border:1px solid var(--line-strong);color:var(--muted)}
+.b-brass{background:var(--brass-soft);color:var(--brass)}
+.dot{width:7px;height:7px;border-radius:4px;background:currentColor;flex:none}
+.chip{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:15px;background:var(--card-el);border:1px solid var(--line);font:600 12px/16px var(--ui);flex:none;white-space:nowrap}
+.chip-on{background:var(--olive-soft);border-color:var(--olive-dark);color:var(--olive)}
+.dist{display:inline-flex;align-items:center;justify-content:center;height:24px;padding:0 9px;border-radius:7px;background:var(--card-el);border:1px solid var(--line-strong);font:700 14px/16px var(--num);letter-spacing:.5px}
+
+/* ---- segmentado ---- */
+.seg{display:flex;gap:4px;padding:4px;background:var(--field);border:1px solid var(--line);border-radius:24px;height:48px}
+.seg>button{flex:1;border-radius:20px;font:700 20px/20px var(--num);color:var(--muted);letter-spacing:.5px;transition:background .18s ease-out,color .18s ease-out}
+.seg>button.on{background:var(--olive-soft);color:var(--olive);box-shadow:inset 0 0 0 1px var(--olive-dark)}
+.seg-sm{height:40px;border-radius:20px}
+.seg-sm>button{font:600 13px/16px var(--ui)}
+.tabs{display:flex;gap:20px;height:32px;border-bottom:1px solid var(--line)}
+.tabs>button{font:600 13px/16px var(--ui);color:var(--muted);padding:0 2px 10px;border-bottom:2px solid transparent}
+.tabs>button.on{color:var(--olive);border-bottom-color:var(--olive)}
+
+/* ---- avatares ---- */
+.av{border-radius:50%;display:flex;align-items:center;justify-content:center;font:700 14px/14px var(--num);letter-spacing:.5px;border:1.5px solid var(--line-strong);flex:none;color:var(--text)}
+.av-me{border-color:var(--olive);box-shadow:0 0 0 2px var(--olive-soft)}
+.av-empty{background:transparent;border:1.5px dashed var(--line-strong);color:var(--dim)}
+.stack{display:flex}
+.stack>*+*{margin-left:-8px}
+
+/* ---- barras ---- */
+.bar{height:6px;border-radius:3px;background:var(--card-el);overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:3px;background:var(--olive)}
+.bar-brass>i{background:var(--brass)}
+.hr{height:1px;background:var(--line);flex:none}
+
+.sc-ic{width:32px;height:32px;border-radius:16px;background:var(--brass-soft);color:var(--brass);display:flex;align-items:center;justify-content:center;flex:none}
+
+/* ---- topbar ---- */
+.topbar{display:flex;align-items:center;gap:12px;height:48px;flex:none}
+.logo{display:flex;align-items:center;gap:8px}
+.logo-t{font:400 17px/20px var(--logo);letter-spacing:3.4px}
+
+/* ---- barra inferior fixa ---- */
+.dock{flex:none;margin:0 -16px;padding:14px 16px 18px;background:var(--glass-bar);border-top:1px solid var(--line-strong);border-radius:26px 26px 0 0}
+
+/* ---- cartão de missão ---- */
+.m{display:flex;flex-direction:column;padding:14px;flex:none}
+.m-time{font:700 36px/36px var(--num);font-variant-numeric:tabular-nums;letter-spacing:.5px}
+.m-compact{padding:12px 14px}
+
+/* ---- linha de ranking ---- */
+.rk{display:flex;align-items:center;gap:10px;height:56px;padding:0 12px;border-radius:14px;flex:none}
+.rk-me{background:var(--olive-soft);box-shadow:inset 0 0 0 1px var(--olive-dark)}
+.rk-pos{width:30px;text-align:center;font:700 20px/20px var(--num);font-variant-numeric:tabular-nums;color:var(--muted)}
+.rk-elo{font:700 18px/18px var(--num);font-variant-numeric:tabular-nums;text-align:right}
+.trend{display:flex;align-items:center;justify-content:flex-end;gap:2px;font:600 11px/12px var(--ui);width:36px}
+.t-up{color:var(--ok)} .t-down{color:var(--red)} .t-eq{color:var(--dim)}
+
+/* ---- banners ---- */
+.banner{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;border:1px solid var(--line-strong);background:var(--card);flex:none}
+.banner-ico{width:36px;height:36px;border-radius:18px;display:flex;align-items:center;justify-content:center;flex:none}
+.bn-amber{border-color:var(--amber-line);background:linear-gradient(90deg,var(--amber-soft),var(--card))} .bn-amber .banner-ico{background:var(--amber-soft);color:var(--amber)}
+.bn-red{border-color:var(--red-line);background:linear-gradient(90deg,var(--red-soft),var(--card))} .bn-red .banner-ico{background:var(--red-soft);color:var(--red)}
+.bn-ok{border-color:var(--ok-line);background:linear-gradient(90deg,var(--ok-soft),var(--card))} .bn-ok .banner-ico{background:var(--ok-soft);color:var(--ok)}
+.bn-olive{border-color:var(--olive-dark);background:linear-gradient(90deg,var(--olive-soft),var(--card))} .bn-olive .banner-ico{background:var(--olive-soft);color:var(--olive)}
+.bn-brass{border-color:var(--brass-line);background:linear-gradient(90deg,var(--brass-soft),var(--card))} .bn-brass .banner-ico{background:var(--brass-soft);color:var(--brass)}
+.bn-mute .banner-ico{background:var(--card-el);color:var(--muted)}
+
+@media (prefers-reduced-motion:reduce){
+  .btn,.btn-back,.seg>button{transition:none}
+}
+
+/* ---- mini card de convite (miniatura do card compartilhável) ---- */
+.mini{display:flex;flex-direction:column;justify-content:space-between;padding:12px;border-radius:14px;background:linear-gradient(160deg,var(--card-el),var(--bg));border:1px solid var(--olive-dark)}
+.stripe{height:4px;width:100%;background:var(--red);border-radius:2px;transform:skewX(-20deg)}
+
+.invite{padding:14px;background:linear-gradient(135deg,var(--olive-soft),var(--card) 70%);border:1px solid var(--olive-dark);border-radius:18px;display:flex;flex-direction:column;gap:10px;flex:none}
+
+.kv{flex:1;display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.kv .num{font-size:28px}
+
+.num{white-space:nowrap}
+.sc-chip{white-space:nowrap}
+
+[data-id="res.scroll"]{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;display:flex;flex-direction:column;gap:10px;padding-bottom:12px}
+[data-id="res.scroll"]::-webkit-scrollbar{display:none}
+.st{display:flex;align-items:center;gap:10px;height:52px;padding:0 10px;border-radius:14px;flex:none}
+.st-me{background:var(--olive-soft);box-shadow:inset 0 0 0 1px var(--olive-dark)}
+.st .tm{font:700 16px/16px var(--num);font-variant-numeric:tabular-nums;text-align:right}
+.rkchip{flex:1;display:flex;align-items:center;gap:8px;height:46px;padding:0 12px;border-radius:14px;background:var(--field);border:1px solid var(--line)}
+.p-g,.p-e{display:none}
+[data-state="padrao"] .p-g,[data-state="entrada"] .p-g{display:flex}
+[data-state="aba_estado"] .p-e{display:flex}
+
+.enter{animation:enter-up .32s cubic-bezier(.2,.8,.2,1) both}
+.e1{animation-delay:0ms}.e2{animation-delay:60ms}.e3{animation-delay:120ms}.e4{animation-delay:180ms}.e5{animation-delay:240ms}.e6{animation-delay:300ms}
+@keyframes enter-up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){.enter{animation:none}}
+
+</style>
+</head>
+<body>
+<main data-id="screen" data-viewport="393x851" data-state="padrao">
+  <header data-id="res.topbar" class="topbar" style="height:56px">
+    <button data-id="res.topbar.close" class="btn-back" aria-label="Fechar resultado"><svg data-id="res.topbar.close.ic" data-icon="material:Close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div data-id="res.topbar.col" class="col grow" style="gap:2px"><p data-id="res.topbar.eyebrow" class="eyebrow">Missão 5K · 13:00</p><h1 data-id="res.topbar.title" class="t1 olive">Missão cumprida</h1></div>
+  </header>
+
+  <div data-id="res.scroll" data-compose="LazyColumn">
+    <section data-id="res.me" data-enter class="card card-brass enter e1" style="padding:14px 16px;flex:none" data-compose="ResultSummaryCard">
+      <div data-id="res.me.row" class="row" style="gap:14px">
+        <div data-id="res.me.place" class="col" style="align-items:flex-start;gap:2px"><span data-id="res.me.place.value" class="num" style="font-size:72px;color:var(--brass)" data-bind="result.place">2º</span><span data-id="res.me.place.label" class="eyebrow" style="color:var(--brass)">lugar</span></div>
+        <div data-id="res.me.row.col" class="col grow" style="gap:6px;align-items:flex-end;text-align:right">
+          <div data-id="res.me.av" class="av av-me" style="width:44px;height:44px;background:var(--av1);font-size:16px">RN</div>
+          <span data-id="res.me.name" class="t3" data-bind="user.name">Rafael Nunes</span>
+          <span data-id="res.me.league" class="row cap" style="gap:6px"><svg data-id="res.me.league.badge" data-icon="custom:ic_league_ouro_2" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-ouro)"/><path d="M7.8 10L12 13L16.2 10" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 14.5L12 17.5L16.2 14.5" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Liga Ouro II</span>
+        </div>
+      </div>
+      <div data-id="res.me.hr" class="hr" style="margin:12px 0"></div>
+      <div data-id="res.me.stats" class="row" style="gap:8px">
+        <div data-id="res.me.stats.kv" class="kv"><span data-id="res.me.stats.kv.eyebrow" class="eyebrow" style="font-size:10px">Tempo total</span><span data-id="res.me.time" class="num" data-bind="result.time">24:18</span></div>
+        <div data-id="res.me.stats.kv2" class="kv"><span data-id="res.me.stats.kv2.eyebrow" class="eyebrow" style="font-size:10px">Pace médio</span><span data-id="res.me.pace" class="num" data-bind="result.pace">4:52<span data-id="res.me.pace.muted" class="muted" style="font-size:14px"> /km</span></span></div>
+        <div data-id="res.me.stats.kv3" class="kv"><span data-id="res.me.stats.kv3.eyebrow" class="eyebrow" style="font-size:10px">Elo</span><span data-id="res.me.points" class="num olive" data-bind="result.eloDelta">+18</span></div>
+      </div>
+      <div data-id="res.me.elo" class="row" style="gap:10px;margin-top:12px;justify-content:space-between">
+        <span data-id="res.me.elo.cap" class="cap">Pontuação geral <b data-id="res.me.total" style="color:var(--text)" data-bind="user.elo">1.542</b></span>
+        <span data-id="res.me.elo.delta" class="badge b-conf" style="background:var(--ok-soft);color:var(--ok)"><svg data-id="res.me.elo.delta.ic" data-icon="material:ArrowDropUp" viewBox="0 0 24 24" width="9" height="9" fill="currentColor" aria-hidden="true"><path d="M12 5l8 14H4z"/></svg>+18 pts</span>
+      </div>
+      <div data-id="res.me.ranks" class="row" style="gap:10px;margin-top:12px">
+        <div data-id="res.me.rank-g" class="rkchip"><svg data-id="res.me.rank-g.ic" data-icon="material:Star" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg><div data-id="res.me.rank-g.col" class="col" style="gap:1px"><span data-id="res.me.rank-g.col.eyebrow" class="eyebrow" style="font-size:9.5px">Global</span><span data-id="res.me.rank-g.v" class="num" style="font-size:20px">#128</span></div><span data-id="res.me.rank-g.trend" class="trend t-up" style="margin-left:auto;width:auto"><svg data-id="res.me.rank-g.tr" data-icon="material:ArrowDropUp" viewBox="0 0 24 24" width="9" height="9" fill="currentColor" aria-hidden="true"><path d="M12 5l8 14H4z"/></svg>9</span></div>
+        <div data-id="res.me.rank-e" class="rkchip"><svg data-id="res.me.rank-e.ic" data-icon="material:Place" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div data-id="res.me.rank-e.col" class="col" style="gap:1px"><span data-id="res.me.rank-e.col.eyebrow" class="eyebrow" style="font-size:9.5px">Estado · MT</span><span data-id="res.me.rank-e.v" class="num" style="font-size:20px">#7</span></div><span data-id="res.me.rank-e.trend" class="trend t-up" style="margin-left:auto;width:auto"><svg data-id="res.me.rank-e.tr" data-icon="material:ArrowDropUp" viewBox="0 0 24 24" width="9" height="9" fill="currentColor" aria-hidden="true"><path d="M12 5l8 14H4z"/></svg>1</span></div>
+      </div>
+      <div data-id="res.me.achv" class="row" style="gap:8px;margin-top:12px;flex-wrap:wrap">
+        <span data-id="res.me.achv.eyebrow" class="eyebrow" style="font-size:10px;width:100%">Conquistas da missão</span>
+        <span data-id="res.me.achv.a1" class="chip" style="background:var(--brass-soft);border-color:var(--brass-line);color:var(--brass)"><svg data-id="res.me.achv.a1.ic" data-icon="material:WorkspacePremium" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"/></svg>Primeira missão cumprida</span>
+        <span data-id="res.me.achv.a2" class="chip" style="background:var(--brass-soft);border-color:var(--brass-line);color:var(--brass)"><svg data-id="res.me.achv.a2.ic" data-icon="material:EmojiEvents" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>Pódio</span>
+      </div>
+    </section>
+
+    <section data-id="res.standings" data-enter class="card enter e2" style="padding:12px 10px 8px;flex:none" data-compose="MissionStandings">
+      <div data-id="res.standings.row" class="row" style="justify-content:space-between;margin:0 4px 6px"><h2 data-id="res.standings.title" class="t2">Classificação da missão</h2><span data-id="res.standings.count" class="cap">Elo da missão</span></div>
+      <div data-id="res.standings.p1" class="st"><span data-id="res.standings.p1.rk-pos" class="rk-pos brass" style="width:26px"><svg data-id="res.standings.p1.medal" data-icon="material:WorkspacePremium" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"/></svg></span><div data-id="res.standings.p1.av" class="av" style="width:32px;height:32px;background:var(--av2);font-size:12px">CD</div><div data-id="res.standings.p1.col" class="col grow" style="gap:1px"><span data-id="res.standings.p1.name" class="t3" style="font-size:14px">Camila Duarte</span><span data-id="res.standings.p1.pace" class="cap">4:47 /km</span></div><div data-id="res.standings.p1.col2" class="col" style="align-items:flex-end;gap:1px"><span data-id="res.standings.p1.time" class="tm">23:55</span><span data-id="res.standings.p1.pts" class="cap olive">+34</span></div></div>
+      <div data-id="res.standings.p2" class="st st-me"><span data-id="res.standings.p2.rk-pos" class="rk-pos olive" style="width:26px">2</span><div data-id="res.standings.p2.av" class="av av-me" style="width:32px;height:32px;background:var(--av1);font-size:12px">RN</div><div data-id="res.standings.p2.col" class="col grow" style="gap:1px"><span data-id="res.standings.p2.name" class="t3" style="font-size:14px">Você</span><span data-id="res.standings.p2.pace" class="cap">4:52 /km</span></div><div data-id="res.standings.p2.col2" class="col" style="align-items:flex-end;gap:1px"><span data-id="res.standings.p2.time" class="tm">24:18</span><span data-id="res.standings.p2.pts" class="cap olive">+18</span></div></div>
+      <div data-id="res.standings.p3" class="st"><span data-id="res.standings.p3.rk-pos" class="rk-pos" style="width:26px">3</span><div data-id="res.standings.p3.av" class="av" style="width:32px;height:32px;background:var(--av3);font-size:12px">BT</div><div data-id="res.standings.p3.col" class="col grow" style="gap:1px"><span data-id="res.standings.p3.name" class="t3" style="font-size:14px">Bruno Tavares</span><span data-id="res.standings.p3.pace" class="cap">5:12 /km</span></div><div data-id="res.standings.p3.col2" class="col" style="align-items:flex-end;gap:1px"><span data-id="res.standings.p3.time" class="tm">26:02</span><span data-id="res.standings.p3.pts" class="cap red">−12</span></div></div>
+    </section>
+
+    <section data-id="res.ranking" data-enter class="card enter e3" style="padding:12px 10px 8px;flex:none" data-compose="RankingScopeTabs">
+      <nav data-id="res.ranking.tabs" class="seg seg-sm" aria-label="Escopo do ranking" style="margin:0 4px 8px">
+        <button data-id="res.ranking.tab-g" class="on">Global</button>
+        <button data-id="res.ranking.tab-e">Meu estado</button>
+      </nav>
+      <div data-id="res.ranking.g1" class="rk p-g"><span data-id="res.ranking.g1.rk-pos" class="rk-pos">127</span><div data-id="res.ranking.g1.av" class="av" style="width:32px;height:32px;background:var(--av4);font-size:12px">LP</div><span data-id="res.ranking.g1.name" class="t3 grow" style="font-size:14px">Larissa Prado</span><span data-id="res.ranking.g1.elo" class="rk-elo">1.546</span></div>
+      <div data-id="res.ranking.g2" class="rk rk-me p-g"><span data-id="res.ranking.g2.rk-pos" class="rk-pos olive">128</span><div data-id="res.ranking.g2.av" class="av av-me" style="width:32px;height:32px;background:var(--av1);font-size:12px">RN</div><span data-id="res.ranking.g2.name" class="t3 grow" style="font-size:14px">Você</span><span data-id="res.ranking.g2.elo" class="rk-elo olive">1.542</span></div>
+      <div data-id="res.ranking.g3" class="rk p-g"><span data-id="res.ranking.g3.rk-pos" class="rk-pos">129</span><div data-id="res.ranking.g3.av" class="av" style="width:32px;height:32px;background:var(--av5);font-size:12px">TM</div><span data-id="res.ranking.g3.name" class="t3 grow" style="font-size:14px">Thiago Menezes</span><span data-id="res.ranking.g3.elo" class="rk-elo">1.538</span></div>
+      <div data-id="res.ranking.e1" class="rk p-e"><span data-id="res.ranking.e1.rk-pos" class="rk-pos">6</span><div data-id="res.ranking.e1.av" class="av" style="width:32px;height:32px;background:var(--av2);font-size:12px">JC</div><span data-id="res.ranking.e1.name" class="t3 grow" style="font-size:14px">Juliana Costa</span><span data-id="res.ranking.e1.elo" class="rk-elo">1.590</span></div>
+      <div data-id="res.ranking.e2" class="rk rk-me p-e"><span data-id="res.ranking.e2.rk-pos" class="rk-pos olive">7</span><div data-id="res.ranking.e2.av" class="av av-me" style="width:32px;height:32px;background:var(--av1);font-size:12px">RN</div><span data-id="res.ranking.e2.name" class="t3 grow" style="font-size:14px">Você</span><span data-id="res.ranking.e2.elo" class="rk-elo olive">1.542</span></div>
+      <div data-id="res.ranking.e3" class="rk p-e"><span data-id="res.ranking.e3.rk-pos" class="rk-pos">8</span><div data-id="res.ranking.e3.av" class="av" style="width:32px;height:32px;background:var(--av3);font-size:12px">DA</div><span data-id="res.ranking.e3.name" class="t3 grow" style="font-size:14px">Diego Albuquerque</span><span data-id="res.ranking.e3.elo" class="rk-elo">1.511</span></div>
+    </section>
+  </div>
+
+  <footer data-id="res.dock" class="dock" style="padding-top:12px" data-compose="BottomActionBar">
+    <div data-id="res.dock.row" class="row" style="gap:10px">
+      <button data-id="res.dock.share" class="btn btn-olive" style="flex:1.2;height:52px;padding:0 10px;font-size:14px;line-height:16px;text-align:center"><svg data-id="res.dock.share.ic" data-icon="material:Share" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5l6.8-4M8.6 13.5l6.8 4"/></svg>Compartilhar resultado</button>
+      <button data-id="res.dock.ranking" class="btn btn-ghost" style="flex:1;height:52px;padding:0 10px;font-size:14px;line-height:16px;text-align:center">Ver ranking completo</button>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    var root=document.querySelector('[data-id="screen"]'),sc=document.querySelector('[data-id="res.scroll"]'),
+        tg=document.querySelector('[data-id="res.ranking.tab-g"]'),te=document.querySelector('[data-id="res.ranking.tab-e"]');
+    function tab(e){root.setAttribute('data-state',e?'aba_estado':'padrao');tg.classList.toggle('on',!e);te.classList.toggle('on',e);}
+    tg.addEventListener('click',function(){tab(false)});te.addEventListener('click',function(){tab(true)});
+    window.__replay=function(){document.querySelectorAll('[data-enter]').forEach(function(e){e.style.animation='none';void e.offsetWidth;e.style.animation='';});};
+    window.__setState=function(n){if(n==='aba_estado'){tab(true);sc.scrollTop=sc.scrollHeight;}else{tab(false);sc.scrollTop=0;}};
+  })();
+  </script>
+</main>
+
+</body>
+</html>

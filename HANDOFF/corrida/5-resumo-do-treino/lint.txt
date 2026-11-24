@@ -1,0 +1,8 @@
+ERROR: text "Km 3 (parcial)" in span is covered by button.btn.pri.stk (needs position:relative; z-index above the layer)
+ERROR: text "6:02 /km" in b.num is covered by button.btn.pri.stk (needs position:relative; z-index above the layer)
+ERROR: text "Mais rápido: 5:58 /km · Mais l" in div.mu.sm is covered by button.btn.pri.stk (needs position:relative; z-index above the layer)
+WARN: span.lb extends outside the screen: 17,843,376,857 (screen 393x851)
+WARN: div.fld extends outside the screen: 17,871,376,943 (screen 393x851)
+WARN: button.btn.gh.sm2 extends outside the screen: 17,957,376,1001 (screen 393x851)
+WARN: svg.ic extends outside the screen: 108,970,126,988 (screen 393x851)
+root=.phone 393x851dp  errors=3 warnings=4

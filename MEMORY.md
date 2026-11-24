@@ -1,4 +1,0 @@
-- [Relatório de Status 06/11/2026](memory/2026-11-06-status-report.md) — Resumo das melhorias em UI, Áudio Coach e Splits de KM.
-- [UI Refinements 1.1-1.3](memory/2026-11-06-ui-refinements.md) — Week Strip integrada, dashboard minimalista e tokens.
-- [Sessão Completa 06/11/2026](memory/2026-11-06-session-complete.md) — UI 1.1-1.3, GPS fix, Share Card P14, pendentes P11-P13.
-- [P12 Check-in Pré-Treino: Correções Urgentes](memory/2026-11-06-p12-checkin-fixes.md) — FAB overlap fixado, treino inicia após confirmação, bottom sheet polido.

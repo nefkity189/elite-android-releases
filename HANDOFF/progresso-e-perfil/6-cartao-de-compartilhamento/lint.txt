@@ -1,0 +1,2 @@
+ERROR: text "Distância" in div.lb is covered by div.num (needs position:relative; z-index above the layer)
+root=.phone 393x851dp  errors=1 warnings=0

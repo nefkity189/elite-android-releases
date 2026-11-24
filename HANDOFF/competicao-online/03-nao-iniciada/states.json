@@ -1,0 +1,12 @@
+[
+ {
+  "name": "padrao",
+  "eval": "0",
+  "wait": 200
+ },
+ {
+  "name": "compartilhar_pressionado",
+  "press": "[data-id='ni.invite.share']",
+  "wait": 300
+ }
+]

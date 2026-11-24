@@ -1,0 +1,2 @@
+WARN: touch target button.run-arrow is 40x40 (<44dp)
+root=main 393x851dp  errors=0 warnings=1

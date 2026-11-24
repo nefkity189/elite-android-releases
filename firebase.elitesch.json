@@ -1,0 +1,24 @@
+{
+  "hosting": {
+    "site": "elitesch",
+    "public": "HANDOFF/Site/site",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "**/*.apk",
+      "**/CLAUDE-CODE-PROMPT.md",
+      "**/HANDOFF.md",
+      "**/fonts/inter_regular.ttf",
+      "**/fonts/inter_semibold.ttf"
+    ],
+    "headers": [
+      {
+        "source": "latest-release.json",
+        "headers": [
+          { "key": "Cache-Control", "value": "no-store, max-age=0" }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+appId: com.elite.sch.app
+---
+- launchApp:
+    stopApp: true
+- takeScreenshot: "current_screen.png"

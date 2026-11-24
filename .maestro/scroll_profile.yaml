@@ -1,0 +1,23 @@
+appId: com.elite.sch.app
+---
+- scrollUntilVisible:
+    element:
+      text: "Mapa em Tempo Real"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    id: "btn_center_action_elite"
+- assertVisible:
+    text: "Adicionar corrida"
+- tapOn:
+    text: "RECOLHER"
+- tapOn:
+    id: "tab_hoje"
+- assertVisible:
+    id: "screen_today"
+- tapOn:
+    id: "btn_free_run_descanso"
+- assertVisible:
+    id: "screen_active_run"
+- takeScreenshot:
+    path: "active_run_map_full.png"

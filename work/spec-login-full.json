@@ -1,0 +1,4298 @@
+{
+ "screen": {
+  "w": 393,
+  "h": 851
+ },
+ "tokens": {
+  "--page": "#000000",
+  "--bg": "#0A0B09",
+  "--bg-0": "rgba(10,11,9,0)",
+  "--surface": "#10120D",
+  "--card": "#161911",
+  "--card2": "#1D2116",
+  "--field": "#0D0F0A",
+  "--line": "rgba(236,232,218,.10)",
+  "--line2": "rgba(236,232,218,.18)",
+  "--text": "#ECE8DA",
+  "--muted": "#8F9384",
+  "--dim": "#5E6255",
+  "--olive": "#A3B565",
+  "--olive-dark": "#5D6B34",
+  "--olive-soft": "rgba(163,181,101,.14)",
+  "--on-olive": "#0E1306",
+  "--olive-glow": "rgba(163,181,101,.20)",
+  "--olive-glow0": "rgba(163,181,101,0)",
+  "--red": "#D12B2B",
+  "--on-red": "#FFF4F0",
+  "--brass": "#C9A24B",
+  "--brass-soft": "rgba(201,162,75,.16)",
+  "--brass-50": "rgba(201,162,75,.5)",
+  "--amber": "#E0A93A",
+  "--amber-soft": "rgba(224,169,58,.13)",
+  "--amber-line": "rgba(224,169,58,.35)",
+  "--ok": "#7FB069",
+  "--step-rest": "#4A4E40",
+  "--scrim": "rgba(0,0,0,.6)",
+  "--shadow": "rgba(0,0,0,.45)",
+  "--disp": "\"Barlow Condensed\",\"Arial Narrow\",sans-serif",
+  "--ui": "\"Inter\",sans-serif",
+  "--logo": "\"Saira Stencil One\",\"Impact\",sans-serif"
+ },
+ "fonts": [
+  {
+   "family": "Inter",
+   "loaded": true
+  },
+  {
+   "family": "Barlow Condensed",
+   "loaded": false
+  },
+  {
+   "family": "Saira Stencil One",
+   "loaded": true
+  }
+ ],
+ "media_queries": [
+  "(prefers-reduced-motion: reduce)"
+ ],
+ "animations": [],
+ "elements": [
+  {
+   "id": 0,
+   "depth": 0,
+   "sel": "body",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 851
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "color": "rgb(236, 232, 218)",
+    "background-color": "rgb(0, 0, 0)",
+    "font-family": "Inter, sans-serif"
+   }
+  },
+  {
+   "id": 1,
+   "depth": 1,
+   "sel": "main",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 851
+   },
+   "style": {
+    "position": "relative",
+    "flex-shrink": "0",
+    "background-color": "rgb(10, 11, 9)",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=screen",
+    "data-viewport=393x851",
+    "data-slide=1",
+    "data-compose=LoginScreen"
+   ]
+  },
+  {
+   "id": 2,
+   "depth": 2,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 468
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(10, 11, 9)",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=login.hero",
+    "data-compose=LoginHeroBackground"
+   ]
+  },
+  {
+   "id": 3,
+   "depth": 3,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 477,
+    "h": 468
+   },
+   "style": {
+    "position": "absolute",
+    "overflow": "hidden",
+    "transition": "transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1)"
+   },
+   "data": [
+    "data-id=login.hero.art"
+   ],
+   "svg": "<svg data-id=\"login.hero.art\" aria-hidden=\"true\" viewBox=\"0 0 477 468\" width=\"477\" height=\"468\" fill=\"none\"><path d=\"M374.3,150.0 C376.1,154.5 376.8,161.1 374.6,165.4 C372.3,169.6 365.6,173.0 360.7,175.6 C355.8,178.1 350.4,179.6 345.3,180.7 C340.2,181.9 334.9,182.8 330.0,182.4 C325.1,182.0 320.5,179.9 315.9,178.3 C311.4,176.7 306.8,175.2 302.7,172.8 C298.6,170.3 293.3,167.2 291.2,163.4 C289.0,159.6 289.4,154.4 289.5,150.0 C289.7,145.6 290.8,141.4 292.2,137.0 C293.6,132.5 294.2,126.6 297.7,123.1 C301.1,119.5 307.5,116.6 312.9,115.6 C318.3,114.6 324.8,116.1 330.0,117.1 C335.2,118.0 340.1,119.3 344.3,121.3 C348.4,123.3 351.8,126.3 355.1,129.1 C358.3,132.0 360.5,134.9 363.7,138.4 C366.9,141.8 372.5,145.5 374.3,150.0Z\" style=\"stroke:var(--olive);stroke-opacity:0.22;stroke-width:1.2\"></path><path d=\"M411.1,150.0 C414.1,158.2 414.3,170.0 409.8,177.5 C405.3,185.1 392.9,190.6 384.1,195.1 C375.3,199.6 366.1,202.3 357.0,204.4 C348.0,206.6 338.7,208.5 330.0,208.0 C321.3,207.4 312.9,203.9 304.6,201.1 C296.4,198.3 288.0,195.7 280.6,191.2 C273.2,186.7 264.1,180.9 260.3,174.1 C256.4,167.2 257.3,158.0 257.5,150.0 C257.7,142.0 259.1,134.5 261.5,126.3 C263.8,118.2 265.3,107.6 271.6,101.3 C277.9,95.1 289.8,90.3 299.6,88.7 C309.3,87.2 320.7,90.3 330.0,92.0 C339.3,93.8 347.7,95.8 355.2,99.2 C362.8,102.6 369.0,107.5 375.1,112.4 C381.2,117.3 386.0,122.3 392.0,128.6 C398.0,134.9 408.2,141.8 411.1,150.0Z\" style=\"stroke:var(--olive);stroke-opacity:0.202;stroke-width:1.2\"></path><path d=\"M449.1,150.0 C4"
+  },
+  {
+   "id": 4,
+   "depth": 3,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 468
+   },
+   "style": {
+    "position": "absolute",
+    "background-image": "radial-gradient(circle at 196px 300px, rgba(163, 181, 101, 0.2), rgba(163, 181, 101, 0) 230px)"
+   },
+   "data": [
+    "data-id=login.hero.glow"
+   ]
+  },
+  {
+   "id": 5,
+   "depth": 3,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 328,
+    "w": 393,
+    "h": 140
+   },
+   "style": {
+    "position": "absolute",
+    "background-image": "linear-gradient(rgba(10, 11, 9, 0), rgb(10, 11, 9))"
+   },
+   "data": [
+    "data-id=login.hero.fade"
+   ]
+  },
+  {
+   "id": 6,
+   "depth": 2,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 600
+   },
+   "style": {
+    "position": "absolute",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=login.carousel",
+    "data-compose=HorizontalPager"
+   ]
+  },
+  {
+   "id": 7,
+   "depth": 3,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 1572,
+    "h": 600
+   },
+   "style": {
+    "display": "flex",
+    "position": "absolute",
+    "transition": "transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1)"
+   },
+   "data": [
+    "data-id=login.carousel.track"
+   ]
+  },
+  {
+   "id": 8,
+   "depth": 4,
+   "sel": "section.slide",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 600
+   },
+   "style": {
+    "position": "relative",
+    "flex-shrink": "0"
+   },
+   "data": [
+    "data-id=login.slide.1",
+    "data-compose=LoginPage"
+   ]
+  },
+  {
+   "id": 9,
+   "depth": 5,
+   "sel": "div.phone",
+   "text": null,
+   "rect": {
+    "x": 93,
+    "y": 108,
+    "w": 207,
+    "h": 404
+   },
+   "style": {
+    "position": "absolute",
+    "padding": "5px",
+    "background-color": "rgb(29, 33, 22)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "28px",
+    "box-shadow": "rgba(0, 0, 0, 0.45) 0px 18px 40px 0px"
+   },
+   "data": [
+    "data-id=login.slide.1.phone",
+    "data-compose=PhoneMockup"
+   ]
+  },
+  {
+   "id": 10,
+   "depth": 6,
+   "sel": "div.phone-screen",
+   "text": null,
+   "rect": {
+    "x": 99,
+    "y": 114,
+    "w": 195,
+    "h": 392
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "flex-direction": "column",
+    "padding": "24px 14px 14px",
+    "background-color": "rgb(10, 11, 9)",
+    "border-radius": "23px",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=login.slide.1.screen"
+   ]
+  },
+  {
+   "id": 11,
+   "depth": 7,
+   "sel": "div.phone-notch",
+   "text": null,
+   "rect": {
+    "x": 176,
+    "y": 122,
+    "w": 40,
+    "h": 4
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgba(236, 232, 218, 0.18)",
+    "border-radius": "2px"
+   }
+  },
+  {
+   "id": 12,
+   "depth": 7,
+   "sel": "div.m-head",
+   "text": null,
+   "rect": {
+    "x": 113,
+    "y": 138,
+    "w": 167,
+    "h": 12
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "margin": "0px 0px 12px"
+   },
+   "data": [
+    "data-id=login.slide.1.head"
+   ]
+  },
+  {
+   "id": 13,
+   "depth": 8,
+   "sel": "span.m-label",
+   "text": "Competição online",
+   "rect": {
+    "x": 113,
+    "y": 138,
+    "w": 125.9,
+    "h": 12
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "6px",
+    "color": "rgb(163, 181, 101)",
+    "font-size": "9px",
+    "font-weight": "600",
+    "line-height": "12px",
+    "letter-spacing": "1px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=login.slide.1.head.label"
+   ]
+  },
+  {
+   "id": 14,
+   "depth": 9,
+   "sel": "i.m-dot",
+   "text": null,
+   "rect": {
+    "x": 113,
+    "y": 141,
+    "w": 6,
+    "h": 6
+   },
+   "style": {
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "3px"
+   }
+  },
+  {
+   "id": 15,
+   "depth": 8,
+   "sel": "span.m-aside",
+   "text": "Premium",
+   "rect": {
+    "x": 242,
+    "y": 138,
+    "w": 38,
+    "h": 12
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "9px",
+    "font-weight": "500",
+    "line-height": "12px"
+   },
+   "data": [
+    "data-id=login.slide.1.head.aside"
+   ]
+  },
+  {
+   "id": 16,
+   "depth": 7,
+   "sel": "div.m-card.mission",
+   "text": null,
+   "rect": {
+    "x": 113,
+    "y": 162,
+    "w": 167,
+    "h": 46
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "10px",
+    "padding": "0px 10px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "12px"
+   },
+   "data": [
+    "data-id=login.slide.1.mission"
+   ]
+  },
+  {
+   "id": 17,
+   "depth": 8,
+   "sel": "span.badge",
+   "text": "5K",
+   "rect": {
+    "x": 124,
+    "y": 174,
+    "w": 30,
+    "h": 22
+   },
+   "style": {
+    "flex-shrink": "0",
+    "color": "rgb(163, 181, 101)",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border-radius": "8px",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "22px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=login.slide.1.mission.badge"
+   ]
+  },
+  {
+   "id": 18,
+   "depth": 8,
+   "sel": "div.m-col",
+   "text": null,
+   "rect": {
+    "x": 164,
+    "y": 170,
+    "w": 101,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column"
+   }
+  },
+  {
+   "id": 19,
+   "depth": 9,
+   "sel": "span.m-t",
+   "text": "Missão das 13:00",
+   "rect": {
+    "x": 164,
+    "y": 170,
+    "w": 101,
+    "h": 16
+   },
+   "style": {
+    "font-size": "12px",
+    "font-weight": "600",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=login.slide.1.mission.name"
+   ]
+  },
+  {
+   "id": 20,
+   "depth": 9,
+   "sel": "span.m-s",
+   "text": "3 na sala",
+   "rect": {
+    "x": 164,
+    "y": 186,
+    "w": 101,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "10px",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=login.slide.1.mission.count"
+   ]
+  },
+  {
+   "id": 21,
+   "depth": 7,
+   "sel": "div.countdown",
+   "text": null,
+   "rect": {
+    "x": 113,
+    "y": 224,
+    "w": 167,
+    "h": 88
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "center",
+    "margin": "16px 0px 0px"
+   },
+   "data": [
+    "data-id=login.slide.1.countdown"
+   ]
+  },
+  {
+   "id": 22,
+   "depth": 8,
+   "sel": "span.m-s",
+   "text": "Começa em",
+   "rect": {
+    "x": 168.1,
+    "y": 224,
+    "w": 56.7,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "10px",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=login.slide.1.countdown.label"
+   ]
+  },
+  {
+   "id": 23,
+   "depth": 8,
+   "sel": "span.cd-time",
+   "text": "18:42",
+   "rect": {
+    "x": 130.5,
+    "y": 242,
+    "w": 132,
+    "h": 56
+   },
+   "style": {
+    "margin": "4px 0px",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "56px",
+    "font-weight": "700",
+    "line-height": "56px",
+    "letter-spacing": "1px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=login.slide.1.countdown.time",
+    "data-bind=mockup.countdown"
+   ]
+  },
+  {
+   "id": 24,
+   "depth": 8,
+   "sel": "span.m-s",
+   "text": "Vence quem concluir primeiro",
+   "rect": {
+    "x": 125.7,
+    "y": 302,
+    "w": 141.6,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "10px",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=login.slide.1.countdown.rule"
+   ]
+  },
+  {
+   "id": 25,
+   "depth": 7,
+   "sel": "div.players",
+   "text": null,
+   "rect": {
+    "x": 113,
+    "y": 328,
+    "w": 167,
+    "h": 102
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "margin": "16px 0px 0px"
+   },
+   "data": [
+    "data-id=login.slide.1.players"
+   ]
+  },
+  {
+   "id": 26,
+   "depth": 8,
+   "sel": "div.player",
+   "text": null,
+   "rect": {
+    "x": 113,
+    "y": 328,
+    "w": 167,
+    "h": 34
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "10px"
+   }
+  },
+  {
+   "id": 27,
+   "depth": 9,
+   "sel": "span.avatar.me",
+   "text": "VC",
+   "rect": {
+    "x": 113,
+    "y": 332,
+    "w": 26,
+    "h": 26
+   },
+   "style": {
+    "flex-shrink": "0",
+    "color": "rgb(14, 19, 6)",
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "13px",
+    "font-size": "10px",
+    "font-weight": "700",
+    "line-height": "26px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=login.slide.1.players.p1.avatar"
+   ]
+  },
+  {
+   "id": 28,
+   "depth": 9,
+   "sel": "span.p-name",
+   "text": "Você",
+   "rect": {
+    "x": 149,
+    "y": 337,
+    "w": 77.1,
+    "h": 16
+   },
+   "style": {
+    "flex-grow": "1",
+    "font-size": "12px",
+    "font-weight": "500",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=login.slide.1.players.p1.name"
+   ]
+  },
+  {
+   "id": 29,
+   "depth": 9,
+   "sel": "span.p-status",
+   "text": "● Na sala",
+   "rect": {
+    "x": 236.1,
+    "y": 338,
+    "w": 43.9,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(127, 176, 105)",
+    "font-size": "10px",
+    "font-weight": "500",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=login.slide.1.players.p1.status"
+   ]
+  },
+  {
+   "id": 30,
+   "depth": 8,
+   "sel": "div.player",
+   "text": null,
+   "rect": {
+    "x": 113,
+    "y": 362,
+    "w": 167,
+    "h": 34
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "10px"
+   }
+  },
+  {
+   "id": 31,
+   "depth": 9,
+   "sel": "span.avatar",
+   "text": "RM",
+   "rect": {
+    "x": 113,
+    "y": 366,
+    "w": 26,
+    "h": 26
+   },
+   "style": {
+    "flex-shrink": "0",
+    "color": "rgb(163, 181, 101)",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border-radius": "13px",
+    "font-size": "10px",
+    "font-weight": "700",
+    "line-height": "26px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=login.slide.1.players.p2.avatar"
+   ]
+  },
+  {
+   "id": 32,
+   "depth": 9,
+   "sel": "span.p-name",
+   "text": "Rafael M.",
+   "rect": {
+    "x": 149,
+    "y": 371,
+    "w": 77.1,
+    "h": 16
+   },
+   "style": {
+    "flex-grow": "1",
+    "font-size": "12px",
+    "font-weight": "500",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=login.slide.1.players.p2.name"
+   ]
+  },
+  {
+   "id": 33,
+   "depth": 9,
+   "sel": "span.p-status",
+   "text": "● Na sala",
+   "rect": {
+    "x": 236.1,
+    "y": 372,
+    "w": 43.9,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(127, 176, 105)",
+    "font-size": "10px",
+    "font-weight": "500",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=login.slide.1.players.p2.status"
+   ]
+  },
+  {
+   "id": 34,
+   "depth": 8,
+   "sel": "div.player",
+   "text": null,
+   "rect": {
+    "x": 113,
+    "y": 396,
+    "w": 167,
+    "h": 34
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "10px"
+   }
+  },
+  {
+   "id": 35,
+   "depth": 9,
+   "sel": "span.avatar",
+   "text": "CS",
+   "rect": {
+    "x": 113,
+    "y": 400,
+    "w": 26,
+    "h": 26
+   },
+   "style": {
+    "flex-shrink": "0",
+    "color": "rgb(163, 181, 101)",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border-radius": "13px",
+    "font-size": "10px",
+    "font-weight": "700",
+    "line-height": "26px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=login.slide.1.players.p3.avatar"
+   ]
+  },
+  {
+   "id": 36,
+   "depth": 9,
+   "sel": "span.p-name",
+   "text": "Camila S.",
+   "rect": {
+    "x": 149,
+    "y": 405,
+    "w": 77.1,
+    "h": 16
+   },
+   "style": {
+    "flex-grow": "1",
+    "font-size": "12px",
+    "font-weight": "500",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=login.slide.1.players.p3.name"
+   ]
+  },
+  {
+   "id": 37,
+   "depth": 9,
+   "sel": "span.p-status",
+   "text": "● Na sala",
+   "rect": {
+    "x": 236.1,
+    "y": 406,
+    "w": 43.9,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(127, 176, 105)",
+    "font-size": "10px",
+    "font-weight": "500",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=login.slide.1.players.p3.status"
+   ]
+  },
+  {
+   "id": 38,
+   "depth": 7,
+   "sel": "div.m-btn",
+   "text": "Entrar na prova",
+   "rect": {
+    "x": 113,
+    "y": 456,
+    "w": 167,
+    "h": 36
+   },
+   "style": {
+    "margin": "26px 0px 0px",
+    "color": "rgb(255, 244, 240)",
+    "background-color": "rgb(209, 43, 43)",
+    "border-radius": "18px",
+    "font-size": "12px",
+    "font-weight": "600",
+    "line-height": "36px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=login.slide.1.cta"
+   ]
+  },
+  {
+   "id": 39,
+   "depth": 5,
+   "sel": "h2.slide-title",
+   "text": "Corra contra gente de verdade.",
+   "rect": {
+    "x": 0,
+    "y": 528,
+    "w": 393,
+    "h": 64
+   },
+   "style": {
+    "position": "absolute",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "30px",
+    "font-weight": "700",
+    "line-height": "32px",
+    "letter-spacing": "0.9px",
+    "text-align": "center",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=login.slide.1.title"
+   ]
+  },
+  {
+   "id": 40,
+   "depth": 6,
+   "sel": "br",
+   "text": null,
+   "rect": {
+    "x": 283.5,
+    "y": 526,
+    "w": 0,
+    "h": 36
+   },
+   "style": {}
+  },
+  {
+   "id": 41,
+   "depth": 4,
+   "sel": "section.slide",
+   "text": null,
+   "rect": {
+    "x": 393,
+    "y": 0,
+    "w": 393,
+    "h": 600
+   },
+   "style": {
+    "position": "relative",
+    "flex-shrink": "0"
+   },
+   "data": [
+    "data-id=login.slide.2",
+    "data-compose=LoginPage"
+   ]
+  },
+  {
+   "id": 42,
+   "depth": 5,
+   "sel": "div.phone",
+   "text": null,
+   "rect": {
+    "x": 486,
+    "y": 108,
+    "w": 207,
+    "h": 404
+   },
+   "style": {
+    "position": "absolute",
+    "padding": "5px",
+    "background-color": "rgb(29, 33, 22)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "28px",
+    "box-shadow": "rgba(0, 0, 0, 0.45) 0px 18px 40px 0px"
+   },
+   "data": [
+    "data-id=login.slide.2.phone",
+    "data-compose=PhoneMockup"
+   ]
+  },
+  {
+   "id": 43,
+   "depth": 6,
+   "sel": "div.phone-screen",
+   "text": null,
+   "rect": {
+    "x": 492,
+    "y": 114,
+    "w": 195,
+    "h": 392
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "flex-direction": "column",
+    "padding": "24px 14px 14px",
+    "background-color": "rgb(10, 11, 9)",
+    "border-radius": "23px",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=login.slide.2.screen"
+   ]
+  },
+  {
+   "id": 44,
+   "depth": 7,
+   "sel": "div.phone-notch",
+   "text": null,
+   "rect": {
+    "x": 569,
+    "y": 122,
+    "w": 40,
+    "h": 4
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgba(236, 232, 218, 0.18)",
+    "border-radius": "2px"
+   }
+  },
+  {
+   "id": 45,
+   "depth": 7,
+   "sel": "div.m-head",
+   "text": null,
+   "rect": {
+    "x": 506,
+    "y": 138,
+    "w": 167,
+    "h": 12
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "margin": "0px 0px 12px"
+   },
+   "data": [
+    "data-id=login.slide.2.head"
+   ]
+  },
+  {
+   "id": 46,
+   "depth": 8,
+   "sel": "span.m-label",
+   "text": "Ranking e ligas",
+   "rect": {
+    "x": 506,
+    "y": 138,
+    "w": 105,
+    "h": 12
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "6px",
+    "color": "rgb(163, 181, 101)",
+    "font-size": "9px",
+    "font-weight": "600",
+    "line-height": "12px",
+    "letter-spacing": "1px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=login.slide.2.head.label"
+   ]
+  },
+  {
+   "id": 47,
+   "depth": 9,
+   "sel": "i.m-dot",
+   "text": null,
+   "rect": {
+    "x": 506,
+    "y": 141,
+    "w": 6,
+    "h": 6
+   },
+   "style": {
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "3px"
+   }
+  },
+  {
+   "id": 48,
+   "depth": 8,
+   "sel": "span.m-aside",
+   "text": "Temporada",
+   "rect": {
+    "x": 624.3,
+    "y": 138,
+    "w": 48.7,
+    "h": 12
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "9px",
+    "font-weight": "500",
+    "line-height": "12px"
+   },
+   "data": [
+    "data-id=login.slide.2.head.aside"
+   ]
+  },
+  {
+   "id": 49,
+   "depth": 7,
+   "sel": "div.m-card.league",
+   "text": null,
+   "rect": {
+    "x": 506,
+    "y": 162,
+    "w": 167,
+    "h": 76
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "gap": "4px",
+    "padding": "10px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "12px"
+   },
+   "data": [
+    "data-id=login.slide.2.league"
+   ]
+  },
+  {
+   "id": 50,
+   "depth": 8,
+   "sel": "div.league-top",
+   "text": null,
+   "rect": {
+    "x": 517,
+    "y": 173,
+    "w": 145,
+    "h": 22
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "8px"
+   }
+  },
+  {
+   "id": 51,
+   "depth": 9,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 517,
+    "y": 173,
+    "w": 22,
+    "h": 22
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=login.slide.2.league.icon",
+    "data-icon=material:Shield"
+   ],
+   "svg": "<svg data-id=\"login.slide.2.league.icon\" data-icon=\"material:Shield\" viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3l7.5 3v5.5c0 4.6-3.1 8.2-7.5 9.5C7.6 19.700 4.500 16.100 4.500 11.500V6L12 3z\"></path></svg>"
+  },
+  {
+   "id": 52,
+   "depth": 9,
+   "sel": "span.league-name",
+   "text": "Liga Ouro II",
+   "rect": {
+    "x": 547,
+    "y": 173,
+    "w": 96.6,
+    "h": 22
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "20px",
+    "font-weight": "700",
+    "line-height": "22px",
+    "letter-spacing": "0.8px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=login.slide.2.league.name"
+   ]
+  },
+  {
+   "id": 53,
+   "depth": 8,
+   "sel": "span.m-s",
+   "text": "Faltam 58 pontos para subir",
+   "rect": {
+    "x": 517,
+    "y": 199,
+    "w": 145,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "10px",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=login.slide.2.league.hint"
+   ]
+  },
+  {
+   "id": 54,
+   "depth": 8,
+   "sel": "div.bar",
+   "text": null,
+   "rect": {
+    "x": 517,
+    "y": 223,
+    "w": 145,
+    "h": 4
+   },
+   "style": {
+    "position": "relative",
+    "margin": "6px 0px 0px",
+    "background-color": "rgb(29, 33, 22)",
+    "border-radius": "2px"
+   },
+   "data": [
+    "data-id=login.slide.2.league.bar"
+   ]
+  },
+  {
+   "id": 55,
+   "depth": 9,
+   "sel": "div.bar-fill",
+   "text": null,
+   "rect": {
+    "x": 517,
+    "y": 223,
+    "w": 120,
+    "h": 4
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "2px"
+   },
+   "data": [
+    "data-id=login.slide.2.league.bar.fill"
+   ]
+  },
+  {
+   "id": 56,
+   "depth": 7,
+   "sel": "div.chips",
+   "text": null,
+   "rect": {
+    "x": 506,
+    "y": 250,
+    "w": 167,
+    "h": 24
+   },
+   "style": {
+    "display": "flex",
+    "gap": "6px",
+    "margin": "12px 0px 0px"
+   },
+   "data": [
+    "data-id=login.slide.2.chips"
+   ]
+  },
+  {
+   "id": 57,
+   "depth": 8,
+   "sel": "span.chip.on",
+   "text": "Global",
+   "rect": {
+    "x": 506,
+    "y": 250,
+    "w": 52.5,
+    "h": 24
+   },
+   "style": {
+    "padding": "0px 10px",
+    "color": "rgb(163, 181, 101)",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border": "1px solid rgb(93, 107, 52)",
+    "border-radius": "12px",
+    "font-size": "10px",
+    "font-weight": "500",
+    "line-height": "22px"
+   },
+   "data": [
+    "data-id=login.slide.2.chips.global"
+   ]
+  },
+  {
+   "id": 58,
+   "depth": 8,
+   "sel": "span.chip",
+   "text": "Meu estado",
+   "rect": {
+    "x": 564.5,
+    "y": 250,
+    "w": 78.3,
+    "h": 24
+   },
+   "style": {
+    "padding": "0px 10px",
+    "color": "rgb(143, 147, 132)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "12px",
+    "font-size": "10px",
+    "font-weight": "500",
+    "line-height": "22px"
+   },
+   "data": [
+    "data-id=login.slide.2.chips.state"
+   ]
+  },
+  {
+   "id": 59,
+   "depth": 7,
+   "sel": "div.rank",
+   "text": null,
+   "rect": {
+    "x": 506,
+    "y": 284,
+    "w": 167,
+    "h": 136
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "margin": "10px 0px 0px"
+   },
+   "data": [
+    "data-id=login.slide.2.rank"
+   ]
+  },
+  {
+   "id": 60,
+   "depth": 8,
+   "sel": "div.rank-row",
+   "text": null,
+   "rect": {
+    "x": 506,
+    "y": 284,
+    "w": 167,
+    "h": 34
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "10px",
+    "padding": "0px 8px",
+    "border-radius": "8px"
+   }
+  },
+  {
+   "id": 61,
+   "depth": 9,
+   "sel": "span.rank-pos.gold",
+   "text": "1",
+   "rect": {
+    "x": 514,
+    "y": 292,
+    "w": 14,
+    "h": 18
+   },
+   "style": {
+    "color": "rgb(201, 162, 75)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "15px",
+    "font-weight": "700",
+    "line-height": "18px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=login.slide.2.rank.r1.pos"
+   ]
+  },
+  {
+   "id": 62,
+   "depth": 9,
+   "sel": "span.rank-name",
+   "text": "Bruno A.",
+   "rect": {
+    "x": 538,
+    "y": 293,
+    "w": 68.9,
+    "h": 16
+   },
+   "style": {
+    "flex-grow": "1",
+    "font-size": "12px",
+    "font-weight": "500",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=login.slide.2.rank.r1.name"
+   ]
+  },
+  {
+   "id": 63,
+   "depth": 9,
+   "sel": "span.rank-pts",
+   "text": "3.120 pts",
+   "rect": {
+    "x": 616.9,
+    "y": 292,
+    "w": 48.1,
+    "h": 18
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "14px",
+    "font-weight": "600",
+    "line-height": "18px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=login.slide.2.rank.r1.pts"
+   ]
+  },
+  {
+   "id": 64,
+   "depth": 8,
+   "sel": "div.rank-row",
+   "text": null,
+   "rect": {
+    "x": 506,
+    "y": 318,
+    "w": 167,
+    "h": 34
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "10px",
+    "padding": "0px 8px",
+    "border-radius": "8px"
+   }
+  },
+  {
+   "id": 65,
+   "depth": 9,
+   "sel": "span.rank-pos",
+   "text": "2",
+   "rect": {
+    "x": 514,
+    "y": 326,
+    "w": 14,
+    "h": 18
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "15px",
+    "font-weight": "700",
+    "line-height": "18px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=login.slide.2.rank.r2.pos"
+   ]
+  },
+  {
+   "id": 66,
+   "depth": 9,
+   "sel": "span.rank-name",
+   "text": "Camila S.",
+   "rect": {
+    "x": 538,
+    "y": 327,
+    "w": 68.9,
+    "h": 16
+   },
+   "style": {
+    "flex-grow": "1",
+    "font-size": "12px",
+    "font-weight": "500",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=login.slide.2.rank.r2.name"
+   ]
+  },
+  {
+   "id": 67,
+   "depth": 9,
+   "sel": "span.rank-pts",
+   "text": "2.940 pts",
+   "rect": {
+    "x": 616.9,
+    "y": 326,
+    "w": 48.1,
+    "h": 18
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "14px",
+    "font-weight": "600",
+    "line-height": "18px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=login.slide.2.rank.r2.pts"
+   ]
+  },
+  {
+   "id": 68,
+   "depth": 8,
+   "sel": "div.rank-row",
+   "text": null,
+   "rect": {
+    "x": 506,
+    "y": 352,
+    "w": 167,
+    "h": 34
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "10px",
+    "padding": "0px 8px",
+    "border-radius": "8px"
+   }
+  },
+  {
+   "id": 69,
+   "depth": 9,
+   "sel": "span.rank-pos",
+   "text": "3",
+   "rect": {
+    "x": 514,
+    "y": 360,
+    "w": 14,
+    "h": 18
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "15px",
+    "font-weight": "700",
+    "line-height": "18px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=login.slide.2.rank.r3.pos"
+   ]
+  },
+  {
+   "id": 70,
+   "depth": 9,
+   "sel": "span.rank-name",
+   "text": "Rafael M.",
+   "rect": {
+    "x": 538,
+    "y": 361,
+    "w": 68.9,
+    "h": 16
+   },
+   "style": {
+    "flex-grow": "1",
+    "font-size": "12px",
+    "font-weight": "500",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=login.slide.2.rank.r3.name"
+   ]
+  },
+  {
+   "id": 71,
+   "depth": 9,
+   "sel": "span.rank-pts",
+   "text": "2.815 pts",
+   "rect": {
+    "x": 616.9,
+    "y": 360,
+    "w": 48.1,
+    "h": 18
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "14px",
+    "font-weight": "600",
+    "line-height": "18px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=login.slide.2.rank.r3.pts"
+   ]
+  },
+  {
+   "id": 72,
+   "depth": 8,
+   "sel": "div.rank-row.me",
+   "text": null,
+   "rect": {
+    "x": 506,
+    "y": 386,
+    "w": 167,
+    "h": 34
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "10px",
+    "padding": "0px 8px",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border-radius": "8px"
+   }
+  },
+  {
+   "id": 73,
+   "depth": 9,
+   "sel": "span.rank-pos",
+   "text": "4",
+   "rect": {
+    "x": 514,
+    "y": 394,
+    "w": 14,
+    "h": 18
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "15px",
+    "font-weight": "700",
+    "line-height": "18px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=login.slide.2.rank.r4.pos"
+   ]
+  },
+  {
+   "id": 74,
+   "depth": 9,
+   "sel": "span.rank-name",
+   "text": "Você",
+   "rect": {
+    "x": 538,
+    "y": 395,
+    "w": 68.9,
+    "h": 16
+   },
+   "style": {
+    "flex-grow": "1",
+    "font-size": "12px",
+    "font-weight": "500",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=login.slide.2.rank.r4.name"
+   ]
+  },
+  {
+   "id": 75,
+   "depth": 9,
+   "sel": "span.rank-pts",
+   "text": "2.402 pts",
+   "rect": {
+    "x": 616.9,
+    "y": 394,
+    "w": 48.1,
+    "h": 18
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "14px",
+    "font-weight": "600",
+    "line-height": "18px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=login.slide.2.rank.r4.pts"
+   ]
+  },
+  {
+   "id": 76,
+   "depth": 7,
+   "sel": "span.note",
+   "text": "Exemplo ilustrativo",
+   "rect": {
+    "x": 506,
+    "y": 480,
+    "w": 167,
+    "h": 12
+   },
+   "style": {
+    "margin": "60px 0px 0px",
+    "color": "rgb(94, 98, 85)",
+    "font-size": "9px",
+    "line-height": "12px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=login.slide.2.note"
+   ]
+  },
+  {
+   "id": 77,
+   "depth": 5,
+   "sel": "h2.slide-title",
+   "text": "Suba no pódio e no ranking.",
+   "rect": {
+    "x": 393,
+    "y": 528,
+    "w": 393,
+    "h": 64
+   },
+   "style": {
+    "position": "absolute",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "30px",
+    "font-weight": "700",
+    "line-height": "32px",
+    "letter-spacing": "0.9px",
+    "text-align": "center",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=login.slide.2.title"
+   ]
+  },
+  {
+   "id": 78,
+   "depth": 6,
+   "sel": "br",
+   "text": null,
+   "rect": {
+    "x": 675.6,
+    "y": 526,
+    "w": 0,
+    "h": 36
+   },
+   "style": {}
+  },
+  {
+   "id": 79,
+   "depth": 4,
+   "sel": "section.slide",
+   "text": null,
+   "rect": {
+    "x": 786,
+    "y": 0,
+    "w": 393,
+    "h": 600
+   },
+   "style": {
+    "position": "relative",
+    "flex-shrink": "0"
+   },
+   "data": [
+    "data-id=login.slide.3",
+    "data-compose=LoginPage"
+   ]
+  },
+  {
+   "id": 80,
+   "depth": 5,
+   "sel": "div.phone",
+   "text": null,
+   "rect": {
+    "x": 879,
+    "y": 108,
+    "w": 207,
+    "h": 404
+   },
+   "style": {
+    "position": "absolute",
+    "padding": "5px",
+    "background-color": "rgb(29, 33, 22)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "28px",
+    "box-shadow": "rgba(0, 0, 0, 0.45) 0px 18px 40px 0px"
+   },
+   "data": [
+    "data-id=login.slide.3.phone",
+    "data-compose=PhoneMockup"
+   ]
+  },
+  {
+   "id": 81,
+   "depth": 6,
+   "sel": "div.phone-screen",
+   "text": null,
+   "rect": {
+    "x": 885,
+    "y": 114,
+    "w": 195,
+    "h": 392
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "flex-direction": "column",
+    "padding": "24px 14px 14px",
+    "background-color": "rgb(10, 11, 9)",
+    "border-radius": "23px",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=login.slide.3.screen"
+   ]
+  },
+  {
+   "id": 82,
+   "depth": 7,
+   "sel": "div.phone-notch",
+   "text": null,
+   "rect": {
+    "x": 962,
+    "y": 122,
+    "w": 40,
+    "h": 4
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgba(236, 232, 218, 0.18)",
+    "border-radius": "2px"
+   }
+  },
+  {
+   "id": 83,
+   "depth": 7,
+   "sel": "div.m-head",
+   "text": null,
+   "rect": {
+    "x": 899,
+    "y": 138,
+    "w": 167,
+    "h": 12
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "margin": "0px 0px 12px"
+   },
+   "data": [
+    "data-id=login.slide.3.head"
+   ]
+  },
+  {
+   "id": 84,
+   "depth": 8,
+   "sel": "span.m-label",
+   "text": "Seu plano",
+   "rect": {
+    "x": 899,
+    "y": 138,
+    "w": 72.4,
+    "h": 12
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "6px",
+    "color": "rgb(163, 181, 101)",
+    "font-size": "9px",
+    "font-weight": "600",
+    "line-height": "12px",
+    "letter-spacing": "1px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=login.slide.3.head.label"
+   ]
+  },
+  {
+   "id": 85,
+   "depth": 9,
+   "sel": "i.m-dot",
+   "text": null,
+   "rect": {
+    "x": 899,
+    "y": 141,
+    "w": 6,
+    "h": 6
+   },
+   "style": {
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "3px"
+   }
+  },
+  {
+   "id": 86,
+   "depth": 8,
+   "sel": "span.m-aside",
+   "text": "Semana 3 de 12",
+   "rect": {
+    "x": 998.3,
+    "y": 138,
+    "w": 67.7,
+    "h": 12
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "9px",
+    "font-weight": "500",
+    "line-height": "12px"
+   },
+   "data": [
+    "data-id=login.slide.3.head.aside"
+   ]
+  },
+  {
+   "id": 87,
+   "depth": 7,
+   "sel": "div.weeks",
+   "text": null,
+   "rect": {
+    "x": 899,
+    "y": 168,
+    "w": 167,
+    "h": 4
+   },
+   "style": {
+    "display": "flex",
+    "gap": "3px",
+    "margin": "6px 0px 0px"
+   },
+   "data": [
+    "data-id=login.slide.3.weeks"
+   ]
+  },
+  {
+   "id": 88,
+   "depth": 8,
+   "sel": "i.week.done",
+   "text": null,
+   "rect": {
+    "x": 899,
+    "y": 168,
+    "w": 11.2,
+    "h": 4
+   },
+   "style": {
+    "flex-grow": "1",
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "2px"
+   }
+  },
+  {
+   "id": 89,
+   "depth": 8,
+   "sel": "i.week.done",
+   "text": null,
+   "rect": {
+    "x": 913.2,
+    "y": 168,
+    "w": 11.2,
+    "h": 4
+   },
+   "style": {
+    "flex-grow": "1",
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "2px"
+   }
+  },
+  {
+   "id": 90,
+   "depth": 8,
+   "sel": "i.week",
+   "text": null,
+   "rect": {
+    "x": 927.3,
+    "y": 168,
+    "w": 11.2,
+    "h": 4
+   },
+   "style": {
+    "flex-grow": "1",
+    "background-color": "rgb(29, 33, 22)",
+    "border-radius": "2px"
+   }
+  },
+  {
+   "id": 91,
+   "depth": 8,
+   "sel": "i.week",
+   "text": null,
+   "rect": {
+    "x": 941.5,
+    "y": 168,
+    "w": 11.2,
+    "h": 4
+   },
+   "style": {
+    "flex-grow": "1",
+    "background-color": "rgb(29, 33, 22)",
+    "border-radius": "2px"
+   }
+  },
+  {
+   "id": 92,
+   "depth": 8,
+   "sel": "i.week",
+   "text": null,
+   "rect": {
+    "x": 955.7,
+    "y": 168,
+    "w": 11.2,
+    "h": 4
+   },
+   "style": {
+    "flex-grow": "1",
+    "background-color": "rgb(29, 33, 22)",
+    "border-radius": "2px"
+   }
+  },
+  {
+   "id": 93,
+   "depth": 8,
+   "sel": "i.week",
+   "text": null,
+   "rect": {
+    "x": 969.8,
+    "y": 168,
+    "w": 11.2,
+    "h": 4
+   },
+   "style": {
+    "flex-grow": "1",
+    "background-color": "rgb(29, 33, 22)",
+    "border-radius": "2px"
+   }
+  },
+  {
+   "id": 94,
+   "depth": 8,
+   "sel": "i.week",
+   "text": null,
+   "rect": {
+    "x": 984,
+    "y": 168,
+    "w": 11.2,
+    "h": 4
+   },
+   "style": {
+    "flex-grow": "1",
+    "background-color": "rgb(29, 33, 22)",
+    "border-radius": "2px"
+   }
+  },
+  {
+   "id": 95,
+   "depth": 8,
+   "sel": "i.week",
+   "text": null,
+   "rect": {
+    "x": 998.1,
+    "y": 168,
+    "w": 11.2,
+    "h": 4
+   },
+   "style": {
+    "flex-grow": "1",
+    "background-color": "rgb(29, 33, 22)",
+    "border-radius": "2px"
+   }
+  },
+  {
+   "id": 96,
+   "depth": 8,
+   "sel": "i.week",
+   "text": null,
+   "rect": {
+    "x": 1012.3,
+    "y": 168,
+    "w": 11.2,
+    "h": 4
+   },
+   "style": {
+    "flex-grow": "1",
+    "background-color": "rgb(29, 33, 22)",
+    "border-radius": "2px"
+   }
+  },
+  {
+   "id": 97,
+   "depth": 8,
+   "sel": "i.week",
+   "text": null,
+   "rect": {
+    "x": 1026.5,
+    "y": 168,
+    "w": 11.2,
+    "h": 4
+   },
+   "style": {
+    "flex-grow": "1",
+    "background-color": "rgb(29, 33, 22)",
+    "border-radius": "2px"
+   }
+  },
+  {
+   "id": 98,
+   "depth": 8,
+   "sel": "i.week",
+   "text": null,
+   "rect": {
+    "x": 1040.7,
+    "y": 168,
+    "w": 11.2,
+    "h": 4
+   },
+   "style": {
+    "flex-grow": "1",
+    "background-color": "rgb(29, 33, 22)",
+    "border-radius": "2px"
+   }
+  },
+  {
+   "id": 99,
+   "depth": 8,
+   "sel": "i.week",
+   "text": null,
+   "rect": {
+    "x": 1054.8,
+    "y": 168,
+    "w": 11.2,
+    "h": 4
+   },
+   "style": {
+    "flex-grow": "1",
+    "background-color": "rgb(29, 33, 22)",
+    "border-radius": "2px"
+   }
+  },
+  {
+   "id": 100,
+   "depth": 7,
+   "sel": "span.plan-title",
+   "text": "Corrida leve",
+   "rect": {
+    "x": 899,
+    "y": 184,
+    "w": 167,
+    "h": 30
+   },
+   "style": {
+    "margin": "12px 0px 0px",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "30px",
+    "font-weight": "700",
+    "line-height": "30px",
+    "letter-spacing": "0.9px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=login.slide.3.workout"
+   ]
+  },
+  {
+   "id": 101,
+   "depth": 7,
+   "sel": "span.m-s",
+   "text": "Treino de hoje · 42 min",
+   "rect": {
+    "x": 899,
+    "y": 214,
+    "w": 167,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "10px",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=login.slide.3.duration"
+   ]
+  },
+  {
+   "id": 102,
+   "depth": 7,
+   "sel": "div.plan-chart",
+   "text": null,
+   "rect": {
+    "x": 899,
+    "y": 242,
+    "w": 167,
+    "h": 96
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "flow-end",
+    "gap": "2px",
+    "margin": "14px 0px 0px"
+   },
+   "data": [
+    "data-id=login.slide.3.chart"
+   ]
+  },
+  {
+   "id": 103,
+   "depth": 8,
+   "sel": "div.seg",
+   "text": null,
+   "rect": {
+    "x": 899,
+    "y": 297,
+    "w": 18.6,
+    "h": 40
+   },
+   "style": {
+    "flex-grow": "3",
+    "background-color": "rgb(201, 162, 75)",
+    "border-radius": "3px 3px 0px 0px"
+   },
+   "data": [
+    "data-id=login.slide.3.chart.cool-up"
+   ]
+  },
+  {
+   "id": 104,
+   "depth": 8,
+   "sel": "div.seg",
+   "text": null,
+   "rect": {
+    "x": 919.6,
+    "y": 237,
+    "w": 31,
+    "h": 100
+   },
+   "style": {
+    "flex-grow": "5",
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "3px 3px 0px 0px"
+   },
+   "data": [
+    "data-id=login.slide.3.chart.run1"
+   ]
+  },
+  {
+   "id": 105,
+   "depth": 8,
+   "sel": "div.seg",
+   "text": null,
+   "rect": {
+    "x": 952.6,
+    "y": 292,
+    "w": 12.4,
+    "h": 45
+   },
+   "style": {
+    "flex-grow": "2",
+    "background-color": "rgb(74, 78, 64)",
+    "border-radius": "3px 3px 0px 0px"
+   },
+   "data": [
+    "data-id=login.slide.3.chart.walk1"
+   ]
+  },
+  {
+   "id": 106,
+   "depth": 8,
+   "sel": "div.seg",
+   "text": null,
+   "rect": {
+    "x": 967,
+    "y": 237,
+    "w": 31,
+    "h": 100
+   },
+   "style": {
+    "flex-grow": "5",
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "3px 3px 0px 0px"
+   },
+   "data": [
+    "data-id=login.slide.3.chart.run2"
+   ]
+  },
+  {
+   "id": 107,
+   "depth": 8,
+   "sel": "div.seg",
+   "text": null,
+   "rect": {
+    "x": 1000,
+    "y": 292,
+    "w": 12.4,
+    "h": 45
+   },
+   "style": {
+    "flex-grow": "2",
+    "background-color": "rgb(74, 78, 64)",
+    "border-radius": "3px 3px 0px 0px"
+   },
+   "data": [
+    "data-id=login.slide.3.chart.walk2"
+   ]
+  },
+  {
+   "id": 108,
+   "depth": 8,
+   "sel": "div.seg",
+   "text": null,
+   "rect": {
+    "x": 1014.4,
+    "y": 237,
+    "w": 31,
+    "h": 100
+   },
+   "style": {
+    "flex-grow": "5",
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "3px 3px 0px 0px"
+   },
+   "data": [
+    "data-id=login.slide.3.chart.run3"
+   ]
+  },
+  {
+   "id": 109,
+   "depth": 8,
+   "sel": "div.seg",
+   "text": null,
+   "rect": {
+    "x": 1047.4,
+    "y": 297,
+    "w": 18.6,
+    "h": 40
+   },
+   "style": {
+    "flex-grow": "3",
+    "background-color": "rgba(201, 162, 75, 0.5)",
+    "border-radius": "3px 3px 0px 0px"
+   },
+   "data": [
+    "data-id=login.slide.3.chart.cool-down"
+   ]
+  },
+  {
+   "id": 110,
+   "depth": 7,
+   "sel": "div.axis",
+   "text": null,
+   "rect": {
+    "x": 899,
+    "y": 342,
+    "w": 167,
+    "h": 12
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between",
+    "margin": "4px 0px 0px",
+    "color": "rgb(94, 98, 85)",
+    "font-size": "9px",
+    "line-height": "12px"
+   },
+   "data": [
+    "data-id=login.slide.3.axis"
+   ]
+  },
+  {
+   "id": 111,
+   "depth": 8,
+   "sel": "span",
+   "text": "0",
+   "rect": {
+    "x": 899,
+    "y": 342,
+    "w": 5.7,
+    "h": 12
+   },
+   "style": {},
+   "data": [
+    "data-id=login.slide.3.axis.start"
+   ]
+  },
+  {
+   "id": 112,
+   "depth": 8,
+   "sel": "span",
+   "text": "42 min",
+   "rect": {
+    "x": 1036.8,
+    "y": 342,
+    "w": 29.2,
+    "h": 12
+   },
+   "style": {},
+   "data": [
+    "data-id=login.slide.3.axis.end"
+   ]
+  },
+  {
+   "id": 113,
+   "depth": 7,
+   "sel": "div.sum",
+   "text": null,
+   "rect": {
+    "x": 899,
+    "y": 368,
+    "w": 167,
+    "h": 34
+   },
+   "style": {
+    "display": "flex",
+    "margin": "14px 0px 12px"
+   },
+   "data": [
+    "data-id=login.slide.3.summary"
+   ]
+  },
+  {
+   "id": 114,
+   "depth": 8,
+   "sel": "div.sum-col",
+   "text": null,
+   "rect": {
+    "x": 899,
+    "y": 368,
+    "w": 55,
+    "h": 34
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "2px"
+   }
+  },
+  {
+   "id": 115,
+   "depth": 9,
+   "sel": "span.sum-v",
+   "text": "5,2 km",
+   "rect": {
+    "x": 905.7,
+    "y": 368,
+    "w": 41.6,
+    "h": 20
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "17px",
+    "font-weight": "600",
+    "line-height": "20px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=login.slide.3.summary.dist.v"
+   ]
+  },
+  {
+   "id": 116,
+   "depth": 9,
+   "sel": "span.sum-l",
+   "text": "Distância",
+   "rect": {
+    "x": 906.9,
+    "y": 390,
+    "w": 39.2,
+    "h": 12
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "9px",
+    "line-height": "12px"
+   },
+   "data": [
+    "data-id=login.slide.3.summary.dist.l"
+   ]
+  },
+  {
+   "id": 117,
+   "depth": 8,
+   "sel": "div.sum-col",
+   "text": null,
+   "rect": {
+    "x": 954,
+    "y": 368,
+    "w": 56,
+    "h": 34
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "2px"
+   }
+  },
+  {
+   "id": 118,
+   "depth": 9,
+   "sel": "span.sum-v",
+   "text": "6:10",
+   "rect": {
+    "x": 968.2,
+    "y": 368,
+    "w": 28.5,
+    "h": 20
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "17px",
+    "font-weight": "600",
+    "line-height": "20px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=login.slide.3.summary.pace.v"
+   ]
+  },
+  {
+   "id": 119,
+   "depth": 9,
+   "sel": "span.sum-l",
+   "text": "Ritmo /km",
+   "rect": {
+    "x": 961.1,
+    "y": 390,
+    "w": 42.8,
+    "h": 12
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "9px",
+    "line-height": "12px"
+   },
+   "data": [
+    "data-id=login.slide.3.summary.pace.l"
+   ]
+  },
+  {
+   "id": 120,
+   "depth": 8,
+   "sel": "div.sum-col",
+   "text": null,
+   "rect": {
+    "x": 1010,
+    "y": 368,
+    "w": 56,
+    "h": 34
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "2px"
+   }
+  },
+  {
+   "id": 121,
+   "depth": 9,
+   "sel": "span.sum-v",
+   "text": "3 blocos",
+   "rect": {
+    "x": 1013,
+    "y": 368,
+    "w": 50.9,
+    "h": 20
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "17px",
+    "font-weight": "600",
+    "line-height": "20px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=login.slide.3.summary.run.v"
+   ]
+  },
+  {
+   "id": 122,
+   "depth": 9,
+   "sel": "span.sum-l",
+   "text": "De corrida",
+   "rect": {
+    "x": 1016.2,
+    "y": 390,
+    "w": 44.6,
+    "h": 12
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "9px",
+    "line-height": "12px"
+   },
+   "data": [
+    "data-id=login.slide.3.summary.run.l"
+   ]
+  },
+  {
+   "id": 123,
+   "depth": 7,
+   "sel": "div.m-btn",
+   "text": "Começar treino",
+   "rect": {
+    "x": 899,
+    "y": 456,
+    "w": 167,
+    "h": 36
+   },
+   "style": {
+    "margin": "42px 0px 0px",
+    "color": "rgb(255, 244, 240)",
+    "background-color": "rgb(209, 43, 43)",
+    "border-radius": "18px",
+    "font-size": "12px",
+    "font-weight": "600",
+    "line-height": "36px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=login.slide.3.cta"
+   ]
+  },
+  {
+   "id": 124,
+   "depth": 5,
+   "sel": "h2.slide-title",
+   "text": "Seu plano de treino, semana a semana.",
+   "rect": {
+    "x": 786,
+    "y": 528,
+    "w": 393,
+    "h": 64
+   },
+   "style": {
+    "position": "absolute",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "30px",
+    "font-weight": "700",
+    "line-height": "32px",
+    "letter-spacing": "0.9px",
+    "text-align": "center",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=login.slide.3.title"
+   ]
+  },
+  {
+   "id": 125,
+   "depth": 6,
+   "sel": "br",
+   "text": null,
+   "rect": {
+    "x": 1112.2,
+    "y": 526,
+    "w": 0,
+    "h": 36
+   },
+   "style": {}
+  },
+  {
+   "id": 126,
+   "depth": 4,
+   "sel": "section.slide",
+   "text": null,
+   "rect": {
+    "x": 1179,
+    "y": 0,
+    "w": 393,
+    "h": 600
+   },
+   "style": {
+    "position": "relative",
+    "flex-shrink": "0"
+   },
+   "data": [
+    "data-id=login.slide.4",
+    "data-compose=LoginPage"
+   ]
+  },
+  {
+   "id": 127,
+   "depth": 5,
+   "sel": "div.phone",
+   "text": null,
+   "rect": {
+    "x": 1272,
+    "y": 108,
+    "w": 207,
+    "h": 404
+   },
+   "style": {
+    "position": "absolute",
+    "padding": "5px",
+    "background-color": "rgb(29, 33, 22)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "28px",
+    "box-shadow": "rgba(0, 0, 0, 0.45) 0px 18px 40px 0px"
+   },
+   "data": [
+    "data-id=login.slide.4.phone",
+    "data-compose=PhoneMockup"
+   ]
+  },
+  {
+   "id": 128,
+   "depth": 6,
+   "sel": "div.phone-screen",
+   "text": null,
+   "rect": {
+    "x": 1278,
+    "y": 114,
+    "w": 195,
+    "h": 392
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "flex-direction": "column",
+    "padding": "24px 14px 14px",
+    "background-color": "rgb(10, 11, 9)",
+    "border-radius": "23px",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=login.slide.4.screen"
+   ]
+  },
+  {
+   "id": 129,
+   "depth": 7,
+   "sel": "div.phone-notch",
+   "text": null,
+   "rect": {
+    "x": 1355,
+    "y": 122,
+    "w": 40,
+    "h": 4
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgba(236, 232, 218, 0.18)",
+    "border-radius": "2px"
+   }
+  },
+  {
+   "id": 130,
+   "depth": 7,
+   "sel": "div.m-head",
+   "text": null,
+   "rect": {
+    "x": 1292,
+    "y": 138,
+    "w": 167,
+    "h": 12
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "margin": "0px 0px 12px"
+   },
+   "data": [
+    "data-id=login.slide.4.head"
+   ]
+  },
+  {
+   "id": 131,
+   "depth": 8,
+   "sel": "span.m-label",
+   "text": "Conquistas",
+   "rect": {
+    "x": 1292,
+    "y": 138,
+    "w": 81.7,
+    "h": 12
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "6px",
+    "color": "rgb(163, 181, 101)",
+    "font-size": "9px",
+    "font-weight": "600",
+    "line-height": "12px",
+    "letter-spacing": "1px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=login.slide.4.head.label"
+   ]
+  },
+  {
+   "id": 132,
+   "depth": 9,
+   "sel": "i.m-dot",
+   "text": null,
+   "rect": {
+    "x": 1292,
+    "y": 141,
+    "w": 6,
+    "h": 6
+   },
+   "style": {
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "3px"
+   }
+  },
+  {
+   "id": 133,
+   "depth": 8,
+   "sel": "span.m-aside",
+   "text": "2 de 6",
+   "rect": {
+    "x": 1432.1,
+    "y": 138,
+    "w": 26.9,
+    "h": 12
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "9px",
+    "font-weight": "500",
+    "line-height": "12px"
+   },
+   "data": [
+    "data-id=login.slide.4.head.aside"
+   ]
+  },
+  {
+   "id": 134,
+   "depth": 7,
+   "sel": "div.ach-list",
+   "text": null,
+   "rect": {
+    "x": 1292,
+    "y": 162,
+    "w": 167,
+    "h": 282
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "gap": "8px"
+   },
+   "data": [
+    "data-id=login.slide.4.list"
+   ]
+  },
+  {
+   "id": 135,
+   "depth": 8,
+   "sel": "div.m-card.ach",
+   "text": null,
+   "rect": {
+    "x": 1292,
+    "y": 162,
+    "w": 167,
+    "h": 50
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "10px",
+    "padding": "0px 10px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "12px"
+   },
+   "data": [
+    "data-id=login.slide.4.list.a1"
+   ]
+  },
+  {
+   "id": 136,
+   "depth": 9,
+   "sel": "span.medal",
+   "text": null,
+   "rect": {
+    "x": 1303,
+    "y": 171,
+    "w": 32,
+    "h": 32
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgba(201, 162, 75, 0.16)",
+    "border-radius": "16px"
+   }
+  },
+  {
+   "id": 137,
+   "depth": 10,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 1311,
+    "y": 179,
+    "w": 16,
+    "h": 16
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=login.slide.4.list.a1.icon",
+    "data-icon=material:EmojiEvents"
+   ],
+   "svg": "<svg data-id=\"login.slide.4.list.a1.icon\" data-icon=\"material:EmojiEvents\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"9\" r=\"5.5\"></circle><path d=\"M8.800 13.700L7 21l5-2.600L17 21l-1.800-7.300\"></path></svg>"
+  },
+  {
+   "id": 138,
+   "depth": 9,
+   "sel": "div.m-col",
+   "text": null,
+   "rect": {
+    "x": 1345,
+    "y": 174,
+    "w": 90.9,
+    "h": 26
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column"
+   }
+  },
+  {
+   "id": 139,
+   "depth": 10,
+   "sel": "span.ach-t",
+   "text": "Primeira missão",
+   "rect": {
+    "x": 1345,
+    "y": 174,
+    "w": 90.9,
+    "h": 14
+   },
+   "style": {
+    "font-size": "11px",
+    "font-weight": "600",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=login.slide.4.list.a1.title"
+   ]
+  },
+  {
+   "id": 140,
+   "depth": 10,
+   "sel": "span.ach-d",
+   "text": "Conclua uma missão.",
+   "rect": {
+    "x": 1345,
+    "y": 188,
+    "w": 90.9,
+    "h": 12
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "9px",
+    "line-height": "12px"
+   },
+   "data": [
+    "data-id=login.slide.4.list.a1.desc"
+   ]
+  },
+  {
+   "id": 141,
+   "depth": 8,
+   "sel": "div.m-card.ach",
+   "text": null,
+   "rect": {
+    "x": 1292,
+    "y": 220,
+    "w": 167,
+    "h": 50
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "10px",
+    "padding": "0px 10px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "12px"
+   },
+   "data": [
+    "data-id=login.slide.4.list.a2"
+   ]
+  },
+  {
+   "id": 142,
+   "depth": 9,
+   "sel": "span.medal",
+   "text": null,
+   "rect": {
+    "x": 1303,
+    "y": 229,
+    "w": 32,
+    "h": 32
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgba(201, 162, 75, 0.16)",
+    "border-radius": "16px"
+   }
+  },
+  {
+   "id": 143,
+   "depth": 10,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 1311,
+    "y": 237,
+    "w": 16,
+    "h": 16
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=login.slide.4.list.a2.icon",
+    "data-icon=material:EmojiEvents"
+   ],
+   "svg": "<svg data-id=\"login.slide.4.list.a2.icon\" data-icon=\"material:EmojiEvents\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"9\" r=\"5.5\"></circle><path d=\"M8.800 13.700L7 21l5-2.600L17 21l-1.800-7.300\"></path></svg>"
+  },
+  {
+   "id": 144,
+   "depth": 9,
+   "sel": "div.m-col",
+   "text": null,
+   "rect": {
+    "x": 1345,
+    "y": 232,
+    "w": 80.5,
+    "h": 26
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column"
+   }
+  },
+  {
+   "id": 145,
+   "depth": 10,
+   "sel": "span.ach-t",
+   "text": "Primeira vitória",
+   "rect": {
+    "x": 1345,
+    "y": 232,
+    "w": 80.5,
+    "h": 14
+   },
+   "style": {
+    "font-size": "11px",
+    "font-weight": "600",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=login.slide.4.list.a2.title"
+   ]
+  },
+  {
+   "id": 146,
+   "depth": 10,
+   "sel": "span.ach-d",
+   "text": "Seja o primeiro.",
+   "rect": {
+    "x": 1345,
+    "y": 246,
+    "w": 80.5,
+    "h": 12
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "9px",
+    "line-height": "12px"
+   },
+   "data": [
+    "data-id=login.slide.4.list.a2.desc"
+   ]
+  },
+  {
+   "id": 147,
+   "depth": 8,
+   "sel": "div.m-card.ach",
+   "text": null,
+   "rect": {
+    "x": 1292,
+    "y": 278,
+    "w": 167,
+    "h": 50
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "10px",
+    "padding": "0px 10px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "12px"
+   },
+   "data": [
+    "data-id=login.slide.4.list.a3"
+   ]
+  },
+  {
+   "id": 148,
+   "depth": 9,
+   "sel": "span.medal",
+   "text": null,
+   "rect": {
+    "x": 1303,
+    "y": 287,
+    "w": 32,
+    "h": 32
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgba(201, 162, 75, 0.16)",
+    "border-radius": "16px"
+   }
+  },
+  {
+   "id": 149,
+   "depth": 10,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 1311,
+    "y": 295,
+    "w": 16,
+    "h": 16
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=login.slide.4.list.a3.icon",
+    "data-icon=material:EmojiEvents"
+   ],
+   "svg": "<svg data-id=\"login.slide.4.list.a3.icon\" data-icon=\"material:EmojiEvents\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"9\" r=\"5.5\"></circle><path d=\"M8.800 13.700L7 21l5-2.600L17 21l-1.800-7.300\"></path></svg>"
+  },
+  {
+   "id": 150,
+   "depth": 9,
+   "sel": "div.m-col",
+   "text": null,
+   "rect": {
+    "x": 1345,
+    "y": 285.5,
+    "w": 100,
+    "h": 35
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column"
+   }
+  },
+  {
+   "id": 151,
+   "depth": 10,
+   "sel": "span.ach-t",
+   "text": "Sequência",
+   "rect": {
+    "x": 1345,
+    "y": 285.5,
+    "w": 100,
+    "h": 14
+   },
+   "style": {
+    "font-size": "11px",
+    "font-weight": "600",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=login.slide.4.list.a3.title"
+   ]
+  },
+  {
+   "id": 152,
+   "depth": 10,
+   "sel": "span.ach-d",
+   "text": "5 missões seguidas.",
+   "rect": {
+    "x": 1345,
+    "y": 299.5,
+    "w": 100,
+    "h": 12
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "9px",
+    "line-height": "12px"
+   },
+   "data": [
+    "data-id=login.slide.4.list.a3.desc"
+   ]
+  },
+  {
+   "id": 153,
+   "depth": 10,
+   "sel": "div.bar.ach-bar",
+   "text": null,
+   "rect": {
+    "x": 1345,
+    "y": 316.5,
+    "w": 100,
+    "h": 4
+   },
+   "style": {
+    "position": "relative",
+    "margin": "5px 0px 0px",
+    "background-color": "rgb(29, 33, 22)",
+    "border-radius": "2px"
+   },
+   "data": [
+    "data-id=login.slide.4.list.a3.bar"
+   ]
+  },
+  {
+   "id": 154,
+   "depth": 11,
+   "sel": "div.bar-fill",
+   "text": null,
+   "rect": {
+    "x": 1345,
+    "y": 316.5,
+    "w": 60,
+    "h": 4
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "2px"
+   },
+   "data": [
+    "data-id=login.slide.4.list.a3.bar.fill"
+   ]
+  },
+  {
+   "id": 155,
+   "depth": 8,
+   "sel": "div.m-card.ach.locked",
+   "text": null,
+   "rect": {
+    "x": 1292,
+    "y": 336,
+    "w": 167,
+    "h": 50
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "10px",
+    "padding": "0px 10px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "12px",
+    "opacity": "0.55"
+   },
+   "data": [
+    "data-id=login.slide.4.list.a4"
+   ]
+  },
+  {
+   "id": 156,
+   "depth": 9,
+   "sel": "span.medal.off",
+   "text": null,
+   "rect": {
+    "x": 1303,
+    "y": 345,
+    "w": 32,
+    "h": 32
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgb(29, 33, 22)",
+    "border-radius": "16px"
+   }
+  },
+  {
+   "id": 157,
+   "depth": 10,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 1311,
+    "y": 353,
+    "w": 16,
+    "h": 16
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=login.slide.4.list.a4.icon",
+    "data-icon=material:Lock"
+   ],
+   "svg": "<svg data-id=\"login.slide.4.list.a4.icon\" data-icon=\"material:Lock\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"var(--muted)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"5\" y=\"10.500\" width=\"14\" height=\"10\" rx=\"2.500\"></rect><path d=\"M8 10.500V8a4 4 0 0 1 8 0v2.500\"></path></svg>"
+  },
+  {
+   "id": 158,
+   "depth": 9,
+   "sel": "div.m-col",
+   "text": null,
+   "rect": {
+    "x": 1345,
+    "y": 348,
+    "w": 119,
+    "h": 26
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column"
+   }
+  },
+  {
+   "id": 159,
+   "depth": 10,
+   "sel": "span.ach-t",
+   "text": "Participação completa",
+   "rect": {
+    "x": 1345,
+    "y": 348,
+    "w": 119,
+    "h": 14
+   },
+   "style": {
+    "font-size": "11px",
+    "font-weight": "600",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=login.slide.4.list.a4.title"
+   ]
+  },
+  {
+   "id": 160,
+   "depth": 10,
+   "sel": "span.ach-d",
+   "text": "2,5K, 5K e 10K.",
+   "rect": {
+    "x": 1345,
+    "y": 362,
+    "w": 119,
+    "h": 12
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "9px",
+    "line-height": "12px"
+   },
+   "data": [
+    "data-id=login.slide.4.list.a4.desc"
+   ]
+  },
+  {
+   "id": 161,
+   "depth": 8,
+   "sel": "div.m-card.ach.locked",
+   "text": null,
+   "rect": {
+    "x": 1292,
+    "y": 394,
+    "w": 167,
+    "h": 50
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "10px",
+    "padding": "0px 10px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "12px",
+    "opacity": "0.55"
+   },
+   "data": [
+    "data-id=login.slide.4.list.a5"
+   ]
+  },
+  {
+   "id": 162,
+   "depth": 9,
+   "sel": "span.medal.off",
+   "text": null,
+   "rect": {
+    "x": 1303,
+    "y": 403,
+    "w": 32,
+    "h": 32
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgb(29, 33, 22)",
+    "border-radius": "16px"
+   }
+  },
+  {
+   "id": 163,
+   "depth": 10,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 1311,
+    "y": 411,
+    "w": 16,
+    "h": 16
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=login.slide.4.list.a5.icon",
+    "data-icon=material:Lock"
+   ],
+   "svg": "<svg data-id=\"login.slide.4.list.a5.icon\" data-icon=\"material:Lock\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"var(--muted)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"5\" y=\"10.500\" width=\"14\" height=\"10\" rx=\"2.500\"></rect><path d=\"M8 10.500V8a4 4 0 0 1 8 0v2.500\"></path></svg>"
+  },
+  {
+   "id": 164,
+   "depth": 9,
+   "sel": "div.m-col",
+   "text": null,
+   "rect": {
+    "x": 1345,
+    "y": 406,
+    "w": 78.5,
+    "h": 26
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column"
+   }
+  },
+  {
+   "id": 165,
+   "depth": 10,
+   "sel": "span.ach-t",
+   "text": "Pódio estadual",
+   "rect": {
+    "x": 1345,
+    "y": 406,
+    "w": 78.5,
+    "h": 14
+   },
+   "style": {
+    "font-size": "11px",
+    "font-weight": "600",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=login.slide.4.list.a5.title"
+   ]
+  },
+  {
+   "id": 166,
+   "depth": 10,
+   "sel": "span.ach-d",
+   "text": "Chegue ao pódio.",
+   "rect": {
+    "x": 1345,
+    "y": 420,
+    "w": 78.5,
+    "h": 12
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "9px",
+    "line-height": "12px"
+   },
+   "data": [
+    "data-id=login.slide.4.list.a5.desc"
+   ]
+  },
+  {
+   "id": 167,
+   "depth": 5,
+   "sel": "h2.slide-title",
+   "text": "Missão dada é missão cumprida.",
+   "rect": {
+    "x": 1179,
+    "y": 528,
+    "w": 393,
+    "h": 64
+   },
+   "style": {
+    "position": "absolute",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "30px",
+    "font-weight": "700",
+    "line-height": "32px",
+    "letter-spacing": "0.9px",
+    "text-align": "center",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=login.slide.4.title"
+   ]
+  },
+  {
+   "id": 168,
+   "depth": 6,
+   "sel": "br",
+   "text": null,
+   "rect": {
+    "x": 1461.1,
+    "y": 526,
+    "w": 0,
+    "h": 36
+   },
+   "style": {}
+  },
+  {
+   "id": 169,
+   "depth": 2,
+   "sel": "header",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 44,
+    "w": 393,
+    "h": 34
+   },
+   "style": {
+    "display": "flex",
+    "position": "absolute",
+    "justify-content": "center",
+    "align-items": "center",
+    "gap": "10px"
+   },
+   "data": [
+    "data-id=login.logo",
+    "data-compose=EliteLogoLockup"
+   ]
+  },
+  {
+   "id": 170,
+   "depth": 3,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 117.2,
+    "y": 44,
+    "w": 34,
+    "h": 34
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=login.logo.mark",
+    "data-icon=asset:ic_elite_mark"
+   ],
+   "svg": "<svg data-id=\"login.logo.mark\" data-icon=\"asset:ic_elite_mark\" viewBox=\"0 0 64 64\" width=\"34\" height=\"34\"><path d=\"M19.1,8.0 L55.1,8.0 L53.2,17.0 L27.2,17.0 L20.8,47.0 L46.8,47.0 L44.9,56.0 L8.9,56.0 Z\" style=\"fill:var(--text)\"></path><path d=\"M25.1,27.0 L45.1,27.0 L43.1,36.0 L23.1,36.0 Z\" style=\"fill:var(--red)\"></path></svg>"
+  },
+  {
+   "id": 171,
+   "depth": 3,
+   "sel": "span",
+   "text": "ELITE",
+   "rect": {
+    "x": 161.2,
+    "y": 44,
+    "w": 114.7,
+    "h": 34
+   },
+   "style": {
+    "padding": "0px 0px 0px 6px",
+    "font-family": "\"Saira Stencil One\", Impact, sans-serif",
+    "font-size": "28px",
+    "line-height": "34px",
+    "letter-spacing": "6.7px"
+   },
+   "data": [
+    "data-id=login.logo.word"
+   ]
+  },
+  {
+   "id": 172,
+   "depth": 2,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 612,
+    "w": 393,
+    "h": 8
+   },
+   "style": {
+    "display": "flex",
+    "position": "absolute",
+    "justify-content": "center",
+    "gap": "8px"
+   },
+   "data": [
+    "data-id=login.dots",
+    "data-compose=PagerDots"
+   ]
+  },
+  {
+   "id": 173,
+   "depth": 3,
+   "sel": "i.dot",
+   "text": null,
+   "rect": {
+    "x": 160.5,
+    "y": 612,
+    "w": 24,
+    "h": 8
+   },
+   "style": {
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "4px",
+    "transition": "width 0.2s ease-out, background-color 0.2s ease-out"
+   },
+   "data": [
+    "data-id=login.dots.d1"
+   ]
+  },
+  {
+   "id": 174,
+   "depth": 3,
+   "sel": "i.dot",
+   "text": null,
+   "rect": {
+    "x": 192.5,
+    "y": 612,
+    "w": 8,
+    "h": 8
+   },
+   "style": {
+    "background-color": "rgb(94, 98, 85)",
+    "border-radius": "4px",
+    "transition": "width 0.2s ease-out, background-color 0.2s ease-out"
+   },
+   "data": [
+    "data-id=login.dots.d2"
+   ]
+  },
+  {
+   "id": 175,
+   "depth": 3,
+   "sel": "i.dot",
+   "text": null,
+   "rect": {
+    "x": 208.5,
+    "y": 612,
+    "w": 8,
+    "h": 8
+   },
+   "style": {
+    "background-color": "rgb(94, 98, 85)",
+    "border-radius": "4px",
+    "transition": "width 0.2s ease-out, background-color 0.2s ease-out"
+   },
+   "data": [
+    "data-id=login.dots.d3"
+   ]
+  },
+  {
+   "id": 176,
+   "depth": 3,
+   "sel": "i.dot",
+   "text": null,
+   "rect": {
+    "x": 224.5,
+    "y": 612,
+    "w": 8,
+    "h": 8
+   },
+   "style": {
+    "background-color": "rgb(94, 98, 85)",
+    "border-radius": "4px",
+    "transition": "width 0.2s ease-out, background-color 0.2s ease-out"
+   },
+   "data": [
+    "data-id=login.dots.d4"
+   ]
+  },
+  {
+   "id": 177,
+   "depth": 2,
+   "sel": "nav",
+   "text": null,
+   "rect": {
+    "x": 24,
+    "y": 634,
+    "w": 345,
+    "h": 160
+   },
+   "style": {
+    "display": "flex",
+    "position": "absolute",
+    "flex-direction": "column"
+   },
+   "data": [
+    "data-id=login.actions",
+    "data-compose=LoginActions"
+   ]
+  },
+  {
+   "id": 178,
+   "depth": 3,
+   "sel": "button.btn",
+   "text": null,
+   "rect": {
+    "x": 24,
+    "y": 634,
+    "w": 345,
+    "h": 52
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "gap": "8px",
+    "color": "rgb(14, 19, 6)",
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "26px",
+    "font-weight": "600",
+    "line-height": "22px",
+    "text-align": "center",
+    "transition": "transform 0.1s ease-out"
+   },
+   "aria": "Entrar com Google",
+   "data": [
+    "data-id=login.actions.google",
+    "data-compose=EliteButton(Primary, leadingIcon)"
+   ]
+  },
+  {
+   "id": 179,
+   "depth": 4,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 110.7,
+    "y": 650,
+    "w": 20,
+    "h": 20
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=login.actions.google.icon"
+   ],
+   "svg": "<svg data-id=\"login.actions.google.icon\" viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"currentColor\" stroke=\"none\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M21.35 11.1H12v2.98h5.35c-.5 2.3-2.4 3.5-5.35 3.5a5.9 5.9 0 1 1 0-11.8c1.5 0 2.8.55 3.85 1.45l2.1-2.1A8.9 8.9 0 0 0 12 3.1a8.9 8.9 0 1 0 0 17.8c5.1 0 8.5-3.6 8.5-8.7 0-.4 0-.75-.15-1.1z\" fill=\"currentColor\" stroke=\"none\"></path></svg>"
+  },
+  {
+   "depth": 4,
+   "sel": "span",
+   "hidden": true
+  },
+  {
+   "id": 180,
+   "depth": 4,
+   "sel": "span",
+   "text": "Entrar com Google",
+   "rect": {
+    "x": 138.7,
+    "y": 649,
+    "w": 143.5,
+    "h": 22
+   },
+   "style": {},
+   "data": [
+    "data-id=login.actions.google.label",
+    "data-bind=auth.googleLabel"
+   ]
+  },
+  {
+   "id": 181,
+   "depth": 3,
+   "sel": "button.btn",
+   "text": null,
+   "rect": {
+    "x": 24,
+    "y": 696,
+    "w": 345,
+    "h": 48
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "gap": "8px",
+    "margin": "10px 0px 0px",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "26px",
+    "font-size": "15px",
+    "font-weight": "600",
+    "line-height": "20px",
+    "text-align": "center",
+    "transition": "transform 0.1s ease-out"
+   },
+   "aria": "Entrar com e-mail",
+   "data": [
+    "data-id=login.actions.email",
+    "data-compose=LoginGhostButton"
+   ]
+  },
+  {
+   "id": 182,
+   "depth": 4,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 118.1,
+    "y": 710,
+    "w": 20,
+    "h": 20
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=login.actions.email.icon",
+    "data-icon=material:Mail"
+   ],
+   "svg": "<svg data-id=\"login.actions.email.icon\" data-icon=\"material:Mail\" viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2.5\"></rect><path d=\"M3.5 7.5l8.5 6 8.5-6\"></path></svg>"
+  },
+  {
+   "id": 183,
+   "depth": 4,
+   "sel": "span",
+   "text": "Entrar com e-mail",
+   "rect": {
+    "x": 146.1,
+    "y": 710,
+    "w": 128.7,
+    "h": 20
+   },
+   "style": {},
+   "data": [
+    "data-id=login.actions.email.label"
+   ]
+  },
+  {
+   "id": 184,
+   "depth": 3,
+   "sel": "button.btn",
+   "text": null,
+   "rect": {
+    "x": 24,
+    "y": 750,
+    "w": 345,
+    "h": 44
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "gap": "8px",
+    "margin": "6px 0px 0px",
+    "color": "rgb(163, 181, 101)",
+    "border-radius": "22px",
+    "font-size": "15px",
+    "font-weight": "600",
+    "line-height": "20px",
+    "text-align": "center",
+    "transition": "opacity 0.1s ease-out"
+   },
+   "aria": "Continuar sem conta",
+   "data": [
+    "data-id=login.actions.skip",
+    "data-compose=TextButton"
+   ]
+  },
+  {
+   "id": 185,
+   "depth": 4,
+   "sel": "span",
+   "text": "Continuar sem conta",
+   "rect": {
+    "x": 121.1,
+    "y": 762,
+    "w": 150.7,
+    "h": 20
+   },
+   "style": {},
+   "data": [
+    "data-id=login.actions.skip.label"
+   ]
+  },
+  {
+   "id": 186,
+   "depth": 2,
+   "sel": "p",
+   "text": "Ao continuar, você aceita os e a .",
+   "rect": {
+    "x": 24,
+    "y": 798,
+    "w": 345,
+    "h": 28
+   },
+   "style": {
+    "position": "absolute",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "line-height": "14px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=login.legal",
+    "data-compose=LegalText"
+   ]
+  },
+  {
+   "id": 187,
+   "depth": 3,
+   "sel": "a",
+   "text": "Termos",
+   "rect": {
+    "x": 180.4,
+    "y": 798,
+    "w": 39,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(236, 232, 218)"
+   },
+   "data": [
+    "data-id=login.legal.terms"
+   ]
+  },
+  {
+   "id": 188,
+   "depth": 3,
+   "sel": "a",
+   "text": "Política de Privacidade",
+   "rect": {
+    "x": 241.3,
+    "y": 798,
+    "w": 118.3,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(236, 232, 218)"
+   },
+   "data": [
+    "data-id=login.legal.privacy"
+   ]
+  },
+  {
+   "id": 189,
+   "depth": 2,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 851
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgba(0, 0, 0, 0.6)",
+    "opacity": "0",
+    "transition": "opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
+   },
+   "data": [
+    "data-id=login.scrim"
+   ]
+  },
+  {
+   "id": 190,
+   "depth": 2,
+   "sel": "section",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 1002,
+    "w": 393,
+    "h": 369
+   },
+   "style": {
+    "display": "flex",
+    "position": "absolute",
+    "flex-direction": "column",
+    "padding": "10px 24px 28px",
+    "background-color": "rgb(16, 18, 13)",
+    "border-radius": "26px 26px 0px 0px",
+    "transform": "matrix(1, 0, 0, 1, 0, 520)",
+    "transition": "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
+   },
+   "data": [
+    "data-id=login.sheet",
+    "data-compose=EmailSignInSheet(ModalBottomSheet)"
+   ]
+  },
+  {
+   "id": 191,
+   "depth": 3,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 178.5,
+    "y": 1013,
+    "w": 36,
+    "h": 4
+   },
+   "style": {
+    "background-color": "rgba(236, 232, 218, 0.18)",
+    "border-radius": "2px"
+   },
+   "data": [
+    "data-id=login.sheet.handle"
+   ]
+  },
+  {
+   "id": 192,
+   "depth": 3,
+   "sel": "h3",
+   "text": "Entrar com e-mail",
+   "rect": {
+    "x": 24,
+    "y": 1035,
+    "w": 345,
+    "h": 28
+   },
+   "style": {
+    "margin": "18px 0px 0px",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "24px",
+    "font-weight": "700",
+    "line-height": "28px",
+    "letter-spacing": "0.96px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=login.sheet.title"
+   ]
+  },
+  {
+   "id": 193,
+   "depth": 3,
+   "sel": "p",
+   "text": "Use o e-mail e a senha da sua conta Elite.",
+   "rect": {
+    "x": 24,
+    "y": 1067,
+    "w": 345,
+    "h": 18
+   },
+   "style": {
+    "margin": "4px 0px 0px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "13px",
+    "line-height": "18px"
+   },
+   "data": [
+    "data-id=login.sheet.subtitle"
+   ]
+  },
+  {
+   "id": 194,
+   "depth": 3,
+   "sel": "span.f-label",
+   "text": "E-mail",
+   "rect": {
+    "x": 24,
+    "y": 1105,
+    "w": 345,
+    "h": 14
+   },
+   "style": {
+    "margin": "20px 0px 0px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "font-weight": "500",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=login.sheet.email.label"
+   ]
+  },
+  {
+   "id": 195,
+   "depth": 3,
+   "sel": "div.field",
+   "text": null,
+   "rect": {
+    "x": 24,
+    "y": 1125,
+    "w": 345,
+    "h": 56
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "8px",
+    "padding": "0px 16px",
+    "margin": "6px 0px 0px",
+    "background-color": "rgb(13, 15, 10)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "14px"
+   },
+   "data": [
+    "data-id=login.sheet.email",
+    "data-compose=OutlinedTextField"
+   ]
+  },
+  {
+   "id": 196,
+   "depth": 4,
+   "sel": "span.f-text",
+   "text": "voce@email.com",
+   "rect": {
+    "x": 41,
+    "y": 1142,
+    "w": 311,
+    "h": 22
+   },
+   "style": {
+    "flex-grow": "1",
+    "color": "rgb(94, 98, 85)",
+    "line-height": "22px"
+   },
+   "data": [
+    "data-id=login.sheet.email.value",
+    "data-bind=form.email"
+   ]
+  },
+  {
+   "id": 197,
+   "depth": 3,
+   "sel": "span.f-label.second",
+   "text": "Senha",
+   "rect": {
+    "x": 24,
+    "y": 1195,
+    "w": 345,
+    "h": 14
+   },
+   "style": {
+    "margin": "14px 0px 0px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "font-weight": "500",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=login.sheet.password.label"
+   ]
+  },
+  {
+   "id": 198,
+   "depth": 3,
+   "sel": "div.field",
+   "text": null,
+   "rect": {
+    "x": 24,
+    "y": 1215,
+    "w": 345,
+    "h": 56
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "8px",
+    "padding": "0px 16px",
+    "margin": "6px 0px 0px",
+    "background-color": "rgb(13, 15, 10)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "14px"
+   },
+   "data": [
+    "data-id=login.sheet.password",
+    "data-compose=OutlinedTextField(PasswordVisualTransformation)"
+   ]
+  },
+  {
+   "id": 199,
+   "depth": 4,
+   "sel": "span.f-text",
+   "text": "Digite sua senha",
+   "rect": {
+    "x": 41,
+    "y": 1232,
+    "w": 271,
+    "h": 22
+   },
+   "style": {
+    "flex-grow": "1",
+    "color": "rgb(94, 98, 85)",
+    "line-height": "22px"
+   },
+   "data": [
+    "data-id=login.sheet.password.value",
+    "data-bind=form.password"
+   ]
+  },
+  {
+   "id": 200,
+   "depth": 4,
+   "sel": "button",
+   "text": null,
+   "rect": {
+    "x": 320,
+    "y": 1221,
+    "w": 44,
+    "h": 44
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "margin": "0px -12px 0px 0px",
+    "color": "rgb(255, 255, 255)",
+    "font-size": "13.3333px",
+    "text-align": "center"
+   },
+   "aria": "Mostrar senha",
+   "data": [
+    "data-id=login.sheet.eye"
+   ]
+  },
+  {
+   "id": 201,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 331,
+    "y": 1232,
+    "w": 22,
+    "h": 22
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=login.sheet.eye.icon",
+    "data-icon=material:Visibility"
+   ],
+   "svg": "<svg data-id=\"login.sheet.eye.icon\" data-icon=\"material:Visibility\" viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"var(--muted)\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12z\"></path><circle cx=\"12\" cy=\"12\" r=\"2.8\"></circle></svg>"
+  },
+  {
+   "depth": 3,
+   "sel": "p",
+   "hidden": true
+  },
+  {
+   "id": 202,
+   "depth": 3,
+   "sel": "button.btn",
+   "text": null,
+   "rect": {
+    "x": 24,
+    "y": 1291,
+    "w": 345,
+    "h": 52
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "gap": "8px",
+    "margin": "20px 0px 0px",
+    "color": "rgb(14, 19, 6)",
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "26px",
+    "font-weight": "600",
+    "line-height": "22px",
+    "text-align": "center",
+    "transition": "transform 0.1s ease-out"
+   },
+   "aria": "Entrar",
+   "data": [
+    "data-id=login.sheet.submit",
+    "data-compose=EliteButton(Primary, loading)"
+   ]
+  },
+  {
+   "depth": 4,
+   "sel": "span",
+   "hidden": true
+  },
+  {
+   "id": 203,
+   "depth": 4,
+   "sel": "span",
+   "text": "Entrar",
+   "rect": {
+    "x": 173.1,
+    "y": 1306,
+    "w": 46.9,
+    "h": 22
+   },
+   "style": {},
+   "data": [
+    "data-id=login.sheet.submit.label"
+   ]
+  }
+ ],
+ "root_selector": "body"
+}

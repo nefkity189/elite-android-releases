@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Elite.sch.app | Competição online de corrida</title>
+<meta name="description" content="Missões 2,5K, 5K e 10K toda hora. Entre na sala, espere a contagem e dispute o pódio. Baixe o APK mais recente pelo GitHub Releases.">
+<meta name="theme-color" content="#0A0B09">
+<link rel="icon" href="assets/icon-192.png">
+<style>
+@font-face{font-family:EliteDisplay;font-weight:600;src:url(fonts/barlow_condensed_semibold.ttf)}
+@font-face{font-family:EliteDisplay;font-weight:700;src:url(fonts/barlow_condensed_bold.ttf)}
+@font-face{font-family:EliteBody;font-weight:100 900;src:url(fonts/inter_variable.ttf) format('truetype');font-display:swap}
+
+@font-face{font-family:EliteStencil;src:url(fonts/saira_stencil_one_regular.ttf?v=20261121) format('truetype');font-display:swap}
+:root{--bg:#0A0B09;--sf:#10120D;--card:#161911;--el:#1D2116;--line:rgba(236,232,218,.1);--line2:rgba(236,232,218,.18);--tx:#ECE8DA;--mut:#8F9384;--dim:#5E6255;--ol:#A3B565;--old:#5D6B34;--ols:rgba(163,181,101,.14);--onol:#0E1306;--red:#D12B2B;--reds:rgba(209,43,43,.15);--onred:#FFF4F0;--brass:#C9A24B;--brs:rgba(201,162,75,.14);--ok:#7FB069;--ease:cubic-bezier(.2,.8,.2,1)}
+*{box-sizing:border-box;margin:0}
+html{-webkit-tap-highlight-color:transparent;scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--tx);font:400 16px/1.55 EliteBody,Inter,system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.d{font-family:EliteDisplay,'Barlow Condensed','Roboto Condensed','Arial Narrow',sans-serif-condensed,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.03em;line-height:.95;font-variant-numeric:tabular-nums}
+.st{font-family:EliteStencil,'Saira Stencil One',sans-serif;letter-spacing:.24em}
+.lb{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+.w{max-width:1180px;margin:auto;padding:0 20px}
+section{padding:88px 0;position:relative}
+h2{font-size:clamp(38px,6vw,64px);margin:10px 0 14px}
+.sub{color:var(--mut);max-width:560px}
+.ol{color:var(--ol)}.br{color:var(--brass)}
+.c{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 28px;border-radius:28px;border:1px solid var(--red);background:var(--red);color:var(--onred);font:600 16px EliteBody,Inter,sans-serif;text-decoration:none;cursor:pointer;transition:transform 180ms var(--ease),box-shadow 180ms var(--ease)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(209,43,43,.35)}.btn:active{transform:scale(.97);transition-duration:100ms}
+.btn.g{background:transparent;border-color:var(--line2);color:var(--tx)}.btn.g:hover{box-shadow:none;border-color:var(--ol)}
+.btn.o{background:var(--ol);border-color:var(--ol);color:var(--onol)}
+/* nav */
+nav{position:fixed;inset:0 0 auto;z-index:50;transition:background-color 200ms,border-color 200ms;border-bottom:1px solid transparent}
+nav.on{background:rgba(10,11,9,.88);backdrop-filter:blur(14px);border-color:var(--line)}
+nav .w{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-size:22px;color:var(--tx);text-decoration:none}.logo svg{width:30px;height:30px}
+nav ul{display:none;list-style:none;padding:0;gap:28px}nav ul a{color:var(--mut);text-decoration:none;font-size:14px}nav ul a:hover{color:var(--tx)}
+nav .btn{height:40px;padding:0 18px;font-size:14px}
+/* hero */
+.hero{padding:120px 0 72px;overflow:hidden;position:relative}
+.grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;-webkit-mask:radial-gradient(ellipse at 72% 38%,#000,transparent 68%);mask:radial-gradient(ellipse at 72% 38%,#000,transparent 68%);opacity:.6}
+.glow{position:absolute;width:760px;height:760px;right:-160px;top:-80px;background:radial-gradient(circle,rgba(163,181,101,.22),transparent 68%)}
+.route{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.route path{fill:none;stroke:var(--ol);stroke-width:3;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;opacity:.3;animation:draw 2400ms 400ms var(--ease) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.hero .w{position:relative;display:grid;gap:56px;align-items:center}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:24px;border:1px solid var(--line2);background:var(--card);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:pulse 1600ms ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35;transform:scale(1.5)}}
+h1{font-size:clamp(56px,9.5vw,116px);margin:22px 0 20px}
+.hero p.sub{font-size:18px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 22px}
+.mini{display:flex;flex-wrap:wrap;gap:8px 22px;color:var(--mut);font-size:13px}.mini span{display:flex;gap:8px;align-items:center}.mini svg{color:var(--ol);width:16px;height:16px}
+[data-enter]{opacity:0;animation:up 700ms var(--ease) forwards;animation-delay:var(--d,0ms)}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+/* phone */
+.stage{position:relative;display:flex;justify-content:center;padding:20px 0}
+.ph{--pw:280px;--sc:.7125;width:var(--pw);height:calc(var(--pw)*851/393);border-radius:38px;border:1px solid var(--line2);background:var(--bg);box-shadow:0 0 0 6px #0d0f0a,0 40px 90px #000c,0 0 90px rgba(163,181,101,.14);overflow:hidden;position:relative}
+.s{width:393px;height:851px;transform:scale(var(--sc));transform-origin:0 0;padding:58px 16px 20px;display:flex;flex-direction:column;gap:12px;background:linear-gradient(#10120D,#0A0B09 40%)}
+.s .t{font-size:31px}.s .bk{width:40px;height:40px;border-radius:50%;background:var(--card);border:1px solid var(--line);display:grid;place-items:center}
+.s .big{font-size:112px;text-align:center;margin:10px 0 0}
+.s .pill{align-self:center;display:flex;gap:8px;align-items:center;color:var(--ol);font-weight:600;font-size:14px}
+.s .row{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px}
+.s .av{width:38px;height:38px;border-radius:50%;background:var(--el);border:1px solid var(--line2);display:grid;place-items:center;font-weight:600;font-size:13px}
+.s .row b{font-size:15px;font-weight:600;flex:1}.s .row small{color:var(--ol);font-size:12px}
+.s .share{margin-top:auto;height:52px;border-radius:28px;background:var(--ol);color:var(--onol);display:flex;gap:8px;align-items:center;justify-content:center;font-weight:600}
+.fl{position:absolute;z-index:3;background:rgba(16,18,13,.92);border:1px solid var(--line2);border-radius:16px;padding:12px 14px;display:flex;gap:12px;align-items:center;box-shadow:0 20px 50px #000a;animation:float 6s ease-in-out infinite alternate}
+@keyframes float{to{transform:translateY(-9px)}}
+.fl.a{left:-4px;top:2%;max-width:210px;font-size:12px;line-height:1.35}.fl.b{right:-4px;bottom:16%;border-color:var(--brass);background:#17140b;animation-delay:-3s}
+.fl .ic{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--ols);color:var(--ol);flex:none}
+.fl.b .ic{background:var(--brass);color:var(--onol)}.fl.b .d{font-size:34px;color:var(--brass)}
+/* strip + steps */
+.strip{border-block:1px solid var(--line);background:var(--sf);padding:26px 0}
+.strip .w{display:grid;grid-template-columns:1fr 1fr;gap:22px}.strip .d{font-size:40px;color:var(--ol);display:block}
+.steps{display:grid;gap:14px;margin-top:40px}
+.step .n{font-size:64px;color:var(--old);display:block}.step h3{font-size:26px;margin:6px 0 8px}.step p{color:var(--mut);font-size:14px}
+.step svg{color:var(--ol);margin-bottom:14px}
+/* ranking */
+.rk{display:grid;gap:16px;margin-top:40px}
+.lg{border-color:var(--brass);background:linear-gradient(160deg,#1b1810,var(--card))}
+.lg .d{font-size:48px}.bar{height:8px;border-radius:8px;background:var(--el);overflow:hidden;margin:14px 0 8px}
+.bar i{display:block;height:100%;width:0;background:var(--ol);border-radius:8px;transition:width 1200ms 200ms var(--ease)}.in .bar i{width:78%}
+.rw{display:flex;align-items:center;gap:14px;padding:12px 0;border-top:1px solid var(--line)}.rw:first-of-type{border:0}
+.rw .d{font-size:26px;width:34px;color:var(--mut)}.rw:nth-child(2) .d{color:var(--brass)}.rw b{flex:1;font-weight:600}.rw em{font-style:normal;color:var(--ol);font-family:EliteDisplay,'Barlow Condensed';font-weight:600;font-size:20px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}.tabs span{padding:6px 12px;border-radius:20px;border:1px solid var(--line);font-size:12px;color:var(--mut)}.tabs .a{background:var(--ols);border-color:var(--old);color:var(--ol)}
+.ach{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.ach div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;font-size:13px;color:var(--mut);transition:transform 180ms var(--ease),border-color 180ms}.ach div:hover{transform:translateY(-3px);border-color:var(--brass)}
+.ach b{display:block;color:var(--tx);font-size:14px;margin:8px 0 2px}.ach svg{color:var(--brass);width:26px;height:26px}.ach .lk svg{color:var(--dim)}
+/* download */
+.dl{max-width:640px;margin:36px auto 0;text-align:center;border-color:var(--old);background:linear-gradient(180deg,#171b10,var(--card))}
+.dl img{width:84px;height:84px;border-radius:22px;border:1px solid var(--line2)}
+.dl .d{font-size:clamp(34px,6vw,52px);margin:16px 0 4px}.dl .btn{width:100%;max-width:380px;margin-top:20px;height:60px;font-size:18px}
+[data-s]{display:none}
+.dl[data-state=idle] [data-s~=idle],.dl[data-state=chk] [data-s~=chk],.dl[data-state=ok] [data-s~=ok],.dl[data-state=lim] [data-s~=lim],.dl[data-state=err] [data-s~=err]{display:inline-flex}
+.dl .msg{display:none;margin-top:20px;padding:16px;border-radius:14px;text-align:left;gap:12px;align-items:flex-start;font-size:14px}
+.dl[data-state=ok] .msg.ok,.dl[data-state=lim] .msg.lim,.dl[data-state=err] .msg.err{display:flex}
+.msg.ok{background:var(--ols);border:1px solid var(--old)}.msg.lim{background:var(--brs);border:1px solid var(--brass)}.msg.err{background:var(--reds);border:1px solid var(--red)}
+.msg.lim svg{color:var(--brass)}.msg b{display:block;font-size:15px}
+.dl[data-state=lim] .btn{background:var(--el);border-color:var(--line2);color:var(--dim);cursor:not-allowed;box-shadow:none;transform:none}
+.spin{animation:spin 800ms linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+.how{display:grid;gap:10px;margin-top:26px;text-align:left;font-size:13px;color:var(--mut)}.how span b{color:var(--ol);font-family:EliteDisplay;font-size:18px;margin-right:8px}
+details{border-bottom:1px solid var(--line);padding:18px 0}summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;font-weight:600}summary::-webkit-details-marker{display:none}
+summary svg{transition:transform 200ms}details[open] summary svg{transform:rotate(180deg)}details p{color:var(--mut);margin-top:10px;font-size:14px;max-width:640px}
+footer{border-top:1px solid var(--line);padding:40px 0;color:var(--dim);font-size:13px;text-align:center}footer .st{font-size:26px;color:var(--tx);display:block;margin-bottom:6px}
+.bar2{position:fixed;inset:auto 0 0;z-index:40;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(10,11,9,.94);border-top:1px solid var(--line);transform:translateY(100%);transition:transform 300ms var(--ease)}.bar2.on{transform:none}.bar2 .btn{width:100%}
+[data-reveal]{opacity:0;transform:translateY(22px);transition:opacity 650ms var(--ease),transform 650ms var(--ease)}[data-reveal].in{opacity:1;transform:none}
+@media(min-width:640px){.strip .w{grid-template-columns:repeat(4,1fr)}.steps{grid-template-columns:1fr 1fr}.ach{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:960px){nav ul{display:flex}.hero .w{grid-template-columns:1.15fr .85fr}.ph{--pw:300px;--sc:.7634}.steps{grid-template-columns:repeat(4,1fr)}.rk{grid-template-columns:1fr 1fr}.bar2{display:none}.hero{padding-top:150px}}
+@media(max-width:639px){
+section{padding:56px 0}h2{margin:8px 0 10px}.hero{padding:92px 0 36px}.hero .w{gap:24px}.hero p.sub{font-size:16px}
+.cta{margin:24px 0 18px}.cta .btn{width:100%}.mini{flex-direction:column;gap:10px}
+.fl.a{display:none}.fl.b{right:0;top:-4px;bottom:auto;padding:6px 10px;border-radius:14px}.fl.b .d{font-size:22px}.fl.b br{display:none}.fl.b .lb{font-size:10px}.fl .ic{width:30px;height:30px}
+.strip .w{gap:18px 12px}.strip .d{font-size:30px}.strip [data-id="strip.dist"]{grid-column:1/-1}
+.steps{gap:10px;margin-top:26px}.step{display:grid;grid-template-columns:58px 1fr;column-gap:14px;padding:18px}
+.step svg{display:none}.step .n{grid-row:1/3;font-size:50px;line-height:1}.step h3{font-size:22px;margin:0 0 4px}
+.lg .d{font-size:40px}.dl{padding:22px 16px}.rk{margin-top:26px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:1ms!important;animation-iteration-count:1!important;transition-duration:1ms!important;scroll-behavior:auto!important}[data-enter],[data-reveal]{opacity:1;transform:none}.route path{stroke-dashoffset:0}}
+</style>
+</head>
+<body data-id="site">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-dl" viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v3h16v-3"/></symbol>
+<symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4m0 0h11l-2 4 2 4H5"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><path d="M16 20v-1a4 4 0 00-4-4H7a4 4 0 00-4 4v1M21 20v-1a4 4 0 00-3-3.9M16 4.1a3.5 3.5 0 010 6.8"/><circle cx="9.5" cy="8" r="3.5"/></symbol>
+<symbol id="i-cup" viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0V4zM17 5h3v2a3 3 0 01-3 3M7 5H4v2a3 3 0 003 3"/></symbol>
+<symbol id="i-share" viewBox="0 0 24 24"><path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7M16 6l-4-4-4 4M12 2v13"/></symbol>
+<symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 3l10 18H2L12 3zM12 10v5M12 18v.5"/></symbol>
+<symbol id="i-chk" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+<symbol id="i-load" viewBox="0 0 24 24"><path d="M12 3a9 9 0 109 9"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+<symbol id="i-medal" viewBox="0 0 24 24"><circle cx="12" cy="15" r="5"/><path d="M8.5 2l3.5 7M15.5 2L12 9"/></symbol>
+<symbol id="mark" viewBox="0 0 64 64"><path fill="#ECE8DA" d="M19.1 8H55.1L53.2 17H27.2L20.8 47H46.8L44.9 56H8.9Z"/><path fill="#D12B2B" d="M25.1 27H45.1L43.1 36H23.1Z"/></symbol>
+</defs></svg>
+
+<nav data-id="nav" id="nav"><div class="w">
+ <a class="logo st" href="#topo" data-id="nav.logo"><svg><use href="#mark"/></svg>elite.sch.app</a>
+ <ul data-id="nav.links"><li><a href="#como">Como funciona</a></li><li><a href="#ranking">Ranking e ligas</a></li><li><a href="#conquistas">Conquistas</a></li><li><a href="#faq">Dúvidas</a></li></ul>
+ <a class="btn" href="#baixar" data-id="nav.cta"><svg class="i"><use href="#i-dl"/></svg>Baixar</a>
+</div></nav>
+
+<header class="hero" id="topo" data-id="hero">
+ <div class="grid" data-id="hero.grid"></div><div class="glow" data-id="hero.glow"></div>
+ <svg class="route" data-id="hero.route" viewBox="0 0 1200 700" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M-20 620C180 560 260 380 460 420S760 640 900 380 1100 120 1240 90"/></svg>
+ <div class="w">
+  <div>
+   <span class="chip" data-enter style="--d:0ms" data-id="hero.eyebrow"><i class="dot"></i>Missões online · toda hora, 02h às 21h</span>
+   <h1 class="d" data-enter style="--d:80ms" data-id="hero.title">Corra contra <span class="ol">gente de verdade.</span></h1>
+   <p class="sub" data-enter style="--d:160ms" data-id="hero.sub">Missões de 2,5K, 5K e 10K começam toda hora. Entre na sala, espere a contagem zerar e dispute o pódio ao vivo. Vence quem concluir primeiro.</p>
+   <div class="cta" data-enter style="--d:240ms" data-id="hero.cta">
+    <a class="btn" href="#baixar" data-id="hero.cta.download"><svg class="i"><use href="#i-dl"/></svg>Baixar APK grátis</a>
+    <a class="btn g" href="#como" data-id="hero.cta.how">Ver como funciona</a>
+   </div>
+   <div class="mini" data-enter style="--d:320ms" data-id="hero.trust"><span><svg class="i"><use href="#i-chk"/></svg>Download direto, sem conta</span><span><svg class="i"><use href="#i-users"/></svg>Mínimo de 2 competidores</span><span><svg class="i"><use href="#i-flag"/></svg>Ranking calculado no servidor</span></div>
+  </div>
+  <div class="stage" data-enter style="--d:200ms" data-id="hero.stage">
+   <div class="fl a" data-id="hero.float.push"><span class="ic"><svg class="i"><use href="#i-clock"/></svg></span><span><b>Faltam 5 minutos</b><br>Missão 5K das 13:00. Prepare-se.</span></div>
+   <div class="ph" data-id="hero.phone"><div class="s">
+    <div style="display:flex;gap:12px;align-items:center"><span class="bk"><svg class="i"><use href="#i-chev" style="transform-origin:center;transform:rotate(90deg)"/></svg></span><span class="d t">Competição online</span></div>
+    <span class="lb" style="text-align:center;margin-top:18px;font-size:13px">Começa em</span>
+    <div class="d big" data-cd="1122" data-id="hero.phone.countdown">18:42</div>
+    <span class="pill"><svg class="i"><use href="#i-flag"/></svg>Vence quem concluir primeiro</span>
+    <div class="row" style="margin-top:14px"><span class="d" style="font-size:30px;color:var(--ol)">5K</span><b>Missão das 13:00</b><span class="d" style="font-size:22px">3/∞</span></div>
+    <div class="row"><span class="av">VC</span><b>Você</b><small>● Na sala</small></div>
+    <div class="row"><span class="av">RM</span><b>Rafael M.</b><small>● Na sala</small></div>
+    <div class="row"><span class="av">CS</span><b>Camila S.</b><small>● Na sala</small></div>
+    <div class="share"><svg class="i"><use href="#i-share"/></svg>Compartilhar convite</div>
+   </div></div>
+   <div class="fl b" data-id="hero.float.podium"><span class="ic"><svg class="i"><use href="#i-cup"/></svg></span><span><span class="d">2º</span><br><span class="lb br">Lugar · pódio estadual</span></span></div>
+  </div>
+ </div>
+</header>
+
+<div class="strip" data-id="strip"><div class="w">
+ <div data-id="strip.dist"><span class="d">2,5K · 5K · 10K</span><span class="lb">Três distâncias</span></div>
+ <div data-id="strip.hours"><span class="d">02h–21h</span><span class="lb">Missões toda hora</span></div>
+ <div data-id="strip.min"><span class="d">2+</span><span class="lb">Competidores para largar</span></div>
+ <div data-id="strip.rank"><span class="d">Servidor</span><span class="lb">Ranking calculado no servidor</span></div>
+</div></div>
+
+<section id="como" data-id="how"><div class="w">
+ <span class="lb ol">Como funciona</span><h2 class="d" data-reveal>Foco, missão dada,<br><span class="ol">missão cumprida.</span></h2>
+ <p class="sub" data-reveal>Do convite ao pódio em quatro passos. Sem formulário, sem espera longa.</p>
+ <div class="steps" data-id="how.steps">
+  <div class="c step" data-reveal data-id="how.step1"><svg class="i"><use href="#i-pin"/></svg><span class="d n">01</span><h3 class="d">Escolha a distância</h3><p>2,5K, 5K ou 10K. A lista mostra cada missão do dia, o horário e quantos já estão dentro.</p></div>
+  <div class="c step" data-reveal data-id="how.step2" style="transition-delay:80ms"><svg class="i"><use href="#i-users"/></svg><span class="d n">02</span><h3 class="d">Entre na sala</h3><p>Com 2 competidores a missão é confirmada. Você recebe aviso 10 e 5 minutos antes da largada.</p></div>
+  <div class="c step" data-reveal data-id="how.step3" style="transition-delay:160ms"><svg class="i"><use href="#i-clock"/></svg><span class="d n">03</span><h3 class="d">Largue e corra</h3><p>A contagem zera e o GPS registra tempo, distância e posição enquanto você corre.</p></div>
+  <div class="c step" data-reveal data-id="how.step4" style="transition-delay:240ms"><svg class="i"><use href="#i-cup"/></svg><span class="d n">04</span><h3 class="d">Suba no pódio</h3><p>O servidor calcula o resultado. Seus pontos mexem no ranking e você gera um card para compartilhar.</p></div>
+ </div>
+</div></section>
+
+<section id="ranking" data-id="rank" style="background:var(--sf)"><div class="w">
+ <span class="lb br">Ranking e ligas</span><h2 class="d" data-reveal>Cada corrida <span class="br">vale pontos.</span></h2>
+ <p class="sub" data-reveal>Temporadas com ligas e divisões. No fim, os pontos sofrem reset parcial e a divisão alcançada define as recompensas.</p>
+ <div class="rk" data-reveal>
+  <div class="c lg" data-id="rank.league"><span class="lb br">Temporada online · fim em 12d 04h</span><div class="d">Liga Ouro II</div>
+   <div class="bar"><i></i></div><span style="color:var(--mut);font-size:14px">Faltam 58 pontos para subir de divisão</span>
+   <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:18px"><span class="chip br" style="border-color:var(--brass)">Insígnia no perfil</span><span class="chip br" style="border-color:var(--brass)">Borda no avatar</span><span class="chip br" style="border-color:var(--brass)">Card de temporada</span></div></div>
+  <div class="c" data-id="rank.list"><div class="tabs"><span class="a">Global</span><span>Meu estado</span><span>Temporada atual</span><span>Geral histórico</span></div>
+   <div class="rw"><span class="d">1</span><b>Bruno A.</b><em>3.120 pts</em></div><div class="rw"><span class="d">2</span><b>Camila S.</b><em>2.940 pts</em></div><div class="rw"><span class="d">3</span><b>Rafael M.</b><em>2.815 pts</em></div><div class="rw"><span class="d">4</span><b>Você</b><em>2.402 pts</em></div></div>
+ </div>
+ <p class="lb" style="margin-top:14px;color:var(--dim)">Imagem ilustrativa. Nomes e pontos de exemplo.</p>
+</div></section>
+
+<section id="conquistas" data-id="ach"><div class="w">
+ <span class="lb br">Conquistas</span><h2 class="d" data-reveal>Missão cumprida <span class="br">merece medalha.</span></h2>
+ <div class="ach" data-reveal data-id="ach.grid">
+  <div data-id="ach.first"><svg class="i"><use href="#i-flag"/></svg><b>Primeira missão cumprida</b>Conclua sua primeira missão.</div>
+  <div data-id="ach.win"><svg class="i"><use href="#i-cup"/></svg><b>Primeira vitória</b>Seja o primeiro a concluir.</div>
+  <div data-id="ach.streak"><svg class="i"><use href="#i-clock"/></svg><b>Sequência de missões</b>Cumpra 5 missões seguidas.</div>
+  <div data-id="ach.full"><svg class="i"><use href="#i-pin"/></svg><b>Participação completa</b>Missões 2,5K, 5K e 10K.</div>
+  <div data-id="ach.top10"><svg class="i"><use href="#i-medal"/></svg><b>Top 10 do estado</b>Entre nos dez primeiros.</div>
+  <div class="lk" data-id="ach.podium"><svg class="i"><use href="#i-medal"/></svg><b>Pódio estadual</b>Conquiste um lugar no pódio.</div>
+ </div>
+</div></section>
+
+<section id="baixar" data-id="download" style="background:var(--sf)"><div class="w" style="text-align:center">
+ <span class="lb ol">Download</span><h2 class="d" data-reveal>A largada é <span class="ol">agora.</span></h2>
+ <p class="sub" style="margin:auto" data-reveal> Baixe a versão mais recente do elite.sch.app pelo GitHub Releases e instale no Android.</p>
+ <div class="c dl" data-id="download.card" data-state="idle" data-reveal>
+  <img src="assets/icon-192.png" alt="Ícone do app Elite" data-id="download.icon">
+  <div class="d st" style="letter-spacing:.2em;font-family:EliteStencil,'Saira Stencil One'">elite.sch.app</div>
+  <div class="lb">Versão <span data-bind="release.version">1.0.0</span> · Android · APK <span data-bind="release.size"></span></div>
+  <button class="btn" id="dlBtn" data-id="download.button">
+   <span data-s="idle" style="gap:10px;align-items:center"><svg class="i"><use href="#i-dl"/></svg>Baixar APK agora</span>
+   <span data-s="chk" style="gap:10px;align-items:center"><svg class="i spin"><use href="#i-load"/></svg>Verificando disponibilidade</span>
+   <span data-s="ok" style="gap:10px;align-items:center"><svg class="i"><use href="#i-chk"/></svg>Baixar novamente</span>
+   <span data-s="lim" style="gap:10px;align-items:center"><svg class="i"><use href="#i-clock"/></svg>Volte amanhã</span>
+   <span data-s="err" style="gap:10px;align-items:center"><svg class="i"><use href="#i-dl"/></svg>Tentar novamente</span>
+  </button>
+  <div class="msg ok" data-id="download.msg.ok"><svg class="i"><use href="#i-chk"/></svg><span><b>Download iniciado</b>Abra o arquivo baixado e permita a instalação desta fonte quando o Android pedir.</span></div>
+  <div class="msg lim" data-id="download.msg.limit" role="alert"><svg class="i"><use href="#i-warn"/></svg><span><b>Limite de download diário do app atingido</b>Volte amanhã para baixar o Elite.</span></div>
+  <div class="msg err" data-id="download.msg.error" role="alert"><svg class="i"><use href="#i-warn"/></svg><span><b>Não foi possível iniciar o download</b>Verifique sua conexão e tente de novo.</span></div>
+  <div class="how" data-id="download.how"><span><b>1</b>Toque em baixar e aguarde o arquivo.</span><span><b>2</b>Abra o APK e permita a instalação desta fonte.</span><span><b>3</b>Abra o Elite e entre na primeira missão.</span></div>
+ </div>
+</div></section>
+
+<section id="faq" data-id="faq"><div class="w" style="max-width:820px">
+ <span class="lb ol">Dúvidas</span><h2 class="d">Antes de largar</h2>
+ <details data-id="faq.premium"><summary>A competição online é grátis? <svg class="i"><use href="#i-chev"/></svg></summary><p>No app, a competição online aparece com o selo Premium. Confira as condições dentro do Elite.</p></details>
+ <details data-id="faq.min"><summary>E se ninguém entrar na missão? <svg class="i"><use href="#i-chev"/></svg></summary><p>O mínimo é de 2 competidores. Sem isso, a missão não inicia e você é avisado.</p></details>
+ <details data-id="faq.invite"><summary>Como convido um amigo? <svg class="i"><use href="#i-chev"/></svg></summary><p>Compartilhe o convite da missão. Quem já tem o Elite cai direto na sala; quem não tem vai para o download.</p></details>
+ <details data-id="faq.limit"><summary>Por que o botão pode ficar indisponível? <svg class="i"><use href="#i-chev"/></svg></summary><p>O APK é entregue pelo GitHub Releases.</p></details>
+</div></section>
+
+<footer data-id="footer"><div class="w"><span class="st">elite.sch.app</span>Foco, missão dada, missão cumprida.<br>© 2026 Elite · <a href="privacidade.html" style="color:inherit">Privacidade</a> · <a href="termos.html" style="color:inherit">Termos</a></div></footer>
+
+<div class="bar2" id="bar2" data-id="sticky.cta"><a class="btn" href="#baixar"><svg class="i"><use href="#i-dl"/></svg>Baixar APK grátis</a></div>
+<script>
+const REL={version:'1.0.1',size:'63,1 MiB',apk:'https://github.com/nefkity189/elite-android-releases/releases/latest/download/elite.apk',dailyMax:999999};
+const FIREBASE={apiKey:'AIzaSyAbdXOSloRxFUtBXtUS9i264gkKwYvOvt4',authDomain:'aisler-runner.firebaseapp.com',projectId:'aisler-runner',storageBucket:'aisler-runner.firebasestorage.app',messagingSenderId:'536701798948',appId:'1:536701798948:web:74d9fd824af57b020866b1'};
+const RELEASE_API='https://api.github.com/repos/nefkity189/elite-android-releases/releases/latest';
+function showRelease(release){
+ if(!release)return;
+ REL.version=release.versionName||REL.version;REL.size=release.size||REL.size;REL.apk=release.downloadUrl||REL.apk;
+ $$('[data-bind="release.version"]').forEach(e=>e.textContent=REL.version);
+ $$('[data-bind="release.size"]').forEach(e=>e.textContent=REL.size?'· '+REL.size:'');
+}
+async function quotaOk(){return true}
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+// Sempre buscar a última versão diretamente da API do GitHub
+fetch(RELEASE_API,{cache:'no-store',headers:{Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'}})
+ .then(r=>r.ok?r.json():Promise.reject(new Error('GitHub indisponível')))
+ .then(release=>{
+  const tag=(release.tag_name||'').replace(/^v/,'');
+  const asset=(release.assets||[]).find(a=>/\.apk$/i.test(a.name));
+  if(!tag||!asset)return;
+  showRelease({
+   versionName:tag,
+   size:`${(asset.size/1048576).toFixed(1).replace('.',',')} MiB`,
+   downloadUrl:asset.browser_download_url
+  });
+ })
+ .catch(()=>{});
+$$('[data-bind="release.version"]').forEach(e=>e.textContent=REL.version);
+$$('[data-bind="release.size"]').forEach(e=>e.textContent=REL.size?'· '+REL.size:'');
+const nav=$('#nav'),bar=$('#bar2'),hero=$('#topo');
+const dlSec=$('#baixar');addEventListener('scroll',()=>{nav.classList.toggle('on',scrollY>20);bar.classList.toggle('on',scrollY>hero.offsetHeight*.7&&dlSec.getBoundingClientRect().top>innerHeight*.7)},{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&(e.target.classList.add('in'),io.unobserve(e.target))),{threshold:.15});
+$$('[data-reveal],.lg').forEach(e=>io.observe(e));
+$$('[data-cd]').forEach(e=>{let t=+e.dataset.cd;setInterval(()=>{t=t>0?t-1:1122;e.textContent=String(t/60|0).padStart(2,'0')+':'+String(t%60).padStart(2,'0')},1000)});
+const card=$('[data-id="download.card"]'),set=s=>card.dataset.state=s;
+$('#dlBtn').onclick=async()=>{
+ if(card.dataset.state==='lim'||card.dataset.state==='chk')return;
+ set('chk');
+ try{if(!(await quotaOk())){set('lim');return}
+  const a=document.createElement('a');a.href=REL.apk;a.download='elite.apk';document.body.append(a);a.click();a.remove();set('ok')
+ }catch(e){set('err')}
+};
+</script>
+</body>
+</html>

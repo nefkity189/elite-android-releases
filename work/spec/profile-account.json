@@ -1,0 +1,1148 @@
+{
+ "screen": {
+  "w": 393,
+  "h": 851
+ },
+ "tokens": {
+  "--page": "#050604",
+  "--bg": "#0A0B09",
+  "--surface": "#10120D",
+  "--card": "#161911",
+  "--card-el": "#1D2116",
+  "--field": "#0D0F0A",
+  "--line": "rgba(236,232,218,.10)",
+  "--line-strong": "rgba(236,232,218,.18)",
+  "--text": "#ECE8DA",
+  "--muted": "#8F9384",
+  "--dim": "#5E6255",
+  "--olive": "#A3B565",
+  "--olive-dark": "#5D6B34",
+  "--olive-soft": "rgba(163,181,101,.14)",
+  "--on-olive": "#0E1306",
+  "--red": "#D12B2B",
+  "--red-soft": "rgba(209,43,43,.15)",
+  "--red-line": "rgba(209,43,43,.35)",
+  "--on-red": "#FFF4F0",
+  "--brass": "#C9A24B",
+  "--amber": "#E0A93A",
+  "--amber-soft": "rgba(224,169,58,.14)",
+  "--amber-notice": "rgba(224,169,58,.33)",
+  "--ok": "#7FB069",
+  "--ok-soft": "rgba(127,176,105,.15)",
+  "--scrim": "rgba(0,0,0,.62)",
+  "--av1": "#3B4426",
+  "--hdr-core": "#262B1A",
+  "--num": "\"Barlow Condensed\",\"Arial Narrow\",sans-serif",
+  "--ui": "\"Inter\",sans-serif"
+ },
+ "fonts": [
+  {
+   "family": "Inter",
+   "loaded": true
+  },
+  {
+   "family": "Barlow Condensed",
+   "loaded": false
+  }
+ ],
+ "media_queries": [
+  "(prefers-reduced-motion: reduce)"
+ ],
+ "animations": [],
+ "elements": [
+  {
+   "id": 0,
+   "depth": 0,
+   "sel": "main",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 851
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "flex-direction": "column",
+    "flex-shrink": "0",
+    "padding": "28px 0px 0px",
+    "background-color": "rgb(10, 11, 9)",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=screen",
+    "data-viewport=393x851",
+    "data-state=deslogado"
+   ]
+  },
+  {
+   "id": 1,
+   "depth": 1,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 28,
+    "w": 393,
+    "h": 749
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "12px",
+    "padding": "0px 16px 16px",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=profile.scroll"
+   ]
+  },
+  {
+   "id": 2,
+   "depth": 2,
+   "sel": "header",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 28,
+    "w": 361,
+    "h": 44
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0"
+   },
+   "data": [
+    "data-id=profile.topbar"
+   ]
+  },
+  {
+   "id": 3,
+   "depth": 3,
+   "sel": "h1",
+   "text": "Perfil",
+   "rect": {
+    "x": 16,
+    "y": 38,
+    "w": 64.6,
+    "h": 24
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "24px",
+    "font-weight": "700",
+    "line-height": "24px",
+    "letter-spacing": "0.96px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=profile.topbar.title"
+   ]
+  },
+  {
+   "id": 4,
+   "depth": 2,
+   "sel": "section.card",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 84,
+    "w": 361,
+    "h": 94
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "12px",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px"
+   },
+   "data": [
+    "data-id=profile.header",
+    "data-compose=ProfileHeader (existe)"
+   ]
+  },
+  {
+   "id": 5,
+   "depth": 3,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 99,
+    "w": 64,
+    "h": 64
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-image": "radial-gradient(circle, rgb(38, 43, 26), rgb(10, 11, 9))",
+    "border": "2px solid rgb(93, 107, 52)",
+    "border-radius": "20px",
+    "grid-template-columns": "60px"
+   },
+   "data": [
+    "data-id=profile.header.avatar"
+   ]
+  },
+  {
+   "id": 6,
+   "depth": 4,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 45,
+    "y": 113,
+    "w": 36,
+    "h": 36
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=profile.header.mark"
+   ],
+   "svg": "<svg data-id=\"profile.header.mark\" aria-hidden=\"true\" width=\"36\" height=\"36\" viewBox=\"0 0 64 64\"><polygon points=\"14,50 30,10 44,10 28,50\" fill=\"var(--olive)\"></polygon><polygon points=\"34,50 40,34 50,34 44,50\" fill=\"var(--red)\"></polygon></svg>"
+  },
+  {
+   "id": 7,
+   "depth": 3,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 107,
+    "y": 113.5,
+    "w": 199,
+    "h": 35
+   },
+   "style": {
+    "flex-grow": "1"
+   },
+   "data": [
+    "data-id=profile.header.text"
+   ]
+  },
+  {
+   "id": 8,
+   "depth": 4,
+   "sel": "p",
+   "text": "Recruta",
+   "rect": {
+    "x": 107,
+    "y": 113.5,
+    "w": 199,
+    "h": 23
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "20px",
+    "font-weight": "600",
+    "line-height": "23px",
+    "letter-spacing": "0.8px",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=profile.header.name",
+    "data-bind=userName"
+   ]
+  },
+  {
+   "id": 9,
+   "depth": 4,
+   "sel": "p",
+   "text": "MISSÃO DADA É MISSÃO CUMPRIDA",
+   "rect": {
+    "x": 107,
+    "y": 138.5,
+    "w": 199,
+    "h": 10
+   },
+   "style": {
+    "margin": "2px 0px 0px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "8px",
+    "font-weight": "600",
+    "line-height": "10px",
+    "letter-spacing": "1.04px",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=profile.header.tagline"
+   ]
+  },
+  {
+   "id": 10,
+   "depth": 3,
+   "sel": "button",
+   "text": null,
+   "rect": {
+    "x": 318,
+    "y": 109,
+    "w": 44,
+    "h": 44
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "color": "rgb(143, 147, 132)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "22px",
+    "font-size": "13.3333px",
+    "text-align": "center",
+    "grid-template-columns": "42px"
+   },
+   "aria": "Editar nome",
+   "data": [
+    "data-id=profile.header.edit",
+    "data-icon=material:Edit"
+   ]
+  },
+  {
+   "id": 11,
+   "depth": 4,
+   "sel": "svg.ic",
+   "text": null,
+   "rect": {
+    "x": 330,
+    "y": 121,
+    "w": 20,
+    "h": 20
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=profile.header.edit.icon"
+   ],
+   "svg": "<svg data-id=\"profile.header.edit.icon\" aria-hidden=\"true\" class=\"ic\" viewBox=\"0 0 24 24\"><path d=\"M4 20h4L19 9l-4-4L4 16z\"></path></svg>"
+  },
+  {
+   "id": 12,
+   "depth": 2,
+   "sel": "p.eyebrow",
+   "text": "Conta",
+   "rect": {
+    "x": 16,
+    "y": 190,
+    "w": 361,
+    "h": 14
+   },
+   "style": {
+    "flex-shrink": "0",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "letter-spacing": "1.3px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=acct.title",
+    "data-compose=SectionTitle (existe)"
+   ]
+  },
+  {
+   "id": 13,
+   "depth": 2,
+   "sel": "section.card",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 216,
+    "w": 361,
+    "h": 310.8
+   },
+   "style": {
+    "flex-shrink": "0",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=acct.card",
+    "data-compose=AccountCard (novo)"
+   ]
+  },
+  {
+   "id": 14,
+   "depth": 3,
+   "sel": "div.pad",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 217,
+    "w": 359,
+    "h": 308.8
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "gap": "14px",
+    "padding": "16px"
+   },
+   "data": [
+    "data-id=acct.out",
+    "data-show=deslogado entrando erro",
+    "data-compose=SignedOutContent"
+   ]
+  },
+  {
+   "id": 15,
+   "depth": 4,
+   "sel": "div.row",
+   "text": null,
+   "rect": {
+    "x": 33,
+    "y": 233,
+    "w": 327,
+    "h": 44
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "12px"
+   }
+  },
+  {
+   "id": 16,
+   "depth": 5,
+   "sel": "div.tile",
+   "text": null,
+   "rect": {
+    "x": 33,
+    "y": 233,
+    "w": 44,
+    "h": 44
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "color": "rgb(163, 181, 101)",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border-radius": "14px",
+    "grid-template-columns": "44px"
+   },
+   "data": [
+    "data-id=acct.out.tile"
+   ]
+  },
+  {
+   "id": 17,
+   "depth": 6,
+   "sel": "svg.ic",
+   "text": null,
+   "rect": {
+    "x": 45,
+    "y": 245,
+    "w": 20,
+    "h": 20
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=acct.out.tile.icon",
+    "data-icon=material:Person"
+   ],
+   "svg": "<svg data-id=\"acct.out.tile.icon\" class=\"ic\" viewBox=\"0 0 24 24\" data-icon=\"material:Person\"><path d=\"M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\"></path><circle cx=\"12\" cy=\"7\" r=\"4\"></circle></svg>"
+  },
+  {
+   "id": 18,
+   "depth": 5,
+   "sel": "h2.t2",
+   "text": "Entre para competir",
+   "rect": {
+    "x": 89,
+    "y": 243.5,
+    "w": 271,
+    "h": 23
+   },
+   "style": {
+    "flex-grow": "1",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "20px",
+    "font-weight": "600",
+    "line-height": "23px",
+    "letter-spacing": "0.8px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=acct.out.title"
+   ]
+  },
+  {
+   "id": 19,
+   "depth": 4,
+   "sel": "p.body",
+   "text": "Com a conta Google você entra nas missões online, aparece no ranking e guarda seu progresso na nuvem.",
+   "rect": {
+    "x": 33,
+    "y": 291,
+    "w": 327,
+    "h": 58.8
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "14px",
+    "line-height": "19.6px"
+   },
+   "data": [
+    "data-id=acct.out.body"
+   ]
+  },
+  {
+   "id": 20,
+   "depth": 4,
+   "sel": "div.chips",
+   "text": null,
+   "rect": {
+    "x": 33,
+    "y": 363.8,
+    "w": 327,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "gap": "8px"
+   },
+   "data": [
+    "data-id=acct.out.chips"
+   ]
+  },
+  {
+   "id": 21,
+   "depth": 5,
+   "sel": "span.chip",
+   "text": "Missões online",
+   "rect": {
+    "x": 33,
+    "y": 363.8,
+    "w": 111.6,
+    "h": 30
+   },
+   "style": {
+    "padding": "0px 12px",
+    "color": "rgb(163, 181, 101)",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border": "1px solid rgb(93, 107, 52)",
+    "border-radius": "15px",
+    "font-size": "12px",
+    "font-weight": "500",
+    "line-height": "30px"
+   },
+   "data": [
+    "data-id=acct.out.chip1"
+   ]
+  },
+  {
+   "id": 22,
+   "depth": 5,
+   "sel": "span.chip",
+   "text": "Ranking",
+   "rect": {
+    "x": 152.6,
+    "y": 363.8,
+    "w": 72.1,
+    "h": 30
+   },
+   "style": {
+    "padding": "0px 12px",
+    "color": "rgb(163, 181, 101)",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border": "1px solid rgb(93, 107, 52)",
+    "border-radius": "15px",
+    "font-size": "12px",
+    "font-weight": "500",
+    "line-height": "30px"
+   },
+   "data": [
+    "data-id=acct.out.chip2"
+   ]
+  },
+  {
+   "id": 23,
+   "depth": 5,
+   "sel": "span.chip",
+   "text": "Conquistas",
+   "rect": {
+    "x": 232.8,
+    "y": 363.8,
+    "w": 90.8,
+    "h": 30
+   },
+   "style": {
+    "padding": "0px 12px",
+    "color": "rgb(163, 181, 101)",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border": "1px solid rgb(93, 107, 52)",
+    "border-radius": "15px",
+    "font-size": "12px",
+    "font-weight": "500",
+    "line-height": "30px"
+   },
+   "data": [
+    "data-id=acct.out.chip3"
+   ]
+  },
+  {
+   "depth": 4,
+   "sel": "div.notice",
+   "hidden": true
+  },
+  {
+   "id": 24,
+   "depth": 4,
+   "sel": "button.btn.btn-olive",
+   "text": "Entrar com Google",
+   "rect": {
+    "x": 33,
+    "y": 407.8,
+    "w": 327,
+    "h": 56
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "10px",
+    "color": "rgb(14, 19, 6)",
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "28px",
+    "font-weight": "600",
+    "line-height": "20px",
+    "text-align": "center",
+    "transition": "transform 0.12s ease-out"
+   },
+   "data": [
+    "data-id=acct.out.google",
+    "data-show=deslogado",
+    "data-compose=GoogleSignInButton"
+   ]
+  },
+  {
+   "id": 25,
+   "depth": 5,
+   "sel": "svg.ic",
+   "text": null,
+   "rect": {
+    "x": 109.7,
+    "y": 425.8,
+    "w": 20,
+    "h": 20
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=acct.out.google.icon"
+   ],
+   "svg": "<svg data-id=\"acct.out.google.icon\" aria-hidden=\"true\" class=\"ic\" viewBox=\"0 0 24 24\" style=\"stroke-width:2.5\"><path d=\"M20 12h-8\"></path><path d=\"M19 7a8 8 0 1 0 1 5\"></path></svg>"
+  },
+  {
+   "depth": 4,
+   "sel": "button.btn.btn-off",
+   "hidden": true
+  },
+  {
+   "depth": 4,
+   "sel": "button.btn.btn-olive",
+   "hidden": true
+  },
+  {
+   "id": 26,
+   "depth": 4,
+   "sel": "p.cap",
+   "text": "Você pode usar o Elite sem conta. Seus treinos continuam neste aparelho.",
+   "rect": {
+    "x": 33,
+    "y": 477.8,
+    "w": 327,
+    "h": 32
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=acct.out.note"
+   ]
+  },
+  {
+   "depth": 3,
+   "sel": "div",
+   "hidden": true
+  },
+  {
+   "id": 27,
+   "depth": 2,
+   "sel": "p.eyebrow",
+   "text": "Durante a corrida",
+   "rect": {
+    "x": 16,
+    "y": 538.8,
+    "w": 361,
+    "h": 14
+   },
+   "style": {
+    "flex-shrink": "0",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "letter-spacing": "1.3px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=run.title"
+   ]
+  },
+  {
+   "id": 28,
+   "depth": 2,
+   "sel": "section.card",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 564.8,
+    "w": 361,
+    "h": 87
+   },
+   "style": {
+    "flex-shrink": "0",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px"
+   },
+   "data": [
+    "data-id=run.group",
+    "data-compose=SettingsGroup (existe)"
+   ]
+  },
+  {
+   "id": 29,
+   "depth": 3,
+   "sel": "div.set",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 565.8,
+    "w": 359,
+    "h": 85
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "12px",
+    "padding": "14px"
+   },
+   "data": [
+    "data-id=run.voice"
+   ]
+  },
+  {
+   "id": 30,
+   "depth": 4,
+   "sel": "svg.ic",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 598.3,
+    "w": 20,
+    "h": 20
+   },
+   "style": {
+    "flex-shrink": "0",
+    "color": "rgb(143, 147, 132)",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=run.voice.icon"
+   ],
+   "svg": "<svg data-id=\"run.voice.icon\" aria-hidden=\"true\" class=\"ic\" viewBox=\"0 0 24 24\" style=\"color:var(--muted)\"><path d=\"M4 10v4M8 7v10M12 4v16M16 8v8M20 11v2\"></path></svg>"
+  },
+  {
+   "id": 31,
+   "depth": 4,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 63,
+    "y": 579.8,
+    "w": 241,
+    "h": 57
+   },
+   "style": {
+    "flex-grow": "1"
+   }
+  },
+  {
+   "id": 32,
+   "depth": 5,
+   "sel": "b",
+   "text": "Voz do treinador",
+   "rect": {
+    "x": 63,
+    "y": 579.8,
+    "w": 241,
+    "h": 17
+   },
+   "style": {
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "17px"
+   },
+   "data": [
+    "data-id=run.voice.title"
+   ]
+  },
+  {
+   "id": 33,
+   "depth": 5,
+   "sel": "span.cap",
+   "text": "Instruções sonoras para início, trocas de passo e ritmo",
+   "rect": {
+    "x": 63,
+    "y": 600.8,
+    "w": 230.5,
+    "h": 35
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=run.voice.desc"
+   ]
+  },
+  {
+   "id": 34,
+   "depth": 4,
+   "sel": "div.sw",
+   "text": null,
+   "rect": {
+    "x": 316,
+    "y": 594.3,
+    "w": 46,
+    "h": 28
+   },
+   "style": {
+    "position": "relative",
+    "flex-shrink": "0",
+    "background-color": "rgb(93, 107, 52)",
+    "border-radius": "14px"
+   }
+  },
+  {
+   "id": 35,
+   "depth": 5,
+   "sel": "i",
+   "text": null,
+   "rect": {
+    "x": 337,
+    "y": 597.3,
+    "w": 22,
+    "h": 22
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(236, 232, 218)",
+    "border-radius": "11px"
+   }
+  },
+  {
+   "id": 36,
+   "depth": 1,
+   "sel": "nav",
+   "text": null,
+   "rect": {
+    "x": 12,
+    "y": 777,
+    "w": 369,
+    "h": 64
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "padding": "0px 6px",
+    "margin": "0px 12px 10px",
+    "background-color": "rgb(16, 18, 13)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "24px",
+    "grid-template-columns": "71px 71px 71px 71px 71px"
+   },
+   "data": [
+    "data-id=profile.nav",
+    "data-compose=RunnaBottomNav (existe, não alterar)"
+   ]
+  },
+  {
+   "id": 37,
+   "depth": 2,
+   "sel": "div.nv",
+   "text": "Hoje",
+   "rect": {
+    "x": 19,
+    "y": 778,
+    "w": 71,
+    "h": 62
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "justify-content": "center",
+    "align-items": "center",
+    "gap": "2px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "500",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=profile.nav.today"
+   ]
+  },
+  {
+   "id": 38,
+   "depth": 3,
+   "sel": "svg.ic",
+   "text": null,
+   "rect": {
+    "x": 43.5,
+    "y": 790,
+    "w": 22,
+    "h": 22
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=profile.nav.today.icon"
+   ],
+   "svg": "<svg data-id=\"profile.nav.today.icon\" aria-hidden=\"true\" class=\"ic\" viewBox=\"0 0 24 24\"><path d=\"M4 11l8-7 8 7v9H4z\"></path></svg>"
+  },
+  {
+   "id": 39,
+   "depth": 2,
+   "sel": "div.nv",
+   "text": "Plano",
+   "rect": {
+    "x": 90,
+    "y": 778,
+    "w": 71,
+    "h": 62
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "justify-content": "center",
+    "align-items": "center",
+    "gap": "2px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "500",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=profile.nav.plan"
+   ]
+  },
+  {
+   "id": 40,
+   "depth": 3,
+   "sel": "svg.ic",
+   "text": null,
+   "rect": {
+    "x": 114.5,
+    "y": 790,
+    "w": 22,
+    "h": 22
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=profile.nav.plan.icon"
+   ],
+   "svg": "<svg data-id=\"profile.nav.plan.icon\" aria-hidden=\"true\" class=\"ic\" viewBox=\"0 0 24 24\"><rect x=\"4\" y=\"5\" width=\"16\" height=\"15\" rx=\"2\"></rect><path d=\"M4 10h16M9 3v4M15 3v4\"></path></svg>"
+  },
+  {
+   "id": 41,
+   "depth": 2,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 172.5,
+    "y": 785,
+    "w": 48,
+    "h": 48
+   },
+   "style": {
+    "display": "grid",
+    "padding": "2px",
+    "background-image": "conic-gradient(rgb(163, 181, 101), rgb(209, 43, 43), rgb(201, 162, 75), rgb(163, 181, 101))",
+    "border-radius": "16px",
+    "grid-template-columns": "44px"
+   },
+   "aria": "Assistente",
+   "data": [
+    "data-id=profile.nav.coach"
+   ]
+  },
+  {
+   "id": 42,
+   "depth": 3,
+   "sel": "div",
+   "text": "E",
+   "rect": {
+    "x": 174.5,
+    "y": 787,
+    "w": 44,
+    "h": 44
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "color": "rgb(163, 181, 101)",
+    "background-color": "rgb(10, 11, 9)",
+    "border-radius": "14px",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "25px",
+    "font-weight": "700",
+    "line-height": "25px",
+    "grid-template-columns": "44px"
+   },
+   "data": [
+    "data-id=profile.nav.coach.core"
+   ]
+  },
+  {
+   "id": 43,
+   "depth": 2,
+   "sel": "div.nv",
+   "text": "Progresso",
+   "rect": {
+    "x": 232,
+    "y": 778,
+    "w": 71,
+    "h": 62
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "justify-content": "center",
+    "align-items": "center",
+    "gap": "2px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "500",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=profile.nav.progress"
+   ]
+  },
+  {
+   "id": 44,
+   "depth": 3,
+   "sel": "svg.ic",
+   "text": null,
+   "rect": {
+    "x": 256.5,
+    "y": 790,
+    "w": 22,
+    "h": 22
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=profile.nav.progress.icon"
+   ],
+   "svg": "<svg data-id=\"profile.nav.progress.icon\" aria-hidden=\"true\" class=\"ic\" viewBox=\"0 0 24 24\"><path d=\"M3 17l6-6 4 4 8-8\"></path></svg>"
+  },
+  {
+   "id": 45,
+   "depth": 2,
+   "sel": "div.nv.on",
+   "text": "Perfil",
+   "rect": {
+    "x": 303,
+    "y": 778,
+    "w": 71,
+    "h": 62
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "justify-content": "center",
+    "align-items": "center",
+    "gap": "2px",
+    "color": "rgb(163, 181, 101)",
+    "font-size": "11px",
+    "font-weight": "500",
+    "line-height": "14px"
+   },
+   "data": [
+    "data-id=profile.nav.profile"
+   ]
+  },
+  {
+   "id": 46,
+   "depth": 3,
+   "sel": "svg.ic",
+   "text": null,
+   "rect": {
+    "x": 327.5,
+    "y": 790,
+    "w": 22,
+    "h": 22
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=profile.nav.profile.icon"
+   ],
+   "svg": "<svg data-id=\"profile.nav.profile.icon\" aria-hidden=\"true\" class=\"ic\" viewBox=\"0 0 24 24\"><path d=\"M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\"></path><circle cx=\"12\" cy=\"7\" r=\"4\"></circle></svg>"
+  },
+  {
+   "depth": 1,
+   "sel": "div",
+   "hidden": true
+  },
+  {
+   "depth": 1,
+   "sel": "div",
+   "hidden": true
+  },
+  {
+   "depth": 1,
+   "sel": "div",
+   "hidden": true
+  }
+ ],
+ "root_selector": "main"
+}

@@ -1,0 +1,3 @@
+- Resultado de corrida agora reconhece a confirmação do Firestore, mesmo após reabrir o app.
+- Elo e posição usam o perfil confirmado pelo servidor.
+- Conquistas mostram somente dados confirmados do perfil online.

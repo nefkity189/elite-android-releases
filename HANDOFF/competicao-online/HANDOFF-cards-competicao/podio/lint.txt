@@ -1,0 +1,3 @@
+WARN: div.a extends outside the screen: 500,420,1320,1244 (screen 1080x1350)
+WARN: svg extends outside the screen: 500,420,1320,1240 (screen 1080x1350)
+root=.phone 1080x1350dp  errors=0 warnings=2

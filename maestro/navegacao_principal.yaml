@@ -1,9 +1,9 @@
-appId: com.aistudio.primeiro5k.kptwlz
+﻿appId: com.elite.sch.app
 ---
-# Fluxo de validação da navegação principal do app Aisle (Primeiro 5K).
+# Fluxo de validação da navegação principal do app Elite (Primeiro 5K).
 #
 # A navegação é controlada por estado (AppNavigation em MainActivity.kt):
-#   - 4 abas inferiores: Hoje | Plano | Progresso | Perfil  (AisleBottomNavigationBar)
+#   - 4 abas inferiores: Hoje | Plano | Progresso | Perfil  (EliteBottomNavigationBar)
 #   - Botão central flutuante: abre o QuickLauncher (quick_launcher)
 #     - Fluxo de onboarding: Welcome -> Quiz (3 perguntas) -> Selecionar Dias -> Selecionar Duração -> Plano
 #   - Botão "Começar" no Welcome inicia o quiz via AppScreen.QuizQuestion1
@@ -56,7 +56,7 @@ appId: com.aistudio.primeiro5k.kptwlz
 - assertVisible: "tab_perfil"
 
 # Botão central flutuante: abre o QuickLauncher.
-- tapOn: "btn_center_action_aisle"
+- tapOn: "btn_center_action_elite"
 - assertVisible: "quick_launcher"
 
 # Fecha o quick launcher e retorna ao fluxo principal.

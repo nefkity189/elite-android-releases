@@ -1,0 +1,766 @@
+{
+ "screen": {
+  "w": 393,
+  "h": 851
+ },
+ "tokens": {
+  "--page": "#000000",
+  "--bg": "#0a0b09",
+  "--surface": "#10120d",
+  "--card": "#161911",
+  "--card-elev": "#1d2116",
+  "--field": "#0d0f0a",
+  "--line": "rgba(236,232,218,.10)",
+  "--line-strong": "rgba(236,232,218,.18)",
+  "--text": "#ece8da",
+  "--muted": "#8f9384",
+  "--dim": "#5e6255",
+  "--olive": "#a3b565",
+  "--olive-dark": "#5d6b34",
+  "--olive-soft": "rgba(163,181,101,.14)",
+  "--on-olive": "#0e1306",
+  "--red": "#d12b2b",
+  "--on-red": "#fff4f0",
+  "--brass": "#c9a24b",
+  "--share-glow": "#1e2314",
+  "--route-halo": "#1c2015",
+  "--white": "#ffffff",
+  "--display": "\"Barlow Condensed\",\"Arial Narrow\",sans-serif",
+  "--body": "\"Inter\",sans-serif",
+  "--logo": "\"Saira Stencil One\",\"Barlow Condensed\",sans-serif"
+ },
+ "fonts": [
+  {
+   "family": "Inter",
+   "loaded": true
+  },
+  {
+   "family": "Saira Stencil One",
+   "loaded": false
+  },
+  {
+   "family": "Barlow Condensed",
+   "loaded": false
+  }
+ ],
+ "media_queries": [
+  "(prefers-reduced-motion: reduce)"
+ ],
+ "animations": [
+  {
+   "name": "share-enter",
+   "type": "CSSAnimation",
+   "target": "div.view",
+   "duration_ms": 220,
+   "delay_ms": 0,
+   "iterations": 1,
+   "easing": "linear",
+   "direction": "normal",
+   "fill": "both",
+   "keyframes": [
+    {
+     "offset": 0,
+     "easing": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+     "transform": "translateY(16px)",
+     "opacity": "0"
+    },
+    {
+     "offset": 1,
+     "easing": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+     "transform": "translateY(0px)",
+     "opacity": "1"
+    }
+   ]
+  }
+ ],
+ "elements": [
+  {
+   "id": 0,
+   "depth": 0,
+   "sel": "main",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 851
+   },
+   "style": {
+    "position": "relative",
+    "flex-shrink": "0",
+    "background-color": "rgb(10, 11, 9)",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=screen",
+    "data-viewport=393x851",
+    "data-state=compartilhar",
+    "data-enter=compartilhar"
+   ]
+  },
+  {
+   "depth": 1,
+   "sel": "div.view",
+   "hidden": true
+  },
+  {
+   "id": 1,
+   "depth": 1,
+   "sel": "div.view",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 851
+   },
+   "style": {
+    "display": "flex",
+    "position": "absolute",
+    "flex-direction": "column",
+    "background-color": "rgb(10, 11, 9)",
+    "transform": "matrix(1, 0, 0, 1, 0, 0)",
+    "animation": "0.22s cubic-bezier(0.2, 0.8, 0.2, 1) both share-enter"
+   },
+   "data": [
+    "data-id=app.share",
+    "data-compose=ShareCardPreviewScreen"
+   ]
+  },
+  {
+   "id": 2,
+   "depth": 2,
+   "sel": "div.statusbar",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 32
+   },
+   "style": {
+    "flex-shrink": "0"
+   },
+   "data": [
+    "data-id=shr.statusbar",
+    "data-compose=statusBarsPadding"
+   ]
+  },
+  {
+   "id": 3,
+   "depth": 2,
+   "sel": "button.iconbtn",
+   "text": null,
+   "rect": {
+    "x": 8,
+    "y": 32,
+    "w": 48,
+    "h": 48
+   },
+   "style": {
+    "display": "grid",
+    "position": "absolute",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "border-radius": "24px",
+    "text-align": "center",
+    "z-index": "2",
+    "transition": "transform 0.1s ease-out",
+    "grid-template-columns": "48px"
+   },
+   "aria": "Voltar",
+   "data": [
+    "data-id=shr.back",
+    "data-goto=detalhes",
+    "data-compose=IconButton (NOVO, canto sup. esquerdo)"
+   ]
+  },
+  {
+   "id": 4,
+   "depth": 3,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 20,
+    "y": 44,
+    "w": 24,
+    "h": 24
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=shr.back.icon",
+    "data-icon=material:AutoMirrored.Filled.ArrowBack"
+   ],
+   "svg": "<svg data-id=\"shr.back.icon\" data-icon=\"material:AutoMirrored.Filled.ArrowBack\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z\"></path></svg>"
+  },
+  {
+   "id": 5,
+   "depth": 2,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 32,
+    "w": 393,
+    "h": 819
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-grow": "1",
+    "padding": "20px 16px"
+   },
+   "data": [
+    "data-id=shr.col",
+    "data-compose=Column(Center, verticalScroll)"
+   ]
+  },
+  {
+   "id": 6,
+   "depth": 3,
+   "sel": "p",
+   "text": "COMPARTILHAR NO ELITE",
+   "rect": {
+    "x": 112.5,
+    "y": 170,
+    "w": 167.9,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "line-height": "16px",
+    "letter-spacing": "1.32px"
+   },
+   "data": [
+    "data-id=shr.label"
+   ]
+  },
+  {
+   "id": 7,
+   "depth": 3,
+   "sel": "section",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 202,
+    "w": 361,
+    "h": 451
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "flex-direction": "column",
+    "gap": "12px",
+    "padding": "20px",
+    "margin": "16px 0px 0px",
+    "background-image": "radial-gradient(circle, rgb(30, 35, 20), rgb(10, 11, 9))",
+    "border": "1px solid rgb(93, 107, 52)",
+    "border-radius": "22px"
+   },
+   "data": [
+    "data-id=shr.card",
+    "data-compose=ShareCardPreview (existente)"
+   ]
+  },
+  {
+   "id": 8,
+   "depth": 4,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 223,
+    "w": 319,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "flex-shrink": "0"
+   },
+   "data": [
+    "data-id=shr.card.head"
+   ]
+  },
+  {
+   "id": 9,
+   "depth": 5,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 223,
+    "w": 105.6,
+    "h": 30
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "8px"
+   },
+   "data": [
+    "data-id=shr.card.brand"
+   ]
+  },
+  {
+   "id": 10,
+   "depth": 6,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 223,
+    "w": 26,
+    "h": 30
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=shr.card.mark",
+    "data-icon=drawable:ic_elite_mark"
+   ],
+   "svg": "<svg data-id=\"shr.card.mark\" data-icon=\"drawable:ic_elite_mark\" aria-hidden=\"true\" viewBox=\"0 0 26 30\"><path d=\"M13 1 L25 8 V22 L13 29 L1 22 V8 Z M13 8 L19 11.5 V18.5 L13 22 L7 18.5 V11.5 Z\" fill-rule=\"evenodd\"></path></svg>"
+  },
+  {
+   "id": 11,
+   "depth": 6,
+   "sel": "span",
+   "text": "ELITE",
+   "rect": {
+    "x": 71,
+    "y": 227,
+    "w": 71.6,
+    "h": 22
+   },
+   "style": {
+    "font-family": "\"Saira Stencil One\", \"Barlow Condensed\", sans-serif",
+    "font-size": "18px",
+    "line-height": "22px",
+    "letter-spacing": "4.32px"
+   },
+   "data": [
+    "data-id=shr.card.wordmark"
+   ]
+  },
+  {
+   "id": 12,
+   "depth": 5,
+   "sel": "span",
+   "text": "TREINO CONCLUÍDO",
+   "rect": {
+    "x": 223.3,
+    "y": 228,
+    "w": 132.7,
+    "h": 20
+   },
+   "style": {
+    "padding": "3px 8px",
+    "color": "rgb(163, 181, 101)",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border-radius": "6px",
+    "font-size": "10px",
+    "font-weight": "700",
+    "line-height": "14px",
+    "letter-spacing": "1px"
+   },
+   "data": [
+    "data-id=shr.card.badge"
+   ]
+  },
+  {
+   "id": 13,
+   "depth": 4,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 265,
+    "w": 319,
+    "h": 174
+   },
+   "style": {
+    "position": "relative",
+    "flex-grow": "1"
+   },
+   "data": [
+    "data-id=shr.card.route",
+    "data-compose=RoutePreview (Canvas)"
+   ]
+  },
+  {
+   "id": 14,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 265,
+    "w": 319,
+    "h": 174
+   },
+   "style": {
+    "position": "absolute",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=shr.card.route.svg"
+   ],
+   "svg": "<svg data-id=\"shr.card.route.svg\" aria-hidden=\"true\" viewBox=\"0 0 319 164\" preserveAspectRatio=\"none\">\n          <polyline class=\"share-halo\" points=\"30,120 60,86 110,62 170,42 230,50 280,80 292,120 260,148 200,156 140,150 80,156 44,138\"></polyline>\n          <polyline class=\"share-line\" points=\"30,120 60,86 110,62 170,42 230,50 280,80 292,120 260,148 200,156 140,150 80,156 44,138\"></polyline>\n          <circle class=\"pin-start\" cx=\"30\" cy=\"120\" r=\"6\"></circle><circle class=\"pin-end\" cx=\"44\" cy=\"138\" r=\"6\"></circle>\n        </svg>"
+  },
+  {
+   "id": 15,
+   "depth": 4,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 451,
+    "w": 319,
+    "h": 84
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-shrink": "0",
+    "gap": "2px"
+   },
+   "data": [
+    "data-id=shr.card.dist"
+   ]
+  },
+  {
+   "id": 16,
+   "depth": 5,
+   "sel": "p",
+   "text": "DISTÂNCIA",
+   "rect": {
+    "x": 37,
+    "y": 451,
+    "w": 319,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "letter-spacing": "1.32px"
+   },
+   "data": [
+    "data-id=shr.card.dist.label"
+   ]
+  },
+  {
+   "id": 17,
+   "depth": 5,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 467,
+    "w": 319,
+    "h": 68
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "flex-end"
+   },
+   "data": [
+    "data-id=shr.card.dist.row"
+   ]
+  },
+  {
+   "id": 18,
+   "depth": 6,
+   "sel": "span",
+   "text": "5,12",
+   "rect": {
+    "x": 37,
+    "y": 467,
+    "w": 140.1,
+    "h": 68
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "72px",
+    "font-weight": "600",
+    "line-height": "68px"
+   },
+   "data": [
+    "data-id=shr.card.dist.value",
+    "data-bind=distanceValue"
+   ]
+  },
+  {
+   "id": 19,
+   "depth": 6,
+   "sel": "span",
+   "text": "km",
+   "rect": {
+    "x": 177.1,
+    "y": 501,
+    "w": 36,
+    "h": 34
+   },
+   "style": {
+    "padding": "0px 0px 8px 4px",
+    "color": "rgb(143, 147, 132)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "24px",
+    "font-weight": "500",
+    "line-height": "26px"
+   },
+   "data": [
+    "data-id=shr.card.dist.unit",
+    "data-bind=distanceUnit"
+   ]
+  },
+  {
+   "id": 20,
+   "depth": 4,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 547,
+    "w": 319,
+    "h": 56
+   },
+   "style": {
+    "display": "flex",
+    "flex-shrink": "0",
+    "gap": "10px"
+   },
+   "data": [
+    "data-id=shr.card.metrics",
+    "data-compose=Row(spacedBy(10.dp))"
+   ]
+  },
+  {
+   "id": 21,
+   "depth": 5,
+   "sel": "div.share-metric",
+   "text": null,
+   "rect": {
+    "x": 37,
+    "y": 547,
+    "w": 154.5,
+    "h": 56
+   },
+   "style": {
+    "flex-grow": "1"
+   },
+   "data": [
+    "data-id=shr.card.time",
+    "data-compose=ShareMetric"
+   ]
+  },
+  {
+   "id": 22,
+   "depth": 6,
+   "sel": "p.share-metric-label",
+   "text": "TEMPO",
+   "rect": {
+    "x": 37,
+    "y": 547,
+    "w": 154.5,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "letter-spacing": "1.32px"
+   },
+   "data": [
+    "data-id=shr.card.time.label"
+   ]
+  },
+  {
+   "id": 23,
+   "depth": 6,
+   "sel": "p.share-metric-value",
+   "text": "28:41",
+   "rect": {
+    "x": 37,
+    "y": 561,
+    "w": 154.5,
+    "h": 42
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "30px",
+    "font-weight": "600",
+    "line-height": "42px"
+   },
+   "data": [
+    "data-id=shr.card.time.value"
+   ]
+  },
+  {
+   "id": 24,
+   "depth": 5,
+   "sel": "div.share-metric",
+   "text": null,
+   "rect": {
+    "x": 201.5,
+    "y": 547,
+    "w": 154.5,
+    "h": 56
+   },
+   "style": {
+    "flex-grow": "1"
+   },
+   "data": [
+    "data-id=shr.card.pace",
+    "data-compose=ShareMetric"
+   ]
+  },
+  {
+   "id": 25,
+   "depth": 6,
+   "sel": "p.share-metric-label",
+   "text": "RITMO",
+   "rect": {
+    "x": 201.5,
+    "y": 547,
+    "w": 154.5,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "letter-spacing": "1.32px"
+   },
+   "data": [
+    "data-id=shr.card.pace.label"
+   ]
+  },
+  {
+   "id": 26,
+   "depth": 6,
+   "sel": "p.share-metric-value",
+   "text": "5:36",
+   "rect": {
+    "x": 201.5,
+    "y": 561,
+    "w": 154.5,
+    "h": 42
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "30px",
+    "font-weight": "600",
+    "line-height": "42px"
+   },
+   "data": [
+    "data-id=shr.card.pace.value"
+   ]
+  },
+  {
+   "id": 27,
+   "depth": 4,
+   "sel": "p",
+   "text": "ELITE · MISSÃO DADA É MISSÃO CUMPRIDA",
+   "rect": {
+    "x": 37,
+    "y": 620,
+    "w": 319,
+    "h": 12
+   },
+   "style": {
+    "flex-shrink": "0",
+    "margin": "5px 0px 0px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "9px",
+    "font-weight": "600",
+    "line-height": "12px",
+    "letter-spacing": "1.8px",
+    "text-align": "center"
+   },
+   "data": [
+    "data-id=shr.card.footer"
+   ]
+  },
+  {
+   "id": 28,
+   "depth": 3,
+   "sel": "button",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 669,
+    "w": 361,
+    "h": 44
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "gap": "10px",
+    "margin": "16px 0px 0px",
+    "color": "rgb(255, 244, 240)",
+    "background-color": "rgb(209, 43, 43)",
+    "border-radius": "22px",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "20px",
+    "text-align": "center",
+    "transition": "transform 0.1s ease-out"
+   },
+   "aria": "Compartilhar",
+   "data": [
+    "data-id=shr.cta",
+    "data-compose=Button (existente: btn_share_card_preview)"
+   ]
+  },
+  {
+   "id": 29,
+   "depth": 4,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 137.5,
+    "y": 682,
+    "w": 18,
+    "h": 18
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=shr.cta.icon",
+    "data-icon=material:Filled.Share"
+   ],
+   "svg": "<svg data-id=\"shr.cta.icon\" data-icon=\"material:Filled.Share\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z\"></path></svg>"
+  },
+  {
+   "id": 30,
+   "depth": 4,
+   "sel": "span",
+   "text": "Compartilhar",
+   "rect": {
+    "x": 165.5,
+    "y": 681,
+    "w": 90,
+    "h": 20
+   },
+   "style": {},
+   "data": [
+    "data-id=shr.cta.label"
+   ]
+  }
+ ],
+ "root_selector": "main"
+}

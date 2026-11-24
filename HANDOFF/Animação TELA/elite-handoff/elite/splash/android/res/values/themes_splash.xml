@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tema de partida (Android 12+ usa a API nativa; Android 6 a 11 usa a compat). Fundo preto tático, sem ícone, para a animação do Compose começar de um fundo limpo, sem pulo visual. -->
+<resources>
+    <style name="Theme.Elite.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#0A0B09</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_empty</item>
+        <item name="windowSplashScreenAnimationDuration">0</item>
+        <item name="postSplashScreenTheme">@style/Theme.Aisle</item> <!-- AJUSTE: o tema atual do app -->
+    </style>
+</resources>

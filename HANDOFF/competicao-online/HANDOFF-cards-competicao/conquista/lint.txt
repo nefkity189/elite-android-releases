@@ -1,0 +1,5 @@
+WARN: root scrolls: scrollHeight 1404 > 1350 (is scrolling intended?)
+WARN: div.a extends outside the screen: 380,500,1280,1404 (screen 1080x1350)
+WARN: div.z.d.sk extends outside the screen: 580,220,1120,520 (screen 1080x1350)
+WARN: div.z.d.sk extends outside the screen: 72,770,1172,1086 (screen 1080x1350)
+root=.phone 1080x1350dp  errors=0 warnings=4

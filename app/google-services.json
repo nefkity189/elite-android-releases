@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "536701798948",
+    "project_id": "aisler-runner",
+    "storage_bucket": "aisler-runner.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536701798948:android:795c623e0f3222d20866b1",
+        "android_client_info": {
+          "package_name": "com.elite.sch.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "536701798948-re3j9k7db5n6qmeahkhb75ie951dpq28.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.elite.sch.app",
+            "certificate_hash": "4378d35dffbab499bf49a2278271c20f7b335614"
+          }
+        },
+        {
+          "client_id": "536701798948-667lhpvuq561t5tb0q7kjapu4oraf31k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT0h9TxyEMaVYOUxJZVd0bRnOaEymDLNY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "536701798948-667lhpvuq561t5tb0q7kjapu4oraf31k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

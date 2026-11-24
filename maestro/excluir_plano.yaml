@@ -1,4 +1,4 @@
-appId: com.aistudio.primeiro5k.kptwlz
+﻿appId: com.elite.sch.app
 ---
 # Fluxo de teste: Criar plano e excluir plano
 # 1. Onboarding completo (Welcome -> Quiz 1-3 -> DaysSelection -> DurationSelection -> PlanPreview -> Aceitar)

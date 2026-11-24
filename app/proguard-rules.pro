@@ -1,4 +1,4 @@
-# Aisle ProGuard/R8 Rules
+# Elite ProGuard/R8 Rules
 
 # Preserve Room annotations and entities
 -keep class * extends androidx.room.RoomDatabase
@@ -36,7 +36,7 @@
 }
 
 # Preserve all entities referenced by Room
--keep class com.example.data.local.entities.** { *; }
+-keep class com.elite.sch.app.data.local.entities.** { *; }
 
 # Preserve ViewModels
 -keep class ** extends androidx.lifecycle.ViewModel { *; }

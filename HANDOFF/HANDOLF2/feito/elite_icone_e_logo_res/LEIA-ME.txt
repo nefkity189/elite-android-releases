@@ -1,0 +1,8 @@
+ICONE E LOGO DO APP (Elite)
+Copie a pasta "res" por cima de app/src/main/res (aceite substituir).
+- drawable/ic_elite_mark.xml e ic_elite_blade.xml: logo usado dentro do app (AisleLogo, WelcomeScreen).
+- drawable/ic_launcher_*.xml + mipmap-anydpi-v26/: icone adaptativo (Android 8+) com versao tematica (Android 13+).
+- mipmap-*/ic_launcher*.png: fallback para Android 7 e anteriores.
+- preview/ic_launcher_playstore_512.png: icone de 512 px para a Play Store.
+No AndroidManifest.xml confira: android:icon="@mipmap/ic_launcher" e android:roundIcon="@mipmap/ic_launcher_round".
+Se existirem ic_launcher.webp/.png antigos em mipmap-*, apague-os para nao conflitar (mesmo nome, extensao diferente).

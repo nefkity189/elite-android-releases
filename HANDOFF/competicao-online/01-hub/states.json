@@ -1,0 +1,27 @@
+[
+ {
+  "name": "proxima_missao",
+  "eval": "__setState('padrao')",
+  "wait": 200
+ },
+ {
+  "name": "passadas",
+  "eval": "__setState('passadas')",
+  "wait": 200
+ },
+ {
+  "name": "vazio",
+  "eval": "__setState('vazio')",
+  "wait": 200
+ },
+ {
+  "name": "distancia_10k",
+  "click": "[data-id='hub.distance.d10']",
+  "wait": 200
+ },
+ {
+  "name": "entrar_pressionado",
+  "press": "[data-id='hub.m1300.join']",
+  "wait": 300
+ }
+]

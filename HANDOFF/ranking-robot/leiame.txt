@@ -1,0 +1,21 @@
+Atualizei o zip `ranking-robot` para rodar a cada 5 minutos. Também corrigi um problema que faria o "5 em 5" não adiantar nada.
+
+## O que mudou
+
+1. **Agendamento:** `*/5 * * * *`, o intervalo mínimo que o GitHub permite.
+2. **Resultado rápido.** Antes, o robô só olhava uma missão 3h10 depois da largada, porque as regras fecham os envios em 3 h. Agora ele processa assim que **todos que largaram já terminaram ou desistiram**. Se ainda tiver alguém correndo, espera, e no limite de 3 h fecha de qualquer jeito.
+3. **Janela de leitura menor:** olha as missões das últimas 6 horas (antes eram 24) e só depois de 8 minutos de largada. Isso mantém o gasto de leituras baixo com o robô rodando 288 vezes por dia.
+
+Só conferi a sintaxe do script, não rodei contra o seu Firestore. Faça a simulação do passo 4 primeiro.
+
+## O que pesa nesse intervalo
+
+- **Minutos do GitHub:** 12 execuções por hora dão cerca de **8.640 por mês**, de pelo menos 1 minuto cada. Eu não verifiquei a cota gratuita atual, mas acredito que o plano gratuito em repositório privado tenha bem menos que isso (algo na casa de 2.000 minutos). Confira em Settings → Billing antes de ligar. Se não couber, as saídas são aumentar o intervalo para 15 ou 30 minutos, ou tornar o repositório público. Repositório público segura o segredo do mesmo jeito, mas o código fica visível, e a regra de desativar o agendamento por falta de atividade (60 dias) vale para ele.
+- **O GitHub não garante o horário exato.** Em horários de pico a execução agendada pode atrasar vários minutos. Então "a cada 5 minutos" é no melhor caso, e o resultado costuma sair uns 5 a 15 minutos depois do último corredor chegar.
+- **Leituras do Firestore:** cada execução lê as missões da janela e, nas que ainda estão em andamento, os jogadores delas. Com poucas provas por hora fica baixo. Com muitas provas simultâneas, as leituras sobem, e aí vale reduzir `WINDOW_HOURS`.
+
+## Uma limitação do jeito de ver "terminou"
+
+O robô espera quem largou e não terminou nem desistiu. Se um corredor perder o sinal e ficar sem finalizar, a missão só fecha 3 h depois da largada. Nesse caso os pontos dos demais demoram. Se isso for comum, o app poderia gravar a desistência sozinho depois de certo tempo sem enviar dados, mas isso é uma mudança à parte no app.
+
+Se o limite de minutos for um problema para você, uma alternativa é rodar de 5 em 5 minutos só nas horas de mais provas e de 30 em 30 no resto. Me diga quando as provas costumam acontecer que eu ajusto o agendamento.

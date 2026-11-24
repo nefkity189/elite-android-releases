@@ -1,0 +1,8 @@
+appId: com.elite.sch.app
+---
+- launchApp
+- tapOn:
+    id: "btn_share_workout"
+- waitForAnimationToEnd
+- assertVisible:
+    text: "Compartilhar"

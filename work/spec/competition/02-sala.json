@@ -1,0 +1,1711 @@
+{
+ "screen": {
+  "w": 393,
+  "h": 851
+ },
+ "tokens": {
+  "--page": "#050604",
+  "--bg": "#0a0b09",
+  "--surface": "#10120d",
+  "--card": "#161911",
+  "--card-el": "#1d2116",
+  "--field": "#0d0f0a",
+  "--line": "rgba(236,232,218,.10)",
+  "--line-strong": "rgba(236,232,218,.18)",
+  "--text": "#ece8da",
+  "--muted": "#8f9384",
+  "--dim": "#5e6255",
+  "--olive": "#a3b565",
+  "--olive-dark": "#5d6b34",
+  "--olive-soft": "rgba(163,181,101,.14)",
+  "--on-olive": "#0e1306",
+  "--red": "#d12b2b",
+  "--red-soft": "rgba(209,43,43,.15)",
+  "--on-red": "#fff4f0",
+  "--brass": "#c9a24b",
+  "--brass-soft": "rgba(201,162,75,.16)",
+  "--amber": "#e0a93a",
+  "--amber-soft": "rgba(224,169,58,.14)",
+  "--ok": "#7fb069",
+  "--ok-soft": "rgba(127,176,105,.15)",
+  "--amber-line": "rgba(224,169,58,.45)",
+  "--red-line": "rgba(209,43,43,.5)",
+  "--ok-line": "rgba(127,176,105,.45)",
+  "--brass-line": "rgba(201,162,75,.5)",
+  "--glass": "rgba(16,18,13,.82)",
+  "--glass-bar": "rgba(16,18,13,.90)",
+  "--scrim": "rgba(0,0,0,.62)",
+  "--lg-bronze": "#b07a4a",
+  "--lg-prata": "#b4bab8",
+  "--lg-ouro": "#c9a24b",
+  "--lg-platina": "#86bdb3",
+  "--lg-diamante": "#7fb4de",
+  "--lg-elite": "#e7e2d0",
+  "--av1": "#3b4426",
+  "--av2": "#4a3f1e",
+  "--av3": "#2e3b3a",
+  "--av4": "#46301f",
+  "--av5": "#3a2e3f",
+  "--num": "\"Barlow Condensed\",\"Arial Narrow\",sans-serif",
+  "--ui": "\"Inter\",sans-serif",
+  "--logo": "\"Saira Stencil One\",\"Impact\",sans-serif"
+ },
+ "fonts": [
+  {
+   "family": "Inter",
+   "loaded": true
+  },
+  {
+   "family": "Barlow Condensed",
+   "loaded": false
+  }
+ ],
+ "media_queries": [
+  "(prefers-reduced-motion: reduce)",
+  "(prefers-reduced-motion: reduce)"
+ ],
+ "animations": [
+  {
+   "name": "slot-pulse",
+   "type": "CSSAnimation",
+   "target": "div.av.av-empty.slot-pulse",
+   "duration_ms": 2000,
+   "delay_ms": 0,
+   "iterations": "infinite",
+   "easing": "linear",
+   "direction": "normal",
+   "fill": "none",
+   "keyframes": [
+    {
+     "offset": 0,
+     "easing": "ease-in-out",
+     "borderTopColor": "rgba(236, 232, 218, 0.18)",
+     "borderBottomColor": "rgba(236, 232, 218, 0.18)",
+     "borderLeftColor": "rgba(236, 232, 218, 0.18)",
+     "borderRightColor": "rgba(236, 232, 218, 0.18)"
+    },
+    {
+     "offset": 0.5,
+     "easing": "ease-in-out",
+     "borderTopColor": "rgb(163, 181, 101)",
+     "borderBottomColor": "rgb(163, 181, 101)",
+     "borderLeftColor": "rgb(163, 181, 101)",
+     "borderRightColor": "rgb(163, 181, 101)"
+    },
+    {
+     "offset": 1,
+     "easing": "ease-in-out",
+     "borderTopColor": "rgba(236, 232, 218, 0.18)",
+     "borderBottomColor": "rgba(236, 232, 218, 0.18)",
+     "borderLeftColor": "rgba(236, 232, 218, 0.18)",
+     "borderRightColor": "rgba(236, 232, 218, 0.18)"
+    }
+   ]
+  }
+ ],
+ "elements": [
+  {
+   "id": 0,
+   "depth": 0,
+   "sel": "main",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 851
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "flex-direction": "column",
+    "flex-shrink": "0",
+    "padding": "28px 16px 0px",
+    "background-color": "rgb(10, 11, 9)",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=screen",
+    "data-viewport=393x851",
+    "data-state=padrao"
+   ]
+  },
+  {
+   "id": 1,
+   "depth": 1,
+   "sel": "header.topbar",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 28,
+    "w": 361,
+    "h": 56
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "12px"
+   },
+   "data": [
+    "data-id=lobby.topbar"
+   ]
+  },
+  {
+   "id": 2,
+   "depth": 2,
+   "sel": "button.btn-back",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 36,
+    "w": 40,
+    "h": 40
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "20px",
+    "font-size": "13.3333px",
+    "text-align": "center",
+    "transition": "transform 0.12s ease-out"
+   },
+   "aria": "Voltar",
+   "data": [
+    "data-id=lobby.topbar.back"
+   ]
+  },
+  {
+   "id": 3,
+   "depth": 3,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 26,
+    "y": 46,
+    "w": 20,
+    "h": 20
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=lobby.topbar.back.ic",
+    "data-icon=material:ArrowBack"
+   ],
+   "svg": "<svg data-id=\"lobby.topbar.back.ic\" data-icon=\"material:ArrowBack\" viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M15 18l-6-6 6-6\"></path></svg>"
+  },
+  {
+   "id": 4,
+   "depth": 2,
+   "sel": "div.col.grow",
+   "text": null,
+   "rect": {
+    "x": 68,
+    "y": 35,
+    "w": 309,
+    "h": 42
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "2px"
+   },
+   "data": [
+    "data-id=lobby.topbar.titles"
+   ]
+  },
+  {
+   "id": 5,
+   "depth": 3,
+   "sel": "p.eyebrow",
+   "text": "Sala da missão",
+   "rect": {
+    "x": 68,
+    "y": 35,
+    "w": 309,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "letter-spacing": "1.3px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=lobby.topbar.eyebrow"
+   ]
+  },
+  {
+   "id": 6,
+   "depth": 3,
+   "sel": "h1.t1s",
+   "text": "Missão 5K — 13:00",
+   "rect": {
+    "x": 68,
+    "y": 51,
+    "w": 309,
+    "h": 26
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "24px",
+    "font-weight": "700",
+    "line-height": "26px",
+    "letter-spacing": "0.96px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=lobby.topbar.title",
+    "data-bind=mission.title"
+   ]
+  },
+  {
+   "id": 7,
+   "depth": 1,
+   "sel": "div.col",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 84,
+    "w": 361,
+    "h": 0
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-shrink": "0",
+    "gap": "8px",
+    "margin": "0px 0px 10px"
+   },
+   "data": [
+    "data-id=lobby.banners"
+   ]
+  },
+  {
+   "depth": 2,
+   "sel": "aside.banner.bn-amber.bn.bn-10",
+   "hidden": true
+  },
+  {
+   "depth": 2,
+   "sel": "aside.banner.bn-red.bn.bn-5",
+   "hidden": true
+  },
+  {
+   "depth": 2,
+   "sel": "aside.banner.bn-ok.bn.bn-ok-c",
+   "hidden": true
+  },
+  {
+   "id": 8,
+   "depth": 1,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 94,
+    "w": 361,
+    "h": 668
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "10px",
+    "padding": "0px 0px 12px",
+    "overflow": "hidden auto"
+   },
+   "data": [
+    "data-id=lobby.scroll",
+    "data-compose=verticalScroll Column"
+   ]
+  },
+  {
+   "id": 9,
+   "depth": 2,
+   "sel": "section.card",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 94,
+    "w": 361,
+    "h": 200
+   },
+   "style": {
+    "flex-shrink": "0",
+    "padding": "12px 16px 10px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "18px"
+   },
+   "data": [
+    "data-id=lobby.countdown",
+    "data-compose=CountdownCard"
+   ]
+  },
+  {
+   "id": 10,
+   "depth": 3,
+   "sel": "div.row",
+   "text": null,
+   "rect": {
+    "x": 33,
+    "y": 107,
+    "w": 327,
+    "h": 24
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between",
+    "align-items": "center"
+   },
+   "data": [
+    "data-id=lobby.countdown.row"
+   ]
+  },
+  {
+   "id": 11,
+   "depth": 4,
+   "sel": "span.eyebrow",
+   "text": "Começa em",
+   "rect": {
+    "x": 33,
+    "y": 112,
+    "w": 80.5,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "letter-spacing": "1.3px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=lobby.countdown.label"
+   ]
+  },
+  {
+   "id": 12,
+   "depth": 4,
+   "sel": "span.badge.b-one.s-open",
+   "text": "Falta 1 competidor",
+   "rect": {
+    "x": 203.4,
+    "y": 107,
+    "w": 156.6,
+    "h": 24
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "6px",
+    "padding": "0px 10px",
+    "color": "rgb(224, 169, 58)",
+    "background-color": "rgba(224, 169, 58, 0.14)",
+    "border-radius": "12px",
+    "font-size": "10.5px",
+    "font-weight": "700",
+    "line-height": "12px",
+    "letter-spacing": "0.6px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=lobby.countdown.status"
+   ]
+  },
+  {
+   "id": 13,
+   "depth": 5,
+   "sel": "i.dot",
+   "text": null,
+   "rect": {
+    "x": 213.4,
+    "y": 115.5,
+    "w": 7,
+    "h": 7
+   },
+   "style": {
+    "flex-shrink": "0",
+    "background-color": "rgb(224, 169, 58)",
+    "border-radius": "4px"
+   },
+   "data": [
+    "data-id=lobby.countdown.status.dot"
+   ]
+  },
+  {
+   "depth": 4,
+   "sel": "span.badge.b-conf.s-conf",
+   "hidden": true
+  },
+  {
+   "id": 14,
+   "depth": 3,
+   "sel": "p.num",
+   "text": "18:42",
+   "rect": {
+    "x": 33,
+    "y": 137,
+    "w": 327,
+    "h": 52
+   },
+   "style": {
+    "margin": "6px 0px 8px",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "52px",
+    "font-weight": "700",
+    "line-height": "52px",
+    "letter-spacing": "1px",
+    "text-align": "center",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=lobby.countdown.value",
+    "data-bind=mission.countdown"
+   ]
+  },
+  {
+   "id": 15,
+   "depth": 3,
+   "sel": "div.row",
+   "text": null,
+   "rect": {
+    "x": 33,
+    "y": 197,
+    "w": 327,
+    "h": 56
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "padding": "10px 0px 0px"
+   },
+   "data": [
+    "data-id=lobby.facts"
+   ]
+  },
+  {
+   "id": 16,
+   "depth": 4,
+   "sel": "div.fact",
+   "text": null,
+   "rect": {
+    "x": 33,
+    "y": 208,
+    "w": 108.3,
+    "h": 45
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "3px",
+    "padding": "2px 0px"
+   },
+   "data": [
+    "data-id=lobby.facts.fact"
+   ]
+  },
+  {
+   "id": 17,
+   "depth": 5,
+   "sel": "span.eyebrow",
+   "text": "Distância",
+   "rect": {
+    "x": 54.1,
+    "y": 210,
+    "w": 66.1,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "10px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "letter-spacing": "1.3px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=lobby.facts.fact.eyebrow"
+   ]
+  },
+  {
+   "id": 18,
+   "depth": 5,
+   "sel": "span.num",
+   "text": "5 km",
+   "rect": {
+    "x": 65.3,
+    "y": 227,
+    "w": 43.7,
+    "h": 24
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "24px",
+    "font-weight": "700",
+    "line-height": "24px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=lobby.facts.fact.num"
+   ]
+  },
+  {
+   "id": 19,
+   "depth": 4,
+   "sel": "div.fact",
+   "text": null,
+   "rect": {
+    "x": 141.3,
+    "y": 208,
+    "w": 109.3,
+    "h": 45
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "3px",
+    "padding": "2px 0px"
+   },
+   "data": [
+    "data-id=lobby.facts.fact2"
+   ]
+  },
+  {
+   "id": 20,
+   "depth": 5,
+   "sel": "span.eyebrow",
+   "text": "Horário",
+   "rect": {
+    "x": 169,
+    "y": 210,
+    "w": 55,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "10px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "letter-spacing": "1.3px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=lobby.facts.fact2.eyebrow"
+   ]
+  },
+  {
+   "id": 21,
+   "depth": 5,
+   "sel": "span.num",
+   "text": "13:00",
+   "rect": {
+    "x": 169.3,
+    "y": 227,
+    "w": 54.4,
+    "h": 24
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "24px",
+    "font-weight": "700",
+    "line-height": "24px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=lobby.facts.fact2.num"
+   ]
+  },
+  {
+   "id": 22,
+   "depth": 4,
+   "sel": "div.fact",
+   "text": null,
+   "rect": {
+    "x": 250.7,
+    "y": 208,
+    "w": 109.3,
+    "h": 45
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "align-items": "center",
+    "flex-grow": "1",
+    "gap": "3px",
+    "padding": "2px 0px"
+   },
+   "data": [
+    "data-id=lobby.facts.fact3"
+   ]
+  },
+  {
+   "id": 23,
+   "depth": 5,
+   "sel": "span.eyebrow",
+   "text": "Mínimo",
+   "rect": {
+    "x": 282.3,
+    "y": 210,
+    "w": 47.1,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "10px",
+    "font-weight": "600",
+    "line-height": "14px",
+    "letter-spacing": "1.3px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=lobby.facts.fact3.eyebrow"
+   ]
+  },
+  {
+   "id": 24,
+   "depth": 5,
+   "sel": "span.num",
+   "text": "2",
+   "rect": {
+    "x": 299.9,
+    "y": 227,
+    "w": 12,
+    "h": 24
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "24px",
+    "font-weight": "700",
+    "line-height": "24px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=lobby.facts.fact3.num"
+   ]
+  },
+  {
+   "id": 25,
+   "depth": 3,
+   "sel": "div.row",
+   "text": null,
+   "rect": {
+    "x": 33,
+    "y": 263,
+    "w": 327,
+    "h": 20
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "gap": "8px",
+    "margin": "10px 0px 0px",
+    "color": "rgb(163, 181, 101)"
+   },
+   "data": [
+    "data-id=lobby.rule"
+   ]
+  },
+  {
+   "id": 26,
+   "depth": 4,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 90.4,
+    "y": 265,
+    "w": 16,
+    "h": 16
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=lobby.rule.ic",
+    "data-icon=material:Flag"
+   ],
+   "svg": "<svg data-id=\"lobby.rule.ic\" data-icon=\"material:Flag\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7\"></path></svg>"
+  },
+  {
+   "id": 27,
+   "depth": 4,
+   "sel": "span.t3",
+   "text": "Vence quem concluir primeiro",
+   "rect": {
+    "x": 114.4,
+    "y": 263,
+    "w": 188.2,
+    "h": 20
+   },
+   "style": {
+    "font-size": "13px",
+    "font-weight": "600",
+    "line-height": "20px"
+   },
+   "data": [
+    "data-id=lobby.rule.text"
+   ]
+  },
+  {
+   "id": 28,
+   "depth": 2,
+   "sel": "section.card",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 304,
+    "w": 361,
+    "h": 158
+   },
+   "style": {
+    "flex-shrink": "0",
+    "padding": "12px 14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "18px"
+   },
+   "data": [
+    "data-id=lobby.players",
+    "data-compose=ParticipantList"
+   ]
+  },
+  {
+   "id": 29,
+   "depth": 3,
+   "sel": "div.row",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 317,
+    "w": 331,
+    "h": 23
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "margin": "0px 0px 4px"
+   },
+   "data": [
+    "data-id=lobby.players.row"
+   ]
+  },
+  {
+   "id": 30,
+   "depth": 4,
+   "sel": "h2.t2",
+   "text": "Competidores",
+   "rect": {
+    "x": 31,
+    "y": 317,
+    "w": 115.6,
+    "h": 23
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "20px",
+    "font-weight": "600",
+    "line-height": "23px",
+    "letter-spacing": "0.8px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=lobby.players.title"
+   ]
+  },
+  {
+   "id": 31,
+   "depth": 4,
+   "sel": "span.num",
+   "text": null,
+   "rect": {
+    "x": 333.8,
+    "y": 318.5,
+    "w": 28.2,
+    "h": 20
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "20px",
+    "font-weight": "700",
+    "line-height": "20px",
+    "font-variant-numeric": "tabular-nums"
+   },
+   "data": [
+    "data-id=lobby.players.count",
+    "data-bind=mission.count"
+   ]
+  },
+  {
+   "id": 32,
+   "depth": 5,
+   "sel": "span.s-open",
+   "text": "1/2",
+   "rect": {
+    "x": 333.8,
+    "y": 318.5,
+    "w": 28.2,
+    "h": 20
+   },
+   "style": {
+    "display": "flex"
+   },
+   "data": [
+    "data-id=lobby.players.count.open"
+   ]
+  },
+  {
+   "depth": 5,
+   "sel": "span.s-conf",
+   "hidden": true
+  },
+  {
+   "id": 33,
+   "depth": 3,
+   "sel": "div.pr",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 344,
+    "w": 331,
+    "h": 52
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "12px"
+   },
+   "data": [
+    "data-id=lobby.players.me"
+   ]
+  },
+  {
+   "id": 34,
+   "depth": 4,
+   "sel": "div.av.av-me",
+   "text": "RN",
+   "rect": {
+    "x": 31,
+    "y": 352,
+    "w": 36,
+    "h": 36
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgb(59, 68, 38)",
+    "border": "1px solid rgb(163, 181, 101)",
+    "border-radius": "50%",
+    "box-shadow": "rgba(163, 181, 101, 0.14) 0px 0px 0px 2px",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "13px",
+    "font-weight": "700",
+    "line-height": "14px",
+    "letter-spacing": "0.5px"
+   },
+   "data": [
+    "data-id=lobby.players.me.av"
+   ]
+  },
+  {
+   "id": 35,
+   "depth": 4,
+   "sel": "div.col.grow",
+   "text": null,
+   "rect": {
+    "x": 79,
+    "y": 359.5,
+    "w": 216.1,
+    "h": 21
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "1px"
+   },
+   "data": [
+    "data-id=lobby.players.me.col"
+   ]
+  },
+  {
+   "id": 36,
+   "depth": 5,
+   "sel": "span.t3",
+   "text": "Rafael Nunes",
+   "rect": {
+    "x": 79,
+    "y": 359.5,
+    "w": 216.1,
+    "h": 21
+   },
+   "style": {
+    "font-size": "14px",
+    "font-weight": "600",
+    "line-height": "20px"
+   },
+   "data": [
+    "data-id=lobby.players.me.name"
+   ]
+  },
+  {
+   "id": 37,
+   "depth": 6,
+   "sel": "span.olive",
+   "text": "VOCÊ",
+   "rect": {
+    "x": 172.1,
+    "y": 363.5,
+    "w": 31.1,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-size": "11px",
+    "font-weight": "700"
+   },
+   "data": [
+    "data-id=lobby.players.me.tag"
+   ]
+  },
+  {
+   "id": 38,
+   "depth": 4,
+   "sel": "span.row.cap.ok",
+   "text": "Na sala",
+   "rect": {
+    "x": 307.1,
+    "y": 362,
+    "w": 54.9,
+    "h": 16
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "6px",
+    "color": "rgb(127, 176, 105)",
+    "font-size": "12px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=lobby.players.me.status"
+   ]
+  },
+  {
+   "id": 39,
+   "depth": 5,
+   "sel": "i.dot",
+   "text": null,
+   "rect": {
+    "x": 307.1,
+    "y": 366.5,
+    "w": 7,
+    "h": 7
+   },
+   "style": {
+    "flex-shrink": "0",
+    "background-color": "rgb(127, 176, 105)",
+    "border-radius": "4px"
+   },
+   "data": [
+    "data-id=lobby.players.me.status.dot"
+   ]
+  },
+  {
+   "id": 40,
+   "depth": 3,
+   "sel": "div.hr",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 396,
+    "w": 331,
+    "h": 1
+   },
+   "style": {
+    "flex-shrink": "0",
+    "background-color": "rgba(236, 232, 218, 0.1)"
+   },
+   "data": [
+    "data-id=lobby.players.hr"
+   ]
+  },
+  {
+   "depth": 3,
+   "sel": "div.pr.s-conf",
+   "hidden": true
+  },
+  {
+   "id": 41,
+   "depth": 3,
+   "sel": "div.pr.s-open",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 397,
+    "w": 331,
+    "h": 52
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "12px"
+   },
+   "data": [
+    "data-id=lobby.players.slot"
+   ]
+  },
+  {
+   "id": 42,
+   "depth": 4,
+   "sel": "div.av.av-empty.slot-pulse",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 405,
+    "w": 36,
+    "h": 36
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "color": "rgb(94, 98, 85)",
+    "border": "1px dashed rgba(166, 183, 106, 0.847)",
+    "border-radius": "50%",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "14px",
+    "letter-spacing": "0.5px",
+    "animation": "2s ease-in-out infinite slot-pulse"
+   },
+   "data": [
+    "data-id=lobby.players.slot.av"
+   ]
+  },
+  {
+   "id": 43,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 41,
+    "y": 415,
+    "w": 16,
+    "h": 16
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=lobby.players.slot.ic",
+    "data-icon=material:Add"
+   ],
+   "svg": "<svg data-id=\"lobby.players.slot.ic\" data-icon=\"material:Add\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12h14\"></path></svg>"
+  },
+  {
+   "id": 44,
+   "depth": 4,
+   "sel": "div.col.grow",
+   "text": null,
+   "rect": {
+    "x": 79,
+    "y": 404.5,
+    "w": 283,
+    "h": 37
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "1px"
+   },
+   "data": [
+    "data-id=lobby.players.slot.col"
+   ]
+  },
+  {
+   "id": 45,
+   "depth": 5,
+   "sel": "span.t3.muted",
+   "text": "Aguardando competidor",
+   "rect": {
+    "x": 79,
+    "y": 404.5,
+    "w": 283,
+    "h": 20
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "14px",
+    "font-weight": "600",
+    "line-height": "20px"
+   },
+   "data": [
+    "data-id=lobby.players.slot.name"
+   ]
+  },
+  {
+   "id": 46,
+   "depth": 5,
+   "sel": "span.cap",
+   "text": "Vaga em aberto",
+   "rect": {
+    "x": 79,
+    "y": 425.5,
+    "w": 283,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=lobby.players.slot.hint"
+   ]
+  },
+  {
+   "id": 47,
+   "depth": 2,
+   "sel": "section.invite",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 472,
+    "w": 361,
+    "h": 165
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-shrink": "0",
+    "gap": "10px",
+    "padding": "14px",
+    "background-image": "linear-gradient(135deg, rgba(163, 181, 101, 0.14), rgb(22, 25, 17) 70%)",
+    "border": "1px solid rgb(93, 107, 52)",
+    "border-radius": "18px"
+   },
+   "data": [
+    "data-id=lobby.invite",
+    "data-compose=InviteCard"
+   ]
+  },
+  {
+   "id": 48,
+   "depth": 3,
+   "sel": "div.row",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 487,
+    "w": 331,
+    "h": 75
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "flow-start",
+    "gap": "12px"
+   },
+   "data": [
+    "data-id=lobby.invite.row"
+   ]
+  },
+  {
+   "id": 49,
+   "depth": 4,
+   "sel": "div.sc-ic",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 487,
+    "w": 40,
+    "h": 40
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "color": "rgb(163, 181, 101)",
+    "background-color": "rgba(163, 181, 101, 0.14)",
+    "border-radius": "20px"
+   },
+   "data": [
+    "data-id=lobby.invite.icon"
+   ]
+  },
+  {
+   "id": 50,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 41,
+    "y": 497,
+    "w": 20,
+    "h": 20
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=lobby.invite.icon.ic",
+    "data-icon=material:Groups"
+   ],
+   "svg": "<svg data-id=\"lobby.invite.icon.ic\" data-icon=\"material:Groups\" viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle><path d=\"M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75\"></path></svg>"
+  },
+  {
+   "id": 51,
+   "depth": 4,
+   "sel": "div.col.grow",
+   "text": null,
+   "rect": {
+    "x": 83,
+    "y": 487,
+    "w": 279,
+    "h": 75
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "4px"
+   },
+   "data": [
+    "data-id=lobby.invite.row.col"
+   ]
+  },
+  {
+   "id": 52,
+   "depth": 5,
+   "sel": "h2.t2",
+   "text": "Chame reforços para a missão",
+   "rect": {
+    "x": 83,
+    "y": 487,
+    "w": 279,
+    "h": 23
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "20px",
+    "font-weight": "600",
+    "line-height": "23px",
+    "letter-spacing": "0.8px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=lobby.invite.title"
+   ]
+  },
+  {
+   "id": 53,
+   "depth": 5,
+   "sel": "p.cap",
+   "text": "O link leva direto para esta missão. Quem já tem o Elite cai na sala; quem não tem vai para o download.",
+   "rect": {
+    "x": 83,
+    "y": 514,
+    "w": 279,
+    "h": 48
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=lobby.invite.text"
+   ]
+  },
+  {
+   "id": 54,
+   "depth": 3,
+   "sel": "button.btn.btn-olive.btn-lg",
+   "text": "Compartilhar convite",
+   "rect": {
+    "x": 31,
+    "y": 572,
+    "w": 331,
+    "h": 50
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "8px",
+    "padding": "0px 18px",
+    "color": "rgb(14, 19, 6)",
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "28px",
+    "font-weight": "700",
+    "line-height": "20px",
+    "text-align": "center",
+    "transition": "transform 0.12s ease-out"
+   },
+   "data": [
+    "data-id=lobby.invite.share"
+   ]
+  },
+  {
+   "id": 55,
+   "depth": 4,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 100.1,
+    "y": 587,
+    "w": 20,
+    "h": 20
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=lobby.invite.share.ic",
+    "data-icon=material:Share"
+   ],
+   "svg": "<svg data-id=\"lobby.invite.share.ic\" data-icon=\"material:Share\" viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"18\" cy=\"5\" r=\"3\"></circle><circle cx=\"6\" cy=\"12\" r=\"3\"></circle><circle cx=\"18\" cy=\"19\" r=\"3\"></circle><path d=\"M8.6 10.5l6.8-4M8.6 13.5l6.8 4\"></path></svg>"
+  },
+  {
+   "id": 56,
+   "depth": 2,
+   "sel": "section.card",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 647,
+    "w": 361,
+    "h": 147
+   },
+   "style": {
+    "flex-shrink": "0",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "18px"
+   },
+   "data": [
+    "data-id=lobby.rules",
+    "data-compose=MissionRulesCard"
+   ]
+  },
+  {
+   "id": 57,
+   "depth": 3,
+   "sel": "h2.t2",
+   "text": "Regras da missão",
+   "rect": {
+    "x": 31,
+    "y": 662,
+    "w": 331,
+    "h": 23
+   },
+   "style": {
+    "margin": "0px 0px 10px",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "20px",
+    "font-weight": "600",
+    "line-height": "23px",
+    "letter-spacing": "0.8px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=lobby.rules.title"
+   ]
+  },
+  {
+   "id": 58,
+   "depth": 3,
+   "sel": "div.col",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 695,
+    "w": 331,
+    "h": 84
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "gap": "8px"
+   },
+   "data": [
+    "data-id=lobby.rules.col"
+   ]
+  },
+  {
+   "id": 59,
+   "depth": 4,
+   "sel": "div.rule",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 695,
+    "w": 331,
+    "h": 18
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "flow-start",
+    "gap": "10px"
+   },
+   "data": [
+    "data-id=lobby.rules.col.rule"
+   ]
+  },
+  {
+   "id": 60,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 697,
+    "w": 16,
+    "h": 16
+   },
+   "style": {
+    "flex-shrink": "0",
+    "margin": "2px 0px 0px",
+    "color": "rgb(163, 181, 101)",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=lobby.rules.i1",
+    "data-icon=material:Check"
+   ],
+   "svg": "<svg data-id=\"lobby.rules.i1\" data-icon=\"material:Check\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6L9 17l-5-5\"></path></svg>"
+  },
+  {
+   "id": 61,
+   "depth": 5,
+   "sel": "p.cap",
+   "text": "Vence quem concluir os 5 km primeiro.",
+   "rect": {
+    "x": 57,
+    "y": 695,
+    "w": 221.3,
+    "h": 16
+   },
+   "style": {
+    "font-size": "12px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=lobby.rules.r1"
+   ]
+  },
+  {
+   "id": 62,
+   "depth": 4,
+   "sel": "div.rule",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 721,
+    "w": 331,
+    "h": 18
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "flow-start",
+    "gap": "10px"
+   },
+   "data": [
+    "data-id=lobby.rules.col.rule2"
+   ]
+  },
+  {
+   "id": 63,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 723,
+    "w": 16,
+    "h": 16
+   },
+   "style": {
+    "flex-shrink": "0",
+    "margin": "2px 0px 0px",
+    "color": "rgb(163, 181, 101)",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=lobby.rules.i2",
+    "data-icon=material:Check"
+   ],
+   "svg": "<svg data-id=\"lobby.rules.i2\" data-icon=\"material:Check\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6L9 17l-5-5\"></path></svg>"
+  },
+  {
+   "id": 64,
+   "depth": 5,
+   "sel": "p.cap",
+   "text": "A missão só começa com no mínimo 2 competidores.",
+   "rect": {
+    "x": 57,
+    "y": 721,
+    "w": 302.8,
+    "h": 16
+   },
+   "style": {
+    "font-size": "12px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=lobby.rules.r2"
+   ]
+  },
+  {
+   "id": 65,
+   "depth": 4,
+   "sel": "div.rule",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 747,
+    "w": 331,
+    "h": 32
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "flow-start",
+    "gap": "10px"
+   },
+   "data": [
+    "data-id=lobby.rules.col.rule3"
+   ]
+  },
+  {
+   "id": 66,
+   "depth": 5,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 749,
+    "w": 16,
+    "h": 16
+   },
+   "style": {
+    "flex-shrink": "0",
+    "margin": "2px 0px 0px",
+    "color": "rgb(163, 181, 101)",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=lobby.rules.i3",
+    "data-icon=material:Check"
+   ],
+   "svg": "<svg data-id=\"lobby.rules.i3\" data-icon=\"material:Check\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6L9 17l-5-5\"></path></svg>"
+  },
+  {
+   "id": 67,
+   "depth": 5,
+   "sel": "p.cap",
+   "text": "É preciso completar a distância para registrar o resultado.",
+   "rect": {
+    "x": 57,
+    "y": 747,
+    "w": 305,
+    "h": 32
+   },
+   "style": {
+    "font-size": "12px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=lobby.rules.r3"
+   ]
+  },
+  {
+   "id": 68,
+   "depth": 1,
+   "sel": "footer.dock",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 762,
+    "w": 393,
+    "h": 89
+   },
+   "style": {
+    "flex-shrink": "0",
+    "padding": "14px 16px 18px",
+    "margin": "0px -16px",
+    "background-color": "rgba(16, 18, 13, 0.9)",
+    "border-radius": "26px 26px 0px 0px"
+   },
+   "data": [
+    "data-id=lobby.dock",
+    "data-compose=BottomActionBar"
+   ]
+  },
+  {
+   "id": 69,
+   "depth": 2,
+   "sel": "button.btn.btn-lg.btn-off.s-open",
+   "text": "Aguardando o mínimo de competidores",
+   "rect": {
+    "x": 16,
+    "y": 777,
+    "w": 344.7,
+    "h": 56
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "8px",
+    "padding": "0px 18px",
+    "color": "rgb(94, 98, 85)",
+    "background-color": "rgb(29, 33, 22)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "28px",
+    "font-weight": "700",
+    "line-height": "20px",
+    "text-align": "center",
+    "transition": "transform 0.12s ease-out"
+   },
+   "data": [
+    "data-id=lobby.dock.wait"
+   ]
+  },
+  {
+   "depth": 2,
+   "sel": "button.btn.btn-lg.btn-red.s-conf",
+   "hidden": true
+  }
+ ],
+ "root_selector": "main"
+}

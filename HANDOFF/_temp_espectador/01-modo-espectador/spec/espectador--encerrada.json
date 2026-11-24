@@ -1,0 +1,1897 @@
+{
+ "screen": {
+  "w": 393,
+  "h": 851
+ },
+ "tokens": {
+  "--page": "#000",
+  "--bg": "#0a0b09",
+  "--card": "#161911",
+  "--card-elev": "#1d2116",
+  "--line": "rgba(236,232,218,.10)",
+  "--text": "#ece8da",
+  "--muted": "#8f9384",
+  "--olive": "#a3b565",
+  "--olive-dark": "#5d6b34",
+  "--red": "#d12b2b",
+  "--brass": "#c9a24b",
+  "--on-red": "#fff",
+  "--on-olive": "#0e1306",
+  "--display": "\"Barlow Condensed\",\"Arial Narrow\",sans-serif",
+  "--body": "\"Inter\",sans-serif"
+ },
+ "fonts": [
+  {
+   "family": "Inter",
+   "loaded": true
+  },
+  {
+   "family": "Barlow Condensed",
+   "loaded": false
+  }
+ ],
+ "media_queries": [
+  "(prefers-reduced-motion: reduce)"
+ ],
+ "animations": [],
+ "elements": [
+  {
+   "id": 0,
+   "depth": 0,
+   "sel": "main",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 851
+   },
+   "style": {
+    "position": "relative",
+    "flex-shrink": "0",
+    "background-color": "rgb(10, 11, 9)",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=screen",
+    "data-viewport=393x851",
+    "data-state=encerrada"
+   ]
+  },
+  {
+   "depth": 1,
+   "sel": "div.view",
+   "hidden": true
+  },
+  {
+   "depth": 1,
+   "sel": "div.view",
+   "hidden": true
+  },
+  {
+   "id": 1,
+   "depth": 1,
+   "sel": "div.view",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 851
+   },
+   "style": {
+    "display": "flex",
+    "position": "absolute",
+    "flex-direction": "column",
+    "gap": "8px",
+    "padding": "32px 16px 8px",
+    "background-color": "rgb(10, 11, 9)"
+   },
+   "data": [
+    "data-id=app.finished",
+    "data-compose=MissionSpectatorScreen (estado: prova encerrada)"
+   ]
+  },
+  {
+   "id": 2,
+   "depth": 2,
+   "sel": "div.v",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 32,
+    "w": 361,
+    "h": 811
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "10px"
+   }
+  },
+  {
+   "id": 3,
+   "depth": 3,
+   "sel": "header.topbar",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 32,
+    "w": 361,
+    "h": 56
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "12px"
+   },
+   "data": [
+    "data-id=fin.top",
+    "data-compose=CompetitionTopBar"
+   ]
+  },
+  {
+   "id": 4,
+   "depth": 4,
+   "sel": "button.back",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 40,
+    "w": 40,
+    "h": 40
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "50%",
+    "text-align": "center",
+    "grid-template-columns": "38px"
+   },
+   "aria": "Voltar",
+   "data": [
+    "data-id=fin.back",
+    "data-goto=hub"
+   ]
+  },
+  {
+   "id": 5,
+   "depth": 5,
+   "sel": "svg.ic",
+   "text": null,
+   "rect": {
+    "x": 24,
+    "y": 48,
+    "w": 24,
+    "h": 24
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "svg": "<svg class=\"ic \" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z\"></path></svg>"
+  },
+  {
+   "id": 6,
+   "depth": 4,
+   "sel": "div.tt",
+   "text": null,
+   "rect": {
+    "x": 68,
+    "y": 36,
+    "w": 190.3,
+    "h": 48
+   },
+   "style": {
+    "flex-grow": "1"
+   }
+  },
+  {
+   "id": 7,
+   "depth": 5,
+   "sel": "p.eyebrow",
+   "text": "Modo espectador",
+   "rect": {
+    "x": 68,
+    "y": 36,
+    "w": 190.3,
+    "h": 13
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "700",
+    "line-height": "13px",
+    "letter-spacing": "1.2px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=fin.eyebrow"
+   ]
+  },
+  {
+   "id": 8,
+   "depth": 5,
+   "sel": "h1",
+   "text": "5K · 09:00",
+   "rect": {
+    "x": 68,
+    "y": 49,
+    "w": 190.3,
+    "h": 35
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "29px",
+    "font-weight": "700",
+    "line-height": "35px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=fin.title"
+   ]
+  },
+  {
+   "id": 9,
+   "depth": 4,
+   "sel": "span.pill.mute.on",
+   "text": "ENCERRADA",
+   "rect": {
+    "x": 270.3,
+    "y": 43,
+    "w": 106.7,
+    "h": 34
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "padding": "0px 12px",
+    "color": "rgb(143, 147, 132)",
+    "background-color": "color(srgb 0.560784 0.576471 0.517647 / 0.15)",
+    "border": "1px solid color(srgb 0.560784 0.576471 0.517647 / 0.55)",
+    "border-radius": "24px",
+    "font-size": "13px",
+    "font-weight": "700",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=fin.pill"
+   ]
+  },
+  {
+   "id": 10,
+   "depth": 3,
+   "sel": "section.card.win",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 98,
+    "w": 361,
+    "h": 74
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "gap": "10px",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(201, 162, 75, 0.55)",
+    "border-radius": "18px"
+   },
+   "data": [
+    "data-id=fin.winner",
+    "data-compose=CompetitionCard(border Brass)"
+   ]
+  },
+  {
+   "id": 11,
+   "depth": 4,
+   "sel": "div.w1",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 113,
+    "w": 331,
+    "h": 44
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "12px"
+   }
+  },
+  {
+   "id": 12,
+   "depth": 5,
+   "sel": "span.ci",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 113,
+    "w": 44,
+    "h": 44
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "color": "rgb(201, 162, 75)",
+    "background-color": "rgba(201, 162, 75, 0.15)",
+    "border-radius": "50%",
+    "grid-template-columns": "44px"
+   }
+  },
+  {
+   "id": 13,
+   "depth": 6,
+   "sel": "svg.ic",
+   "text": null,
+   "rect": {
+    "x": 41,
+    "y": 123,
+    "w": 24,
+    "h": 24
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "svg": "<svg class=\"ic \" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z\"></path></svg>"
+  },
+  {
+   "id": 14,
+   "depth": 5,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 87,
+    "y": 113,
+    "w": 243,
+    "h": 44
+   },
+   "style": {}
+  },
+  {
+   "id": 15,
+   "depth": 6,
+   "sel": "b",
+   "text": "Marina Souza venceu",
+   "rect": {
+    "x": 87,
+    "y": 113,
+    "w": 243,
+    "h": 24
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "20px",
+    "font-weight": "700",
+    "line-height": "24px",
+    "text-transform": "uppercase"
+   },
+   "data": [
+    "data-id=fin.winner.title"
+   ]
+  },
+  {
+   "id": 16,
+   "depth": 6,
+   "sel": "small",
+   "text": "5K em 21:58 · 5 de 6 concluíram",
+   "rect": {
+    "x": 87,
+    "y": 141,
+    "w": 197.3,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "13px",
+    "line-height": "16px"
+   },
+   "data": [
+    "data-id=fin.winner.sub"
+   ]
+  },
+  {
+   "id": 17,
+   "depth": 3,
+   "sel": "section.card.score",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 182,
+    "w": 361,
+    "h": 539
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "10px",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px"
+   },
+   "data": [
+    "data-id=fin.score",
+    "data-compose=CompetitionCard (weight 1f)"
+   ]
+  },
+  {
+   "id": 18,
+   "depth": 4,
+   "sel": "div.sec",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 197,
+    "w": 331,
+    "h": 24
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between",
+    "align-items": "center"
+   }
+  },
+  {
+   "id": 19,
+   "depth": 5,
+   "sel": "h2",
+   "text": "Resultado final",
+   "rect": {
+    "x": 31,
+    "y": 197,
+    "w": 185.9,
+    "h": 24
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "20px",
+    "font-weight": "700",
+    "line-height": "24px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 20,
+   "depth": 5,
+   "sel": "span",
+   "text": "Dados do servidor",
+   "rect": {
+    "x": 249,
+    "y": 201,
+    "w": 113,
+    "h": 16
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "13px",
+    "line-height": "16px"
+   }
+  },
+  {
+   "id": 21,
+   "depth": 4,
+   "sel": "div.scroll",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 231,
+    "w": 331,
+    "h": 475
+   },
+   "style": {
+    "flex-grow": "1",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=fin.score.list"
+   ]
+  },
+  {
+   "id": 22,
+   "depth": 5,
+   "sel": "div.prow",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 231,
+    "w": 331,
+    "h": 60
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "9px",
+    "padding": "0px 10px",
+    "background-color": "rgb(22, 25, 17)",
+    "border-radius": "14px"
+   },
+   "data": [
+    "data-id=esp.row.1",
+    "data-compose=RankingPersonRow"
+   ]
+  },
+  {
+   "id": 23,
+   "depth": 6,
+   "sel": "span.ppos",
+   "text": "1",
+   "rect": {
+    "x": 41,
+    "y": 249.5,
+    "w": 24,
+    "h": 23
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "19px",
+    "font-weight": "700",
+    "line-height": "23px"
+   },
+   "data": [
+    "data-id=esp.row.1.pos"
+   ]
+  },
+  {
+   "id": 24,
+   "depth": 6,
+   "sel": "span.av.a1",
+   "text": "MA",
+   "rect": {
+    "x": 74,
+    "y": 243,
+    "w": 36,
+    "h": 36
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgb(74, 63, 30)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "50%",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "17px",
+    "grid-template-columns": "34px"
+   },
+   "data": [
+    "data-id=esp.row.1.avatar"
+   ]
+  },
+  {
+   "id": 25,
+   "depth": 6,
+   "sel": "div.pmid",
+   "text": null,
+   "rect": {
+    "x": 119,
+    "y": 244.5,
+    "w": 154.3,
+    "h": 33
+   },
+   "style": {
+    "flex-grow": "1"
+   }
+  },
+  {
+   "id": 26,
+   "depth": 7,
+   "sel": "p.pname",
+   "text": "Marina Souza",
+   "rect": {
+    "x": 119,
+    "y": 244.5,
+    "w": 154.3,
+    "h": 17
+   },
+   "style": {
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "17px",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=esp.row.1.name"
+   ]
+  },
+  {
+   "id": 27,
+   "depth": 7,
+   "sel": "p.pdet",
+   "text": null,
+   "rect": {
+    "x": 119,
+    "y": 261.5,
+    "w": 154.3,
+    "h": 16
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "4px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "line-height": "13px",
+    "overflow": "hidden"
+   }
+  },
+  {
+   "id": 28,
+   "depth": 8,
+   "sel": "svg.shield",
+   "text": null,
+   "rect": {
+    "x": 119,
+    "y": 261.5,
+    "w": 16,
+    "h": 16
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "svg": "<svg class=\"shield\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M8 1.3L14.4 3.5 14.1 8.8C13.5 12.3 10.4 14.4 8 15.4 5.6 14.4 2.5 12.3 1.9 8.8L1.6 3.5Z\"></path><path class=\"chev\" d=\"M4.6 6.2L8 8.1 11.4 6.2M4.6 8.9L8 10.8 11.4 8.9\"></path></svg>"
+  },
+  {
+   "id": 29,
+   "depth": 8,
+   "sel": "span",
+   "text": "Concluiu em 21:58",
+   "rect": {
+    "x": 139,
+    "y": 263,
+    "w": 95.8,
+    "h": 13
+   },
+   "style": {},
+   "data": [
+    "data-id=esp.row.1.detail"
+   ]
+  },
+  {
+   "id": 30,
+   "depth": 6,
+   "sel": "div.pend",
+   "text": null,
+   "rect": {
+    "x": 282.3,
+    "y": 243,
+    "w": 69.7,
+    "h": 36
+   },
+   "style": {
+    "text-align": "right"
+   }
+  },
+  {
+   "id": 31,
+   "depth": 7,
+   "sel": "p.pkm",
+   "text": "5,00 km",
+   "rect": {
+    "x": 282.3,
+    "y": 243,
+    "w": 69.7,
+    "h": 23
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "19px",
+    "font-weight": "700",
+    "line-height": "23px"
+   },
+   "data": [
+    "data-id=esp.row.1.km"
+   ]
+  },
+  {
+   "id": 32,
+   "depth": 7,
+   "sel": "p.pmv",
+   "text": "Concluiu",
+   "rect": {
+    "x": 282.3,
+    "y": 266,
+    "w": 69.7,
+    "h": 13
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-size": "11px",
+    "line-height": "13px"
+   },
+   "data": [
+    "data-id=esp.row.1.mv"
+   ]
+  },
+  {
+   "id": 33,
+   "depth": 5,
+   "sel": "div.prow",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 291,
+    "w": 331,
+    "h": 60
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "9px",
+    "padding": "0px 10px",
+    "background-color": "rgb(22, 25, 17)",
+    "border-radius": "14px"
+   },
+   "data": [
+    "data-id=esp.row.2",
+    "data-compose=RankingPersonRow"
+   ]
+  },
+  {
+   "id": 34,
+   "depth": 6,
+   "sel": "span.ppos",
+   "text": "2",
+   "rect": {
+    "x": 41,
+    "y": 309.5,
+    "w": 24,
+    "h": 23
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "19px",
+    "font-weight": "700",
+    "line-height": "23px"
+   },
+   "data": [
+    "data-id=esp.row.2.pos"
+   ]
+  },
+  {
+   "id": 35,
+   "depth": 6,
+   "sel": "span.av.a2",
+   "text": "RA",
+   "rect": {
+    "x": 74,
+    "y": 303,
+    "w": 36,
+    "h": 36
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgb(46, 59, 58)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "50%",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "17px",
+    "grid-template-columns": "34px"
+   },
+   "data": [
+    "data-id=esp.row.2.avatar"
+   ]
+  },
+  {
+   "id": 36,
+   "depth": 6,
+   "sel": "div.pmid",
+   "text": null,
+   "rect": {
+    "x": 119,
+    "y": 304.5,
+    "w": 154.3,
+    "h": 33
+   },
+   "style": {
+    "flex-grow": "1"
+   }
+  },
+  {
+   "id": 37,
+   "depth": 7,
+   "sel": "p.pname",
+   "text": "Rafael Lima",
+   "rect": {
+    "x": 119,
+    "y": 304.5,
+    "w": 154.3,
+    "h": 17
+   },
+   "style": {
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "17px",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=esp.row.2.name"
+   ]
+  },
+  {
+   "id": 38,
+   "depth": 7,
+   "sel": "p.pdet",
+   "text": null,
+   "rect": {
+    "x": 119,
+    "y": 321.5,
+    "w": 154.3,
+    "h": 16
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "4px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "line-height": "13px",
+    "overflow": "hidden"
+   }
+  },
+  {
+   "id": 39,
+   "depth": 8,
+   "sel": "svg.shield",
+   "text": null,
+   "rect": {
+    "x": 119,
+    "y": 321.5,
+    "w": 16,
+    "h": 16
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "svg": "<svg class=\"shield\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M8 1.3L14.4 3.5 14.1 8.8C13.5 12.3 10.4 14.4 8 15.4 5.6 14.4 2.5 12.3 1.9 8.8L1.6 3.5Z\"></path><path class=\"chev\" d=\"M4.6 6.2L8 8.1 11.4 6.2M4.6 8.9L8 10.8 11.4 8.9\"></path></svg>"
+  },
+  {
+   "id": 40,
+   "depth": 8,
+   "sel": "span",
+   "text": "Concluiu em 22:41",
+   "rect": {
+    "x": 139,
+    "y": 323,
+    "w": 96,
+    "h": 13
+   },
+   "style": {},
+   "data": [
+    "data-id=esp.row.2.detail"
+   ]
+  },
+  {
+   "id": 41,
+   "depth": 6,
+   "sel": "div.pend",
+   "text": null,
+   "rect": {
+    "x": 282.3,
+    "y": 303,
+    "w": 69.7,
+    "h": 36
+   },
+   "style": {
+    "text-align": "right"
+   }
+  },
+  {
+   "id": 42,
+   "depth": 7,
+   "sel": "p.pkm",
+   "text": "5,00 km",
+   "rect": {
+    "x": 282.3,
+    "y": 303,
+    "w": 69.7,
+    "h": 23
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "19px",
+    "font-weight": "700",
+    "line-height": "23px"
+   },
+   "data": [
+    "data-id=esp.row.2.km"
+   ]
+  },
+  {
+   "id": 43,
+   "depth": 7,
+   "sel": "p.pmv",
+   "text": "Concluiu",
+   "rect": {
+    "x": 282.3,
+    "y": 326,
+    "w": 69.7,
+    "h": 13
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-size": "11px",
+    "line-height": "13px"
+   },
+   "data": [
+    "data-id=esp.row.2.mv"
+   ]
+  },
+  {
+   "id": 44,
+   "depth": 5,
+   "sel": "div.prow",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 351,
+    "w": 331,
+    "h": 60
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "9px",
+    "padding": "0px 10px",
+    "background-color": "rgb(22, 25, 17)",
+    "border-radius": "14px"
+   },
+   "data": [
+    "data-id=esp.row.3",
+    "data-compose=RankingPersonRow"
+   ]
+  },
+  {
+   "id": 45,
+   "depth": 6,
+   "sel": "span.ppos",
+   "text": "3",
+   "rect": {
+    "x": 41,
+    "y": 369.5,
+    "w": 24,
+    "h": 23
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "19px",
+    "font-weight": "700",
+    "line-height": "23px"
+   },
+   "data": [
+    "data-id=esp.row.3.pos"
+   ]
+  },
+  {
+   "id": 46,
+   "depth": 6,
+   "sel": "span.av.a3",
+   "text": "BR",
+   "rect": {
+    "x": 74,
+    "y": 363,
+    "w": 36,
+    "h": 36
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgb(70, 48, 31)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "50%",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "17px",
+    "grid-template-columns": "34px"
+   },
+   "data": [
+    "data-id=esp.row.3.avatar"
+   ]
+  },
+  {
+   "id": 47,
+   "depth": 6,
+   "sel": "div.pmid",
+   "text": null,
+   "rect": {
+    "x": 119,
+    "y": 364.5,
+    "w": 154.3,
+    "h": 33
+   },
+   "style": {
+    "flex-grow": "1"
+   }
+  },
+  {
+   "id": 48,
+   "depth": 7,
+   "sel": "p.pname",
+   "text": "Bruno Alves",
+   "rect": {
+    "x": 119,
+    "y": 364.5,
+    "w": 154.3,
+    "h": 17
+   },
+   "style": {
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "17px",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=esp.row.3.name"
+   ]
+  },
+  {
+   "id": 49,
+   "depth": 7,
+   "sel": "p.pdet",
+   "text": null,
+   "rect": {
+    "x": 119,
+    "y": 381.5,
+    "w": 154.3,
+    "h": 16
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "4px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "line-height": "13px",
+    "overflow": "hidden"
+   }
+  },
+  {
+   "id": 50,
+   "depth": 8,
+   "sel": "svg.shield",
+   "text": null,
+   "rect": {
+    "x": 119,
+    "y": 381.5,
+    "w": 16,
+    "h": 16
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "svg": "<svg class=\"shield\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M8 1.3L14.4 3.5 14.1 8.8C13.5 12.3 10.4 14.4 8 15.4 5.6 14.4 2.5 12.3 1.9 8.8L1.6 3.5Z\"></path><path class=\"chev\" d=\"M4.6 6.2L8 8.1 11.4 6.2M4.6 8.9L8 10.8 11.4 8.9\"></path></svg>"
+  },
+  {
+   "id": 51,
+   "depth": 8,
+   "sel": "span",
+   "text": "Concluiu em 24:03",
+   "rect": {
+    "x": 139,
+    "y": 383,
+    "w": 98.5,
+    "h": 13
+   },
+   "style": {},
+   "data": [
+    "data-id=esp.row.3.detail"
+   ]
+  },
+  {
+   "id": 52,
+   "depth": 6,
+   "sel": "div.pend",
+   "text": null,
+   "rect": {
+    "x": 282.3,
+    "y": 363,
+    "w": 69.7,
+    "h": 36
+   },
+   "style": {
+    "text-align": "right"
+   }
+  },
+  {
+   "id": 53,
+   "depth": 7,
+   "sel": "p.pkm",
+   "text": "5,00 km",
+   "rect": {
+    "x": 282.3,
+    "y": 363,
+    "w": 69.7,
+    "h": 23
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "19px",
+    "font-weight": "700",
+    "line-height": "23px"
+   },
+   "data": [
+    "data-id=esp.row.3.km"
+   ]
+  },
+  {
+   "id": 54,
+   "depth": 7,
+   "sel": "p.pmv",
+   "text": "Concluiu",
+   "rect": {
+    "x": 282.3,
+    "y": 386,
+    "w": 69.7,
+    "h": 13
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-size": "11px",
+    "line-height": "13px"
+   },
+   "data": [
+    "data-id=esp.row.3.mv"
+   ]
+  },
+  {
+   "id": 55,
+   "depth": 5,
+   "sel": "div.prow",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 411,
+    "w": 331,
+    "h": 60
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "9px",
+    "padding": "0px 10px",
+    "background-color": "rgb(22, 25, 17)",
+    "border-radius": "14px"
+   },
+   "data": [
+    "data-id=esp.row.4",
+    "data-compose=RankingPersonRow"
+   ]
+  },
+  {
+   "id": 56,
+   "depth": 6,
+   "sel": "span.ppos",
+   "text": "4",
+   "rect": {
+    "x": 41,
+    "y": 429.5,
+    "w": 24,
+    "h": 23
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "19px",
+    "font-weight": "700",
+    "line-height": "23px"
+   },
+   "data": [
+    "data-id=esp.row.4.pos"
+   ]
+  },
+  {
+   "id": 57,
+   "depth": 6,
+   "sel": "span.av.a4",
+   "text": "CA",
+   "rect": {
+    "x": 74,
+    "y": 423,
+    "w": 36,
+    "h": 36
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgb(58, 46, 63)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "50%",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "17px",
+    "grid-template-columns": "34px"
+   },
+   "data": [
+    "data-id=esp.row.4.avatar"
+   ]
+  },
+  {
+   "id": 58,
+   "depth": 6,
+   "sel": "div.pmid",
+   "text": null,
+   "rect": {
+    "x": 119,
+    "y": 424.5,
+    "w": 154.3,
+    "h": 33
+   },
+   "style": {
+    "flex-grow": "1"
+   }
+  },
+  {
+   "id": 59,
+   "depth": 7,
+   "sel": "p.pname",
+   "text": "Camila Reis",
+   "rect": {
+    "x": 119,
+    "y": 424.5,
+    "w": 154.3,
+    "h": 17
+   },
+   "style": {
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "17px",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=esp.row.4.name"
+   ]
+  },
+  {
+   "id": 60,
+   "depth": 7,
+   "sel": "p.pdet",
+   "text": null,
+   "rect": {
+    "x": 119,
+    "y": 441.5,
+    "w": 154.3,
+    "h": 16
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "4px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "line-height": "13px",
+    "overflow": "hidden"
+   }
+  },
+  {
+   "id": 61,
+   "depth": 8,
+   "sel": "svg.shield",
+   "text": null,
+   "rect": {
+    "x": 119,
+    "y": 441.5,
+    "w": 16,
+    "h": 16
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "svg": "<svg class=\"shield\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M8 1.3L14.4 3.5 14.1 8.8C13.5 12.3 10.4 14.4 8 15.4 5.6 14.4 2.5 12.3 1.9 8.8L1.6 3.5Z\"></path><path class=\"chev\" d=\"M4.6 6.2L8 8.1 11.4 6.2M4.6 8.9L8 10.8 11.4 8.9\"></path></svg>"
+  },
+  {
+   "id": 62,
+   "depth": 8,
+   "sel": "span",
+   "text": "Concluiu em 26:20",
+   "rect": {
+    "x": 139,
+    "y": 443,
+    "w": 98.3,
+    "h": 13
+   },
+   "style": {},
+   "data": [
+    "data-id=esp.row.4.detail"
+   ]
+  },
+  {
+   "id": 63,
+   "depth": 6,
+   "sel": "div.pend",
+   "text": null,
+   "rect": {
+    "x": 282.3,
+    "y": 423,
+    "w": 69.7,
+    "h": 36
+   },
+   "style": {
+    "text-align": "right"
+   }
+  },
+  {
+   "id": 64,
+   "depth": 7,
+   "sel": "p.pkm",
+   "text": "5,00 km",
+   "rect": {
+    "x": 282.3,
+    "y": 423,
+    "w": 69.7,
+    "h": 23
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "19px",
+    "font-weight": "700",
+    "line-height": "23px"
+   },
+   "data": [
+    "data-id=esp.row.4.km"
+   ]
+  },
+  {
+   "id": 65,
+   "depth": 7,
+   "sel": "p.pmv",
+   "text": "Concluiu",
+   "rect": {
+    "x": 282.3,
+    "y": 446,
+    "w": 69.7,
+    "h": 13
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-size": "11px",
+    "line-height": "13px"
+   },
+   "data": [
+    "data-id=esp.row.4.mv"
+   ]
+  },
+  {
+   "id": 66,
+   "depth": 5,
+   "sel": "div.prow",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 471,
+    "w": 331,
+    "h": 60
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "9px",
+    "padding": "0px 10px",
+    "background-color": "rgb(22, 25, 17)",
+    "border-radius": "14px"
+   },
+   "data": [
+    "data-id=esp.row.5",
+    "data-compose=RankingPersonRow"
+   ]
+  },
+  {
+   "id": 67,
+   "depth": 6,
+   "sel": "span.ppos",
+   "text": "5",
+   "rect": {
+    "x": 41,
+    "y": 489.5,
+    "w": 24,
+    "h": 23
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "19px",
+    "font-weight": "700",
+    "line-height": "23px"
+   },
+   "data": [
+    "data-id=esp.row.5.pos"
+   ]
+  },
+  {
+   "id": 68,
+   "depth": 6,
+   "sel": "span.av.a0",
+   "text": "DI",
+   "rect": {
+    "x": 74,
+    "y": 483,
+    "w": 36,
+    "h": 36
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgb(59, 68, 38)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "50%",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "17px",
+    "grid-template-columns": "34px"
+   },
+   "data": [
+    "data-id=esp.row.5.avatar"
+   ]
+  },
+  {
+   "id": 69,
+   "depth": 6,
+   "sel": "div.pmid",
+   "text": null,
+   "rect": {
+    "x": 119,
+    "y": 484.5,
+    "w": 154.3,
+    "h": 33
+   },
+   "style": {
+    "flex-grow": "1"
+   }
+  },
+  {
+   "id": 70,
+   "depth": 7,
+   "sel": "p.pname",
+   "text": "Diego Prado",
+   "rect": {
+    "x": 119,
+    "y": 484.5,
+    "w": 154.3,
+    "h": 17
+   },
+   "style": {
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "17px",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=esp.row.5.name"
+   ]
+  },
+  {
+   "id": 71,
+   "depth": 7,
+   "sel": "p.pdet",
+   "text": null,
+   "rect": {
+    "x": 119,
+    "y": 501.5,
+    "w": 154.3,
+    "h": 16
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "4px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "line-height": "13px",
+    "overflow": "hidden"
+   }
+  },
+  {
+   "id": 72,
+   "depth": 8,
+   "sel": "svg.shield",
+   "text": null,
+   "rect": {
+    "x": 119,
+    "y": 501.5,
+    "w": 16,
+    "h": 16
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "svg": "<svg class=\"shield\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M8 1.3L14.4 3.5 14.1 8.8C13.5 12.3 10.4 14.4 8 15.4 5.6 14.4 2.5 12.3 1.9 8.8L1.6 3.5Z\"></path><path class=\"chev\" d=\"M4.6 6.2L8 8.1 11.4 6.2M4.6 8.9L8 10.8 11.4 8.9\"></path></svg>"
+  },
+  {
+   "id": 73,
+   "depth": 8,
+   "sel": "span",
+   "text": "Concluiu em 29:47",
+   "rect": {
+    "x": 139,
+    "y": 503,
+    "w": 98,
+    "h": 13
+   },
+   "style": {},
+   "data": [
+    "data-id=esp.row.5.detail"
+   ]
+  },
+  {
+   "id": 74,
+   "depth": 6,
+   "sel": "div.pend",
+   "text": null,
+   "rect": {
+    "x": 282.3,
+    "y": 483,
+    "w": 69.7,
+    "h": 36
+   },
+   "style": {
+    "text-align": "right"
+   }
+  },
+  {
+   "id": 75,
+   "depth": 7,
+   "sel": "p.pkm",
+   "text": "5,00 km",
+   "rect": {
+    "x": 282.3,
+    "y": 483,
+    "w": 69.7,
+    "h": 23
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "19px",
+    "font-weight": "700",
+    "line-height": "23px"
+   },
+   "data": [
+    "data-id=esp.row.5.km"
+   ]
+  },
+  {
+   "id": 76,
+   "depth": 7,
+   "sel": "p.pmv",
+   "text": "Concluiu",
+   "rect": {
+    "x": 282.3,
+    "y": 506,
+    "w": 69.7,
+    "h": 13
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-size": "11px",
+    "line-height": "13px"
+   },
+   "data": [
+    "data-id=esp.row.5.mv"
+   ]
+  },
+  {
+   "id": 77,
+   "depth": 5,
+   "sel": "div.prow",
+   "text": null,
+   "rect": {
+    "x": 31,
+    "y": 531,
+    "w": 331,
+    "h": 60
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "9px",
+    "padding": "0px 10px",
+    "background-color": "rgb(22, 25, 17)",
+    "border-radius": "14px"
+   },
+   "data": [
+    "data-id=esp.row.6",
+    "data-compose=RankingPersonRow"
+   ]
+  },
+  {
+   "id": 78,
+   "depth": 6,
+   "sel": "span.ppos",
+   "text": "6",
+   "rect": {
+    "x": 41,
+    "y": 549.5,
+    "w": 24,
+    "h": 23
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "19px",
+    "font-weight": "700",
+    "line-height": "23px"
+   },
+   "data": [
+    "data-id=esp.row.6.pos"
+   ]
+  },
+  {
+   "id": 79,
+   "depth": 6,
+   "sel": "span.av.a1",
+   "text": "EL",
+   "rect": {
+    "x": 74,
+    "y": 543,
+    "w": 36,
+    "h": 36
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgb(74, 63, 30)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "50%",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "17px",
+    "grid-template-columns": "34px"
+   },
+   "data": [
+    "data-id=esp.row.6.avatar"
+   ]
+  },
+  {
+   "id": 80,
+   "depth": 6,
+   "sel": "div.pmid",
+   "text": null,
+   "rect": {
+    "x": 119,
+    "y": 544.5,
+    "w": 154.3,
+    "h": 33
+   },
+   "style": {
+    "flex-grow": "1"
+   }
+  },
+  {
+   "id": 81,
+   "depth": 7,
+   "sel": "p.pname",
+   "text": "Elisa Costa",
+   "rect": {
+    "x": 119,
+    "y": 544.5,
+    "w": 154.3,
+    "h": 17
+   },
+   "style": {
+    "font-size": "14px",
+    "font-weight": "700",
+    "line-height": "17px",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-id=esp.row.6.name"
+   ]
+  },
+  {
+   "id": 82,
+   "depth": 7,
+   "sel": "p.pdet",
+   "text": null,
+   "rect": {
+    "x": 119,
+    "y": 561.5,
+    "w": 154.3,
+    "h": 16
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "gap": "4px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "line-height": "13px",
+    "overflow": "hidden"
+   }
+  },
+  {
+   "id": 83,
+   "depth": 8,
+   "sel": "svg.shield",
+   "text": null,
+   "rect": {
+    "x": 119,
+    "y": 561.5,
+    "w": 16,
+    "h": 16
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "svg": "<svg class=\"shield\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M8 1.3L14.4 3.5 14.1 8.8C13.5 12.3 10.4 14.4 8 15.4 5.6 14.4 2.5 12.3 1.9 8.8L1.6 3.5Z\"></path><path class=\"chev\" d=\"M4.6 6.2L8 8.1 11.4 6.2M4.6 8.9L8 10.8 11.4 8.9\"></path></svg>"
+  },
+  {
+   "id": 84,
+   "depth": 8,
+   "sel": "span",
+   "text": "Desistiu",
+   "rect": {
+    "x": 139,
+    "y": 563,
+    "w": 41.4,
+    "h": 13
+   },
+   "style": {},
+   "data": [
+    "data-id=esp.row.6.detail"
+   ]
+  },
+  {
+   "id": 85,
+   "depth": 6,
+   "sel": "div.pend",
+   "text": null,
+   "rect": {
+    "x": 282.3,
+    "y": 543,
+    "w": 69.7,
+    "h": 36
+   },
+   "style": {
+    "text-align": "right"
+   }
+  },
+  {
+   "id": 86,
+   "depth": 7,
+   "sel": "p.pkm",
+   "text": "3,10 km",
+   "rect": {
+    "x": 282.3,
+    "y": 543,
+    "w": 69.7,
+    "h": 23
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", sans-serif",
+    "font-size": "19px",
+    "font-weight": "700",
+    "line-height": "23px"
+   },
+   "data": [
+    "data-id=esp.row.6.km"
+   ]
+  },
+  {
+   "id": 87,
+   "depth": 7,
+   "sel": "p.pmv",
+   "text": "—",
+   "rect": {
+    "x": 282.3,
+    "y": 566,
+    "w": 69.7,
+    "h": 13
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-size": "11px",
+    "line-height": "13px"
+   },
+   "data": [
+    "data-id=esp.row.6.mv"
+   ]
+  },
+  {
+   "id": 88,
+   "depth": 3,
+   "sel": "div.btns",
+   "text": null,
+   "rect": {
+    "x": 16,
+    "y": 731,
+    "w": 361,
+    "h": 112
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "gap": "8px"
+   }
+  },
+  {
+   "id": 89,
+   "depth": 4,
+   "sel": "button.act",
+   "text": "Ver resultado completo",
+   "rect": {
+    "x": 16,
+    "y": 731,
+    "w": 361,
+    "h": 52
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "color": "rgb(255, 255, 255)",
+    "background-color": "rgb(209, 43, 43)",
+    "border": "1px solid rgb(209, 43, 43)",
+    "border-radius": "28px",
+    "font-weight": "700",
+    "line-height": "19px",
+    "text-align": "center",
+    "transition": "transform 0.1s ease-out",
+    "grid-template-columns": "359px"
+   },
+   "data": [
+    "data-id=fin.result",
+    "data-compose=CompetitionAction(primary)"
+   ]
+  },
+  {
+   "id": 90,
+   "depth": 4,
+   "sel": "button.act.sec2",
+   "text": "Voltar às missões",
+   "rect": {
+    "x": 16,
+    "y": 791,
+    "w": 361,
+    "h": 52
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "color": "rgb(143, 147, 132)",
+    "background-color": "rgb(10, 11, 9)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "28px",
+    "font-weight": "700",
+    "line-height": "19px",
+    "text-align": "center",
+    "transition": "transform 0.1s ease-out",
+    "grid-template-columns": "359px"
+   },
+   "data": [
+    "data-id=fin.exit",
+    "data-goto=hub"
+   ]
+  }
+ ],
+ "root_selector": "main"
+}

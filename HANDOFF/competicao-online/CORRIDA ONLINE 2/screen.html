@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elite - Competição v2 (prova, desistir, missão cumprida, ligas)</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --page:#050604; --bg:#0A0B09; --surface:#10120D; --card:#161911; --card-el:#1D2116;
+  --line:rgba(236,232,218,.10); --line-strong:rgba(236,232,218,.18);
+  --text:#ECE8DA; --muted:#8F9384;
+  --olive:#A3B565; --olive-dark:#5D6B34; --olive-soft:rgba(163,181,101,.14); --on-olive:#0E1306;
+  --red:#D12B2B; --red-soft:rgba(209,43,43,.15); --red-line:rgba(209,43,43,.35); --on-red:#FFF4F0;
+  --brass:#C9A24B; --brass-soft:rgba(201,162,75,.16); --amber:#E0A93A; --ok:#7FB069;
+  --scrim:rgba(0,0,0,.62); --scrim-strong:rgba(5,6,4,.94);
+  --bronze:#B07A4A; --bronze-l:#D9A877; --bronze-d:#6E4421;
+  --silver:#B4BAB8; --silver-l:#E3E7E6; --silver-d:#6F7573;
+  --gold:#C9A24B; --gold-l:#F2D488; --gold-d:#7A5C1B;
+  --plat:#86BDB3; --plat-l:#C6F0E8; --plat-d:#3F7A72;
+  --dia:#7FB4DE; --dia-l:#C3E6FF; --dia-d:#3A6A96;
+  --elite:#E7E2D0; --elite-l:#FFFBEA; --elite-d:#8F8970;
+  --num:"Barlow Condensed","Arial Narrow",sans-serif; --ui:"Inter",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+button{font-family:var(--ui);cursor:pointer;border:0;background:none;color:inherit}
+body{background:var(--page);font-family:var(--ui);color:var(--text);display:flex;justify-content:center;align-items:flex-start;gap:24px}
+svg{display:block;flex:none}
+.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+[data-id="screen"]{flex:none;position:relative;width:393px;height:851px;overflow:hidden;background:var(--bg);padding-top:28px}
+.page{position:absolute;left:0;right:0;top:28px;bottom:0;padding:0 16px 16px;display:flex;flex-direction:column;gap:10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px}
+.num{font-family:var(--num);font-weight:700}
+.lbl{font:700 11px/14px var(--ui);letter-spacing:1.1px;color:var(--muted);text-transform:uppercase}
+.t2{font:600 20px/23px var(--num);letter-spacing:.8px;text-transform:uppercase}
+.body{font:400 14px/19.6px var(--ui);color:var(--muted)}
+.pill{height:28px;padding:0 10px;border-radius:14px;font:700 12px/28px var(--ui);white-space:nowrap}
+.p-olive{background:var(--olive-soft);color:var(--olive)} .p-red{background:var(--red-soft);color:var(--red)} .p-brass{background:var(--brass-soft);color:var(--brass)} .p-mute{background:var(--card-el);color:var(--muted)}
+.btn{flex:none;width:100%;height:52px;border-radius:26px;display:flex;align-items:center;justify-content:center;gap:8px;font:600 16px/20px var(--ui);transition:transform .12s ease-out}
+.btn:active{transform:scale(.96)}
+.b-olive{background:var(--olive);color:var(--on-olive)} .b-ghost{height:48px;border:1px solid var(--line-strong);border-radius:24px;color:var(--text)}
+.b-red{background:var(--red);color:var(--on-red)} .b-ghost-red{height:48px;border:1px solid var(--red-line);border-radius:24px;color:var(--red)}
+.top{flex:none;height:52px;display:flex;align-items:center;gap:12px}
+.back{flex:none;width:40px;height:40px;border-radius:20px;background:var(--card);border:1px solid var(--line);display:grid;place-items:center}
+.av{flex:none;border-radius:50%;background:var(--card-el);border:1px solid var(--line-strong);display:grid;place-items:center;font:700 14px/16px var(--num);letter-spacing:.6px}
+.scrim{position:absolute;inset:0;background:var(--scrim)}
+/* prova */
+.hero{text-align:center}.hero .num{font-size:84px;line-height:84px}
+.bar{height:10px;border-radius:5px;background:var(--card-el);position:relative;overflow:hidden}.bar i{position:absolute;left:0;top:0;bottom:0;border-radius:5px;background:var(--olive)}
+.met{flex:1;padding:12px 14px}.met .num{font-size:30px;line-height:32px;margin-top:2px}
+.board{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;gap:6px}
+.row{display:flex;align-items:center;gap:10px;height:52px;padding:0 10px;border-radius:14px;background:var(--surface);border:1px solid var(--line)}
+.row.me{border-color:var(--olive-dark);background:var(--olive-soft)}
+.pos{flex:none;width:24px;font:700 20px/22px var(--num);text-align:center;color:var(--muted)}
+.rn{flex:1;min-width:0}.rn b{display:block;font:600 14px/17px var(--ui);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.rn i{display:block;font:400 11px/14px var(--ui);font-style:normal;color:var(--muted)}
+.rk{flex:none;font:700 16px/18px var(--num);letter-spacing:.4px}
+/* dialogo */
+.dlg{position:absolute;left:41px;width:311px;top:296px;padding:20px;border-radius:20px;background:var(--card-el);border:1px solid var(--line-strong);display:flex;flex-direction:column;gap:12px}
+/* largada */
+.cd{position:absolute;inset:0;background:var(--scrim-strong);display:grid;place-items:center}
+.cd .n{position:absolute;font:700 180px/180px var(--num);color:var(--olive);opacity:0;animation:cd-n 1000ms cubic-bezier(.2,.8,.2,1) both}
+.cd .n:nth-child(2){animation-delay:1000ms}.cd .n:nth-child(3){animation-delay:2000ms}
+.cd .n.go{animation-delay:3000ms;color:var(--text);font-size:120px}
+@keyframes cd-n{0%{transform:scale(1.5);opacity:0}25%{opacity:1}100%{transform:scale(1);opacity:0}}
+/* missao cumprida */
+.fin{position:absolute;inset:0;background:var(--scrim-strong);overflow:hidden}
+.fin .stack{position:absolute;left:0;right:0;top:150px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.ringp{position:absolute;left:146px;top:0;width:100px;height:100px;border-radius:50px;border:2px solid var(--brass);opacity:0;animation:fin-ring 1100ms ease-out both}
+.ringp.r2{animation-delay:160ms}
+@keyframes fin-ring{0%{transform:scale(.6);opacity:.7}100%{transform:scale(2.6);opacity:0}}
+.badge{position:relative;width:100px;height:100px;border-radius:50px;background:var(--brass-soft);border:3px solid var(--brass);display:grid;place-items:center;color:var(--brass);animation:fin-pop 650ms cubic-bezier(.2,1.4,.4,1) both}
+@keyframes fin-pop{0%{transform:scale(.4);opacity:0}60%{transform:scale(1.12);opacity:1}100%{transform:scale(1)}}
+.fin h2{font:700 44px/44px var(--num);letter-spacing:2px;text-transform:uppercase;animation:fin-up 520ms ease-out 250ms both}
+.fin .sub{animation:fin-up 520ms ease-out 400ms both}
+.fin .tm{font:700 64px/64px var(--num);color:var(--olive);animation:fin-up 520ms ease-out 550ms both}
+.fin .place{animation:fin-pop 520ms cubic-bezier(.2,1.4,.4,1) 800ms both}
+.fin .cta{position:absolute;left:16px;width:361px;bottom:16px;animation:fin-up 450ms ease-out 1500ms both}
+@keyframes fin-up{0%{transform:translateY(14px);opacity:0}100%{transform:translateY(0);opacity:1}}
+.cf{position:absolute;top:-20px;width:7px;height:12px;border-radius:2px;opacity:0;animation:cf-fall 2600ms ease-in both}
+@keyframes cf-fall{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(900px) rotate(540deg);opacity:1}}
+/* resultado */
+.res-sc{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;gap:10px}
+.big{font:700 78px/78px var(--num)}
+.mt{display:flex;justify-content:space-between}.mt div{text-align:center}.mt .num{font-size:22px;line-height:24px}
+.lg{display:flex;align-items:center;gap:12px}
+/* emblemas */
+.emb{display:block}
+.live .au{transform-origin:60px 62px;transform-box:view-box;animation:emb-pulse 2400ms ease-in-out infinite alternate}
+.live .sheen{animation:emb-sheen 4200ms ease-in-out infinite}
+.live .sp{transform-box:fill-box;transform-origin:center;opacity:0;animation:emb-sp 2200ms ease-in-out infinite}
+.live .rg1{transform-origin:60px 62px;transform-box:view-box;animation:emb-rot 16000ms linear infinite}
+.live .rg2{transform-origin:60px 62px;transform-box:view-box;animation:emb-rot 22000ms linear infinite reverse}
+.live .wl{transform-origin:28px 52px;transform-box:view-box;animation:emb-wl 3200ms ease-in-out infinite alternate}
+.live .wr{transform-origin:92px 52px;transform-box:view-box;animation:emb-wr 3200ms ease-in-out infinite alternate}
+.live .fc{animation:emb-fc 1800ms ease-in-out infinite alternate}
+.live .em{transform-box:fill-box;transform-origin:center;opacity:0;animation:emb-em 2400ms ease-out infinite}
+@keyframes emb-pulse{0%{transform:scale(.92);opacity:.55}100%{transform:scale(1.06);opacity:.95}}
+@keyframes emb-sheen{0%{transform:translateX(-40px) skewX(-20deg);opacity:0}8%{opacity:.6}38%{transform:translateX(170px) skewX(-20deg);opacity:.6}44%{opacity:0}100%{transform:translateX(170px) skewX(-20deg);opacity:0}}
+@keyframes emb-sp{0%,100%{transform:scale(0) rotate(0);opacity:0}50%{transform:scale(1) rotate(45deg);opacity:1}}
+@keyframes emb-rot{to{transform:rotate(360deg)}}
+@keyframes emb-wl{0%{transform:rotate(0)}100%{transform:rotate(-4deg)}}
+@keyframes emb-wr{0%{transform:rotate(0)}100%{transform:rotate(4deg)}}
+@keyframes emb-fc{0%{opacity:.35}100%{opacity:1}}
+@keyframes emb-em{0%{transform:translateY(0) scale(1);opacity:.9}100%{transform:translateY(-46px) scale(.4);opacity:0}}
+.rays{position:absolute;left:46px;top:150px;width:300px;height:300px;animation:emb-rot 24000ms linear infinite;transform-origin:150px 150px}
+.promo{position:absolute;inset:0;background:var(--scrim-strong)}
+.promo .stack{position:absolute;left:0;right:0;top:170px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.promo .em-wrap{animation:fin-pop 800ms cubic-bezier(.2,1.4,.4,1) both}
+.promo h2{font:700 40px/42px var(--num);letter-spacing:1.6px;text-transform:uppercase;animation:fin-up 520ms ease-out 500ms both}
+.tiers{display:grid;grid-template-columns:repeat(6,1fr);gap:4px}
+.tier{height:78px;border-radius:14px;background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font:600 10px/12px var(--ui);color:var(--muted)}
+.tier.on{border-color:var(--brass);color:var(--text);background:var(--brass-soft)}
+.dv{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:14px;background:var(--surface)}
+.dv.me{background:var(--olive-soft)}.dv b{display:block;font:600 14px/17px var(--ui)}.dv i{display:block;font:400 12px/16px var(--ui);font-style:normal;color:var(--muted)}
+aside{width:200px;padding-top:28px;display:flex;flex-direction:column;gap:8px}
+aside p{font:600 11px/14px var(--ui);letter-spacing:1.3px;color:var(--muted);text-transform:uppercase}
+aside button{height:36px;border-radius:12px;border:1px solid var(--line-strong);font:500 13px/16px var(--ui);text-align:left;padding:0 12px}
+@media (prefers-reduced-motion:reduce){.live *,.cd .n,.ringp,.badge,.fin *,.promo *,.cf,.rays{animation:none!important}}
+</style>
+</head>
+<body>
+<main data-id="screen" data-state="prova" data-viewport="393x851">
+<!-- PROVA AO VIVO -->
+<section class="page" data-compose="MissionRaceScreen" data-id="race" data-show="prova desistir_dialog largada concluida">
+<div data-id="race.pills" style="display:flex;justify-content:space-between;height:32px;align-items:center">
+<span class="pill p-olive" data-id="race.pill.mission">5K · 13:00</span>
+<span class="pill p-red" data-id="race.pill.live">● AO VIVO</span>
+<span class="pill p-olive" data-id="race.pill.rule">1º a concluir vence</span>
+</div>
+<div class="hero" data-id="race.timer"><p class="lbl" data-id="race.timer.p1">Tempo decorrido</p><p class="num" data-bind="timer" data-id="race.timer.p2">14:26</p></div>
+<div class="card" data-id="race.progress" style="padding:12px 14px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:8px">
+<p class="num" data-id="race.progress.p1" style="font-size:32px;line-height:32px">2,9<span data-id="race.progress.p1.span1" style="font:600 19px/19px var(--num);color:var(--muted)"> / 5,0 km</span></p>
+<p class="num" data-id="race.progress.p2" style="font-size:23px;line-height:26px;color:var(--olive)">58%</p></div>
+<div class="bar"><i data-id="race.progress.fill" style="width:58%"></i></div>
+</div>
+<div style="display:flex;gap:10px;flex:none">
+<div class="card met" data-id="race.pace"><p class="lbl" data-id="race.pace.p1">Pace atual</p><p class="num" data-id="race.pace.p2">4:58</p></div>
+<div class="card met" data-id="race.position"><p class="lbl" data-id="race.position.p1">Sua posição</p><p class="num" data-id="race.position.p2" style="color:var(--olive)">2º</p></div>
+</div>
+<div class="card board" data-compose="LazyColumn weight(1f)" data-id="race.board" style="padding:12px">
+<p class="lbl" data-id="race.board.p1" style="flex:none">Placar ao vivo</p>
+<div class="row" data-id="race.board.r1"><span class="pos" data-id="race.board.r1.span1">1</span><div class="av" data-id="race.board.r1.div1" style="width:34px;height:34px">AC</div><div class="rn"><b data-id="race.board.r1.b1">Ana Costa</b><i data-id="race.board.r1.i1">4:41/km · 3,3 km</i></div><span class="rk" data-id="race.board.r1.span2">3,3 km</span></div>
+<div class="row me" data-id="race.board.r2"><span class="pos" data-id="race.board.r2.span1" style="color:var(--olive)">2</span><div class="av" data-id="race.board.r2.div1" style="width:34px;height:34px;border-color:var(--olive-dark)">VC</div><div class="rn"><b data-id="race.board.r2.b1">Você</b><i data-id="race.board.r2.i1">4:58/km · 2,9 km</i></div><span class="rk" data-id="race.board.r2.span2" style="color:var(--olive)">2,9 km</span></div>
+<div class="row" data-id="race.board.r3"><span class="pos" data-id="race.board.r3.span1">3</span><div class="av" data-id="race.board.r3.div1" style="width:34px;height:34px">RL</div><div class="rn"><b data-id="race.board.r3.b1">Rafa Lima</b><i data-id="race.board.r3.i1">5:20/km · 2,4 km</i></div><span class="rk" data-id="race.board.r3.span2">2,4 km</span></div>
+<div class="row" data-id="race.board.r4"><span class="pos" data-id="race.board.r4.span1">4</span><div class="av" data-id="race.board.r4.div1" style="width:34px;height:34px">DM</div><div class="rn"><b data-id="race.board.r4.b1">Duda Matos</b><i data-id="race.board.r4.i1">5:48/km · 1,8 km</i></div><span class="rk" data-id="race.board.r4.span2">1,8 km</span></div>
+</div>
+<p class="body" data-id="race.note" style="flex:none;text-align:center;font-size:12px;line-height:16px">A chegada é registrada pelo GPS ao completar 5 km.</p>
+<button class="btn b-ghost-red" data-compose="OutlinedButton (sempre visível)" data-id="race.giveup">Desistir da prova</button>
+</section>
+<!-- RESULTADO (3 variantes) -->
+<section class="page" data-compose="MissionResultScreen" data-id="res" data-show="resultado resultado_parcial resultado_abandono">
+<div class="top" data-id="res.top"><button aria-label="Voltar" class="back" data-id="res.back"><svg aria-hidden="true" class="ic" data-id="res.back.icon" viewbox="0 0 24 24"><path d="M15 6l-6 6 6 6"></path></svg></button>
+<div><p class="lbl" data-id="res.eyebrow">Missão 5K · 13:00</p><p class="t2" data-bind="title" data-id="res.title">Missão cumprida</p></div></div>
+<div class="res-sc">
+<div class="card" data-bind="heroBorder" data-id="res.hero" style="border-color:var(--brass)">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<div><p class="big" data-bind="place" data-id="res.place" style="color:var(--brass)">2º</p><p class="lbl" data-bind="placeLabel" data-id="res.place.label" style="color:var(--brass)">Lugar</p></div>
+<span class="pill p-brass" data-bind="status" data-id="res.status">Concluída</span></div>
+<div class="mt" data-id="res.metrics" style="margin-top:12px">
+<div><p class="lbl" data-id="res.metrics.p1">Tempo</p><p class="num" data-bind="time" data-id="res.metrics.p2">24:18</p></div>
+<div><p class="lbl" data-id="res.metrics.p3">Pace médio</p><p class="num" data-bind="pace" data-id="res.metrics.p4">4:52</p></div>
+<div><p class="lbl" data-id="res.metrics.p5">Pontos</p><p class="num" data-bind="pts" data-id="res.metrics.p6" style="color:var(--ok)">+20</p></div></div>
+</div>
+<div class="card lg" data-id="res.league">
+<div data-emblem="ouro:2:56:still" data-id="res.league.emblem"></div>
+<div style="flex:1;min-width:0"><p class="t2" data-bind="leagueName" data-id="res.league.p1">Ouro II</p>
+<div class="bar" style="margin:6px 0"><i data-bind="leagueFill" data-id="res.league.fill" style="width:71%"></i></div>
+<p class="body" data-bind="leagueNote" data-id="res.league.p2" style="font-size:12px;line-height:16px">1.463 pts · faltam 137 para Ouro I</p></div>
+</div>
+<div class="card" data-id="res.list" style="padding:12px;display:flex;flex-direction:column;gap:6px">
+<p class="lbl" data-id="res.list.p1">Classificação da missão</p>
+<div class="row" data-id="res.row1"><span class="pos" data-id="res.row1.span1">1</span><div class="av" data-id="res.row1.div1" style="width:34px;height:34px">AC</div><div class="rn"><b data-id="res.row1.b1">Ana Costa</b><i data-bind="r1" data-id="res.row1.i1">Concluiu · 23:51</i></div><span class="rk" data-bind="r1pts" data-id="res.row1.span2" style="color:var(--ok)">+30</span></div>
+<div class="row me" data-id="res.row2"><span class="pos" data-id="res.row2.span1" style="color:var(--olive)">2</span><div class="av" data-id="res.row2.div1" style="width:34px;height:34px;border-color:var(--olive-dark)">VC</div><div class="rn"><b data-id="res.row2.b1">Você</b><i data-bind="r2" data-id="res.row2.i1">Concluiu · 24:18</i></div><span class="rk" data-bind="r2pts" data-id="res.row2.span2" style="color:var(--ok)">+20</span></div>
+<div class="row" data-id="res.row3"><span class="pos" data-id="res.row3.span1">3</span><div class="av" data-id="res.row3.div1" style="width:34px;height:34px">RL</div><div class="rn"><b data-id="res.row3.b1">Rafa Lima</b><i data-bind="r3" data-id="res.row3.i1">Em andamento · 4,1 km</i></div><span class="rk" data-bind="r3pts" data-id="res.row3.span2" style="color:var(--muted)">—</span></div>
+<div class="row" data-id="res.row4"><span class="pos" data-id="res.row4.span1">4</span><div class="av" data-id="res.row4.div1" style="width:34px;height:34px">DM</div><div class="rn"><b data-id="res.row4.b1">Duda Matos</b><i data-bind="r4" data-id="res.row4.i1">Abandonou</i></div><span class="rk" data-bind="r4pts" data-id="res.row4.span2" style="color:var(--red)">−15</span></div>
+</div>
+</div>
+<div style="display:flex;gap:8px;flex:none"><button class="btn b-ghost" data-id="res.share" style="flex:1.2">Compartilhar</button><button class="btn b-olive" data-id="res.ranking" style="flex:1;height:48px">Ver ranking</button></div>
+</section>
+<!-- GALERIA DE LIGAS -->
+<section class="page" data-compose="SeasonScreen (seção Ligas)" data-id="liga" data-show="liga_galeria">
+<div class="top" data-id="liga.top"><button aria-label="Voltar" class="back" data-id="liga.back"><svg aria-hidden="true" class="ic" data-id="liga.back.icon" viewbox="0 0 24 24"><path d="M15 6l-6 6 6 6"></path></svg></button><p class="t2" data-id="liga.title">Temporada online</p></div>
+<div class="card" data-id="liga.hero" style="border-color:var(--brass);display:flex;flex-direction:column;align-items:center;gap:6px;padding:18px 14px">
+<div data-emblem="ouro:2:150:live" data-id="liga.hero.emblem"></div>
+<p class="num" data-id="liga.hero.name" style="font-size:36px;line-height:38px;letter-spacing:1px;text-transform:uppercase;color:var(--brass)">Liga Ouro II</p>
+<p class="body" data-id="liga.hero.range" style="font-size:13px">1.400–1.599 pts · você tem 1.463</p>
+<div class="bar" style="width:100%"><i data-id="liga.hero.fill" style="width:32%;background:var(--brass)"></i></div>
+<p class="body" data-id="liga.hero.note" style="font-size:12px;line-height:16px">Faltam 137 pontos para subir para Ouro I</p>
+</div>
+<p class="lbl" data-id="liga.p1" style="flex:none">Ligas · toque para ver a animação</p>
+<div class="tiers" data-id="liga.tiers">
+<button class="tier" data-id="liga.tier.bronze" data-tier="bronze"><span data-emblem="bronze:2:40:still"></span>Bronze</button>
+<button class="tier" data-id="liga.tier.prata" data-tier="prata"><span data-emblem="prata:2:40:still"></span>Prata</button>
+<button class="tier on" data-id="liga.tier.ouro" data-tier="ouro"><span data-emblem="ouro:2:40:still"></span>Ouro</button>
+<button class="tier" data-id="liga.tier.platina" data-tier="platina"><span data-emblem="platina:2:40:still"></span>Platina</button>
+<button class="tier" data-id="liga.tier.diamante" data-tier="diamante"><span data-emblem="diamante:2:40:still"></span>Diamante</button>
+<button class="tier" data-id="liga.tier.elite" data-tier="elite"><span data-emblem="elite:2:40:still"></span>Elite</button>
+</div>
+<div data-id="liga.divs" style="display:flex;flex-direction:column;gap:6px">
+<div class="dv" data-id="liga.div1"><span data-emblem="ouro:1:30:still"></span><div style="flex:1"><b data-id="liga.div1.b1">Ouro I</b><i data-id="liga.div1.i1">1.600–1.799 pts</i></div><span class="pill p-brass" data-id="liga.div1.span1">Próxima</span></div>
+<div class="dv me" data-id="liga.div2"><span data-emblem="ouro:2:30:still"></span><div style="flex:1"><b data-id="liga.div2.b1">Ouro II</b><i data-id="liga.div2.i1">1.400–1.599 pts</i></div><span class="pill p-olive" data-id="liga.div2.span1">Você</span></div>
+<div class="dv" data-id="liga.div3"><span data-emblem="ouro:3:30:still"></span><div style="flex:1"><b data-id="liga.div3.b1">Ouro III</b><i data-id="liga.div3.i1">1.200–1.399 pts</i></div></div>
+</div>
+</section>
+<!-- DIALOGO DESISTIR -->
+<div data-compose="EliteDialog" data-id="dlg" data-show="desistir_dialog">
+<div class="scrim" data-id="dlg.scrim"></div>
+<div class="dlg" data-id="dlg.box">
+<h2 class="t2" data-id="dlg.title">Desistir da prova?</h2>
+<p class="body" data-id="dlg.body">Você será registrado como abandono e perde 15 pontos. Não será possível voltar a esta prova. Seu GPS desta corrida fica salvo só neste aparelho.</p>
+<button class="btn b-olive" data-id="dlg.continue">Continuar correndo</button>
+<button class="btn b-ghost-red" data-id="dlg.confirm">Desistir</button>
+</div>
+</div>
+<!-- LARGADA 3-2-1 -->
+<div class="cd" data-compose="StartCountdownOverlay" data-id="start" data-show="largada">
+<span class="n" data-id="start.n3">3</span><span class="n" data-id="start.n2">2</span><span class="n" data-id="start.n1">1</span><span class="n go" data-id="start.go">JÁ!</span>
+</div>
+<!-- MISSAO CUMPRIDA -->
+<div class="fin" data-compose="MissionCompleteOverlay" data-id="fin" data-show="concluida">
+<div data-id="fin.confetti"></div>
+<div class="stack">
+<div style="position:relative;width:100px;height:100px"><span class="ringp" data-id="fin.ring1" style="left:0"></span><span class="ringp r2" data-id="fin.ring2" style="left:0"></span>
+<div class="badge" data-id="fin.badge"><svg aria-hidden="true" class="ic" data-id="fin.badge.icon" style="width:46px;height:46px" viewbox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"></path></svg></div></div>
+<h2 data-id="fin.title">Missão cumprida</h2>
+<p class="sub body" data-id="fin.sub">Missão 5K · 13:00</p>
+<p class="tm" data-id="fin.time">24:18</p>
+<span class="pill p-brass place" data-id="fin.place" style="height:34px;line-height:34px;font-size:15px;padding:0 16px">2º LUGAR</span>
+</div>
+<button class="btn b-olive cta" data-id="fin.cta">Ver resultado</button>
+</div>
+<!-- PROMOCAO DE LIGA -->
+<div class="promo" data-compose="LeaguePromotionDialog" data-id="promo" data-show="promocao">
+<svg aria-hidden="true" class="rays" data-id="promo.rays" viewbox="0 0 300 300"><g id="rayg"></g></svg>
+<div class="stack">
+<p class="lbl" data-id="promo.eyebrow" style="color:var(--brass)">Promoção de liga</p>
+<div class="em-wrap" data-emblem="ouro:3:210:live" data-id="promo.emblem"></div>
+<h2 data-id="promo.title">Você subiu para Ouro III</h2>
+<p class="body" data-id="promo.sub">Prata I → Ouro III · Temporada 2026</p>
+</div>
+<div style="position:absolute;left:16px;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px">
+<button class="btn b-olive" data-id="promo.continue">Continuar</button>
+<button class="btn b-ghost" data-id="promo.share">Compartilhar liga</button></div>
+</div>
+</main>
+<aside data-preview="true">
+<p data-id="preview.title">Estados (pré-visualização)</p>
+<button data-id="preview.prova" onclick="__setState('prova')">Prova ao vivo</button>
+<button data-id="preview.desistir" onclick="__setState('desistir_dialog')">Desistir (confirmação)</button>
+<button data-id="preview.largada" onclick="__setState('largada')">Largada 3-2-1</button>
+<button data-id="preview.concluida" onclick="__setState('concluida')">Missão cumprida</button>
+<button data-id="preview.resultado" onclick="__setState('resultado')">Resultado</button>
+<button data-id="preview.parcial" onclick="__setState('resultado_parcial')">Resultado parcial</button>
+<button data-id="preview.abandono" onclick="__setState('resultado_abandono')">Resultado: abandono</button>
+<button data-id="preview.liga" onclick="__setState('liga_galeria')">Galeria de ligas</button>
+<button data-id="preview.promocao" onclick="__setState('promocao')">Promoção de liga</button>
+</aside>
+<script>
+(function(){
+  var uid=0;
+  var TI={bronze:'bronze',prata:'silver',ouro:'gold',platina:'plat',diamante:'dia',elite:'elite'};
+  var CFG={bronze:{},prata:{},ouro:{au:1,sh:1,wg:1,sp:2},platina:{au:1,sh:1,wg:2,rg:1,sp:3},diamante:{au:1,sh:1,wg:3,rg:2,sp:4,fc:1},elite:{au:1,sh:1,wg:3,rg:2,sp:5,em:1}};
+  var SPK=[[22,34],[98,30],[16,76],[104,72],[60,8]];
+  function emblem(tier,div,size,mode){
+    var k=TI[tier],c=CFG[tier],id='e'+(++uid),live=mode==='live',big=size>=100,s='';
+    var big2=size>=44;
+    s+='<svg class="emb'+(live?' live':'')+'" width="'+size+'" height="'+size+'" viewBox="0 0 120 120" aria-hidden="true"><defs>'
+     +'<linearGradient id="m'+id+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--'+k+'-l)"/><stop offset=".55" style="stop-color:var(--'+k+')"/><stop offset="1" style="stop-color:var(--'+k+'-d)"/></linearGradient>'
+     +'<radialGradient id="a'+id+'"><stop offset="0" style="stop-color:var(--'+k+');stop-opacity:.55"/><stop offset="1" style="stop-color:var(--'+k+');stop-opacity:0"/></radialGradient>'
+     +'<linearGradient id="h'+id+'" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>'
+     +'<clipPath id="c'+id+'"><path d="M60 14L96 26L94 62C91 84 76 98 60 106C44 98 29 84 26 62L24 26Z"/></clipPath></defs>';
+    if(c.au&&big2)s+='<circle class="au" cx="60" cy="62" r="56" fill="url(#a'+id+')"/>';
+    if(c.rg&&big2){s+='<circle class="rg1" cx="60" cy="62" r="53" fill="none" style="stroke:var(--'+k+'-l)" stroke-width="1.4" stroke-dasharray="1.5 7"/>';
+      if(c.rg>1)s+='<circle class="rg2" cx="60" cy="62" r="48" fill="none" style="stroke:var(--'+k+')" stroke-width="1" stroke-dasharray="10 6" opacity=".6"/>';}
+    if(c.wg&&big2){var w='M28 34C14 28 4 38 6 52C11 47 17 47 21 51C12 55 9 64 13 74C18 68 24 68 29 71Z';
+      var sc=c.wg===1?.75:1;
+      s+='<g class="wl"><path d="'+w+'" fill="url(#m'+id+')" transform="translate(28 52) scale('+sc+') translate(-28 -52)"/></g>';
+      s+='<g class="wr"><g transform="translate(120 0) scale(-1 1)"><path d="'+w+'" fill="url(#m'+id+')" transform="translate(28 52) scale('+sc+') translate(-28 -52)"/></g></g>';}
+    s+='<path d="M60 14L96 26L94 62C91 84 76 98 60 106C44 98 29 84 26 62L24 26Z" fill="url(#m'+id+')"/>';
+    s+='<path d="M60 22L88 32L86 62C84 80 72 91 60 97C48 91 36 80 34 62L32 32Z" style="fill:var(--'+k+'-d)" opacity=".55"/>';
+    s+='<path d="M60 14L96 26L94 62C91 84 76 98 60 106C44 98 29 84 26 62L24 26Z" fill="none" style="stroke:var(--'+k+'-l)" stroke-width="1.6"/>';
+    // centro por liga
+    if(tier==='ouro'){s+='<circle cx="60" cy="56" r="8" style="fill:var(--gold-l)"/>';for(var i=0;i<8;i++){var a=i*Math.PI/4;s+='<line x1="'+(60+Math.cos(a)*12).toFixed(1)+'" y1="'+(56+Math.sin(a)*12).toFixed(1)+'" x2="'+(60+Math.cos(a)*17).toFixed(1)+'" y2="'+(56+Math.sin(a)*17).toFixed(1)+'" style="stroke:var(--gold-l)" stroke-width="2.4" stroke-linecap="round"/>';}}
+    else if(tier==='platina'){s+='<polygon points="60,40 74,48 74,64 60,72 46,64 46,48" style="fill:var(--plat-l)"/><polygon points="60,40 74,48 60,56 46,48" style="fill:var(--plat)" opacity=".8"/>';}
+    else if(tier==='diamante'){s+='<polygon points="44,50 52,40 68,40 76,50 60,78" style="fill:var(--dia-l)"/><polygon class="fc" points="52,40 60,50 44,50" style="fill:var(--dia)"/><polygon class="fc" points="68,40 76,50 60,50" style="fill:var(--dia-d)" opacity=".8"/><polygon class="fc" points="44,50 60,50 60,78" style="fill:var(--dia)" opacity=".7"/>';}
+    else if(tier==='elite'){s+='<polygon points="49,78 61,36 70,36 58,78" style="fill:var(--olive)"/><polygon points="62,78 66,62 73,62 69,78" style="fill:var(--red)"/>';}
+    else{for(var j=0;j<3;j++){s+='<path d="M46 '+(42+j*10)+'L60 '+(52+j*10)+'L74 '+(42+j*10)+'" fill="none" style="stroke:var(--'+k+'-l)" stroke-width="4.5" stroke-linecap="round"/>';}}
+    // pips de divisao
+    if(tier!=='elite'){var n=div===1?3:div===2?2:1,x0=60-(n-1)*7;for(var p=0;p<n;p++)s+='<polygon points="'+(x0+p*14)+',84 '+(x0+p*14+4)+',89 '+(x0+p*14)+',94 '+(x0+p*14-4)+',89" style="fill:var(--'+k+'-l)"/>';}
+    if(c.sh&&live)s+='<g clip-path="url(#c'+id+')"><rect class="sheen" x="-30" y="10" width="26" height="100" fill="url(#h'+id+')"/></g>';
+    if(live){for(var q=0;q<(c.sp||0);q++)s+='<g transform="translate('+SPK[q][0]+' '+SPK[q][1]+')"><path class="sp" style="animation-delay:'+(q*420)+'ms;fill:var(--'+k+'-l)" d="M0-7L1.8-1.8L7 0L1.8 1.8L0 7L-1.8 1.8L-7 0L-1.8-1.8Z"/></g>';
+      if(c.em)for(var r=0;r<5;r++)s+='<circle class="em" style="animation-delay:'+(r*480)+'ms;fill:var(--'+(r%2?'red':'olive')+')" cx="'+(40+r*10)+'" cy="104" r="2.2"/>';}
+    return s+'</svg>';
+  }
+  function mount(root){root.querySelectorAll('[data-emblem]').forEach(function(el){var p=el.getAttribute('data-emblem').split(':');el.innerHTML=emblem(p[0],+p[1],+p[2],p[3]);});}
+  // raios da promocao
+  var g='';for(var i=0;i<12;i++){g+='<polygon points="150,150 '+(150+Math.cos(i*Math.PI/6-.09)*150).toFixed(1)+','+(150+Math.sin(i*Math.PI/6-.09)*150).toFixed(1)+' '+(150+Math.cos(i*Math.PI/6+.09)*150).toFixed(1)+','+(150+Math.sin(i*Math.PI/6+.09)*150).toFixed(1)+'" style="fill:var(--brass)" opacity=".16"/>';}
+  document.getElementById('rayg').innerHTML=g;
+  mount(document);
+
+  var main=document.querySelector('[data-id="screen"]');
+  var DATA={
+    resultado:{title:'Missão cumprida',heroBorder:'var(--brass)',place:'2º',placeLabel:'Lugar',status:'Concluída',time:'24:18',pace:'4:52',pts:'+20',leagueName:'Ouro II',leagueFill:'71%',leagueNote:'1.463 pts · faltam 137 para Ouro I',r1:'Concluiu · 23:51',r1pts:'+30',r2:'Concluiu · 24:18',r2pts:'+20',r3:'Concluiu · 25:40',r3pts:'+12',r4:'Abandonou',r4pts:'−15'},
+    resultado_parcial:{title:'Você terminou',heroBorder:'var(--olive-dark)',place:'2º',placeLabel:'Posição parcial',status:'Aguardando os demais',time:'24:18',pace:'4:52',pts:'+20',leagueName:'Ouro II',leagueFill:'71%',leagueNote:'Pontos finais após o fim da missão',r1:'Concluiu · 23:51',r1pts:'+30',r2:'Concluiu · 24:18',r2pts:'+20',r3:'Em andamento · 4,1 km',r3pts:'—',r4:'Em andamento · 3,6 km',r4pts:'—'},
+    resultado_abandono:{title:'Você desistiu',heroBorder:'var(--red-line)',place:'DNF',placeLabel:'Abandono',status:'Fora do ranking da missão',time:'14:26',pace:'4:58',pts:'−15',leagueName:'Ouro II',leagueFill:'60%',leagueNote:'1.448 pts · faltam 152 para Ouro I',r1:'Concluiu · 23:51',r1pts:'+30',r2:'Abandonou · 2,9 km',r2pts:'−15',r3:'Concluiu · 25:40',r3pts:'+12',r4:'Abandonou',r4pts:'−15'}
+  };
+  function bind(s){var d=DATA[s];if(!d)return;document.querySelectorAll('[data-bind]').forEach(function(e){var k=e.getAttribute('data-bind');if(!(k in d))return;if(k==='heroBorder')e.style.borderColor=d[k];else if(k==='leagueFill')e.style.width=d[k];else e.textContent=d[k];
+    if(k==='place'||k==='placeLabel')e.style.color=s==='resultado_abandono'?'var(--red)':'var(--brass)';if(k==='pts')e.style.color=s==='resultado_abandono'?'var(--red)':'var(--ok)';});
+    var r2=document.querySelector('[data-id="res.row2"] .pos');if(r2)r2.textContent=s==='resultado_abandono'?'—':'2';}
+  function confetti(){var box=document.querySelector('[data-id="fin.confetti"]');box.innerHTML='';var C=['var(--olive)','var(--brass)','var(--red)','var(--text)'];
+    for(var i=0;i<26;i++){var e=document.createElement('i');e.className='cf';e.style.left=(8+i*14)%385+'px';e.style.background=C[i%4];e.style.animationDelay=(250+(i%9)*90)+'ms';e.style.animationDuration=(2000+(i%5)*260)+'ms';box.appendChild(e);}}
+  function countUp(){var el=document.querySelector('[data-id="fin.time"]'),t0=null,end=24*60+18;function f(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0-550)/900);if(p<0){requestAnimationFrame(f);return;}var v=Math.round(end*(1-Math.pow(1-p,3)));el.textContent=('0'+Math.floor(v/60)).slice(-2)+':'+('0'+v%60).slice(-2);if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
+  window.__setState=function(s){
+    main.setAttribute('data-state',s);
+    document.querySelectorAll('[data-show]').forEach(function(e){e.hidden=e.getAttribute('data-show').split(' ').indexOf(s)<0;});
+    bind(s);
+    if(s==='concluida'){confetti();countUp();}
+    if(s==='largada'||s==='concluida'||s==='promocao'){document.querySelectorAll('[data-id="start"] .n,[data-id="fin"] *,[data-id="promo"] .stack *').forEach(function(e){e.style.animation='none';void e.offsetWidth;e.style.animation='';});}
+  };
+  document.querySelectorAll('[data-tier]').forEach(function(b){b.addEventListener('click',function(){
+    var t=b.getAttribute('data-tier'),N={bronze:'Bronze',prata:'Prata',ouro:'Ouro',platina:'Platina',diamante:'Diamante',elite:'Elite'};
+    document.querySelectorAll('[data-tier]').forEach(function(x){x.classList.toggle('on',x===b);});
+    document.querySelector('[data-id="liga.hero.emblem"]').innerHTML=emblem(t,2,150,'live');
+    var BASE={bronze:0,prata:600,ouro:1200,platina:1800,diamante:2400,elite:3000},CL={bronze:'bronze',prata:'silver',ouro:'gold',platina:'plat',diamante:'dia',elite:'elite'};
+    var nm=document.querySelector('[data-id="liga.hero.name"]');nm.textContent='Liga '+N[t]+(t==='elite'?'':' II');nm.style.color='var(--'+CL[t]+')';
+    var rg=document.querySelector('[data-id="liga.hero.range"]'),nt=document.querySelector('[data-id="liga.hero.note"]'),fl=document.querySelector('[data-id="liga.hero.fill"]');
+    fl.style.background='var(--'+CL[t]+')';
+    if(t==='elite'){rg.textContent='3.000 pts ou mais · sem divisões';nt.textContent='A liga máxima da temporada';fl.style.width='100%';}
+    else if(t==='ouro'){rg.textContent='1.400–1.599 pts · você tem 1.463';nt.textContent='Faltam 137 pontos para subir para Ouro I';fl.style.width='32%';}
+    else{var bs=BASE[t];rg.textContent='Divisão II: '+(bs+200).toLocaleString('pt-BR')+'–'+(bs+399).toLocaleString('pt-BR')+' pts';nt.textContent='Toque em Ouro para ver sua liga atual';fl.style.width='0%';}
+    var d=document.querySelector('[data-id="liga.divs"]');d.style.visibility=t==='elite'?'hidden':'visible';
+    d.querySelectorAll('[data-emblem]').forEach(function(el,i){el.innerHTML=emblem(t,i+1,30,'still');});
+    d.querySelectorAll('b').forEach(function(el,i){el.textContent=N[t]+' '+['I','II','III'][i];});
+    d.querySelectorAll('i').forEach(function(el,i){var v=BASE[t]+(2-i)*200;el.textContent=v.toLocaleString('pt-BR')+'–'+(v+199).toLocaleString('pt-BR')+' pts';});
+    d.querySelectorAll('.pill').forEach(function(el){el.style.visibility=t==='ouro'?'visible':'hidden';});
+    d.children[1].style.background=t==='ouro'?'':'var(--surface)';
+  });});
+  window.__setState('prova');
+})();
+</script>
+</body>
+</html>

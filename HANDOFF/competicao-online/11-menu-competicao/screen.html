@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elite - Menu Adicionar corrida (Competição Premium)</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --page:#050604;
+  --bg:#0a0b09; --surface:#10120d; --card:#161911; --card-el:#1d2116; --field:#0d0f0a;
+  --line:rgba(236,232,218,.10); --line-strong:rgba(236,232,218,.18);
+  --text:#ece8da; --muted:#8f9384; --dim:#5e6255;
+  --olive:#a3b565; --olive-dark:#5d6b34; --olive-soft:rgba(163,181,101,.14); --on-olive:#0e1306;
+  --red:#d12b2b; --red-soft:rgba(209,43,43,.15); --on-red:#fff4f0;
+  --brass:#c9a24b; --brass-soft:rgba(201,162,75,.16); --amber:#e0a93a; --amber-soft:rgba(224,169,58,.14); --ok:#7fb069; --ok-soft:rgba(127,176,105,.15); --amber-line:rgba(224,169,58,.45); --red-line:rgba(209,43,43,.5); --ok-line:rgba(127,176,105,.45); --brass-line:rgba(201,162,75,.5);
+  --glass:rgba(16,18,13,.82); --glass-bar:rgba(16,18,13,.90); --scrim:rgba(0,0,0,.62);
+  --lg-bronze:#b07a4a; --lg-prata:#b4bab8; --lg-ouro:#c9a24b; --lg-platina:#86bdb3; --lg-diamante:#7fb4de; --lg-elite:#e7e2d0;
+  --bg-clear:rgba(26,22,8,0); --sheen:rgba(255,244,214,.22); --prem-a:#3a2e12; --prem-b:#1a1608; --prem-glow:rgba(201,162,75,.35); --av1:#3b4426; --av2:#4a3f1e; --av3:#2e3b3a; --av4:#46301f; --av5:#3a2e3f;
+  --num:"Barlow Condensed","Arial Narrow",sans-serif; --ui:"Inter",sans-serif; --logo:"Saira Stencil One","Impact",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--page);font-family:var(--ui);color:var(--text);display:flex;justify-content:center;padding:0;-webkit-font-smoothing:antialiased}
+button{font-family:var(--ui);color:inherit;background:none;border:0;cursor:pointer}
+[data-id="screen"]{flex:none;position:relative;width:393px;height:851px;overflow:hidden;background:var(--bg);display:flex;flex-direction:column;padding:28px 16px 0}
+svg{display:block;flex:none}
+
+/* ---- tipografia ---- */
+.t1{font:700 30px/32px var(--num);text-transform:uppercase;letter-spacing:.9px}
+.t1s{font:700 24px/26px var(--num);text-transform:uppercase;letter-spacing:.96px}
+.t2{font:600 20px/23px var(--num);text-transform:uppercase;letter-spacing:.8px}
+.t3{font:600 16px/20px var(--ui)}
+.body{font:400 14px/19.6px var(--ui)}
+.cap{font:400 12px/16px var(--ui);color:var(--muted)}
+.eyebrow{font:600 11px/14px var(--ui);text-transform:uppercase;letter-spacing:1.3px;color:var(--muted)}
+.num{font-family:var(--num);font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+.olive{color:var(--olive)} .red{color:var(--red)} .brass{color:var(--brass)} .ok{color:var(--ok)} .amber{color:var(--amber)} .muted{color:var(--muted)}
+.row{display:flex;align-items:center}
+.col{display:flex;flex-direction:column}
+.grow{flex:1;min-width:0}
+.ell{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ---- cartões ---- */
+.card{background:var(--card);border:1px solid var(--line-strong);border-radius:18px}
+.card-sel{border-color:var(--olive);background:linear-gradient(180deg,var(--olive-soft),var(--card))}
+.card-brass{border-color:var(--brass);background:linear-gradient(180deg,var(--brass-soft),var(--card))}
+.card-dash{background:transparent;border:1px dashed var(--line-strong);border-radius:18px}
+
+/* ---- botões ---- */
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 18px;border-radius:24px;font:700 15px/20px var(--ui);transition:transform .12s ease-out;flex:none}
+.btn:active{transform:scale(.96)}
+.btn-lg{height:56px;border-radius:28px;font-size:16px}
+.btn-red{background:var(--red);color:var(--on-red)}
+.btn-olive{background:var(--olive);color:var(--on-olive)}
+.btn-ghost{background:transparent;border:1px solid var(--line-strong);color:var(--text)}
+.btn-share{background:var(--olive-soft);border:1px solid var(--olive-dark);color:var(--olive)}
+.btn-off{background:var(--card-el);color:var(--dim);border:1px solid var(--line)}
+.btn-icon{width:48px;padding:0;flex:none}
+.btn-back{width:40px;height:40px;border-radius:20px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex:none;transition:transform .12s ease-out}
+.btn-back:active{transform:scale(.92)}
+
+/* ---- badges / chips ---- */
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font:700 10.5px/12px var(--ui);text-transform:uppercase;letter-spacing:.6px;flex:none;white-space:nowrap}
+.b-open{background:var(--olive-soft);color:var(--olive)}
+.b-one{background:var(--amber-soft);color:var(--amber)}
+.b-conf{background:var(--ok);color:var(--on-olive)}
+.b-live{background:var(--red-soft);color:var(--red)}
+.b-done{background:var(--card-el);color:var(--muted)}
+.b-none{background:transparent;border:1px solid var(--line-strong);color:var(--muted)}
+.b-brass{background:var(--brass-soft);color:var(--brass)}
+.dot{width:7px;height:7px;border-radius:4px;background:currentColor;flex:none}
+.chip{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:15px;background:var(--card-el);border:1px solid var(--line);font:600 12px/16px var(--ui);flex:none;white-space:nowrap}
+.chip-on{background:var(--olive-soft);border-color:var(--olive-dark);color:var(--olive)}
+.dist{display:inline-flex;align-items:center;justify-content:center;height:24px;padding:0 9px;border-radius:7px;background:var(--card-el);border:1px solid var(--line-strong);font:700 14px/16px var(--num);letter-spacing:.5px}
+
+/* ---- segmentado ---- */
+.seg{display:flex;gap:4px;padding:4px;background:var(--field);border:1px solid var(--line);border-radius:24px;height:48px}
+.seg>button{flex:1;border-radius:20px;font:700 20px/20px var(--num);color:var(--muted);letter-spacing:.5px;transition:background .18s ease-out,color .18s ease-out}
+.seg>button.on{background:var(--olive-soft);color:var(--olive);box-shadow:inset 0 0 0 1px var(--olive-dark)}
+.seg-sm{height:40px;border-radius:20px}
+.seg-sm>button{font:600 13px/16px var(--ui)}
+.tabs{display:flex;gap:20px;height:32px;border-bottom:1px solid var(--line)}
+.tabs>button{font:600 13px/16px var(--ui);color:var(--muted);padding:0 2px 10px;border-bottom:2px solid transparent}
+.tabs>button.on{color:var(--olive);border-bottom-color:var(--olive)}
+
+/* ---- avatares ---- */
+.av{border-radius:50%;display:flex;align-items:center;justify-content:center;font:700 14px/14px var(--num);letter-spacing:.5px;border:1.5px solid var(--line-strong);flex:none;color:var(--text)}
+.av-me{border-color:var(--olive);box-shadow:0 0 0 2px var(--olive-soft)}
+.av-empty{background:transparent;border:1.5px dashed var(--line-strong);color:var(--dim)}
+.stack{display:flex}
+.stack>*+*{margin-left:-8px}
+
+/* ---- barras ---- */
+.bar{height:6px;border-radius:3px;background:var(--card-el);overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:3px;background:var(--olive)}
+.bar-brass>i{background:var(--brass)}
+.hr{height:1px;background:var(--line);flex:none}
+
+.sc-ic{width:32px;height:32px;border-radius:16px;background:var(--brass-soft);color:var(--brass);display:flex;align-items:center;justify-content:center;flex:none}
+
+/* ---- topbar ---- */
+.topbar{display:flex;align-items:center;gap:12px;height:48px;flex:none}
+.logo{display:flex;align-items:center;gap:8px}
+.logo-t{font:400 17px/20px var(--logo);letter-spacing:3.4px}
+
+/* ---- barra inferior fixa ---- */
+.dock{flex:none;margin:0 -16px;padding:14px 16px 18px;background:var(--glass-bar);border-top:1px solid var(--line-strong);border-radius:26px 26px 0 0}
+
+/* ---- cartão de missão ---- */
+.m{display:flex;flex-direction:column;padding:14px;flex:none}
+.m-time{font:700 36px/36px var(--num);font-variant-numeric:tabular-nums;letter-spacing:.5px}
+.m-compact{padding:12px 14px}
+
+/* ---- linha de ranking ---- */
+.rk{display:flex;align-items:center;gap:10px;height:56px;padding:0 12px;border-radius:14px;flex:none}
+.rk-me{background:var(--olive-soft);box-shadow:inset 0 0 0 1px var(--olive-dark)}
+.rk-pos{width:30px;text-align:center;font:700 20px/20px var(--num);font-variant-numeric:tabular-nums;color:var(--muted)}
+.rk-elo{font:700 18px/18px var(--num);font-variant-numeric:tabular-nums;text-align:right}
+.trend{display:flex;align-items:center;justify-content:flex-end;gap:2px;font:600 11px/12px var(--ui);width:36px}
+.t-up{color:var(--ok)} .t-down{color:var(--red)} .t-eq{color:var(--dim)}
+
+/* ---- banners ---- */
+.banner{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;border:1px solid var(--line-strong);background:var(--card);flex:none}
+.banner-ico{width:36px;height:36px;border-radius:18px;display:flex;align-items:center;justify-content:center;flex:none}
+.bn-amber{border-color:var(--amber-line);background:linear-gradient(90deg,var(--amber-soft),var(--card))} .bn-amber .banner-ico{background:var(--amber-soft);color:var(--amber)}
+.bn-red{border-color:var(--red-line);background:linear-gradient(90deg,var(--red-soft),var(--card))} .bn-red .banner-ico{background:var(--red-soft);color:var(--red)}
+.bn-ok{border-color:var(--ok-line);background:linear-gradient(90deg,var(--ok-soft),var(--card))} .bn-ok .banner-ico{background:var(--ok-soft);color:var(--ok)}
+.bn-olive{border-color:var(--olive-dark);background:linear-gradient(90deg,var(--olive-soft),var(--card))} .bn-olive .banner-ico{background:var(--olive-soft);color:var(--olive)}
+.bn-brass{border-color:var(--brass-line);background:linear-gradient(90deg,var(--brass-soft),var(--card))} .bn-brass .banner-ico{background:var(--brass-soft);color:var(--brass)}
+.bn-mute .banner-ico{background:var(--card-el);color:var(--muted)}
+
+@media (prefers-reduced-motion:reduce){
+  .btn,.btn-back,.seg>button{transition:none}
+}
+
+/* ---- mini card de convite (miniatura do card compartilhável) ---- */
+.mini{display:flex;flex-direction:column;justify-content:space-between;padding:12px;border-radius:14px;background:linear-gradient(160deg,var(--card-el),var(--bg));border:1px solid var(--olive-dark)}
+.stripe{height:4px;width:100%;background:var(--red);border-radius:2px;transform:skewX(-20deg)}
+
+.invite{padding:14px;background:linear-gradient(135deg,var(--olive-soft),var(--card) 70%);border:1px solid var(--olive-dark);border-radius:18px;display:flex;flex-direction:column;gap:10px;flex:none}
+
+.kv{flex:1;display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.kv .num{font-size:28px}
+
+.num{white-space:nowrap}
+.sc-chip{white-space:nowrap}
+
+.ctx-dim{position:absolute;inset:0;background:var(--scrim)}
+.tile{position:relative;height:96px;border-radius:16px;overflow:hidden;flex:1;display:flex;align-items:center;padding-left:16px;transition:transform .12s ease-out;text-align:left}
+.tile:active{transform:scale(.97)}
+.tile .tt{display:flex;flex-direction:column;gap:8px;align-items:flex-start;color:var(--on-red)}
+.tile .tt b{font:700 16px/20px var(--ui);color:var(--on-red)}
+.tile .deco{position:absolute;right:14px;top:50%;margin-top:-28px;opacity:.15;color:var(--on-red)}
+.t-olive{background:var(--olive)}
+.t-brass{background:var(--brass)}
+.t-red{background:var(--red)}
+.prem{position:relative;display:block;width:100%;text-align:left;height:112px;flex:none;transition:transform .12s ease-out}
+.prem:active{transform:scale(.98)}
+.prem-in{position:absolute;inset:0;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,var(--prem-a),var(--prem-b) 70%);border:1.5px solid var(--brass)}
+.prem-glow{position:absolute;right:-30px;top:-40px;width:200px;height:200px;border-radius:100px;background:radial-gradient(circle,var(--prem-glow),var(--bg-clear) 70%)}
+.prem-sheen{position:absolute;top:-10px;bottom:-10px;left:0;width:70px;background:linear-gradient(90deg,var(--bg-clear),var(--sheen),var(--bg-clear));transform:translateX(-120px) skewX(-20deg);animation:prem-sheen 3600ms ease-in-out 600ms infinite}
+@keyframes prem-sheen{0%{transform:translateX(-120px) skewX(-20deg)}45%{transform:translateX(420px) skewX(-20deg)}100%{transform:translateX(420px) skewX(-20deg)}}
+.prem-body{position:absolute;inset:0;padding:14px;display:flex;flex-direction:column;justify-content:space-between}
+.prem-ico{width:52px;height:52px;border-radius:26px;background:var(--brass);color:var(--on-olive);display:flex;align-items:center;justify-content:center;flex:none}
+.prem-badge{display:inline-flex;align-items:center;gap:4px;height:20px;padding:0 8px;border-radius:10px;background:var(--brass);color:var(--on-olive);font:800 10px/12px var(--ui);letter-spacing:.9px;text-transform:uppercase}
+.prem-new{position:absolute;top:-9px;left:16px;z-index:2;height:18px;padding:0 8px;border-radius:9px;background:var(--red);color:var(--on-red);font:800 9.5px/18px var(--ui);letter-spacing:1px}
+.prem-cta{display:flex;align-items:center;justify-content:center;width:34px;height:34px;padding:0;border-radius:17px;background:var(--brass-soft);border:1px solid var(--brass);color:var(--brass);font:700 12px/14px var(--ui);flex:none}
+.prem-chip{display:inline-flex;align-items:center;gap:4px;height:22px;padding:0 9px;border-radius:11px;background:var(--brass-soft);color:var(--text);font:600 10.5px/12px var(--ui);white-space:nowrap}
+.on-only{display:none}
+[data-state="premium_ativo"] .on-only{display:flex}
+[data-state="premium_ativo"] .off-only{display:none}
+.sheet-demo{position:absolute;left:0;right:0;bottom:0;background:var(--card);border-radius:28px 28px 0 0;padding:12px 20px 52px;display:flex;flex-direction:column;gap:14px;animation:sheet-up .32s cubic-bezier(.2,.8,.2,1) both}
+@media (prefers-reduced-motion:reduce){.prem-sheen{animation:none;opacity:0}.tile,.prem{transition:none}.sheet-demo{animation:none}}
+
+@keyframes sheet-up{from{transform:translateY(100%)}to{transform:translateY(0)}}
+
+</style>
+</head>
+<body>
+<main data-id="screen" data-viewport="393x851" data-state="premium_bloqueado">
+  <section data-id="ctx" class="col" style="padding-top:20px;gap:6px;flex:none" data-compose="TodayScreen (já existe, apenas contexto)">
+    <p data-id="ctx.date" class="cap" style="font-size:14px">Sábado, 21 de novembro</p>
+    <h1 data-id="ctx.hello" class="t1">Olá, Rodrigo</h1>
+    <div data-id="ctx.week" class="row" style="justify-content:space-between;margin-top:14px">
+      <span data-id="ctx.week.num" class="num muted" style="font-size:22px">16</span><span data-id="ctx.week.num2" class="num muted" style="font-size:22px">17</span><span data-id="ctx.week.num3" class="num muted" style="font-size:22px">18</span><span data-id="ctx.week.num4" class="num muted" style="font-size:22px">19</span><span data-id="ctx.week.num5" class="num muted" style="font-size:22px">20</span><span data-id="ctx.week.num6" class="num olive" style="font-size:22px">21</span><span data-id="ctx.week.num7" class="num muted" style="font-size:22px">22</span>
+    </div>
+    <div data-id="ctx.card" class="card" style="height:230px;margin-top:18px;padding:16px"><p data-id="ctx.card.title" class="t1">Treino 1</p></div>
+  </section>
+  <div data-id="ctx.dim" class="ctx-dim"></div>
+
+  <aside data-id="menu" class="sheet-demo" data-compose="AisleQuickLauncherBottomSheet (ModalBottomSheet)">
+    <div data-id="menu.grab" class="grab" style="margin-bottom:0"></div>
+    <h2 data-id="menu.title" class="t2" style="text-align:center;font-size:21px;margin-top:6px">Adicionar corrida</h2>
+    <button data-id="menu.collapse" class="cap" style="align-self:flex-end;font:500 12px/16px var(--ui);letter-spacing:.5px;color:var(--muted)">RECOLHER</button>
+    <div data-id="menu.row1" class="row" style="gap:12px">
+      <button data-id="menu.free" aria-label="Corrida livre" class="tile t-olive" data-compose="MenuCard">
+        <div data-id="menu.free.tt" class="tt"><svg data-id="menu.free.ic" data-icon="material:DirectionsRun" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="4.5" r="2"/><path d="M4 21l4-6 3 2 3-5-3-3-4 1M14 9.5l3 3 4 1M11 17l2 4"/></svg><b data-id="menu.free.title">Corrida livre</b></div><span data-id="menu.free.deco" class="deco"><svg data-id="menu.free.decoic" data-icon="material:DirectionsRun" viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="4.5" r="2"/><path d="M4 21l4-6 3 2 3-5-3-3-4 1M14 9.5l3 3 4 1M11 17l2 4"/></svg></span>
+      </button>
+      <button data-id="menu.t25" aria-label="Treino 2.5k" class="tile t-brass" data-compose="MenuCard">
+        <div data-id="menu.t25.tt" class="tt"><svg data-id="menu.t25.ic" data-icon="material:Flag" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg><b data-id="menu.t25.title">Treino 2.5k</b></div><span data-id="menu.t25.deco" class="deco"><svg data-id="menu.t25.decoic" data-icon="material:Flag" viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg></span>
+      </button>
+    </div>
+    <div data-id="menu.row2" class="row" style="gap:12px">
+      <button data-id="menu.t5" aria-label="Treino 5k" class="tile t-red" data-compose="MenuCard">
+        <div data-id="menu.t5.tt" class="tt"><svg data-id="menu.t5.ic" data-icon="material:Schedule" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><b data-id="menu.t5.title">Treino 5k</b></div><span data-id="menu.t5.deco" class="deco"><svg data-id="menu.t5.decoic" data-icon="material:Schedule" viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+      </button>
+      <button data-id="menu.t10" aria-label="Treino 10k" class="tile t-brass" data-compose="MenuCard">
+        <div data-id="menu.t10.tt" class="tt"><svg data-id="menu.t10.ic" data-icon="material:Bolt" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg><b data-id="menu.t10.title">Treino 10k</b></div><span data-id="menu.t10.deco" class="deco"><svg data-id="menu.t10.decoic" data-icon="material:Bolt" viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+      </button>
+    </div>
+
+    <button data-id="menu.prem" class="prem" data-compose="PremiumCompetitionCard" aria-label="Competição online, recurso premium">
+      <span data-id="menu.prem.new" class="prem-new">NOVO</span>
+      <div data-id="menu.prem.in" class="prem-in">
+        <div data-id="menu.prem.glow" class="prem-glow"></div>
+        <div data-id="menu.prem.sheen" class="prem-sheen"></div>
+      </div>
+      <div data-id="menu.prem.body" class="prem-body">
+        <div data-id="menu.prem.body.row" class="row" style="gap:12px">
+          <div data-id="menu.prem.icon" class="prem-ico"><svg data-id="menu.prem.icon.ic" data-icon="material:EmojiEvents" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
+          <div data-id="menu.prem.body.row.col" class="col grow" style="gap:4px;align-items:flex-start;min-width:0">
+            <span data-id="menu.prem.badge" class="prem-badge"><svg data-id="menu.prem.badge.ic" data-icon="material:Stars" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8l4 4 5-7 5 7 4-4-2 12H5z"/></svg>Premium</span>
+            <span data-id="menu.prem.title" class="t1s" style="font-size:22px;line-height:24px;white-space:nowrap">Competição online</span>
+          </div>
+          <span data-id="menu.prem.cta-off" class="prem-cta off-only"><svg data-id="menu.prem.cta-off.ic" data-icon="material:Lock" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+          <span data-id="menu.prem.cta-on" class="prem-cta on-only"><svg data-id="menu.prem.cta-on.ic" data-icon="material:ChevronRight" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></span>
+        </div>
+        <div data-id="menu.prem.chips" class="row" style="gap:6px;text-align:left">
+          <span data-id="menu.prem.chip1" class="prem-chip"><svg data-id="menu.prem.chip1.ic" data-icon="material:Schedule" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Toda hora, 02h–21h</span>
+          <span data-id="menu.prem.chip2" class="prem-chip"><svg data-id="menu.prem.chip2.ic" data-icon="material:BarChart" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>Ranking e ligas</span>
+        </div>
+      </div>
+    </button>
+  </aside>
+
+  <script>
+  (function(){ window.__setState=function(n){document.querySelector('[data-id="screen"]').setAttribute('data-state',n);}; })();
+  </script>
+</main>
+
+</body>
+</html>

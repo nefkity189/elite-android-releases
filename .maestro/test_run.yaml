@@ -1,0 +1,11 @@
+appId: com.elite.sch.app
+---
+- launchApp:
+    clearState: false
+- extendedWaitUntil:
+    visible: "Começar treino"
+    timeout: 10000
+- tapOn: "Começar treino"
+- extendedWaitUntil:
+    visible: "Pausar"
+    timeout: 15000

@@ -1,0 +1,6 @@
+[
+  {"name": "padrao", "eval": "__setState('padrao')", "wait": 200},
+  {"name": "liga_platina", "click": "[data-id='ssn.ladder.platina']", "wait": 300},
+  {"name": "liga_elite", "click": "[data-id='ssn.ladder.elite']", "wait": 300},
+  {"name": "compartilhar_posicao_pressionado", "press": "[data-id='ssn.dock.pos']", "wait": 300}
+]

@@ -1,0 +1,62 @@
+appId: com.elite.sch.app
+---
+# Welcome screen - enter name and tap Começar
+- tapOn:
+    id: "input_user_name"
+- inputText: "Teste"
+- tapOn:
+    id: "btn_comecar"
+
+# Quiz Question 1 - Tempo sem correr
+- tapOn: "Nunca corri"
+- tapOn: "Próximo"
+
+# Quiz Question 2 - Frequência de exercício
+- tapOn: "Nada"
+- tapOn: "Próximo"
+
+# Quiz Question 3 - Tipo de exercício
+- tapOn: "Nenhum"
+- tapOn: "Próximo"
+
+# Days Selection - keep defaults (Mon, Wed, Fri)
+- tapOn: "Próximo"
+
+# Duration Selection - keep defaults (9 weeks)
+- tapOn: "Próximo"
+
+# Plan Preview - accept terms and start
+- tapOn:
+    id: "checkbox_termos"
+- tapOn: "Iniciar plano"
+
+# Wait for Today screen to load
+- waitForAnimationToEnd
+- extendedWaitUntil:
+    visible: "Treino de hoje"
+    timeout: 10000
+
+# Tap on today's workout to start it
+- tapOn:
+    id: "btn_iniciar_treino"
+
+# Pre-workout check-in - select energy/sleep and confirm
+- tapOn: "OK"
+- extendedWaitUntil:
+    visible: "ActiveRun"
+    timeout: 5000
+
+# Let the run run for a bit, then finish it
+- waitForAnimationToEnd
+- tapOn: "Pausar"
+- tapOn: "Finalizar"
+- extendedWaitUntil:
+    visible: "Treino Concluído"
+    timeout: 10000
+
+# Now on WorkoutSummaryScreen - test share
+- tapOn:
+    id: "btn_share_workout"
+- extendedWaitUntil:
+    visible: "Compartilhar"
+    timeout: 5000

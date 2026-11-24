@@ -1,0 +1,22 @@
+appId: com.elite.sch.app
+---
+# Acceptance B: Play/Pause ring (botão central + anel de progresso radial)
+- launchApp:
+    clearState: false
+- assertVisible:
+    id: "screen_today"
+- tapOn:
+    id: "btn_free_run_descanso"
+- assertVisible:
+    id: "screen_active_run"
+# Botão central do anel de play/pause é tocável e alternna ícone
+- tapOn:
+    id: "btn_play_pause_ring"
+- assertVisible:
+    id: "btn_play_pause_ring"
+- tapOn:
+    id: "btn_play_pause_ring"
+- assertVisible:
+    id: "btn_play_pause_ring"
+- takeScreenshot:
+    path: "accept_b_play_pause_ring.png"

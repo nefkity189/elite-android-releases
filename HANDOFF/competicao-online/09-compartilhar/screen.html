@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elite - Compartilhar (cards de divulgação)</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --page:#050604;
+  --bg:#0a0b09; --surface:#10120d; --card:#161911; --card-el:#1d2116; --field:#0d0f0a;
+  --line:rgba(236,232,218,.10); --line-strong:rgba(236,232,218,.18);
+  --text:#ece8da; --muted:#8f9384; --dim:#5e6255;
+  --olive:#a3b565; --olive-dark:#5d6b34; --olive-soft:rgba(163,181,101,.14); --on-olive:#0e1306;
+  --red:#d12b2b; --red-soft:rgba(209,43,43,.15); --on-red:#fff4f0;
+  --brass:#c9a24b; --brass-soft:rgba(201,162,75,.16); --amber:#e0a93a; --amber-soft:rgba(224,169,58,.14); --ok:#7fb069; --ok-soft:rgba(127,176,105,.15); --amber-line:rgba(224,169,58,.45); --red-line:rgba(209,43,43,.5); --ok-line:rgba(127,176,105,.45); --brass-line:rgba(201,162,75,.5);
+  --glass:rgba(16,18,13,.82); --glass-bar:rgba(16,18,13,.90); --scrim:rgba(0,0,0,.62);
+  --lg-bronze:#b07a4a; --lg-prata:#b4bab8; --lg-ouro:#c9a24b; --lg-platina:#86bdb3; --lg-diamante:#7fb4de; --lg-elite:#e7e2d0;
+  --av1:#3b4426; --av2:#4a3f1e; --av3:#2e3b3a; --av4:#46301f; --av5:#3a2e3f;
+  --num:"Barlow Condensed","Arial Narrow",sans-serif; --ui:"Inter",sans-serif; --logo:"Saira Stencil One","Impact",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--page);font-family:var(--ui);color:var(--text);display:flex;justify-content:center;padding:0;-webkit-font-smoothing:antialiased}
+button{font-family:var(--ui);color:inherit;background:none;border:0;cursor:pointer}
+[data-id="screen"]{flex:none;position:relative;width:393px;height:851px;overflow:hidden;background:var(--bg);display:flex;flex-direction:column;padding:28px 16px 0}
+svg{display:block;flex:none}
+
+/* ---- tipografia ---- */
+.t1{font:700 30px/32px var(--num);text-transform:uppercase;letter-spacing:.9px}
+.t1s{font:700 24px/26px var(--num);text-transform:uppercase;letter-spacing:.96px}
+.t2{font:600 20px/23px var(--num);text-transform:uppercase;letter-spacing:.8px}
+.t3{font:600 16px/20px var(--ui)}
+.body{font:400 14px/19.6px var(--ui)}
+.cap{font:400 12px/16px var(--ui);color:var(--muted)}
+.eyebrow{font:600 11px/14px var(--ui);text-transform:uppercase;letter-spacing:1.3px;color:var(--muted)}
+.num{font-family:var(--num);font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+.olive{color:var(--olive)} .red{color:var(--red)} .brass{color:var(--brass)} .ok{color:var(--ok)} .amber{color:var(--amber)} .muted{color:var(--muted)}
+.row{display:flex;align-items:center}
+.col{display:flex;flex-direction:column}
+.grow{flex:1;min-width:0}
+.ell{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ---- cartões ---- */
+.card{background:var(--card);border:1px solid var(--line-strong);border-radius:18px}
+.card-sel{border-color:var(--olive);background:linear-gradient(180deg,var(--olive-soft),var(--card))}
+.card-brass{border-color:var(--brass);background:linear-gradient(180deg,var(--brass-soft),var(--card))}
+.card-dash{background:transparent;border:1px dashed var(--line-strong);border-radius:18px}
+
+/* ---- botões ---- */
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 18px;border-radius:24px;font:700 15px/20px var(--ui);transition:transform .12s ease-out;flex:none}
+.btn:active{transform:scale(.96)}
+.btn-lg{height:56px;border-radius:28px;font-size:16px}
+.btn-red{background:var(--red);color:var(--on-red)}
+.btn-olive{background:var(--olive);color:var(--on-olive)}
+.btn-ghost{background:transparent;border:1px solid var(--line-strong);color:var(--text)}
+.btn-share{background:var(--olive-soft);border:1px solid var(--olive-dark);color:var(--olive)}
+.btn-off{background:var(--card-el);color:var(--dim);border:1px solid var(--line)}
+.btn-icon{width:48px;padding:0;flex:none}
+.btn-back{width:40px;height:40px;border-radius:20px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex:none;transition:transform .12s ease-out}
+.btn-back:active{transform:scale(.92)}
+
+/* ---- badges / chips ---- */
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font:700 10.5px/12px var(--ui);text-transform:uppercase;letter-spacing:.6px;flex:none;white-space:nowrap}
+.b-open{background:var(--olive-soft);color:var(--olive)}
+.b-one{background:var(--amber-soft);color:var(--amber)}
+.b-conf{background:var(--ok);color:var(--on-olive)}
+.b-live{background:var(--red-soft);color:var(--red)}
+.b-done{background:var(--card-el);color:var(--muted)}
+.b-none{background:transparent;border:1px solid var(--line-strong);color:var(--muted)}
+.b-brass{background:var(--brass-soft);color:var(--brass)}
+.dot{width:7px;height:7px;border-radius:4px;background:currentColor;flex:none}
+.chip{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:15px;background:var(--card-el);border:1px solid var(--line);font:600 12px/16px var(--ui);flex:none;white-space:nowrap}
+.chip-on{background:var(--olive-soft);border-color:var(--olive-dark);color:var(--olive)}
+.dist{display:inline-flex;align-items:center;justify-content:center;height:24px;padding:0 9px;border-radius:7px;background:var(--card-el);border:1px solid var(--line-strong);font:700 14px/16px var(--num);letter-spacing:.5px}
+
+/* ---- segmentado ---- */
+.seg{display:flex;gap:4px;padding:4px;background:var(--field);border:1px solid var(--line);border-radius:24px;height:48px}
+.seg>button{flex:1;border-radius:20px;font:700 20px/20px var(--num);color:var(--muted);letter-spacing:.5px;transition:background .18s ease-out,color .18s ease-out}
+.seg>button.on{background:var(--olive-soft);color:var(--olive);box-shadow:inset 0 0 0 1px var(--olive-dark)}
+.seg-sm{height:40px;border-radius:20px}
+.seg-sm>button{font:600 13px/16px var(--ui)}
+.tabs{display:flex;gap:20px;height:32px;border-bottom:1px solid var(--line)}
+.tabs>button{font:600 13px/16px var(--ui);color:var(--muted);padding:0 2px 10px;border-bottom:2px solid transparent}
+.tabs>button.on{color:var(--olive);border-bottom-color:var(--olive)}
+
+/* ---- avatares ---- */
+.av{border-radius:50%;display:flex;align-items:center;justify-content:center;font:700 14px/14px var(--num);letter-spacing:.5px;border:1.5px solid var(--line-strong);flex:none;color:var(--text)}
+.av-me{border-color:var(--olive);box-shadow:0 0 0 2px var(--olive-soft)}
+.av-empty{background:transparent;border:1.5px dashed var(--line-strong);color:var(--dim)}
+.stack{display:flex}
+.stack>*+*{margin-left:-8px}
+
+/* ---- barras ---- */
+.bar{height:6px;border-radius:3px;background:var(--card-el);overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:3px;background:var(--olive)}
+.bar-brass>i{background:var(--brass)}
+.hr{height:1px;background:var(--line);flex:none}
+
+.sc-ic{width:32px;height:32px;border-radius:16px;background:var(--brass-soft);color:var(--brass);display:flex;align-items:center;justify-content:center;flex:none}
+
+/* ---- topbar ---- */
+.topbar{display:flex;align-items:center;gap:12px;height:48px;flex:none}
+.logo{display:flex;align-items:center;gap:8px}
+.logo-t{font:400 17px/20px var(--logo);letter-spacing:3.4px}
+
+/* ---- barra inferior fixa ---- */
+.dock{flex:none;margin:0 -16px;padding:14px 16px 18px;background:var(--glass-bar);border-top:1px solid var(--line-strong);border-radius:26px 26px 0 0}
+
+/* ---- cartão de missão ---- */
+.m{display:flex;flex-direction:column;padding:14px;flex:none}
+.m-time{font:700 36px/36px var(--num);font-variant-numeric:tabular-nums;letter-spacing:.5px}
+.m-compact{padding:12px 14px}
+
+/* ---- linha de ranking ---- */
+.rk{display:flex;align-items:center;gap:10px;height:56px;padding:0 12px;border-radius:14px;flex:none}
+.rk-me{background:var(--olive-soft);box-shadow:inset 0 0 0 1px var(--olive-dark)}
+.rk-pos{width:30px;text-align:center;font:700 20px/20px var(--num);font-variant-numeric:tabular-nums;color:var(--muted)}
+.rk-elo{font:700 18px/18px var(--num);font-variant-numeric:tabular-nums;text-align:right}
+.trend{display:flex;align-items:center;justify-content:flex-end;gap:2px;font:600 11px/12px var(--ui);width:36px}
+.t-up{color:var(--ok)} .t-down{color:var(--red)} .t-eq{color:var(--dim)}
+
+/* ---- banners ---- */
+.banner{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;border:1px solid var(--line-strong);background:var(--card);flex:none}
+.banner-ico{width:36px;height:36px;border-radius:18px;display:flex;align-items:center;justify-content:center;flex:none}
+.bn-amber{border-color:var(--amber-line);background:linear-gradient(90deg,var(--amber-soft),var(--card))} .bn-amber .banner-ico{background:var(--amber-soft);color:var(--amber)}
+.bn-red{border-color:var(--red-line);background:linear-gradient(90deg,var(--red-soft),var(--card))} .bn-red .banner-ico{background:var(--red-soft);color:var(--red)}
+.bn-ok{border-color:var(--ok-line);background:linear-gradient(90deg,var(--ok-soft),var(--card))} .bn-ok .banner-ico{background:var(--ok-soft);color:var(--ok)}
+.bn-olive{border-color:var(--olive-dark);background:linear-gradient(90deg,var(--olive-soft),var(--card))} .bn-olive .banner-ico{background:var(--olive-soft);color:var(--olive)}
+.bn-brass{border-color:var(--brass-line);background:linear-gradient(90deg,var(--brass-soft),var(--card))} .bn-brass .banner-ico{background:var(--brass-soft);color:var(--brass)}
+.bn-mute .banner-ico{background:var(--card-el);color:var(--muted)}
+
+@media (prefers-reduced-motion:reduce){
+  .btn,.btn-back,.seg>button{transition:none}
+}
+
+/* ---- mini card de convite (miniatura do card compartilhável) ---- */
+.mini{display:flex;flex-direction:column;justify-content:space-between;padding:12px;border-radius:14px;background:linear-gradient(160deg,var(--card-el),var(--bg));border:1px solid var(--olive-dark)}
+.stripe{height:4px;width:100%;background:var(--red);border-radius:2px;transform:skewX(-20deg)}
+
+.invite{padding:14px;background:linear-gradient(135deg,var(--olive-soft),var(--card) 70%);border:1px solid var(--olive-dark);border-radius:18px;display:flex;flex-direction:column;gap:10px;flex:none}
+
+.kv{flex:1;display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.kv .num{font-size:28px}
+
+.num{white-space:nowrap}
+.sc-chip{white-space:nowrap}
+
+[data-id="shr.chips"]{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;flex:none;margin:0 -16px;padding:0 16px}
+[data-id="shr.chips"]::-webkit-scrollbar{display:none}
+.card-v{display:none}
+[data-state="participacao"] .v-participacao,[data-state="podio"] .v-podio,[data-state="conquista"] .v-conquista,[data-state="ranking"] .v-ranking,[data-state="convite"] .v-convite,[data-state="convite_fallback"] .v-convite{display:flex}
+.fb-only{display:none}
+[data-state="convite_fallback"] .fb-only{display:flex}
+[data-state="convite_fallback"] .nfb-only{display:none}
+.sc-card{position:relative;width:290px;height:362px;border-radius:16px;overflow:hidden;background:linear-gradient(160deg,var(--card-el),var(--bg) 62%);border:1px solid var(--line-strong);flex:none;align-self:center}
+.sc-deco1{position:absolute;right:-30px;top:-10px;width:120px;height:420px;background:var(--olive-soft);transform:skewX(-18deg)}
+.sc-deco2{position:absolute;right:50px;top:-10px;width:14px;height:420px;background:var(--red-soft);transform:skewX(-18deg)}
+.sc-in{position:absolute;inset:0;padding:14px 16px 12px;display:flex;flex-direction:column;justify-content:space-between}
+.sc-top{display:flex;align-items:center;justify-content:space-between}
+.sc-logo{display:flex;align-items:center;gap:6px;font:400 13px/14px var(--logo);letter-spacing:2.6px}
+.sc-mt{font:700 9px/10px var(--ui);letter-spacing:1px;color:var(--muted);text-transform:uppercase}
+.sc-foot{display:flex;flex-direction:column;gap:5px}
+.sc-motto{font:700 7.5px/9px var(--ui);letter-spacing:1.1px;color:var(--muted);text-transform:uppercase}
+.sc-cta{font:600 10px/12px var(--ui);color:var(--text)}
+.sc-chip{display:inline-flex;align-items:center;gap:4px;height:20px;padding:0 8px;border-radius:10px;background:var(--card-el);border:1px solid var(--line-strong);font:700 9.5px/10px var(--ui)}
+.sc-stat{flex:1;display:flex;flex-direction:column;gap:2px}
+.sc-stat span:first-child{font:600 8px/9px var(--ui);letter-spacing:.8px;color:var(--muted);text-transform:uppercase}
+.sc-stat .num{font-size:18px}
+.pdm{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px}
+.pdm .b{width:100%;border-radius:8px 8px 0 0;display:flex;align-items:center;justify-content:center;font:700 22px/22px var(--num)}
+.tg{flex:1;height:72px;border-radius:16px;background:var(--card);border:1px solid var(--line-strong);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font:600 12px/14px var(--ui);transition:transform .12s ease-out}
+.tg:active{transform:scale(.96)}
+@media (prefers-reduced-motion:reduce){.tg{transition:none}}
+
+</style>
+</head>
+<body>
+<main data-id="screen" data-viewport="393x851" data-state="participacao">
+  <header data-id="shr.topbar" class="topbar">
+    <button data-id="shr.topbar.close" class="btn-back" aria-label="Fechar"><svg data-id="shr.topbar.close.ic" data-icon="material:Close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <h1 data-id="shr.topbar.title" class="t1 grow">Compartilhar</h1>
+  </header>
+
+  <nav data-id="shr.chips" style="margin-top:6px" aria-label="Modelo do card" data-compose="ShareVariantChips">
+    <button data-id="shr.chips.participacao" class="chip chip-on" data-s="participacao">Participação</button>
+    <button data-id="shr.chips.podio" class="chip" data-s="podio">Pódio</button>
+    <button data-id="shr.chips.conquista" class="chip" data-s="conquista">Conquista</button>
+    <button data-id="shr.chips.ranking" class="chip" data-s="ranking">Ranking</button>
+    <button data-id="shr.chips.convite" class="chip" data-s="convite">Convite</button>
+    <button data-id="shr.chips.fallback" class="chip" data-s="convite_fallback">Convite sem app</button>
+  </nav>
+
+  <section data-id="shr.preview" class="col" style="margin-top:12px;flex:none" data-compose="ShareCardPreview (bitmap 1080x1350 em escala 0,2685)">
+    <!-- ===== PARTICIPAÇÃO ===== -->
+    <div data-id="shr.c1" class="sc-card card-v v-participacao"><div data-id="shr.c1.sc-deco1" class="sc-deco1"></div><div data-id="shr.c1.sc-deco2" class="sc-deco2"></div>
+      <div data-id="shr.c1.sc-in" class="sc-in">
+        <div data-id="shr.c1.sc-in.sc-top" class="sc-top"><div data-id="shr.c1.sc-in.sc-top.sc-logo" class="sc-logo"><svg data-id="shr.c1.mark" data-icon="drawable:ic_elite_blade" viewBox="0 0 64 64" width="20" height="20" aria-hidden="true"><path d="M19.1 8H55.1L53.2 17H27.2L20.8 47H46.8L44.9 56H8.9Z" style="fill:var(--olive)"/><path d="M25.1 27H45.1L43.1 36H23.1Z" style="fill:var(--red)"/></svg><span data-id="shr.c1.brand">ELITE</span></div><span data-id="shr.c1.mt" class="sc-mt">Missão 5K · 13:00</span></div>
+        <div data-id="shr.c1.sc-in.col" class="col" style="align-items:flex-start;gap:0">
+          <span data-id="shr.c1.eyebrow" class="eyebrow olive" style="font-size:10px">Missão cumprida</span>
+          <div data-id="shr.c1.sc-in.col.row" class="row" style="gap:8px;align-items:flex-end"><span data-id="shr.c1.place" class="num" style="font-size:104px;color:var(--brass);letter-spacing:1px">2º</span><span data-id="shr.c1.place-l" class="eyebrow" style="color:var(--brass);margin-bottom:14px">lugar</span></div>
+          <span data-id="shr.c1.name" class="t2" style="font-size:19px">Rafael Nunes</span>
+        </div>
+        <div data-id="shr.c1.sc-in.row" class="row" style="gap:8px"><div data-id="shr.c1.sc-in.row.sc-stat" class="sc-stat"><span data-id="shr.c1.sc-in.row.sc-stat.span">Tempo</span><span data-id="shr.c1.time" class="num">24:18</span></div><div data-id="shr.c1.sc-in.row.sc-stat2" class="sc-stat"><span data-id="shr.c1.sc-in.row.sc-stat2.span">Pace médio</span><span data-id="shr.c1.pace" class="num">4:52 /km</span></div><div data-id="shr.c1.sc-in.row.sc-stat3" class="sc-stat"><span data-id="shr.c1.sc-in.row.sc-stat3.span">Distância</span><span data-id="shr.c1.dist" class="num">5K</span></div></div>
+        <div data-id="shr.c1.sc-in.row2" class="row" style="gap:6px;flex-wrap:wrap"><span data-id="shr.c1.rg" class="sc-chip">Global #128</span><span data-id="shr.c1.re" class="sc-chip">MT #7</span><span data-id="shr.c1.lg" class="sc-chip" style="border-color:var(--brass-line);color:var(--brass)"><svg data-id="shr.c1.lg.badge" data-icon="custom:ic_league_ouro_2" viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-ouro)"/><path d="M7.8 10L12 13L16.2 10" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 14.5L12 17.5L16.2 14.5" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ouro II</span><span data-id="shr.c1.ac" class="sc-chip" style="color:var(--brass)"><svg data-id="shr.c1.ac.ic" data-icon="material:WorkspacePremium" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"/></svg>Pódio</span></div>
+        <div data-id="shr.c1.sc-in.sc-foot" class="sc-foot"><div data-id="shr.c1.sc-in.sc-foot.stripe" class="stripe" style="width:60px;height:3px"></div><span data-id="shr.c1.motto" class="sc-motto">Foco, Missão dada, Missão cumprida.</span><span data-id="shr.c1.cta" class="sc-cta">Baixe o Elite e entre na missão.</span></div>
+      </div>
+    </div>
+
+    <!-- ===== PÓDIO ===== -->
+    <div data-id="shr.c2" class="sc-card card-v v-podio"><div data-id="shr.c2.sc-deco1" class="sc-deco1"></div><div data-id="shr.c2.sc-deco2" class="sc-deco2"></div>
+      <div data-id="shr.c2.sc-in" class="sc-in">
+        <div data-id="shr.c2.sc-in.sc-top" class="sc-top"><div data-id="shr.c2.sc-in.sc-top.sc-logo" class="sc-logo"><svg data-id="shr.c2.mark" data-icon="drawable:ic_elite_blade" viewBox="0 0 64 64" width="20" height="20" aria-hidden="true"><path d="M19.1 8H55.1L53.2 17H27.2L20.8 47H46.8L44.9 56H8.9Z" style="fill:var(--olive)"/><path d="M25.1 27H45.1L43.1 36H23.1Z" style="fill:var(--red)"/></svg><span data-id="shr.c2.brand">ELITE</span></div><span data-id="shr.c2.mt" class="sc-mt">Missão 5K · 13:00</span></div>
+        <div data-id="shr.c2.sc-in.col" class="col" style="gap:2px"><span data-id="shr.c2.eyebrow" class="eyebrow olive" style="font-size:10px">Pódio da missão</span><span data-id="shr.c2.title" class="t1" style="font-size:34px;line-height:34px">Missão cumprida</span></div>
+        <div data-id="shr.c2.sc-in.row" class="row" style="gap:8px;align-items:flex-end;height:150px">
+          <div data-id="shr.c2.sc-in.row.pdm" class="pdm"><div data-id="shr.c2.p2.av" class="av av-me" style="width:38px;height:38px;background:var(--av1);font-size:14px">RN</div><span data-id="shr.c2.p2.name" class="t3" style="font-size:11px">Você</span><span data-id="shr.c2.p2.time" class="num" style="font-size:15px">24:18</span><div data-id="shr.c2.p2.b" class="b" style="height:46px;background:var(--card-el);color:var(--lg-prata)">2</div></div>
+          <div data-id="shr.c2.sc-in.row.pdm2" class="pdm"><span data-id="shr.c2.sc-in.row.pdm2.brass" class="brass"><svg data-id="shr.c2.p1.crown" data-icon="material:Stars" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8l4 4 5-7 5 7 4-4-2 12H5z"/></svg></span><div data-id="shr.c2.p1.av" class="av" style="width:44px;height:44px;background:var(--av2);font-size:16px">CD</div><span data-id="shr.c2.p1.name" class="t3" style="font-size:11px">Camila D.</span><span data-id="shr.c2.p1.time" class="num brass" style="font-size:16px">23:55</span><div data-id="shr.c2.p1.b" class="b" style="height:62px;background:var(--brass-soft);color:var(--brass)">1</div></div>
+          <div data-id="shr.c2.sc-in.row.pdm3" class="pdm"><div data-id="shr.c2.p3.av" class="av" style="width:38px;height:38px;background:var(--av3);font-size:14px">BT</div><span data-id="shr.c2.p3.name" class="t3" style="font-size:11px">Bruno T.</span><span data-id="shr.c2.p3.time" class="num" style="font-size:15px">26:02</span><div data-id="shr.c2.p3.b" class="b" style="height:34px;background:var(--card-el);color:var(--lg-bronze)">3</div></div>
+        </div>
+        <div data-id="shr.c2.sc-in.row2" class="row" style="gap:6px"><span data-id="shr.c2.rg" class="sc-chip">Global #128</span><span data-id="shr.c2.re" class="sc-chip">MT #7</span><span data-id="shr.c2.lg" class="sc-chip" style="border-color:var(--brass-line);color:var(--brass)"><svg data-id="shr.c2.lg.badge" data-icon="custom:ic_league_ouro_2" viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-ouro)"/><path d="M7.8 10L12 13L16.2 10" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 14.5L12 17.5L16.2 14.5" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ouro II</span></div>
+        <div data-id="shr.c2.sc-in.sc-foot" class="sc-foot"><div data-id="shr.c2.sc-in.sc-foot.stripe" class="stripe" style="width:60px;height:3px"></div><span data-id="shr.c2.motto" class="sc-motto">Foco, Missão dada, Missão cumprida.</span><span data-id="shr.c2.cta" class="sc-cta">Baixe o Elite e entre na missão.</span></div>
+      </div>
+    </div>
+
+    <!-- ===== CONQUISTA ===== -->
+    <div data-id="shr.c3" class="sc-card card-v v-conquista"><div data-id="shr.c3.sc-deco1" class="sc-deco1"></div><div data-id="shr.c3.sc-deco2" class="sc-deco2"></div>
+      <div data-id="shr.c3.sc-in" class="sc-in">
+        <div data-id="shr.c3.sc-in.sc-top" class="sc-top"><div data-id="shr.c3.sc-in.sc-top.sc-logo" class="sc-logo"><svg data-id="shr.c3.mark" data-icon="drawable:ic_elite_blade" viewBox="0 0 64 64" width="20" height="20" aria-hidden="true"><path d="M19.1 8H55.1L53.2 17H27.2L20.8 47H46.8L44.9 56H8.9Z" style="fill:var(--olive)"/><path d="M25.1 27H45.1L43.1 36H23.1Z" style="fill:var(--red)"/></svg><span data-id="shr.c3.brand">ELITE</span></div><span data-id="shr.c3.mt" class="sc-mt">Conquista global</span></div>
+        <div data-id="shr.c3.sc-in.col" class="col" style="align-items:center;gap:10px">
+          <div data-id="shr.c3.medal" class="ac-ic" style="width:92px;height:92px;border-radius:46px;background:var(--brass);color:var(--on-olive)"><svg data-id="shr.c3.medal.ic" data-icon="material:EmojiEvents" viewBox="0 0 24 24" width="46" height="46" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
+          <span data-id="shr.c3.eyebrow" class="eyebrow brass" style="font-size:10px">Conquista desbloqueada</span>
+          <span data-id="shr.c3.name" class="t1" style="font-size:40px;line-height:40px">Pódio</span>
+          <span data-id="shr.c3.desc" class="cap" style="text-align:center;font-size:11px">2º lugar na Missão 5K das 13:00</span>
+        </div>
+        <div data-id="shr.c3.sc-in.row" class="row" style="gap:6px;justify-content:center"><span data-id="shr.c3.who" class="sc-chip">Rafael Nunes</span><span data-id="shr.c3.lg" class="sc-chip" style="border-color:var(--brass-line);color:var(--brass)"><svg data-id="shr.c3.lg.badge" data-icon="custom:ic_league_ouro_2" viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-ouro)"/><path d="M7.8 10L12 13L16.2 10" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 14.5L12 17.5L16.2 14.5" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ouro II</span></div>
+        <div data-id="shr.c3.sc-in.sc-foot" class="sc-foot"><div data-id="shr.c3.sc-in.sc-foot.stripe" class="stripe" style="width:60px;height:3px"></div><span data-id="shr.c3.motto" class="sc-motto">Foco, Missão dada, Missão cumprida.</span><span data-id="shr.c3.cta" class="sc-cta">Baixe o Elite e entre na missão.</span></div>
+      </div>
+    </div>
+
+    <!-- ===== RANKING ===== -->
+    <div data-id="shr.c4" class="sc-card card-v v-ranking"><div data-id="shr.c4.sc-deco1" class="sc-deco1"></div><div data-id="shr.c4.sc-deco2" class="sc-deco2"></div>
+      <div data-id="shr.c4.sc-in" class="sc-in">
+        <div data-id="shr.c4.sc-in.sc-top" class="sc-top"><div data-id="shr.c4.sc-in.sc-top.sc-logo" class="sc-logo"><svg data-id="shr.c4.mark" data-icon="drawable:ic_elite_blade" viewBox="0 0 64 64" width="20" height="20" aria-hidden="true"><path d="M19.1 8H55.1L53.2 17H27.2L20.8 47H46.8L44.9 56H8.9Z" style="fill:var(--olive)"/><path d="M25.1 27H45.1L43.1 36H23.1Z" style="fill:var(--red)"/></svg><span data-id="shr.c4.brand">ELITE</span></div><span data-id="shr.c4.mt" class="sc-mt">Temporada 1</span></div>
+        <div data-id="shr.c4.sc-in.col" class="col" style="align-items:center;gap:8px">
+          <svg data-id="shr.c4.badge" data-icon="custom:ic_league_ouro_2" viewBox="0 0 24 24" width="104" height="104" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-ouro)"/><path d="M7.8 10L12 13L16.2 10" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 14.5L12 17.5L16.2 14.5" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span data-id="shr.c4.eyebrow" class="eyebrow" style="font-size:10px">Estou na</span>
+          <span data-id="shr.c4.league" class="t1" style="font-size:38px;line-height:38px;color:var(--brass)">Liga Ouro II</span>
+          <span data-id="shr.c4.pts" class="num" style="font-size:22px">1.542 pts</span>
+        </div>
+        <div data-id="shr.c4.sc-in.row" class="row" style="gap:8px"><div data-id="shr.c4.sc-in.row.sc-stat" class="sc-stat" style="align-items:center"><span data-id="shr.c4.sc-in.row.sc-stat.span">Global</span><span data-id="shr.c4.g" class="num">#128</span></div><div data-id="shr.c4.sc-in.row.sc-stat2" class="sc-stat" style="align-items:center"><span data-id="shr.c4.sc-in.row.sc-stat2.span">Estado MT</span><span data-id="shr.c4.e" class="num">#7</span></div><div data-id="shr.c4.sc-in.row.sc-stat3" class="sc-stat" style="align-items:center"><span data-id="shr.c4.sc-in.row.sc-stat3.span">Corredor</span><span data-id="shr.c4.n" class="t3" style="font-size:12px">Rafael N.</span></div></div>
+        <div data-id="shr.c4.sc-in.sc-foot" class="sc-foot"><div data-id="shr.c4.sc-in.sc-foot.stripe" class="stripe" style="width:60px;height:3px"></div><span data-id="shr.c4.motto" class="sc-motto">Foco, Missão dada, Missão cumprida.</span><span data-id="shr.c4.cta" class="sc-cta">Baixe o Elite e suba de liga.</span></div>
+      </div>
+    </div>
+
+    <!-- ===== CONVITE (+ fallback) ===== -->
+    <div data-id="shr.c5" class="sc-card card-v v-convite" style="border-color:var(--olive-dark)"><div data-id="shr.c5.sc-deco1" class="sc-deco1"></div><div data-id="shr.c5.sc-deco2" class="sc-deco2"></div>
+      <div data-id="shr.c5.sc-in" class="sc-in">
+        <div data-id="shr.c5.sc-in.sc-top" class="sc-top"><div data-id="shr.c5.sc-in.sc-top.sc-logo" class="sc-logo"><svg data-id="shr.c5.mark" data-icon="drawable:ic_elite_blade" viewBox="0 0 64 64" width="20" height="20" aria-hidden="true"><path d="M19.1 8H55.1L53.2 17H27.2L20.8 47H46.8L44.9 56H8.9Z" style="fill:var(--olive)"/><path d="M25.1 27H45.1L43.1 36H23.1Z" style="fill:var(--red)"/></svg><span data-id="shr.c5.brand">ELITE</span></div><span data-id="shr.c5.mt" class="sc-mt">Competição online</span></div>
+        <div data-id="shr.c5.sc-in.col" class="col" style="gap:4px">
+          <span data-id="shr.c5.head" class="t1" style="font-size:44px;line-height:42px">Missão precisa de você</span>
+          <div data-id="shr.c5.sc-in.col.row" class="row" style="gap:10px;margin-top:6px"><span data-id="shr.c5.meta" class="num olive" style="font-size:28px">5K · 13:00</span><span data-id="shr.c5.count" class="sc-chip" style="height:24px;font-size:12px">1/2 competidores</span></div>
+        </div>
+        <div data-id="shr.c5.sc-in.col2" class="col" style="gap:8px">
+          <div data-id="shr.c5.cta" class="btn btn-red nfb-only" style="height:40px;font-size:14px;border-radius:20px">Entrar agora</div>
+          <div data-id="shr.c5.cta-fb" class="btn btn-olive fb-only" style="height:40px;font-size:14px;border-radius:20px"><svg data-id="shr.c5.cta-fb.ic" data-icon="material:Download" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Baixar Elite</div>
+          <span data-id="shr.c5.text" class="cap nfb-only" style="font-size:11px;text-align:center;color:var(--text)">Clique no link e caia direto na missão.</span>
+          <span data-id="shr.c5.text-fb" class="cap fb-only" style="font-size:11px;text-align:center;color:var(--text)">Já tem o app? Abrir no Elite.</span>
+        </div>
+        <div data-id="shr.c5.sc-in.sc-foot" class="sc-foot"><div data-id="shr.c5.sc-in.sc-foot.stripe" class="stripe" style="width:60px;height:3px"></div><span data-id="shr.c5.motto" class="sc-motto">Foco, Missão dada, Missão cumprida.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-id="shr.targets" class="row" style="gap:10px;margin-top:12px;flex:none" data-compose="ShareTargets">
+    <button data-id="shr.targets.stories" class="tg"><svg data-id="shr.targets.stories.ic" data-icon="material:PhotoCamera" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>Instagram</button>
+    <button data-id="shr.targets.msg" class="tg"><svg data-id="shr.targets.msg.ic" data-icon="material:Link" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>WhatsApp</button>
+    <button data-id="shr.targets.more" class="tg"><svg data-id="shr.targets.more.ic" data-icon="material:MoreHoriz" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/></svg>Mais</button>
+  </section>
+
+  <div class="grow" data-id="shr.spacer"></div>
+  <footer data-id="shr.dock" class="dock" style="padding-top:12px" data-compose="BottomActionBar">
+    <div data-id="shr.dock.row" class="row" style="gap:10px">
+      <button data-id="shr.dock.save" class="btn btn-ghost btn-icon" style="height:52px" aria-label="Salvar imagem"><svg data-id="shr.dock.save.ic" data-icon="material:Download" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></button>
+      <button data-id="shr.dock.share" class="btn btn-olive grow" style="height:52px"><svg data-id="shr.dock.share.ic" data-icon="material:Share" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5l6.8-4M8.6 13.5l6.8 4"/></svg>Compartilhar card</button>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    var root=document.querySelector('[data-id="screen"]'),chips=document.querySelectorAll('[data-id="shr.chips"] button');
+    function set(n){root.setAttribute('data-state',n);chips.forEach(function(c){c.classList.toggle('chip-on',c.getAttribute('data-s')===n)});}
+    chips.forEach(function(c){c.addEventListener('click',function(){set(c.getAttribute('data-s'))})});
+    window.__setState=set;
+  })();
+  </script>
+</main>
+
+</body>
+</html>

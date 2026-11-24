@@ -1,0 +1,8 @@
+appId: com.elite.sch.app
+---
+- tapOn:
+    text: "Não mostrar de novo"
+- takeScreenshot: "01_after_gps_dismiss"
+- tapOn:
+    id: "screen_profile"
+- takeScreenshot: "02_profile_screen"

@@ -1,0 +1,117 @@
+appId: com.elite.sch.app
+---
+# Real-time map feature validation
+# 1. Launch app, complete onboarding, start a free run
+# 2. Verify map appears with blue dot and route polyline
+# 3. Toggle camera mode
+# 4. Expand/collapse map
+# 5. Finish run
+# 6. Verify profile map preferences persist
+
+- launchApp:
+    clearState: false
+- extendedWaitUntil:
+    visible: "Começar"
+    timeout: 10000
+- inputText: "TestUser"
+- tapOn: "Começar"
+- extendedWaitUntil:
+    visible: "Escolha seu plano"
+    timeout: 10000
+- tapOn: "Corrida livre"
+- extendedWaitUntil:
+    visible: "Começar treino"
+    timeout: 10000
+- tapOn: "Fechar"
+- extendedWaitUntil:
+    visible: "Pausar"
+    timeout: 15000
+- takeScreenshot: "./map_active_run.png"
+
+# Verify map is visible
+- assertVisible:
+    id: "map_view_realtime"
+
+# Test camera mode toggle
+- tapOn:
+    id: "btn_map_camera_mode"
+- extendedWaitUntil:
+    visible: "Rota completa"
+    timeout: 3000
+- takeScreenshot: "./map_camera_mode_toggled.png"
+
+# Test expand/collapse map
+- tapOn:
+    id: "btn_toggle_map_expand"
+- extendedWaitUntil:
+    visible: "Expandir mapa"
+    timeout: 3000
+- takeScreenshot: "./map_collapsed.png"
+
+- tapOn:
+    id: "btn_toggle_map_expand"
+- takeScreenshot: "./map_expanded.png"
+
+# Finish run
+- longPressOn:
+    id: "btn_finish_run_hold"
+- extendedWaitUntil:
+    visible: "Encerrar e Salvar"
+    timeout: 5000
+- tapOn: "Encerrar e Salvar"
+- extendedWaitUntil:
+    visible: "Resumo"
+    timeout: 10000
+- takeScreenshot: "./workout_summary.png"
+
+# Navigate to Profile -> Map preferences
+- pressKey: "Back"
+- extendedWaitUntil:
+    visible: "Hoje"
+    timeout: 5000
+- tapOn: "Perfil"
+- extendedWaitUntil:
+    visible: "Mapa em Tempo Real"
+    timeout: 5000
+- takeScreenshot: "./profile_map_prefs.png"
+
+# Verify map preferences exist
+- assertVisible:
+    id: "switch_show_map"
+- assertVisible:
+    id: "card_camera_follow"
+- assertVisible:
+    id: "card_camera_bearing"
+- assertVisible:
+    id: "card_camera_route"
+
+# Toggle show map off
+- tapOn:
+    id: "switch_show_map"
+- extendedWaitUntil:
+    notVisible:
+      id: "card_camera_follow"
+    timeout: 3000
+- takeScreenshot: "./profile_map_prefs_toggled.png"
+
+# Toggle back on
+- tapOn:
+    id: "switch_show_map"
+- extendedWaitUntil:
+    visible:
+      id: "card_camera_follow"
+    timeout: 3000
+
+# Restart app and verify persistence
+- launchApp:
+    clearState: false
+- extendedWaitUntil:
+    visible: "Hoje"
+    timeout: 5000
+- tapOn: "Perfil"
+- extendedWaitUntil:
+    visible: "Mapa em Tempo Real"
+    timeout: 5000
+- assertVisible:
+    id: "switch_show_map"
+- takeScreenshot: "./profile_map_prefs_after_restart.png"

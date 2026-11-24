@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elite - Conquistas</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --page:#050604;
+  --bg:#0a0b09; --surface:#10120d; --card:#161911; --card-el:#1d2116; --field:#0d0f0a;
+  --line:rgba(236,232,218,.10); --line-strong:rgba(236,232,218,.18);
+  --text:#ece8da; --muted:#8f9384; --dim:#5e6255;
+  --olive:#a3b565; --olive-dark:#5d6b34; --olive-soft:rgba(163,181,101,.14); --on-olive:#0e1306;
+  --red:#d12b2b; --red-soft:rgba(209,43,43,.15); --on-red:#fff4f0;
+  --brass:#c9a24b; --brass-soft:rgba(201,162,75,.16); --amber:#e0a93a; --amber-soft:rgba(224,169,58,.14); --ok:#7fb069; --ok-soft:rgba(127,176,105,.15); --amber-line:rgba(224,169,58,.45); --red-line:rgba(209,43,43,.5); --ok-line:rgba(127,176,105,.45); --brass-line:rgba(201,162,75,.5);
+  --glass:rgba(16,18,13,.82); --glass-bar:rgba(16,18,13,.90); --scrim:rgba(0,0,0,.62);
+  --lg-bronze:#b07a4a; --lg-prata:#b4bab8; --lg-ouro:#c9a24b; --lg-platina:#86bdb3; --lg-diamante:#7fb4de; --lg-elite:#e7e2d0;
+  --av1:#3b4426; --av2:#4a3f1e; --av3:#2e3b3a; --av4:#46301f; --av5:#3a2e3f;
+  --num:"Barlow Condensed","Arial Narrow",sans-serif; --ui:"Inter",sans-serif; --logo:"Saira Stencil One","Impact",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--page);font-family:var(--ui);color:var(--text);display:flex;justify-content:center;padding:0;-webkit-font-smoothing:antialiased}
+button{font-family:var(--ui);color:inherit;background:none;border:0;cursor:pointer}
+[data-id="screen"]{flex:none;position:relative;width:393px;height:851px;overflow:hidden;background:var(--bg);display:flex;flex-direction:column;padding:28px 16px 0}
+svg{display:block;flex:none}
+
+/* ---- tipografia ---- */
+.t1{font:700 30px/32px var(--num);text-transform:uppercase;letter-spacing:.9px}
+.t1s{font:700 24px/26px var(--num);text-transform:uppercase;letter-spacing:.96px}
+.t2{font:600 20px/23px var(--num);text-transform:uppercase;letter-spacing:.8px}
+.t3{font:600 16px/20px var(--ui)}
+.body{font:400 14px/19.6px var(--ui)}
+.cap{font:400 12px/16px var(--ui);color:var(--muted)}
+.eyebrow{font:600 11px/14px var(--ui);text-transform:uppercase;letter-spacing:1.3px;color:var(--muted)}
+.num{font-family:var(--num);font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+.olive{color:var(--olive)} .red{color:var(--red)} .brass{color:var(--brass)} .ok{color:var(--ok)} .amber{color:var(--amber)} .muted{color:var(--muted)}
+.row{display:flex;align-items:center}
+.col{display:flex;flex-direction:column}
+.grow{flex:1;min-width:0}
+.ell{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ---- cartões ---- */
+.card{background:var(--card);border:1px solid var(--line-strong);border-radius:18px}
+.card-sel{border-color:var(--olive);background:linear-gradient(180deg,var(--olive-soft),var(--card))}
+.card-brass{border-color:var(--brass);background:linear-gradient(180deg,var(--brass-soft),var(--card))}
+.card-dash{background:transparent;border:1px dashed var(--line-strong);border-radius:18px}
+
+/* ---- botões ---- */
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 18px;border-radius:24px;font:700 15px/20px var(--ui);transition:transform .12s ease-out;flex:none}
+.btn:active{transform:scale(.96)}
+.btn-lg{height:56px;border-radius:28px;font-size:16px}
+.btn-red{background:var(--red);color:var(--on-red)}
+.btn-olive{background:var(--olive);color:var(--on-olive)}
+.btn-ghost{background:transparent;border:1px solid var(--line-strong);color:var(--text)}
+.btn-share{background:var(--olive-soft);border:1px solid var(--olive-dark);color:var(--olive)}
+.btn-off{background:var(--card-el);color:var(--dim);border:1px solid var(--line)}
+.btn-icon{width:48px;padding:0;flex:none}
+.btn-back{width:40px;height:40px;border-radius:20px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex:none;transition:transform .12s ease-out}
+.btn-back:active{transform:scale(.92)}
+
+/* ---- badges / chips ---- */
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font:700 10.5px/12px var(--ui);text-transform:uppercase;letter-spacing:.6px;flex:none;white-space:nowrap}
+.b-open{background:var(--olive-soft);color:var(--olive)}
+.b-one{background:var(--amber-soft);color:var(--amber)}
+.b-conf{background:var(--ok);color:var(--on-olive)}
+.b-live{background:var(--red-soft);color:var(--red)}
+.b-done{background:var(--card-el);color:var(--muted)}
+.b-none{background:transparent;border:1px solid var(--line-strong);color:var(--muted)}
+.b-brass{background:var(--brass-soft);color:var(--brass)}
+.dot{width:7px;height:7px;border-radius:4px;background:currentColor;flex:none}
+.chip{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:15px;background:var(--card-el);border:1px solid var(--line);font:600 12px/16px var(--ui);flex:none;white-space:nowrap}
+.chip-on{background:var(--olive-soft);border-color:var(--olive-dark);color:var(--olive)}
+.dist{display:inline-flex;align-items:center;justify-content:center;height:24px;padding:0 9px;border-radius:7px;background:var(--card-el);border:1px solid var(--line-strong);font:700 14px/16px var(--num);letter-spacing:.5px}
+
+/* ---- segmentado ---- */
+.seg{display:flex;gap:4px;padding:4px;background:var(--field);border:1px solid var(--line);border-radius:24px;height:48px}
+.seg>button{flex:1;border-radius:20px;font:700 20px/20px var(--num);color:var(--muted);letter-spacing:.5px;transition:background .18s ease-out,color .18s ease-out}
+.seg>button.on{background:var(--olive-soft);color:var(--olive);box-shadow:inset 0 0 0 1px var(--olive-dark)}
+.seg-sm{height:40px;border-radius:20px}
+.seg-sm>button{font:600 13px/16px var(--ui)}
+.tabs{display:flex;gap:20px;height:32px;border-bottom:1px solid var(--line)}
+.tabs>button{font:600 13px/16px var(--ui);color:var(--muted);padding:0 2px 10px;border-bottom:2px solid transparent}
+.tabs>button.on{color:var(--olive);border-bottom-color:var(--olive)}
+
+/* ---- avatares ---- */
+.av{border-radius:50%;display:flex;align-items:center;justify-content:center;font:700 14px/14px var(--num);letter-spacing:.5px;border:1.5px solid var(--line-strong);flex:none;color:var(--text)}
+.av-me{border-color:var(--olive);box-shadow:0 0 0 2px var(--olive-soft)}
+.av-empty{background:transparent;border:1.5px dashed var(--line-strong);color:var(--dim)}
+.stack{display:flex}
+.stack>*+*{margin-left:-8px}
+
+/* ---- barras ---- */
+.bar{height:6px;border-radius:3px;background:var(--card-el);overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:3px;background:var(--olive)}
+.bar-brass>i{background:var(--brass)}
+.hr{height:1px;background:var(--line);flex:none}
+
+.sc-ic{width:32px;height:32px;border-radius:16px;background:var(--brass-soft);color:var(--brass);display:flex;align-items:center;justify-content:center;flex:none}
+
+/* ---- topbar ---- */
+.topbar{display:flex;align-items:center;gap:12px;height:48px;flex:none}
+.logo{display:flex;align-items:center;gap:8px}
+.logo-t{font:400 17px/20px var(--logo);letter-spacing:3.4px}
+
+/* ---- barra inferior fixa ---- */
+.dock{flex:none;margin:0 -16px;padding:14px 16px 18px;background:var(--glass-bar);border-top:1px solid var(--line-strong);border-radius:26px 26px 0 0}
+
+/* ---- cartão de missão ---- */
+.m{display:flex;flex-direction:column;padding:14px;flex:none}
+.m-time{font:700 36px/36px var(--num);font-variant-numeric:tabular-nums;letter-spacing:.5px}
+.m-compact{padding:12px 14px}
+
+/* ---- linha de ranking ---- */
+.rk{display:flex;align-items:center;gap:10px;height:56px;padding:0 12px;border-radius:14px;flex:none}
+.rk-me{background:var(--olive-soft);box-shadow:inset 0 0 0 1px var(--olive-dark)}
+.rk-pos{width:30px;text-align:center;font:700 20px/20px var(--num);font-variant-numeric:tabular-nums;color:var(--muted)}
+.rk-elo{font:700 18px/18px var(--num);font-variant-numeric:tabular-nums;text-align:right}
+.trend{display:flex;align-items:center;justify-content:flex-end;gap:2px;font:600 11px/12px var(--ui);width:36px}
+.t-up{color:var(--ok)} .t-down{color:var(--red)} .t-eq{color:var(--dim)}
+
+/* ---- banners ---- */
+.banner{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;border:1px solid var(--line-strong);background:var(--card);flex:none}
+.banner-ico{width:36px;height:36px;border-radius:18px;display:flex;align-items:center;justify-content:center;flex:none}
+.bn-amber{border-color:var(--amber-line);background:linear-gradient(90deg,var(--amber-soft),var(--card))} .bn-amber .banner-ico{background:var(--amber-soft);color:var(--amber)}
+.bn-red{border-color:var(--red-line);background:linear-gradient(90deg,var(--red-soft),var(--card))} .bn-red .banner-ico{background:var(--red-soft);color:var(--red)}
+.bn-ok{border-color:var(--ok-line);background:linear-gradient(90deg,var(--ok-soft),var(--card))} .bn-ok .banner-ico{background:var(--ok-soft);color:var(--ok)}
+.bn-olive{border-color:var(--olive-dark);background:linear-gradient(90deg,var(--olive-soft),var(--card))} .bn-olive .banner-ico{background:var(--olive-soft);color:var(--olive)}
+.bn-brass{border-color:var(--brass-line);background:linear-gradient(90deg,var(--brass-soft),var(--card))} .bn-brass .banner-ico{background:var(--brass-soft);color:var(--brass)}
+.bn-mute .banner-ico{background:var(--card-el);color:var(--muted)}
+
+@media (prefers-reduced-motion:reduce){
+  .btn,.btn-back,.seg>button{transition:none}
+}
+
+/* ---- mini card de convite (miniatura do card compartilhável) ---- */
+.mini{display:flex;flex-direction:column;justify-content:space-between;padding:12px;border-radius:14px;background:linear-gradient(160deg,var(--card-el),var(--bg));border:1px solid var(--olive-dark)}
+.stripe{height:4px;width:100%;background:var(--red);border-radius:2px;transform:skewX(-20deg)}
+
+.invite{padding:14px;background:linear-gradient(135deg,var(--olive-soft),var(--card) 70%);border:1px solid var(--olive-dark);border-radius:18px;display:flex;flex-direction:column;gap:10px;flex:none}
+
+.kv{flex:1;display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.kv .num{font-size:28px}
+
+.num{white-space:nowrap}
+.sc-chip{white-space:nowrap}
+
+[data-id="ach.scroll"]{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;display:flex;flex-direction:column;gap:10px;padding-bottom:12px}
+[data-id="ach.scroll"]::-webkit-scrollbar{display:none}
+.ac{display:flex;flex-direction:column;gap:10px;padding:12px 14px;border-radius:18px;background:var(--card);border:1px solid var(--line-strong);flex:none}
+.ac-ic{width:44px;height:44px;border-radius:22px;display:flex;align-items:center;justify-content:center;flex:none;background:var(--card-el);color:var(--dim)}
+.ac.st-un{border-color:var(--brass-line)} .ac.st-un .ac-ic{background:var(--brass-soft);color:var(--brass)}
+.ac.st-pr .ac-ic{background:var(--olive-soft);color:var(--olive)}
+.ac.st-lk .t3{color:var(--muted)}
+.scope{display:inline-flex;align-items:center;height:18px;padding:0 7px;border-radius:9px;font:700 9.5px/10px var(--ui);letter-spacing:.6px;text-transform:uppercase;background:var(--card-el);color:var(--muted)}
+.scope.loc{background:var(--olive-soft);color:var(--olive)}
+.hl{position:relative;padding:14px;border-radius:18px;border:1px solid var(--brass);background:linear-gradient(135deg,var(--brass-soft),var(--card) 75%);flex:none;display:flex;flex-direction:column;gap:12px}
+.l-only{display:none}
+[data-state="locais"] .l-only{display:flex}
+[data-state="locais"] .g-only{display:none}
+.g-only{display:flex}
+.hl-glow{position:absolute;inset:0;border-radius:18px;border:1px solid var(--brass);animation:hl-glow 2.4s ease-in-out infinite}
+@keyframes hl-glow{0%,100%{opacity:0}50%{opacity:.7}}
+@media (prefers-reduced-motion:reduce){.hl-glow{animation:none}}
+
+</style>
+</head>
+<body>
+<main data-id="screen" data-viewport="393x851" data-state="padrao">
+  <header data-id="ach.topbar" class="topbar">
+    <button data-id="ach.topbar.back" class="btn-back" aria-label="Voltar"><svg data-id="ach.topbar.back.ic" data-icon="material:ArrowBack" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <h1 data-id="ach.topbar.title" class="t1 grow">Conquistas</h1>
+    <button data-id="ach.topbar.ranking" class="chip" style="height:36px;padding:0 12px 0 8px;background:var(--brass-soft);border-color:var(--brass-line);color:var(--brass)" aria-label="Abrir ranking"><svg data-id="ach.topbar.ranking.badge" data-icon="custom:ic_league_ouro_2" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 2L21 5V11C21 16.5 17 20.5 12 22C7 20.5 3 16.5 3 11V5Z" style="fill:var(--lg-ouro)"/><path d="M7.8 10L12 13L16.2 10" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 14.5L12 17.5L16.2 14.5" fill="none" style="stroke:var(--bg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ranking</button>
+  </header>
+
+  <section data-id="ach.summary" class="card row" style="gap:14px;padding:12px 14px;margin-top:8px;flex:none" data-compose="AchievementsSummary">
+    <div data-id="ach.summary.col" class="col" style="gap:2px"><span data-id="ach.summary.count" class="num brass" style="font-size:34px" data-bind="achv.unlocked">7<span data-id="ach.summary.count.muted" class="muted" style="font-size:20px"> / 24</span></span><span data-id="ach.summary.label" class="eyebrow" style="font-size:10px">Desbloqueadas</span></div>
+    <div data-id="ach.summary.col2" class="col grow" style="gap:6px"><div class="bar bar-brass" data-id="ach.summary.bar" style="height:8px;border-radius:4px"><i data-id="ach.summary.fill" style="width:29%"></i></div><span data-id="ach.summary.hint" class="cap">Conquistas globais e do seu estado (MT).</span></div>
+  </section>
+
+  <nav data-id="ach.tabs" class="seg seg-sm" style="margin-top:10px;flex:none" aria-label="Escopo">
+    <button data-id="ach.tabs.g" class="on">Globais</button><button data-id="ach.tabs.l">Locais / Estado</button>
+  </nav>
+
+  <div data-id="ach.scroll" style="margin-top:10px" data-compose="LazyColumn">
+    <section data-id="ach.new" class="hl g-only" data-compose="NewAchievementHighlight">
+      <div data-id="ach.new.glow" class="hl-glow"></div>
+      <div data-id="ach.new.row" class="row" style="gap:14px">
+        <div data-id="ach.new.icon" class="ac-ic" style="width:56px;height:56px;border-radius:28px;background:var(--brass);color:var(--on-olive)"><svg data-id="ach.new.icon.ic" data-icon="material:EmojiEvents" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
+        <div data-id="ach.new.row.col" class="col grow" style="gap:3px"><span data-id="ach.new.badge" class="badge b-brass" style="align-self:flex-start;height:20px">Nova conquista</span><h2 data-id="ach.new.name" class="t2">Pódio</h2><span data-id="ach.new.desc" class="cap">Você terminou em 2º na Missão 5K das 13:00.</span></div>
+      </div>
+      <button data-id="ach.new.share" class="btn btn-share" style="height:44px"><svg data-id="ach.new.share.ic" data-icon="material:Share" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5l6.8-4M8.6 13.5l6.8 4"/></svg>Compartilhar conquista</button>
+    </section>
+    <div data-id="ach.glist" class="col g-only" style="gap:10px;flex:none">
+<article data-id="ach.g1" class="ac st-un" data-compose="AchievementCard">
+<div data-id="ach.g1.row" class="row" style="gap:12px;align-items:flex-start"><div data-id="ach.g1.row.ac-ic" class="ac-ic"><svg data-id="ach.g1.ic" data-icon="material:WorkspacePremium" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"/></svg></div><div data-id="ach.g1.row.col" class="col grow" style="gap:3px"><div data-id="ach.g1.row.col.row" class="row" style="gap:8px;justify-content:space-between"><span data-id="ach.g1.name" class="t3" style="font-size:15px">Primeira missão cumprida</span><span data-id="ach.g1.row.col.row.scope" class="scope">Global</span></div><span data-id="ach.g1.desc" class="cap">Conclua sua primeira missão.</span></div></div>
+<div data-id="ach.g1.row2" class="row" style="justify-content:space-between;gap:10px"><span data-id="ach.g1.status" class="badge b-brass" style="height:20px">Desbloqueada</span><div data-id="ach.g1.row2.grow" class="grow"></div></div></article>
+<article data-id="ach.g2" class="ac st-lk" data-compose="AchievementCard">
+<div data-id="ach.g2.row" class="row" style="gap:12px;align-items:flex-start"><div data-id="ach.g2.row.ac-ic" class="ac-ic"><svg data-id="ach.g2.ic" data-icon="material:Lock" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div data-id="ach.g2.row.col" class="col grow" style="gap:3px"><div data-id="ach.g2.row.col.row" class="row" style="gap:8px;justify-content:space-between"><span data-id="ach.g2.name" class="t3" style="font-size:15px">Primeira vitória</span><span data-id="ach.g2.row.col.row.scope" class="scope">Global</span></div><span data-id="ach.g2.desc" class="cap">Seja o primeiro a concluir uma missão.</span></div></div>
+<div data-id="ach.g2.row2" class="row" style="justify-content:space-between;gap:10px"><span data-id="ach.g2.status" class="badge b-none" style="height:20px">Bloqueada</span><div data-id="ach.g2.row2.grow" class="grow"><div data-id="ach.g2.row2.grow.row" class="row" style="gap:6px"><span data-id="ach.g2.row2.grow.row.cap" class="cap">Progresso</span><span data-id="ach.g2.prog" class="num" style="font-size:16px">0/1</span></div></div></div></article>
+<article data-id="ach.g3" class="ac st-pr" data-compose="AchievementCard">
+<div data-id="ach.g3.row" class="row" style="gap:12px;align-items:flex-start"><div data-id="ach.g3.row.ac-ic" class="ac-ic"><svg data-id="ach.g3.ic" data-icon="material:LocalFireDepartment" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2c1 4 6 6 6 12a6 6 0 0 1-12 0c0-3 2-4 3-7 1 1 2 2 2 3 1-2 1-5 1-8z"/></svg></div><div data-id="ach.g3.row.col" class="col grow" style="gap:3px"><div data-id="ach.g3.row.col.row" class="row" style="gap:8px;justify-content:space-between"><span data-id="ach.g3.name" class="t3" style="font-size:15px">Sequência de missões</span><span data-id="ach.g3.row.col.row.scope" class="scope">Global</span></div><span data-id="ach.g3.desc" class="cap">Cumpra 5 missões seguidas.</span></div></div>
+<div data-id="ach.g3.row2" class="row" style="justify-content:space-between;gap:10px"><span data-id="ach.g3.status" class="badge b-open" style="height:20px">Em progresso</span><div data-id="ach.g3.row2.grow" class="grow"><div data-id="ach.g3.row2.grow.row" class="row" style="gap:10px"><div class="bar grow" data-id="ach.g3.bar" style="height:6px"><i data-id="ach.g3.fill" style="width:60%"></i></div><span data-id="ach.g3.prog" class="num olive" style="font-size:16px">3/5</span></div></div></div></article>
+<article data-id="ach.g4" class="ac st-pr" data-compose="AchievementCard">
+<div data-id="ach.g4.row" class="row" style="gap:12px;align-items:flex-start"><div data-id="ach.g4.row.ac-ic" class="ac-ic"><svg data-id="ach.g4.ic" data-icon="material:DirectionsRun" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="4.5" r="2"/><path d="M4 21l4-6 3 2 3-5-3-3-4 1M14 9.5l3 3 4 1M11 17l2 4"/></svg></div><div data-id="ach.g4.row.col" class="col grow" style="gap:3px"><div data-id="ach.g4.row.col.row" class="row" style="gap:8px;justify-content:space-between"><span data-id="ach.g4.name" class="t3" style="font-size:15px">Participação completa</span><span data-id="ach.g4.row.col.row.scope" class="scope">Global</span></div><span data-id="ach.g4.desc" class="cap">Participe de missões 2,5K, 5K e 10K.</span></div></div>
+<div data-id="ach.g4.row2" class="row" style="justify-content:space-between;gap:10px"><span data-id="ach.g4.status" class="badge b-open" style="height:20px">Em progresso</span><div data-id="ach.g4.row2.grow" class="grow"><div data-id="ach.g4.row2.grow.row" class="row" style="gap:10px"><div class="bar grow" data-id="ach.g4.bar" style="height:6px"><i data-id="ach.g4.fill" style="width:66%"></i></div><span data-id="ach.g4.prog" class="num olive" style="font-size:16px">2/3</span></div></div></div></article>
+<article data-id="ach.g5" class="ac st-pr" data-compose="AchievementCard">
+<div data-id="ach.g5.row" class="row" style="gap:12px;align-items:flex-start"><div data-id="ach.g5.row.ac-ic" class="ac-ic"><svg data-id="ach.g5.ic" data-icon="material:Bolt" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div data-id="ach.g5.row.col" class="col grow" style="gap:3px"><div data-id="ach.g5.row.col.row" class="row" style="gap:8px;justify-content:space-between"><span data-id="ach.g5.name" class="t3" style="font-size:15px">Melhor pace</span><span data-id="ach.g5.row.col.row.scope" class="scope">Global</span></div><span data-id="ach.g5.desc" class="cap">Supere seu melhor pace em uma missão.</span></div></div>
+<div data-id="ach.g5.row2" class="row" style="justify-content:space-between;gap:10px"><span data-id="ach.g5.status" class="badge b-open" style="height:20px">Em progresso</span><div data-id="ach.g5.row2.grow" class="grow"></div></div></article>
+<article data-id="ach.g6" class="ac st-pr" data-compose="AchievementCard">
+<div data-id="ach.g6.row" class="row" style="gap:12px;align-items:flex-start"><div data-id="ach.g6.row.ac-ic" class="ac-ic"><svg data-id="ach.g6.ic" data-icon="material:Link" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div data-id="ach.g6.row.col" class="col grow" style="gap:3px"><div data-id="ach.g6.row.col.row" class="row" style="gap:8px;justify-content:space-between"><span data-id="ach.g6.name" class="t3" style="font-size:15px">Convites aceitos</span><span data-id="ach.g6.row.col.row.scope" class="scope">Global</span></div><span data-id="ach.g6.desc" class="cap">Traga 3 competidores pelo seu convite.</span></div></div>
+<div data-id="ach.g6.row2" class="row" style="justify-content:space-between;gap:10px"><span data-id="ach.g6.status" class="badge b-open" style="height:20px">Em progresso</span><div data-id="ach.g6.row2.grow" class="grow"><div data-id="ach.g6.row2.grow.row" class="row" style="gap:10px"><div class="bar grow" data-id="ach.g6.bar" style="height:6px"><i data-id="ach.g6.fill" style="width:33%"></i></div><span data-id="ach.g6.prog" class="num olive" style="font-size:16px">1/3</span></div></div></div></article>
+<article data-id="ach.g7" class="ac st-lk" data-compose="AchievementCard">
+<div data-id="ach.g7.row" class="row" style="gap:12px;align-items:flex-start"><div data-id="ach.g7.row.ac-ic" class="ac-ic"><svg data-id="ach.g7.ic" data-icon="material:Lock" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div data-id="ach.g7.row.col" class="col grow" style="gap:3px"><div data-id="ach.g7.row.col.row" class="row" style="gap:8px;justify-content:space-between"><span data-id="ach.g7.name" class="t3" style="font-size:15px">Top 10 global</span><span data-id="ach.g7.row.col.row.scope" class="scope">Global</span></div><span data-id="ach.g7.desc" class="cap">Entre no top 10 do ranking global.</span></div></div>
+<div data-id="ach.g7.row2" class="row" style="justify-content:space-between;gap:10px"><span data-id="ach.g7.status" class="badge b-none" style="height:20px">Bloqueada</span><div data-id="ach.g7.row2.grow" class="grow"><div data-id="ach.g7.row2.grow.row" class="row" style="gap:6px"><span data-id="ach.g7.row2.grow.row.cap" class="cap">Posição atual</span><span data-id="ach.g7.prog" class="num" style="font-size:16px">#128</span></div></div></div></article>
+<article data-id="ach.g8" class="ac st-un" data-compose="AchievementCard">
+<div data-id="ach.g8.row" class="row" style="gap:12px;align-items:flex-start"><div data-id="ach.g8.row.ac-ic" class="ac-ic"><svg data-id="ach.g8.ic" data-icon="material:BarChart" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div><div data-id="ach.g8.row.col" class="col grow" style="gap:3px"><div data-id="ach.g8.row.col.row" class="row" style="gap:8px;justify-content:space-between"><span data-id="ach.g8.name" class="t3" style="font-size:15px">Subir de liga</span><span data-id="ach.g8.row.col.row.scope" class="scope">Global</span></div><span data-id="ach.g8.desc" class="cap">Suba de liga na temporada.</span></div></div>
+<div data-id="ach.g8.row2" class="row" style="justify-content:space-between;gap:10px"><span data-id="ach.g8.status" class="badge b-brass" style="height:20px">Desbloqueada</span><div data-id="ach.g8.row2.grow" class="grow"></div></div></article>
+<article data-id="ach.g9" class="ac st-lk" data-compose="AchievementCard">
+<div data-id="ach.g9.row" class="row" style="gap:12px;align-items:flex-start"><div data-id="ach.g9.row.ac-ic" class="ac-ic"><svg data-id="ach.g9.ic" data-icon="material:Lock" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div data-id="ach.g9.row.col" class="col grow" style="gap:3px"><div data-id="ach.g9.row.col.row" class="row" style="gap:8px;justify-content:space-between"><span data-id="ach.g9.name" class="t3" style="font-size:15px">Elite da temporada</span><span data-id="ach.g9.row.col.row.scope" class="scope">Global</span></div><span data-id="ach.g9.desc" class="cap">Termine a temporada em divisão de elite.</span></div></div>
+<div data-id="ach.g9.row2" class="row" style="justify-content:space-between;gap:10px"><span data-id="ach.g9.status" class="badge b-none" style="height:20px">Bloqueada</span><div data-id="ach.g9.row2.grow" class="grow"><div data-id="ach.g9.row2.grow.row" class="row" style="gap:6px"><span data-id="ach.g9.row2.grow.row.cap" class="cap">Liga atual</span><span data-id="ach.g9.prog" class="num" style="font-size:16px">Ouro II</span></div></div></div></article>
+    </div>
+    <div data-id="ach.llist" class="col l-only" style="gap:10px;flex:none">
+<article data-id="ach.l1" class="ac st-un" data-compose="AchievementCard">
+<div data-id="ach.l1.row" class="row" style="gap:12px;align-items:flex-start"><div data-id="ach.l1.row.ac-ic" class="ac-ic"><svg data-id="ach.l1.ic" data-icon="material:Place" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div data-id="ach.l1.row.col" class="col grow" style="gap:3px"><div data-id="ach.l1.row.col.row" class="row" style="gap:8px;justify-content:space-between"><span data-id="ach.l1.name" class="t3" style="font-size:15px">Top 10 do estado</span><span data-id="ach.l1.row.col.row.scope" class="scope loc">Local</span></div><span data-id="ach.l1.desc" class="cap">Entre no top 10 do ranking do seu estado.</span></div></div>
+<div data-id="ach.l1.row2" class="row" style="justify-content:space-between;gap:10px"><span data-id="ach.l1.status" class="badge b-brass" style="height:20px">Desbloqueada</span><div data-id="ach.l1.row2.grow" class="grow"></div></div></article>
+<article data-id="ach.l2" class="ac st-pr" data-compose="AchievementCard">
+<div data-id="ach.l2.row" class="row" style="gap:12px;align-items:flex-start"><div data-id="ach.l2.row.ac-ic" class="ac-ic"><svg data-id="ach.l2.ic" data-icon="material:WorkspacePremium" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"/></svg></div><div data-id="ach.l2.row.col" class="col grow" style="gap:3px"><div data-id="ach.l2.row.col.row" class="row" style="gap:8px;justify-content:space-between"><span data-id="ach.l2.name" class="t3" style="font-size:15px">Pódio no estado</span><span data-id="ach.l2.row.col.row.scope" class="scope loc">Local</span></div><span data-id="ach.l2.desc" class="cap">Chegue ao pódio entre competidores do estado.</span></div></div>
+<div data-id="ach.l2.row2" class="row" style="justify-content:space-between;gap:10px"><span data-id="ach.l2.status" class="badge b-open" style="height:20px">Em progresso</span><div data-id="ach.l2.row2.grow" class="grow"><div data-id="ach.l2.row2.grow.row" class="row" style="gap:10px"><div class="bar grow" data-id="ach.l2.bar" style="height:6px"><i data-id="ach.l2.fill" style="width:33%"></i></div><span data-id="ach.l2.prog" class="num olive" style="font-size:16px">1/3</span></div></div></div></article>
+<article data-id="ach.l3" class="ac st-lk" data-compose="AchievementCard">
+<div data-id="ach.l3.row" class="row" style="gap:12px;align-items:flex-start"><div data-id="ach.l3.row.ac-ic" class="ac-ic"><svg data-id="ach.l3.ic" data-icon="material:Lock" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div data-id="ach.l3.row.col" class="col grow" style="gap:3px"><div data-id="ach.l3.row.col.row" class="row" style="gap:8px;justify-content:space-between"><span data-id="ach.l3.name" class="t3" style="font-size:15px">Melhor pace do estado</span><span data-id="ach.l3.row.col.row.scope" class="scope loc">Local</span></div><span data-id="ach.l3.desc" class="cap">Tenha o melhor pace do estado na temporada.</span></div></div>
+<div data-id="ach.l3.row2" class="row" style="justify-content:space-between;gap:10px"><span data-id="ach.l3.status" class="badge b-none" style="height:20px">Bloqueada</span><div data-id="ach.l3.row2.grow" class="grow"></div></div></article>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    var root=document.querySelector('[data-id="screen"]'),g=document.querySelector('[data-id="ach.tabs.g"]'),l=document.querySelector('[data-id="ach.tabs.l"]'),sc=document.querySelector('[data-id="ach.scroll"]');
+    function t(isL){root.setAttribute('data-state',isL?'locais':'padrao');g.classList.toggle('on',!isL);l.classList.toggle('on',isL);sc.scrollTop=0;}
+    g.addEventListener('click',function(){t(false)});l.addEventListener('click',function(){t(true)});
+    window.__setState=function(n){t(n==='locais')};
+  })();
+  </script>
+</main>
+
+</body>
+</html>

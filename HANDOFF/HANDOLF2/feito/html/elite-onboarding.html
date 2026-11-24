@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Elite · Primeiros passos</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+<style>:root{color-scheme:dark;box-sizing:border-box;
+--bg:#0A0B09;--s1:#10120D;--card:#161911;--card2:#1D2116;--field:#0D0F0A;--page:#050604;
+--line:rgba(236,232,218,.10);--line2:rgba(236,232,218,.18);
+--text:#ECE8DA;--mut:#8F9384;--dim:#5E6255;
+--olive:#A3B565;--olive-d:#5D6B34;--olive-s:rgba(163,181,101,.14);--on-olive:#0E1306;
+--red:#D12B2B;--red-s:rgba(209,43,43,.15);--on-red:#FFF4F0;--brass:#C9A24B;--amber:#E0A93A;--ok:#7FB069;
+--num:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;--ui:"Inter",system-ui,sans-serif;--sten:"Saira Stencil One","Barlow Condensed",Impact,sans-serif;
+padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--page);color:var(--text);font:400 14px/1.4 var(--ui);padding:24px 16px 48px}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;padding:0}
+button:focus-visible{outline:3px solid var(--text);outline-offset:2px}
+svg.ic{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+svg.fl{fill:currentColor;stroke:none}
+.hd1{max-width:1280px;margin:0 auto 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.hd1 h1{margin:0;font:700 26px var(--num);letter-spacing:.06em;text-transform:uppercase}
+.hd1 p{margin:0;color:var(--mut);flex-basis:100%}
+.stage{display:flex;flex-wrap:wrap;gap:28px 24px;justify-content:center;max-width:1500px;margin:0 auto}
+.cell{display:flex;flex-direction:column;gap:10px;align-items:center;max-width:100%}
+.cap{font:600 12px var(--ui);letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.cap b{color:var(--olive);font-weight:600}
+/* phone */
+.phone{position:relative;width:393px;max-width:100%;height:851px;background:var(--bg);background-image:repeating-linear-gradient(135deg,rgba(236,232,218,.014) 0 1px,transparent 1px 8px);border-radius:34px;border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column}
+.scr{flex:1;min-height:0;display:flex;flex-direction:column;padding:22px 16px 0;gap:14px}
+.scr.sc{overflow-y:auto;scrollbar-width:none}.scr.sc::-webkit-scrollbar{display:none}
+.top{display:flex;align-items:center;gap:10px;min-height:44px}
+.top h2{margin:0;font:700 24px/1 var(--num);letter-spacing:.04em;text-transform:uppercase;flex:1}
+.ib{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--card);border:1px solid var(--line);color:var(--text);flex:none}
+.t1{font:700 30px/1.05 var(--num);letter-spacing:.03em;text-transform:uppercase;margin:0}
+.t2{font:600 20px/1.15 var(--num);letter-spacing:.04em;text-transform:uppercase;margin:0}
+.lb{font:600 11px var(--ui);letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+.mu{color:var(--mut)}.sm{font-size:12px}.ol{color:var(--olive)}.rd{color:var(--red)}.br{color:var(--brass)}
+.num{font-family:var(--num);font-weight:600;font-variant-numeric:tabular-nums}
+.sp{flex:1;min-height:0}
+/* surfaces */
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;position:relative}
+.card.sel{border-color:var(--olive);background:linear-gradient(180deg,var(--olive-s),var(--card))}
+.card.sel::before{content:"";position:absolute;left:-1px;top:14px;bottom:14px;width:3px;border-radius:0 3px 3px 0;background:var(--olive)}
+.rw{display:flex;align-items:center;gap:12px}.rw.b{justify-content:space-between}.cl{display:flex;flex-direction:column;gap:8px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.chip{display:inline-flex;align-items:center;gap:7px;height:30px;padding:0 12px;border-radius:15px;background:var(--card);border:1px solid var(--line);font-size:12.5px;color:var(--mut);white-space:nowrap}
+.chip.on{background:var(--olive-s);border-color:var(--olive-d);color:var(--olive)}
+.chip.rd{background:var(--red-s);border-color:rgba(209,43,43,.4);color:#F0807C}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--red)}.dot.ok{background:var(--ok)}
+.btn{height:56px;border-radius:28px;display:flex;align-items:center;justify-content:center;gap:10px;font:700 16px var(--ui);letter-spacing:.02em;width:100%;transition:transform .1s}
+.btn:active{transform:scale(.97)}
+.btn svg{width:18px;height:18px}
+.pri{background:var(--red);color:var(--on-red)}.olv{background:var(--olive);color:var(--on-olive)}
+.gh{background:transparent;border:1px solid var(--line2);color:var(--text)}.dis{background:var(--card2);color:var(--dim)}
+.btn.sm2{height:44px;font-size:14px;border-radius:22px}
+.bar{height:6px;border-radius:3px;background:var(--card2);overflow:hidden}.bar i{display:block;height:100%;background:var(--olive);border-radius:3px}
+.seg{display:flex;gap:6px}.seg .s{flex:1;height:44px;border-radius:14px;border:1px solid var(--line);background:var(--card);display:grid;place-items:center;font:600 14px var(--ui);color:var(--mut)}
+.seg .s.on{background:var(--olive);color:var(--on-olive);border-color:transparent}
+.sw{width:50px;height:30px;border-radius:15px;background:var(--card2);border:1px solid var(--line2);position:relative;flex:none;transition:background .2s}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--mut);transition:transform .2s,background .2s}
+.sw[aria-checked=true]{background:var(--olive-d);border-color:transparent}.sw[aria-checked=true]::after{transform:translateX(20px);background:var(--text)}
+.fld{height:52px;border-radius:14px;background:var(--field);border:1px solid var(--line2);padding:0 14px;display:flex;align-items:center;color:var(--mut)}
+.fld.f{border-color:var(--olive);color:var(--text)}
+.ico{width:40px;height:40px;border-radius:12px;background:var(--olive-s);color:var(--olive);display:grid;place-items:center;flex:none}
+.hr{height:1px;background:var(--line);margin:2px 0}
+.tag{font:700 10px var(--ui);letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:6px;background:var(--olive-s);color:var(--olive)}
+.tag.rd{background:var(--red-s);color:#F0807C}.tag.br{background:rgba(201,162,75,.15);color:var(--brass)}
+/* logo */
+.lg{display:inline-flex;align-items:center;gap:12px}.lg svg{width:44px;height:50px}
+.wm{font:400 26px/1 var(--sten);letter-spacing:.24em;text-transform:uppercase;color:var(--text);margin-right:-.24em}
+.tg{white-space:nowrap;font:600 9px var(--ui);letter-spacing:.2em;color:var(--mut);text-transform:uppercase}
+.lg.v{flex-direction:column;gap:10px;text-align:center}.lg.v svg{width:72px;height:82px}.lg.v .wm{font-size:38px}
+/* bottom nav */
+.nav{margin:0 12px 10px;height:64px;background:var(--s1);border:1px solid var(--line);border-radius:24px;display:flex;align-items:center;padding:0 6px;flex:none}
+.ni{flex:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:var(--mut);font:500 11px var(--ui)}
+.ni.on{color:var(--olive)}
+.ni.cn{display:grid;place-items:center}
+@property --a{syntax:"<angle>";initial-value:0deg;inherits:false}
+.cb{width:48px;height:48px;border-radius:16px;position:relative;background:conic-gradient(from var(--a),var(--olive),var(--red),var(--brass),var(--olive));animation:spin 5s linear infinite,glow 3.2s ease-in-out infinite;display:grid;place-items:center;transition:transform .18s}
+.cb::before{content:"";position:absolute;inset:2px;border-radius:14px;background:radial-gradient(circle at 30% 20%,#262B1A,#0C0E08 70%)}
+.cb svg{position:relative;width:26px;height:26px;color:var(--olive)}
+.cb::after{content:"";position:absolute;inset:0;border-radius:16px;border:2px solid var(--olive);opacity:0;pointer-events:none}
+.cb:active{transform:scale(.9)}
+.cb.tap{animation:spin 5s linear infinite,glow 3.2s ease-in-out infinite,pop .5s cubic-bezier(.3,1.6,.5,1)}
+.cb.tap svg{animation:flip .6s ease-in-out}.cb.tap::after{animation:wave .6s ease-out}
+@keyframes spin{to{--a:360deg}}
+@keyframes glow{0%,100%{box-shadow:0 0 16px 2px rgba(163,181,101,0)}50%{box-shadow:0 0 16px 2px rgba(163,181,101,.35)}}
+@keyframes pop{0%{transform:scale(.88)}60%{transform:scale(1.12)}100%{transform:scale(1)}}
+@keyframes flip{to{transform:rotateY(360deg)}}
+@keyframes wave{from{opacity:.7;transform:scale(1)}to{opacity:0;transform:scale(1.7)}}
+/* sheet */
+.scrim{position:absolute;inset:0;background:rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:opacity .2s;z-index:20}
+.sheet{position:absolute;left:0;right:0;bottom:0;z-index:21;background:var(--s1);border:1px solid var(--line2);border-bottom:0;border-radius:28px 28px 0 0;padding:10px 16px 24px;display:flex;flex-direction:column;gap:12px;transform:translateY(105%);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.sheet::before{content:"";width:40px;height:4px;border-radius:2px;background:var(--line2);align-self:center}
+.phone.o .scrim{opacity:1;pointer-events:auto}.phone.o[data-s=ql] #ql,.phone.o[data-s=ck] #ck,.phone.o[data-s=pz] #pz{transform:none}
+.dlg{position:absolute;left:24px;right:24px;top:50%;z-index:22;background:var(--card2);border:1px solid var(--line2);border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:12px;opacity:0;pointer-events:none;transform:translateY(-50%) scale(.94);transition:opacity .2s,transform .2s}
+.phone.o[data-s=dl] #dl,.phone.o[data-s=dx] #dx{opacity:1;pointer-events:auto;transform:translateY(-50%)}
+.phone.st .sheet,.phone.st .scrim{transition:none}
+/* map + run */
+.map{position:absolute;inset:0;width:100%;height:100%}
+.shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,11,9,.96) 0%,rgba(10,11,9,.94) 30%,rgba(10,11,9,.9) 43%,rgba(10,11,9,0) 53%,rgba(10,11,9,0) 76%,rgba(10,11,9,.85) 100%)}
+.layer{position:relative;z-index:2;display:flex;flex-direction:column;flex:1;min-height:0}
+.glass{background:rgba(16,18,13,.82);border:1px solid var(--line);backdrop-filter:blur(14px)}
+.ring{position:relative;width:112px;height:112px;display:grid;place-items:center;margin:0 auto}
+.ring svg{position:absolute;inset:0;transform:rotate(-90deg)}.ring b{position:relative;font:600 32px var(--num);font-variant-numeric:tabular-nums}
+.stats{display:grid;grid-template-columns:1fr 1px 1fr;align-items:center;text-align:center;padding:0 24px}
+.stats b{display:block;font:600 40px/1 var(--num)}.stats b small{font-size:16px;color:var(--mut);margin-left:3px}.stats span{font-size:12px;color:var(--mut)}.stats i{height:36px;background:var(--line)}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:16px 16px 18px;border-radius:26px 26px 0 0;background:rgba(16,18,13,.9);border-top:1px solid var(--line)}
+.pulse{animation:pl 2s ease-out infinite;transform-origin:200px 430px}@keyframes pl{from{opacity:.5;transform:scale(.6)}to{opacity:0;transform:scale(2.2)}}
+.rad{position:relative;width:48px;height:48px;z-index:10;margin-left:auto}
+.arc{position:absolute;top:24px;right:24px;width:132px;height:132px;border-radius:0 0 0 100%;background:var(--card2);border:1px solid var(--line);border-top:0;border-right:0;transform-origin:100% 0;transform:scale(.2);opacity:0;transition:transform .25s cubic-bezier(.2,.8,.2,1),opacity .2s;pointer-events:none}
+.rad .it{position:absolute;top:2px;left:2px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#1F2418;color:var(--mut);display:grid;place-items:center;opacity:0;transform:scale(.5);transition:transform .28s cubic-bezier(.2,.8,.2,1),opacity .2s,background .15s;pointer-events:none}
+.rad .it[aria-pressed=true]{background:var(--olive);color:var(--on-olive);border-color:transparent}
+.rad.open .arc{transform:none;opacity:1}.rad.open .it{opacity:1;pointer-events:auto}
+.rad.open .i1{transform:translate(-80px,0)}.rad.open .i2{transform:translate(-57px,57px)}.rad.open .i3{transform:translate(0,80px)}
+.rad .fab{position:absolute;inset:0;border-radius:50%;border:1px solid var(--line);background:rgba(16,18,13,.85);display:grid;place-items:center;transition:transform .3s,background .2s}
+.rad.open .fab{transform:rotate(90deg);background:var(--olive);color:var(--on-olive)}
+/* graph + misc */
+.wk{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;text-align:center}
+.wk div{height:58px;border-radius:14px;background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:11px;color:var(--mut)}
+.wk div b{font:600 18px var(--num);color:var(--text)}.wk .on,.wk .td{background:var(--olive);border-color:transparent;color:var(--on-olive)}.wk .on b,.wk .td b{color:var(--on-olive)}.wk .dn b{color:var(--olive)}
+.wc .bd{display:none;padding-top:10px}.wc.open .bd{display:flex;flex-direction:column;gap:8px}.wc .hdr{cursor:pointer}
+.wc .chv{transition:transform .2s}.wc.open .chv{transform:rotate(90deg)}
+.step{height:34px;border-radius:8px;display:flex;align-items:flex-end;padding:0 0 4px 6px;font-size:10px;font-weight:600;color:var(--on-olive)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+@media(max-width:430px){body{padding:0 0 40px}.phone{border-radius:0;height:851px}.hd1{padding:16px}}
+
+.wk div{cursor:pointer}.btn.stk{position:sticky;bottom:0;margin-top:auto;flex:none;box-shadow:0 -14px 14px -6px var(--bg)}.scr.sc{padding-bottom:24px}
+.chart{height:70px;display:flex;align-items:flex-end;gap:2px}.chart i{display:block;border-radius:3px 3px 0 0}
+.lv{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.lv .s{height:44px;border-radius:12px;border:1px solid var(--line);background:var(--card);display:grid;place-items:center;font:600 12px var(--ui);color:var(--mut)}.lv .s.on{background:var(--olive);color:var(--on-olive);border-color:transparent}
+.scr>*{flex-shrink:0}.scr>.sp{flex:1 1 0}.sc>.sp{min-height:12px}.scr>.card[style*="flex:1"]{flex-shrink:1}
+.gr{font-size:28px!important;white-space:nowrap}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.gr{font-size:25px!important}.rw>div{min-width:0}
+.hold{position:relative;overflow:hidden}.hold i{position:absolute;left:0;top:0;bottom:0;width:60%;background:rgba(0,0,0,.3)}.hold span{position:relative;display:flex;align-items:center;gap:10px}
+.stat3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;text-align:center}.stat3 b{display:block;font:600 28px/1 var(--num)}.stat3 span{font-size:11px;color:var(--mut)}
+button.card{text-align:left;width:100%;color:inherit}
+</style></head><body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol><symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol><symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-9"/><path d="M15 6h6v6"/></symbol><symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></symbol><symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol><symbol id="i-sound" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></symbol><symbol id="i-vib" viewBox="0 0 24 24"><rect x="8" y="4" width="8" height="16" rx="2"/><path d="M4 8v8M20 8v8"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol><symbol id="i-loc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></symbol><symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></symbol><symbol id="i-stop" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/></symbol><symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></symbol><symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol><symbol id="i-back" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol><symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3c.5 4 5 5.5 5 10.5a5 5 0 0 1-10 0c0-2.5 1.5-4 2.5-5.5.8 1.2 1.5 1.5 2.5 1z"/></symbol><symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol><symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 17V11a6 6 0 0 1 12 0v6l2 2H4z"/><path d="M10 21h4"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M12 8v5M12 16v.5"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.5"/></symbol><symbol id="i-share" viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></symbol><symbol id="i-medal" viewBox="0 0 24 24"><circle cx="12" cy="14" r="6"/><path d="M8 3l4 6 4-6"/></symbol><symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18a4 4 0 0 1 0-8 5 5 0 0 1 10 1 3.5 3.5 0 0 1 0 7z"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/></symbol><symbol id="i-walk" viewBox="0 0 24 24"><circle cx="13" cy="4.5" r="2"/><path d="M11 21l2-6-3-3 1-5 4 3 3 1M9 12l-3 2"/></symbol><symbol id="blade" viewBox="0 0 64 64"><path d="M24 6L30 16H46V24H30V30H42V38H30V46H46V54H18V16Z" fill="currentColor"/><path d="M24 6L30 16H18Z" fill="#D12B2B"/></symbol><symbol id="mark" viewBox="0 0 64 64"><path d="M32 2L58 10V32C58 47 47 58 32 62C17 58 6 47 6 32V10Z" fill="#10120D" stroke="#A3B565" stroke-width="2.5" stroke-linejoin="round"/><g transform="translate(6.4 8.6) scale(.8)"><path d="M24 6L30 16H46V24H30V30H42V38H30V46H46V54H18V16Z" fill="#ECE8DA"/><path d="M24 6L30 16H18Z" fill="#D12B2B"/></g></symbol></svg>
+<header class="hd1"><h1>Elite · Primeiros passos</h1><p>Boas-vindas, quiz (3 perguntas), escolha do objetivo, dias, duração e prévia do plano. Toque nas opções para ver a seleção.</p></header>
+<div class="stage"><div class="cell"><div class="cap">1 Boas-vindas</div><main class="phone  st" data-screen="1-boas-vindas">
+<div class="scr" style="padding-top:56px;gap:18px">
+<div style="align-self:center"><div class="lg v"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mark"/></svg><div><div class="wm">Elite</div><div class="tg" style="margin-top:6px">Missão dada é missão cumprida</div></div></div></div>
+<div class="cl" style="text-align:center;gap:6px;margin-top:8px"><h1 class="t1">Bem-vindo ao Elite</h1><p class="mu" style="margin:0">Um plano de caminhada e corrida que respeita o seu fôlego, do primeiro passo até os 5 km.</p></div>
+<div class="cl">
+<div class="card rw"><span class="ico"><svg class="ic"><use href="#i-shield"/></svg></span><div><b>Tudo no seu celular</b><div class="mu sm">Sem login e sem nuvem.</div></div></div>
+<div class="card rw"><span class="ico"><svg class="ic"><use href="#i-trend"/></svg></span><div><b>Progressivo</b><div class="mu sm">A corrida aumenta aos poucos.</div></div></div>
+<div class="card rw"><span class="ico"><svg class="ic"><use href="#i-clock"/></svg></span><div><b>Sem pressa</b><div class="mu sm">Você escolhe os dias e a duração.</div></div></div></div>
+<div class="sp"></div>
+<div class="cl"><span class="lb">Como devemos te chamar?</span><div class="fld f">Seu nome ou apelido</div></div>
+<button class="btn pri" style="margin-bottom:24px">Começar</button></div>
+</main></div>
+<div class="cell"><div class="cap">2 Quiz · pergunta 1 de 3</div><main class="phone  st" data-screen="2-quiz-pergunta-1-de-3">
+<div class="scr"><div class="top"><button class="ib" aria-label="Voltar"><svg class="ic"><use href="#i-back"/></svg></button><span class="lb" style="flex:1;text-align:center;margin-right:44px">Pergunta 1 de 3</span></div>
+<div class="bar"><i style="width:33%"></i></div>
+<div class="cl" style="margin-top:10px;gap:8px"><h1 class="t1">Há quanto tempo você não corre?</h1><p class="mu" style="margin:0">Não se preocupe se nunca correu antes: o plano começa com caminhadas suaves.</p></div>
+<div class="cl" data-g="card" style="margin-top:8px">
+<button class="card sel" style="text-align:left;font-weight:600;font-size:16px">Nunca corri</button><button class="card" style="text-align:left;font-weight:600;font-size:16px">Mais de 6 meses</button><button class="card" style="text-align:left;font-weight:600;font-size:16px">De 3 a 6 meses</button><button class="card" style="text-align:left;font-weight:600;font-size:16px">Menos de 3 meses</button></div>
+<div class="sp"></div><button class="btn pri" style="margin-bottom:24px">Próxima pergunta</button></div>
+</main></div>
+<div class="cell"><div class="cap">3 Quiz · pergunta 3 de 3</div><main class="phone  st" data-screen="3-quiz-pergunta-3-de-3">
+<div class="scr"><div class="top"><button class="ib" aria-label="Voltar"><svg class="ic"><use href="#i-back"/></svg></button><span class="lb" style="flex:1;text-align:center;margin-right:44px">Pergunta 3 de 3</span></div>
+<div class="bar"><i style="width:100%"></i></div>
+<div class="cl" style="margin-top:10px;gap:8px"><h1 class="t1">Que tipo de exercício você pratica?</h1><p class="mu" style="margin:0">Isso nos ajuda a calibrar a intensidade inicial do seu plano.</p></div>
+<div class="cl" data-g="card" style="margin-top:8px">
+<button class="card" style="text-align:left;font-weight:600;font-size:16px">Nenhum</button><button class="card sel" style="text-align:left;font-weight:600;font-size:16px">Baixo impacto, como caminhada</button><button class="card" style="text-align:left;font-weight:600;font-size:16px">Cardio, como bicicleta ou natação</button></div>
+<div class="sp"></div><button class="btn pri" style="margin-bottom:24px">Continuar para os Dias</button></div>
+</main></div>
+<div class="cell"><div class="cap">4 Escolha seu objetivo</div><main class="phone  st" data-screen="4-escolha-seu-objetivo">
+<div class="scr"><div class="top"><button class="ib" aria-label="Voltar"><svg class="ic"><use href="#i-back"/></svg></button></div>
+<div class="cl" style="gap:6px"><h1 class="t1">Escolha seu objetivo</h1><p class="mu" style="margin:0">Como você quer correr hoje? Toque em uma modalidade para ver os detalhes.</p></div>
+<div class="cl" data-g="card">
+<button class="card" style="text-align:left"><div class="rw b"><b class="t2">Corrida Livre</b><span class="tag">Sem meta</span></div><div class="mu sm">Sem plano, sem alvo. Apenas você e o caminho.</div></button>
+<button class="card" style="text-align:left"><div class="rw b"><b class="t2">Primeiros 2,5K</b><span class="tag">6 semanas</span></div><div class="mu sm">6 semanas · 3 treinos/semana · Meta: 2,5 km</div></button>
+<button class="card sel" style="text-align:left"><div class="rw b"><b class="t2">Primeiros 5K</b><span class="tag">9 semanas</span></div><div class="mu sm">9 semanas · 2 ou 3 treinos/semana · Meta: 5 km</div>
+<div class="hr" style="margin:12px 0"></div><div class="cl" style="gap:10px"><div class="rw"><span class="ico" style="width:32px;height:32px"><svg class="ic"><use href="#i-trend"/></svg></span><div><b class="sm">9 etapas</b><div class="mu sm">Progressão clássica de caminhada para corrida contínua</div></div></div><div class="rw"><span class="ico" style="width:32px;height:32px"><svg class="ic"><use href="#i-cal"/></svg></span><div><b class="sm">Você escolhe</b><div class="mu sm">2 ou 3 treinos por semana, dias que preferir</div></div></div><div class="rw"><span class="ico" style="width:32px;height:32px"><svg class="ic"><use href="#i-bolt"/></svg></span><div><b class="sm">Ajuste inteligente</b><div class="mu sm">O plano se adapta se você pular ou sentir dor</div></div></div></div></button>
+<button class="card" style="text-align:left"><div class="rw b"><b class="t2">Primeiros 10K</b><span class="tag">12 semanas</span></div><div class="mu sm">12 semanas · 3 treinos/semana · Meta: 10 km</div></button></div>
+<div class="sp"></div><button class="btn pri" style="margin-bottom:24px">Continuar com Primeiros 5K</button></div>
+</main></div>
+<div class="cell"><div class="cap">5 Dias de treino</div><main class="phone  st" data-screen="5-dias-de-treino">
+<div class="scr"><div class="top"><button class="ib" aria-label="Voltar"><svg class="ic"><use href="#i-back"/></svg></button></div>
+<div class="cl" style="gap:6px"><h1 class="t1">Como você prefere treinar?</h1><p class="mu" style="margin:0">Escolha sua frequência semanal e a data para dar a largada.</p></div>
+<span class="lb">Dias por semana</span><div class="seg" data-g="seg"><div class="s">2</div><div class="s on">3</div></div>
+<div class="rw b"><span class="lb">Quais dias da semana?</span><span class="tag">3 de 3</span></div>
+<div class="wk" style="grid-template-columns:repeat(7,1fr)" data-g="wk"><div>Dom</div><div class="on">Seg</div><div>Ter</div><div class="on">Qua</div><div>Qui</div><div class="on">Sex</div><div>Sáb</div></div>
+<p class="mu sm" style="margin:0">Escolha dias com um dia de descanso entre eles.</p>
+<span class="lb">Data de início</span><button class="card rw b"><div><b>segunda-feira, 23 de novembro</b><div class="mu sm">23/11/2026</div></div><svg class="ic"><use href="#i-cal"/></svg></button>
+<div class="card rw sel"><svg class="ic"><use href="#i-check"/></svg><span class="sm">3 dias por semana: seg, qua, sex</span></div>
+<div class="sp"></div><button class="btn pri" style="margin-bottom:24px">Continuar para a Duração</button></div>
+</main></div>
+<div class="cell"><div class="cap">6 Duração do plano</div><main class="phone  st" data-screen="6-duração-do-plano">
+<div class="scr"><div class="top"><button class="ib" aria-label="Voltar"><svg class="ic"><use href="#i-back"/></svg></button></div>
+<div class="cl" style="gap:6px"><h1 class="t1">Em quantas semanas deseja alcançar os 5K?</h1><p class="mu" style="margin:0">Mais curto = mais puxado. Mais longo = mais gradual.</p></div>
+<div class="card" style="text-align:center;padding:22px 14px"><div class="num" style="font-size:84px;line-height:1">9</div><div class="lb">semanas</div>
+<div class="bar" style="margin:18px 6px 8px"><i style="width:36%"></i></div><div class="rw b mu sm"><span>6 sem (Mín)</span><span class="ol">9 sem (Padrão)</span><span>16 sem (Máx)</span></div></div>
+<span class="lb">Escolha rápida</span><div class="seg" data-g="seg"><div class="s">6 sem</div><div class="s on">9 sem</div><div class="s">12 sem</div><div class="s">16 sem</div></div>
+<div class="card sel rw"><svg class="ic"><use href="#i-info"/></svg><span class="sm">Ritmo equilibrado e clássico (Padrão). Permite avanço consistente sem sobrecarga.</span></div>
+<div class="rw mu sm" style="gap:8px;align-items:flex-start"><svg class="ic"><use href="#i-shield"/></svg><span>Estes valores e etapas são provisórios e requerem validação médica.</span></div>
+<div class="sp"></div><button class="btn pri" style="margin-bottom:24px">Ver prévia do plano</button></div>
+</main></div>
+<div class="cell"><div class="cap">7 Prévia do plano</div><main class="phone  st" data-screen="7-prévia-do-plano">
+<div class="scr sc"><div class="top"><button class="ib" aria-label="Voltar"><svg class="ic"><use href="#i-back"/></svg></button></div>
+<div class="cl" style="gap:6px"><h1 class="t1">Prévia do seu plano</h1><div class="rw" style="flex-wrap:wrap"><span class="tag">Plano 5k</span><span class="mu sm">Início: 23 de novembro · Meta 5K: 24 de janeiro</span></div></div>
+<div class="card" style="border-color:rgba(224,169,58,.4)"><div class="rw" style="color:var(--amber)"><svg class="ic"><use href="#i-shield"/></svg><b>Aviso de Saúde</b></div><p class="mu sm" style="margin:8px 0 12px">Se estiver doente ou com dor, não treine e procure um profissional de saúde. O Elite não faz diagnóstico.</p><div class="rw" data-g="x"><button class="sw" aria-checked="true" aria-label="Li e entendi"></button><span>Li e entendi o aviso de saúde</span></div></div>
+<span class="lb">Cronograma semana a semana</span>
+<div class="card rw b"><div><b>Semana 1</b><div class="mu sm">Etapa 1 de 9</div></div><span class="mu sm">3 treinos</span></div>
+<div class="card rw b"><div><b>Semana 2</b><div class="mu sm">Etapa 2 de 9</div></div><span class="mu sm">3 treinos</span></div>
+<div class="card rw b"><div><b>Semana 3</b><div class="mu sm">Etapa 3 de 9</div></div><span class="mu sm">3 treinos</span></div>
+<div class="card rw b"><div><b>Semana 4</b><div class="mu sm">Etapa 4 de 9</div></div><span class="mu sm">3 treinos</span></div><div class="card rw b"><div><b>Semana 5</b><div class="mu sm">Etapa 5 de 9</div></div><span class="mu sm">3 treinos</span></div><button class="btn pri stk">Começar meu plano</button></div>
+</main></div>
+</div>
+<script>(function(){
+function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+document.addEventListener('click',function(e){
+var t=e.target;
+var cb=t.closest('.cb');if(cb){cb.classList.remove('tap');void cb.offsetWidth;cb.classList.add('tap');setTimeout(function(){cb.classList.remove('tap')},700);var op=cb.getAttribute('data-open');if(op){var ph=cb.closest('.phone');if(ph){ph.classList.add('o');ph.setAttribute('data-s',op)}}return}
+var sw=t.closest('.sw');if(sw){sw.setAttribute('aria-checked',sw.getAttribute('aria-checked')!=='true');return}
+var it=t.closest('.rad .it');if(it){it.setAttribute('aria-pressed',it.getAttribute('aria-pressed')!=='true');return}
+var fab=t.closest('.fab');if(fab){var r=fab.closest('.rad');var o=r.classList.toggle('open');fab.setAttribute('aria-expanded',o);return}
+$$('.rad.open').forEach(function(r){if(!r.contains(t))r.classList.remove('open')});
+var op=t.closest('[data-open]');if(op){var p=op.closest('.phone');p.classList.add('o');p.setAttribute('data-s',op.getAttribute('data-open'));return}
+var cl=t.closest('[data-close],.scrim');if(cl){var p2=cl.closest('.phone');p2.classList.remove('o');return}
+var g=t.closest('[data-g] > *');if(g){var par=g.parentNode;$$(':scope > *',par).forEach(function(c){c.classList.remove('on','sel')});g.classList.add(par.getAttribute('data-g')==='card'?'sel':'on');return}
+var ni=t.closest('.ni:not(.cn)');if(ni){$$('.ni',ni.parentNode).forEach(function(c){c.classList.remove('on')});ni.classList.add('on');return}
+var wc=t.closest('.wc .hdr');if(wc){wc.parentNode.classList.toggle('open');return}
+var x=t.closest('[data-rm]');if(x){var el=document.getElementById(x.getAttribute('data-rm'));el&&el.remove()}
+});
+})();
+</script></body></html>

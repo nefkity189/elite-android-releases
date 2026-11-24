@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Aisle** (`com.example`, applicationId `com.aistudio.primeiro5k.kptwlz`) — on-device Android running-training app ("Primeiro 5K"). No cloud, no auth, no third-party APIs in this phase. Everything (plan generation, persistence, run tracking) lives on the device.
+**Elite** (`com.elite.sch.app`, applicationId `com.elite.sch.app`) — on-device Android running-training app ("Primeiro 5K"). No cloud, no auth, no third-party APIs in this phase. Everything (plan generation, persistence, run tracking) lives on the device.
 
 ## Build & Test Commands
 
@@ -44,16 +44,16 @@ kotlin.compiler.execution.strategy=in-process
 
 ### Layers
 ```
-com.example.ui          → Jetpack Compose + Material 3 screens, components, theme
-com.example.generator   → Pure Kotlin plan math (PlanGenerator, PlanRegenerator, templates)
-com.example.model       → WorkoutStep, StageProgression
-com.example.data.local  → Room DBs, DAOs, entities, repositories, migrations
-com.example.tracker     → GPS session, distance schedule, pace/split/week calculators
-com.example.service     → RunTrackingService (foreground GPS tracking)
-com.example.worker      → WorkoutReminderWorker (WorkManager reminders)
-com.example.workspace   → WorkspaceManager, WorkspaceState, GlobalSession, AppScreen
-com.example.backup      → BackupManager (JSON export/import)
-com.example.receiver    → BootReceiver (restore reminders on boot)
+com.elite.sch.app.ui          → Jetpack Compose + Material 3 screens, components, theme
+com.elite.sch.app.generator   → Pure Kotlin plan math (PlanGenerator, PlanRegenerator, templates)
+com.elite.sch.app.model       → WorkoutStep, StageProgression
+com.elite.sch.app.data.local  → Room DBs, DAOs, entities, repositories, migrations
+com.elite.sch.app.tracker     → GPS session, distance schedule, pace/split/week calculators
+com.elite.sch.app.service     → RunTrackingService (foreground GPS tracking)
+com.elite.sch.app.worker      → WorkoutReminderWorker (WorkManager reminders)
+com.elite.sch.app.workspace   → WorkspaceManager, WorkspaceState, GlobalSession, AppScreen
+com.elite.sch.app.backup      → BackupManager (JSON export/import)
+com.elite.sch.app.receiver    → BootReceiver (restore reminders on boot)
 ```
 
 ### MVVM & State
@@ -193,8 +193,8 @@ See `~/.claude/rules/ecc/common/development-workflow.md` and `~/.claude/rules/ec
 | Add a new modality | 1. Add constant in `DatabaseProvider` 2. Create `BaseAppDatabase` subclass 3. Add case in `getDatabase()` / `getDatabaseFileName()` 4. Update `BootReceiver` / `WorkoutReminderWorker` 5. Add case in `MainViewModel.selectModality()` — see `MULTI_DATABASE_GUIDE.md` |
 | Modify stage definitions | Edit `ProgressionTable.kt` only — no DB migration needed |
 | Add a migration | Add to `BaseMigrations.all()`; bump DB version in all 4 subclasses |
-| Run only one test | `./gradlew :app:testDebugUnitTest --tests "com.example.PlanGeneratorTest.*"` |
-| Debug Room schema | Check `app/schemas/com.example.data.local.AppDatabase/*.json` (and other DBs) |
+| Run only one test | `./gradlew :app:testDebugUnitTest --tests "com.elite.sch.app.PlanGeneratorTest.*"` |
+| Debug Room schema | Check `app/schemas/com.elite.sch.app.data.local.AppDatabase/*.json` (and other DBs) |
 | Verify KSP generated all DBs | `./gradlew :app:kspDebugKotlin` → check `app/build/generated/ksp/debug/kotlin/com/example/data/local/*_Impl.kt` for all 5 subclasses |
 
 ## What NOT to Do

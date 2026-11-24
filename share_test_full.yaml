@@ -1,0 +1,20 @@
+appId: com.elite.sch.app
+---
+- launchApp
+- tapOn:
+    text: "Começar"
+- waitForAnimationToEnd
+- tapOn:
+    id: "btn_start_free_run"
+- waitForAnimationToEnd
+- tapOn:
+    id: "btn_finish_run"
+- waitForAnimationToEnd
+- tapOn:
+    id: "btn_save_workout_summary"
+- waitForAnimationToEnd
+- tapOn:
+    id: "btn_share_workout"
+- waitForAnimationToEnd
+- assertVisible:
+    text: "Compartilhar"

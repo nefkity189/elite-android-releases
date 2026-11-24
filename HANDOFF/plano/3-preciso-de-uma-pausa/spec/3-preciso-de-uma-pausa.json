@@ -1,0 +1,783 @@
+{
+ "screen": {
+  "w": 393,
+  "h": 851
+ },
+ "tokens": {
+  "--bg": "#0A0B09",
+  "--s1": "#10120D",
+  "--card": "#161911",
+  "--card2": "#1D2116",
+  "--field": "#0D0F0A",
+  "--page": "#050604",
+  "--line": "rgba(236,232,218,.10)",
+  "--line2": "rgba(236,232,218,.18)",
+  "--text": "#ECE8DA",
+  "--mut": "#8F9384",
+  "--dim": "#5E6255",
+  "--olive": "#A3B565",
+  "--olive-d": "#5D6B34",
+  "--olive-s": "rgba(163,181,101,.14)",
+  "--on-olive": "#0E1306",
+  "--red": "#D12B2B",
+  "--red-s": "rgba(209,43,43,.15)",
+  "--on-red": "#FFF4F0",
+  "--brass": "#C9A24B",
+  "--amber": "#E0A93A",
+  "--ok": "#7FB069",
+  "--num": "\"Barlow Condensed\",\"Arial Narrow\",system-ui,sans-serif",
+  "--ui": "\"Inter\",system-ui,sans-serif",
+  "--sten": "\"Saira Stencil One\",\"Barlow Condensed\",Impact,sans-serif"
+ },
+ "fonts": [
+  {
+   "family": "Inter",
+   "loaded": true
+  },
+  {
+   "family": "Barlow Condensed",
+   "loaded": false
+  }
+ ],
+ "media_queries": [
+  "(prefers-reduced-motion: reduce)",
+  "(max-width: 430px)"
+ ],
+ "animations": [],
+ "elements": [
+  {
+   "id": 0,
+   "depth": 0,
+   "sel": "main.phone.st",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 851
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "flex-direction": "column",
+    "background-color": "rgb(10, 11, 9)",
+    "background-image": "repeating-linear-gradient(135deg, rgba(236, 232, 218, 0.016) 0px, rgba(236, 232, 218, 0.016) 1px, rgba(0, 0, 0, 0) 1px, rgba(0, 0, 0, 0) 8px)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-screen=3-preciso-de-uma-pausa"
+   ]
+  },
+  {
+   "id": 1,
+   "depth": 1,
+   "sel": "div.scr.sc",
+   "text": null,
+   "rect": {
+    "x": 1,
+    "y": 1,
+    "w": 391,
+    "h": 849
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "14px",
+    "padding": "22px 16px 24px"
+   }
+  },
+  {
+   "id": 2,
+   "depth": 2,
+   "sel": "div.top",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 23,
+    "w": 359,
+    "h": 48
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "10px"
+   }
+  },
+  {
+   "id": 3,
+   "depth": 3,
+   "sel": "button.ib",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 25,
+    "w": 44,
+    "h": 44
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "50%",
+    "text-align": "center",
+    "grid-template-columns": "42px"
+   },
+   "aria": "Voltar"
+  },
+  {
+   "id": 4,
+   "depth": 4,
+   "sel": "svg.ic",
+   "text": null,
+   "rect": {
+    "x": 28,
+    "y": 36,
+    "w": 22,
+    "h": 22
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "svg": "<svg class=\"ic\"><use href=\"#i-back\"></use></svg>"
+  },
+  {
+   "id": 5,
+   "depth": 3,
+   "sel": "h2",
+   "text": "Preciso de uma pausa",
+   "rect": {
+    "x": 71,
+    "y": 23,
+    "w": 305,
+    "h": 48
+   },
+   "style": {
+    "flex-grow": "1",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-size": "24px",
+    "font-weight": "700",
+    "line-height": "24px",
+    "letter-spacing": "0.96px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 6,
+   "depth": 2,
+   "sel": "div.card.rw",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 85,
+    "w": 359,
+    "h": 63.6
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "12px",
+    "padding": "14px",
+    "color": "rgb(224, 169, 58)",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(224, 169, 58, 0.4)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 7,
+   "depth": 3,
+   "sel": "svg.ic",
+   "text": null,
+   "rect": {
+    "x": 32,
+    "y": 105.8,
+    "w": 22,
+    "h": 22
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "svg": "<svg class=\"ic\"><use href=\"#i-shield\"></use></svg>"
+  },
+  {
+   "id": 8,
+   "depth": 3,
+   "sel": "span.sm",
+   "text": "Se estiver doente ou com dor, não treine e procure um profissional de saúde.",
+   "rect": {
+    "x": 66,
+    "y": 100,
+    "w": 295,
+    "h": 33.6
+   },
+   "style": {
+    "color": "rgb(236, 232, 218)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 9,
+   "depth": 2,
+   "sel": "span.lb",
+   "text": "Período da pausa (1 a 14 dias)",
+   "rect": {
+    "x": 17,
+    "y": 162.6,
+    "w": 359,
+    "h": 14
+   },
+   "style": {
+    "flex-shrink": "0",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 10,
+   "depth": 2,
+   "sel": "button.card.rw.b",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 190.6,
+    "w": 359,
+    "h": 66.4
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "12px",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 11,
+   "depth": 3,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 32,
+    "y": 205.6,
+    "w": 108,
+    "h": 36.4
+   },
+   "style": {}
+  },
+  {
+   "id": 12,
+   "depth": 4,
+   "sel": "b",
+   "text": "23 nov a 29 nov",
+   "rect": {
+    "x": 32,
+    "y": 206.6,
+    "w": 108,
+    "h": 17
+   },
+   "style": {
+    "font-weight": "700"
+   }
+  },
+  {
+   "id": 13,
+   "depth": 4,
+   "sel": "div.mu.sm",
+   "text": "7 dias",
+   "rect": {
+    "x": 32,
+    "y": 225.2,
+    "w": 108,
+    "h": 16.8
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 14,
+   "depth": 3,
+   "sel": "svg.ic",
+   "text": null,
+   "rect": {
+    "x": 339,
+    "y": 212.8,
+    "w": 22,
+    "h": 22
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "svg": "<svg class=\"ic\"><use href=\"#i-cal\"></use></svg>"
+  },
+  {
+   "id": 15,
+   "depth": 2,
+   "sel": "span.lb",
+   "text": "Nível durante a pausa",
+   "rect": {
+    "x": 17,
+    "y": 271,
+    "w": 359,
+    "h": 14
+   },
+   "style": {
+    "flex-shrink": "0",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 16,
+   "depth": 2,
+   "sel": "div.cl",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 299,
+    "w": 359,
+    "h": 215.2
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-shrink": "0",
+    "gap": "8px"
+   },
+   "data": [
+    "data-g=card"
+   ]
+  },
+  {
+   "id": 17,
+   "depth": 3,
+   "sel": "button.card",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 299,
+    "w": 359,
+    "h": 66.4
+   },
+   "style": {
+    "position": "relative",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 18,
+   "depth": 4,
+   "sel": "b",
+   "text": "Mantém os treinos",
+   "rect": {
+    "x": 32,
+    "y": 315,
+    "w": 126.8,
+    "h": 17
+   },
+   "style": {
+    "font-weight": "700"
+   }
+  },
+  {
+   "id": 19,
+   "depth": 4,
+   "sel": "div.mu.sm",
+   "text": "Usa a etapa anterior (mínimo etapa 1)",
+   "rect": {
+    "x": 32,
+    "y": 333.6,
+    "w": 329,
+    "h": 16.8
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 20,
+   "depth": 3,
+   "sel": "button.card.sel",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 373.4,
+    "w": 359,
+    "h": 66.4
+   },
+   "style": {
+    "position": "relative",
+    "padding": "14px",
+    "background-image": "linear-gradient(rgba(163, 181, 101, 0.14), rgb(22, 25, 17))",
+    "border": "1px solid rgb(163, 181, 101)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "depth": 4,
+   "sel": "button.card.sel::before",
+   "pseudo": true,
+   "content": "\"\"",
+   "rect": {
+    "w": "3px",
+    "h": "36.3906px",
+    "top": "14px",
+    "left": "-1px",
+    "inset": "14px 355px 14px -1px"
+   },
+   "style": {
+    "position": "absolute",
+    "background-color": "rgb(163, 181, 101)",
+    "border-radius": "0px 3px 3px 0px"
+   }
+  },
+  {
+   "id": 21,
+   "depth": 4,
+   "sel": "b",
+   "text": "Só caminhada",
+   "rect": {
+    "x": 32,
+    "y": 389.4,
+    "w": 96.7,
+    "h": 17
+   },
+   "style": {
+    "font-weight": "700"
+   }
+  },
+  {
+   "id": 22,
+   "depth": 4,
+   "sel": "div.mu.sm",
+   "text": "Caminhada leve de 20 minutos com um passo só",
+   "rect": {
+    "x": 32,
+    "y": 408,
+    "w": 329,
+    "h": 16.8
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 23,
+   "depth": 3,
+   "sel": "button.card",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 447.8,
+    "w": 359,
+    "h": 66.4
+   },
+   "style": {
+    "position": "relative",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 24,
+   "depth": 4,
+   "sel": "b",
+   "text": "Sem treino",
+   "rect": {
+    "x": 32,
+    "y": 463.8,
+    "w": 73.5,
+    "h": 17
+   },
+   "style": {
+    "font-weight": "700"
+   }
+  },
+  {
+   "id": 25,
+   "depth": 4,
+   "sel": "div.mu.sm",
+   "text": "Treinos planejados viram pausa",
+   "rect": {
+    "x": 32,
+    "y": 482.4,
+    "w": 329,
+    "h": 16.8
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 26,
+   "depth": 2,
+   "sel": "span.lb",
+   "text": "Ritmo de retorno",
+   "rect": {
+    "x": 17,
+    "y": 528.2,
+    "w": 359,
+    "h": 14
+   },
+   "style": {
+    "flex-shrink": "0",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 27,
+   "depth": 2,
+   "sel": "div.seg",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 556.2,
+    "w": 359,
+    "h": 44
+   },
+   "style": {
+    "display": "flex",
+    "flex-shrink": "0",
+    "gap": "6px"
+   },
+   "data": [
+    "data-g=seg"
+   ]
+  },
+  {
+   "id": 28,
+   "depth": 3,
+   "sel": "div.s",
+   "text": "Cauteloso",
+   "rect": {
+    "x": 17,
+    "y": 556.2,
+    "w": 115.7,
+    "h": 44
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-grow": "1",
+    "color": "rgb(143, 147, 132)",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "14px",
+    "font-weight": "600",
+    "grid-template-columns": "113.656px"
+   }
+  },
+  {
+   "id": 29,
+   "depth": 3,
+   "sel": "div.s.on",
+   "text": "Proporcional",
+   "rect": {
+    "x": 138.7,
+    "y": 556.2,
+    "w": 115.7,
+    "h": 44
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-grow": "1",
+    "color": "rgb(14, 19, 6)",
+    "background-color": "rgb(163, 181, 101)",
+    "border": "1px solid rgba(0, 0, 0, 0)",
+    "border-radius": "14px",
+    "font-weight": "600",
+    "grid-template-columns": "113.672px"
+   }
+  },
+  {
+   "id": 30,
+   "depth": 3,
+   "sel": "div.s",
+   "text": "Rápido",
+   "rect": {
+    "x": 260.3,
+    "y": 556.2,
+    "w": 115.7,
+    "h": 44
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-grow": "1",
+    "color": "rgb(143, 147, 132)",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "14px",
+    "font-weight": "600",
+    "grid-template-columns": "113.672px"
+   }
+  },
+  {
+   "id": 31,
+   "depth": 2,
+   "sel": "div.card",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 614.2,
+    "w": 359,
+    "h": 106
+   },
+   "style": {
+    "position": "relative",
+    "flex-shrink": "0",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 32,
+   "depth": 3,
+   "sel": "span.lb.ol",
+   "text": "Prévia da retomada",
+   "rect": {
+    "x": 32,
+    "y": 632.2,
+    "w": 147.7,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 33,
+   "depth": 3,
+   "sel": "div.sm",
+   "text": "• Recuo: 1 etapa • Etapa de retomada: Etapa 2 • Treinos afetados: 2",
+   "rect": {
+    "x": 32,
+    "y": 654.8,
+    "w": 329,
+    "h": 50.4
+   },
+   "style": {
+    "margin": "6px 0px 0px",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 34,
+   "depth": 4,
+   "sel": "br",
+   "text": null,
+   "rect": {
+    "x": 124.8,
+    "y": 654.8,
+    "w": 0,
+    "h": 15
+   },
+   "style": {}
+  },
+  {
+   "id": 35,
+   "depth": 4,
+   "sel": "br",
+   "text": null,
+   "rect": {
+    "x": 198.7,
+    "y": 671.5,
+    "w": 0,
+    "h": 15
+   },
+   "style": {}
+  },
+  {
+   "id": 36,
+   "depth": 2,
+   "sel": "div.sp",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 734.1,
+    "w": 359,
+    "h": 21.9
+   },
+   "style": {
+    "flex-grow": "1"
+   }
+  },
+  {
+   "id": 37,
+   "depth": 2,
+   "sel": "button.btn.pri.stk",
+   "text": "Confirmar pausa",
+   "rect": {
+    "x": 17,
+    "y": 770,
+    "w": 359,
+    "h": 56
+   },
+   "style": {
+    "display": "flex",
+    "position": "sticky",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "10px",
+    "color": "rgb(255, 244, 240)",
+    "background-color": "rgb(209, 43, 43)",
+    "border-radius": "28px",
+    "box-shadow": "rgb(10, 11, 9) 0px -14px 14px -6px",
+    "font-size": "16px",
+    "font-weight": "700",
+    "letter-spacing": "0.32px",
+    "text-align": "center",
+    "transition": "transform 0.1s"
+   }
+  }
+ ],
+ "root_selector": ".phone"
+}

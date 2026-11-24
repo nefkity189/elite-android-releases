@@ -1,4 +1,4 @@
-# Plan: Aisle — Implementação Completa da Semana 1 (D1 a D5)
+# Plan: Elite — Implementação Completa da Semana 1 (D1 a D5)
 
 **Source PRD**: Relatório de Revisão e Decisões (07/11/2026)
 **Selected Milestone**: Semana 1 (D1 Higiene, D4 Conclusão por Distância, D5 Motor de Modelos e Plano 2,5K)

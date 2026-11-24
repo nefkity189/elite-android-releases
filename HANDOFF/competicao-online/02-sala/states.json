@@ -1,0 +1,7 @@
+[
+  {"name": "aberta", "eval": "__setState('padrao')", "wait": 200},
+  {"name": "aviso_10min", "eval": "__setState('banner10')", "wait": 200},
+  {"name": "aviso_5min", "eval": "__setState('banner5')", "wait": 200},
+  {"name": "confirmada", "eval": "__setState('confirmada')", "wait": 200},
+  {"name": "convite_pressionado", "press": "[data-id='lobby.invite.share']", "wait": 300}
+]

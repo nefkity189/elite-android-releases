@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elite - Perfil com conta (login)</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --page:#050604; --bg:#0A0B09; --surface:#10120D; --card:#161911; --card-el:#1D2116; --field:#0D0F0A;
+  --line:rgba(236,232,218,.10); --line-strong:rgba(236,232,218,.18);
+  --text:#ECE8DA; --muted:#8F9384; --dim:#5E6255;
+  --olive:#A3B565; --olive-dark:#5D6B34; --olive-soft:rgba(163,181,101,.14); --on-olive:#0E1306;
+  --red:#D12B2B; --red-soft:rgba(209,43,43,.15); --red-line:rgba(209,43,43,.35); --on-red:#FFF4F0;
+  --brass:#C9A24B; --amber:#E0A93A; --amber-soft:rgba(224,169,58,.14); --amber-notice:rgba(224,169,58,.33);
+  --ok:#7FB069; --ok-soft:rgba(127,176,105,.15); --scrim:rgba(0,0,0,.62);
+  --av1:#3B4426; --hdr-core:#262B1A;
+  --num:"Barlow Condensed","Arial Narrow",sans-serif; --ui:"Inter",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+button{font-family:var(--ui);cursor:pointer;border:0;background:none;color:inherit}
+body{background:var(--page);font-family:var(--ui);color:var(--text);display:flex;justify-content:center;align-items:flex-start;gap:24px;padding:0}
+[data-id="screen"]{flex:none;position:relative;width:393px;height:851px;overflow:hidden;background:var(--bg);display:flex;flex-direction:column;padding-top:28px}
+[data-id="profile.scroll"]{flex:1;min-height:0;overflow:hidden;padding:0 16px 16px;display:flex;flex-direction:column;gap:12px}
+[data-id="profile.topbar"]{flex:none;height:44px;display:flex;align-items:center}
+[data-id="profile.topbar.title"]{font:700 24px/24px var(--num);letter-spacing:.96px;text-transform:uppercase}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px}
+[data-id="profile.header"]{flex:none;height:94px;padding:14px;display:flex;align-items:center;gap:12px}
+[data-id="profile.header.avatar"]{flex:none;width:64px;height:64px;border-radius:20px;border:2px solid var(--olive-dark);background:radial-gradient(circle at 50% 50%,var(--hdr-core),var(--bg));display:grid;place-items:center}
+[data-id="profile.header.text"]{flex:1;min-width:0}
+[data-id="profile.header.name"]{font:600 20px/23px var(--num);letter-spacing:.8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+[data-id="profile.header.tagline"]{margin-top:2px;font:600 8px/10px var(--ui);letter-spacing:1.04px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+[data-id="profile.header.edit"]{flex:none;width:44px;height:44px;border-radius:22px;border:1px solid var(--line);display:grid;place-items:center;color:var(--muted)}
+.eyebrow{flex:none;font:600 11px/14px var(--ui);letter-spacing:1.3px;text-transform:uppercase;color:var(--muted)}
+svg{display:block;flex:none}
+.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+/* conta */
+[data-id="acct.card"]{flex:none;overflow:hidden}
+.pad{padding:16px;display:flex;flex-direction:column;gap:14px}
+.row{display:flex;align-items:center;gap:12px}
+.tile{flex:none;width:44px;height:44px;border-radius:14px;background:var(--olive-soft);color:var(--olive);display:grid;place-items:center}
+.t2{font:600 20px/23px var(--num);letter-spacing:.8px;text-transform:uppercase;flex:1;min-width:0}
+.body{font:400 14px/19.6px var(--ui);color:var(--muted)}
+.cap{font:400 12px/16px var(--ui);color:var(--muted)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{height:30px;padding:0 12px;border-radius:15px;background:var(--olive-soft);border:1px solid var(--olive-dark);color:var(--olive);font:500 12px/30px var(--ui);white-space:nowrap}
+.notice{display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;border:1px solid var(--amber-notice);background:var(--amber-soft);color:var(--amber);font:500 12px/16px var(--ui)}
+.notice span{flex:1;min-width:0;color:var(--text)}
+.btn{flex:none;width:100%;height:56px;border-radius:28px;display:flex;align-items:center;justify-content:center;gap:10px;font:600 16px/20px var(--ui);transition:transform .12s ease-out}
+.btn:active{transform:scale(.96)}
+.btn-olive{background:var(--olive);color:var(--on-olive)}
+.btn-off{background:var(--card-el);color:var(--muted);transition:none}
+.btn-off:active{transform:none}
+.btn-ghost{height:48px;border-radius:24px;border:1px solid var(--line-strong);color:var(--text)}
+.btn-red{background:var(--red);color:var(--on-red)}
+.btn-ghost-red{height:44px;border-radius:22px;color:var(--red);font:600 14px/18px var(--ui)}
+.spin{animation:acct-spin 1s linear infinite}
+@keyframes acct-spin{to{transform:rotate(360deg)}}
+.hair{height:1px;background:var(--line);margin:0 16px}
+.av{flex:none;width:48px;height:48px;border-radius:16px;border:2px solid var(--olive-dark);background:var(--av1);display:grid;place-items:center;font:700 18px/20px var(--num);letter-spacing:.8px}
+.who{flex:1;min-width:0}
+.who b{display:block;font:600 16px/20px var(--ui);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.who i{display:block;font:400 12px/16px var(--ui);font-style:normal;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.badge{flex:none;height:24px;padding:0 10px;border-radius:12px;background:var(--ok-soft);color:var(--ok);font:600 11px/24px var(--ui);display:flex;align-items:center;gap:6px}
+.dot{width:6px;height:6px;border-radius:3px;background:var(--ok)}
+.val{display:flex;align-items:center;gap:12px;min-height:56px;padding:8px 16px}
+.val .lbl{flex:1;min-width:0}
+.val .lbl b{display:block;font:700 14px/17px var(--ui)}
+.val .lbl span{display:block;margin-top:2px;font:400 12px/16px var(--ui);color:var(--muted)}
+.val .lbl span.warn{color:var(--amber)}
+.val .v{font:600 20px/23px var(--num);letter-spacing:.8px;color:var(--olive)}
+.val .v.warn{font:600 12px/16px var(--ui);letter-spacing:0;color:var(--amber);background:var(--amber-soft);border-radius:14px;padding:6px 12px}
+.sw{flex:none;width:46px;height:28px;border-radius:14px;background:var(--olive-dark);position:relative}
+.sw i{position:absolute;right:3px;top:3px;width:22px;height:22px;border-radius:11px;background:var(--text)}
+[data-id="run.group"]{flex:none}
+.set{display:flex;align-items:center;gap:12px;padding:14px}
+.set b{display:block;font:700 14px/17px var(--ui)}
+/* nav (existe) */
+[data-id="profile.nav"]{flex:none;height:64px;margin:0 12px 10px;border-radius:24px;background:var(--surface);border:1px solid var(--line-strong);display:grid;grid-template-columns:repeat(5,1fr);align-items:center;padding:0 6px}
+.nv{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font:500 11px/14px var(--ui);color:var(--muted)}
+.nv.on{color:var(--olive)}
+.nv svg{width:22px;height:22px}
+[data-id="profile.nav.coach"]{justify-self:center;width:48px;height:48px;border-radius:16px;padding:2px;background:conic-gradient(var(--olive),var(--red),var(--brass),var(--olive));display:grid}
+[data-id="profile.nav.coach.core"]{border-radius:14px;background:var(--bg);display:grid;place-items:center;font:700 25px/25px var(--num);color:var(--olive)}
+/* camadas modais */
+.scrim{position:absolute;inset:0;background:var(--scrim)}
+[data-id="dlg.box"],[data-id="dlg.del.box"]{position:absolute;left:41px;top:325.6px;width:311px;padding:20px;border-radius:20px;background:var(--card-el);border:1px solid var(--line-strong);display:flex;flex-direction:column;gap:12px}
+.acts{display:flex;gap:10px;margin-top:4px}
+.acts .btn{flex:1;width:auto;height:48px;border-radius:24px;font-size:15px}
+[data-id="uf.sheet"]{position:absolute;left:0;right:0;bottom:0;padding:12px 16px 18px;border-radius:26px 26px 0 0;background:var(--surface);border-top:1px solid var(--line-strong);display:flex;flex-direction:column;gap:12px}
+[data-id="uf.sheet.handle"]{align-self:center;width:36px;height:4px;border-radius:2px;background:var(--line-strong)}
+[data-id="uf.grid"]{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.uf{height:40px;border-radius:12px;background:var(--card);border:1px solid var(--line);font:600 14px/20px var(--ui);color:var(--text)}
+.uf.on{background:var(--olive-soft);border-color:var(--olive);color:var(--olive)}
+.uf:active{transform:scale(.96)}
+/* painel de pré-visualização (fora do app) */
+aside{width:190px;padding-top:28px;display:flex;flex-direction:column;gap:8px}
+aside p{font:600 11px/14px var(--ui);letter-spacing:1.3px;color:var(--muted);text-transform:uppercase}
+aside button{height:36px;border-radius:12px;border:1px solid var(--line-strong);font:500 13px/16px var(--ui);color:var(--text);text-align:left;padding:0 12px}
+@media (prefers-reduced-motion:reduce){.spin{animation:none}.btn,.uf{transition:none}}
+</style>
+</head>
+<body>
+<main data-id="screen" data-viewport="393x851" data-state="deslogado">
+  <div data-id="profile.scroll">
+    <header data-id="profile.topbar"><h1 data-id="profile.topbar.title">Perfil</h1></header>
+
+    <section data-id="profile.header" class="card" data-compose="ProfileHeader (existe)">
+      <div data-id="profile.header.avatar">
+        <svg data-id="profile.header.mark" aria-hidden="true" width="36" height="36" viewBox="0 0 64 64"><polygon points="14,50 30,10 44,10 28,50" fill="var(--olive)"/><polygon points="34,50 40,34 50,34 44,50" fill="var(--red)"/></svg>
+      </div>
+      <div data-id="profile.header.text">
+        <p data-id="profile.header.name" data-bind="userName">Recruta</p>
+        <p data-id="profile.header.tagline">MISSÃO DADA É MISSÃO CUMPRIDA</p>
+      </div>
+      <button data-id="profile.header.edit" aria-label="Editar nome" data-icon="material:Edit"><svg data-id="profile.header.edit.icon" aria-hidden="true" class="ic" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></button>
+    </section>
+
+    <p data-id="acct.title" class="eyebrow" data-compose="SectionTitle (existe)">Conta</p>
+
+    <section data-id="acct.card" class="card" data-compose="AccountCard (novo)">
+      <!-- DESLOGADO / ENTRANDO / ERRO -->
+      <div data-id="acct.out" class="pad" data-show="deslogado entrando erro" data-compose="SignedOutContent">
+        <div class="row">
+          <div data-id="acct.out.tile" class="tile"><svg data-id="acct.out.tile.icon" class="ic" viewBox="0 0 24 24" data-icon="material:Person"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <h2 data-id="acct.out.title" class="t2">Entre para competir</h2>
+        </div>
+        <p data-id="acct.out.body" class="body">Com a conta Google você entra nas missões online, aparece no ranking e guarda seu progresso na nuvem.</p>
+        <div data-id="acct.out.chips" class="chips"><span data-id="acct.out.chip1" class="chip">Missões online</span><span data-id="acct.out.chip2" class="chip">Ranking</span><span data-id="acct.out.chip3" class="chip">Conquistas</span></div>
+        <div data-id="acct.out.error" class="notice" data-show="erro" data-compose="SettingsNotice (existe)">
+          <svg data-id="acct.out.error.icon" class="ic" viewBox="0 0 24 24" data-icon="material:Warning"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18h.01"/></svg>
+          <span data-id="acct.out.error.text">Não foi possível entrar. Confira a conexão e tente de novo.</span>
+        </div>
+        <button data-id="acct.out.google" class="btn btn-olive" data-show="deslogado" data-compose="GoogleSignInButton">
+          <svg data-id="acct.out.google.icon" aria-hidden="true" class="ic" viewBox="0 0 24 24" style="stroke-width:2.5"><path d="M20 12h-8"/><path d="M19 7a8 8 0 1 0 1 5"/></svg>Entrar com Google</button>
+        <button data-id="acct.out.google.loading" class="btn btn-off" data-show="entrando" disabled>
+          <svg data-id="acct.out.google.spinner" aria-hidden="true" class="ic spin" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9"/></svg>Entrando…</button>
+        <button data-id="acct.out.google.retry" class="btn btn-olive" data-show="erro">Tentar de novo</button>
+        <p data-id="acct.out.note" class="cap" style="text-align:center">Você pode usar o Elite sem conta. Seus treinos continuam neste aparelho.</p>
+      </div>
+
+      <!-- LOGADO -->
+      <div data-id="acct.in" data-show="logado logado_sem_uf uf_sheet sair_dialog excluir_dialog" data-compose="SignedInContent">
+        <div class="pad" style="padding:16px;gap:0">
+          <div class="row">
+            <div data-id="acct.in.avatar" class="av" data-bind="user.initials">MS</div>
+            <div class="who"><b data-id="acct.in.name" data-bind="user.displayName">Marcos Silva</b><i data-id="acct.in.email" data-bind="user.email">marcos.silva@gmail.com</i></div>
+            <div data-id="acct.in.badge" class="badge"><span class="dot"></span>Conectado</div>
+          </div>
+        </div>
+        <div class="hair"></div>
+        <button data-id="acct.in.uf" aria-label="Estado" class="val" style="width:100%;text-align:left" data-compose="ValueRow (existe)">
+          <svg data-id="acct.in.uf.icon" class="ic" viewBox="0 0 24 24" style="width:22px;height:22px;color:var(--muted)" data-icon="material:Place"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <div class="lbl"><b data-id="acct.in.uf.label">Estado</b>
+            <span data-id="acct.in.uf.hint" data-show="logado sair_dialog excluir_dialog">Usado no ranking Meu estado</span>
+            <span data-id="acct.in.uf.warn" class="warn" data-show="logado_sem_uf uf_sheet">Escolha para aparecer no ranking local</span></div>
+          <span data-id="acct.in.uf.value" class="v" data-show="logado sair_dialog excluir_dialog" data-bind="user.uf">MT</span>
+          <span data-id="acct.in.uf.pick" class="v warn" data-show="logado_sem_uf uf_sheet">Escolher</span>
+          <svg data-id="acct.in.uf.chevron" class="ic" viewBox="0 0 24 24" style="color:var(--muted)" data-icon="material:ChevronRight"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <div class="hair"></div>
+        <div class="pad" style="gap:4px;padding:14px 16px">
+          <button data-id="acct.in.signout" class="btn btn-ghost" data-compose="OutlinedButton">Sair da conta</button>
+          <button data-id="acct.in.delete" class="btn btn-ghost-red" style="width:100%">Excluir minha conta</button>
+        </div>
+      </div>
+    </section>
+
+    <p data-id="run.title" class="eyebrow">Durante a corrida</p>
+    <section data-id="run.group" class="card" data-compose="SettingsGroup (existe)">
+      <div data-id="run.voice" class="set"><svg data-id="run.voice.icon" aria-hidden="true" class="ic" viewBox="0 0 24 24" style="color:var(--muted)"><path d="M4 10v4M8 7v10M12 4v16M16 8v8M20 11v2"/></svg><div style="flex:1"><b data-id="run.voice.title">Voz do treinador</b><span data-id="run.voice.desc" class="cap">Instruções sonoras para início, trocas de passo e ritmo</span></div><div class="sw"><i></i></div></div>
+    </section>
+  </div>
+
+  <nav data-id="profile.nav" data-compose="RunnaBottomNav (existe, não alterar)">
+    <div data-id="profile.nav.today" class="nv"><svg data-id="profile.nav.today.icon" aria-hidden="true" class="ic" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"/></svg>Hoje</div>
+    <div data-id="profile.nav.plan" class="nv"><svg data-id="profile.nav.plan.icon" aria-hidden="true" class="ic" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Plano</div>
+    <div data-id="profile.nav.coach" aria-label="Assistente"><div data-id="profile.nav.coach.core">E</div></div>
+    <div data-id="profile.nav.progress" class="nv"><svg data-id="profile.nav.progress.icon" aria-hidden="true" class="ic" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/></svg>Progresso</div>
+    <div data-id="profile.nav.profile" class="nv on"><svg data-id="profile.nav.profile.icon" aria-hidden="true" class="ic" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Perfil</div>
+  </nav>
+
+  <!-- DIÁLOGO: SAIR -->
+  <div data-id="dlg" data-show="sair_dialog" data-compose="EliteDialog (existe)">
+    <div data-id="dlg.scrim" class="scrim"></div>
+    <div data-id="dlg.box">
+      <h2 data-id="dlg.title" class="t2" style="flex:none">Sair da conta?</h2>
+      <p data-id="dlg.body" class="body">Seu plano e seus treinos continuam salvos neste aparelho. Para competir, será preciso entrar de novo.</p>
+      <div class="acts"><button data-id="dlg.cancel" class="btn btn-ghost">Cancelar</button><button data-id="dlg.confirm" class="btn btn-olive">Sair</button></div>
+    </div>
+  </div>
+
+  <!-- DIÁLOGO: EXCLUIR -->
+  <div data-id="dlg.del" data-show="excluir_dialog" data-compose="EliteDialog (existe)">
+    <div data-id="dlg.del.scrim" class="scrim"></div>
+    <div data-id="dlg.del.box" style="top:306px">
+      <h2 data-id="dlg.del.title" class="t2" style="flex:none">Excluir sua conta?</h2>
+      <p data-id="dlg.del.body" class="body">Sua conta e seus dados de competição (ranking, conquistas e histórico de missões) serão apagados de forma permanente. Os treinos deste aparelho não são afetados.</p>
+      <div class="acts"><button data-id="dlg.del.cancel" class="btn btn-ghost">Cancelar</button><button data-id="dlg.del.confirm" class="btn btn-red">Excluir</button></div>
+    </div>
+  </div>
+
+  <!-- BOTTOM SHEET: ESTADO -->
+  <div data-id="uf.root" data-show="uf_sheet" data-compose="StatePickerSheet (novo)">
+    <div data-id="uf.scrim" class="scrim"></div>
+    <section data-id="uf.sheet">
+      <div data-id="uf.sheet.handle"></div>
+      <h2 data-id="uf.sheet.title" class="t2" style="flex:none">Seu estado</h2>
+      <p data-id="uf.sheet.body" class="body">Usado no ranking Meu estado. Você pode mudar depois.</p>
+      <div data-id="uf.grid">
+        <button data-id="uf.ac" class="uf">AC</button><button data-id="uf.al" class="uf">AL</button><button data-id="uf.ap" class="uf">AP</button><button data-id="uf.am" class="uf">AM</button><button data-id="uf.ba" class="uf">BA</button>
+        <button data-id="uf.ce" class="uf">CE</button><button data-id="uf.df" class="uf">DF</button><button data-id="uf.es" class="uf">ES</button><button data-id="uf.go" class="uf">GO</button><button data-id="uf.ma" class="uf">MA</button>
+        <button data-id="uf.mt" class="uf on">MT</button><button data-id="uf.ms" class="uf">MS</button><button data-id="uf.mg" class="uf">MG</button><button data-id="uf.pa" class="uf">PA</button><button data-id="uf.pb" class="uf">PB</button>
+        <button data-id="uf.pr" class="uf">PR</button><button data-id="uf.pe" class="uf">PE</button><button data-id="uf.pi" class="uf">PI</button><button data-id="uf.rj" class="uf">RJ</button><button data-id="uf.rn" class="uf">RN</button>
+        <button data-id="uf.rs" class="uf">RS</button><button data-id="uf.ro" class="uf">RO</button><button data-id="uf.rr" class="uf">RR</button><button data-id="uf.sc" class="uf">SC</button><button data-id="uf.sp" class="uf">SP</button>
+        <button data-id="uf.se" class="uf">SE</button><button data-id="uf.to" class="uf">TO</button>
+      </div>
+      <button data-id="uf.confirm" class="btn btn-olive" style="margin-top:4px">Confirmar</button>
+    </section>
+  </div>
+</main>
+
+<aside data-preview="true">
+  <p data-id="preview.title">Estados (pré-visualização)</p>
+  <button data-id="preview.deslogado" onclick="__setState('deslogado')">Deslogado</button>
+  <button data-id="preview.entrando" onclick="__setState('entrando')">Entrando</button>
+  <button data-id="preview.erro" onclick="__setState('erro')">Erro ao entrar</button>
+  <button data-id="preview.logado" onclick="__setState('logado')">Logado</button>
+  <button data-id="preview.sem-uf" onclick="__setState('logado_sem_uf')">Logado sem estado</button>
+  <button data-id="preview.uf" onclick="__setState('uf_sheet')">Escolher estado</button>
+  <button data-id="preview.sair" onclick="__setState('sair_dialog')">Sair da conta</button>
+  <button data-id="preview.excluir" onclick="__setState('excluir_dialog')">Excluir conta</button>
+</aside>
+
+<script>
+(function(){
+  var main=document.querySelector('[data-id="screen"]');
+  var name=document.querySelector('[data-id="profile.header.name"]');
+  window.__setState=function(s){
+    main.setAttribute('data-state',s);
+    document.querySelectorAll('[data-show]').forEach(function(e){e.hidden=e.getAttribute('data-show').split(' ').indexOf(s)<0;});
+    name.textContent=(s==='deslogado'||s==='entrando'||s==='erro')?'Recruta':'Marcos';
+  };
+  window.__setState('deslogado');
+})();
+</script>
+</body>
+</html>

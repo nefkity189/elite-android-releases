@@ -1,0 +1,5 @@
+WARN: div.a extends outside the screen: 560,120,1260,824 (screen 1080x1350)
+WARN: div.z extends outside the screen: 740,400,1115,582 (screen 1080x1350)
+WARN: div.k extends outside the screen: 740,400,1115,432 (screen 1080x1350)
+WARN: div.d extends outside the screen: 740,432,1115,582 (screen 1080x1350)
+root=.phone 1080x1350dp  errors=0 warnings=4

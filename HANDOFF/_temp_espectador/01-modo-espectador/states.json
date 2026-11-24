@@ -1,0 +1,6 @@
+[
+ {"name":"espectador_ao_vivo","wait":300},
+ {"name":"hub_com_botao_assistir","eval":"__goto('hub')","wait":300},
+ {"name":"hub_para_espectador","eval":"__goto('hub')","click":"[data-id='hub.live.watch']","frames":[0,100,200,400]},
+ {"name":"prova_encerrada","eval":"__goto('encerrada')","wait":300}
+]

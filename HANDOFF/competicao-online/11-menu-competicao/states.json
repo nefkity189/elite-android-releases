@@ -1,0 +1,7 @@
+[
+  {"name": "premium_bloqueado", "eval": "__setState('premium_bloqueado')", "wait": 500},
+  {"name": "premium_ativo", "eval": "__setState('premium_ativo')", "wait": 500},
+  {"name": "card_pressionado", "press": "[data-id='menu.prem']", "wait": 300},
+  {"name": "brilho_meio", "eval": "__setState('premium_bloqueado')", "frames": [600, 1200, 1800, 2400]},
+  {"name": "abertura_menu", "eval": "__setState('premium_bloqueado')", "frames": [0, 120, 320, 600]}
+]

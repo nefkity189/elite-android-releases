@@ -1,0 +1,964 @@
+{
+ "screen": {
+  "w": 393,
+  "h": 851
+ },
+ "tokens": {
+  "--bg": "#0A0B09",
+  "--s1": "#10120D",
+  "--card": "#161911",
+  "--card2": "#1D2116",
+  "--field": "#0D0F0A",
+  "--page": "#050604",
+  "--line": "rgba(236,232,218,.10)",
+  "--line2": "rgba(236,232,218,.18)",
+  "--text": "#ECE8DA",
+  "--mut": "#8F9384",
+  "--dim": "#5E6255",
+  "--olive": "#A3B565",
+  "--olive-d": "#5D6B34",
+  "--olive-s": "rgba(163,181,101,.14)",
+  "--on-olive": "#0E1306",
+  "--red": "#D12B2B",
+  "--red-s": "rgba(209,43,43,.15)",
+  "--on-red": "#FFF4F0",
+  "--brass": "#C9A24B",
+  "--amber": "#E0A93A",
+  "--ok": "#7FB069",
+  "--num": "\"Barlow Condensed\",\"Arial Narrow\",system-ui,sans-serif",
+  "--ui": "\"Inter\",system-ui,sans-serif",
+  "--sten": "\"Saira Stencil One\",\"Barlow Condensed\",Impact,sans-serif"
+ },
+ "fonts": [
+  {
+   "family": "Inter",
+   "loaded": true
+  },
+  {
+   "family": "Barlow Condensed",
+   "loaded": false
+  }
+ ],
+ "media_queries": [
+  "(prefers-reduced-motion: reduce)",
+  "(max-width: 430px)"
+ ],
+ "animations": [],
+ "elements": [
+  {
+   "id": 0,
+   "depth": 0,
+   "sel": "main.phone.st",
+   "text": null,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 851
+   },
+   "style": {
+    "display": "flex",
+    "position": "relative",
+    "flex-direction": "column",
+    "background-color": "rgb(10, 11, 9)",
+    "background-image": "repeating-linear-gradient(135deg, rgba(236, 232, 218, 0.016) 0px, rgba(236, 232, 218, 0.016) 1px, rgba(0, 0, 0, 0) 1px, rgba(0, 0, 0, 0) 8px)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "overflow": "hidden"
+   },
+   "data": [
+    "data-screen=5-resumo-do-treino"
+   ]
+  },
+  {
+   "id": 1,
+   "depth": 1,
+   "sel": "div.scr.sc",
+   "text": null,
+   "rect": {
+    "x": 1,
+    "y": 1,
+    "w": 391,
+    "h": 849
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-grow": "1",
+    "gap": "14px",
+    "padding": "22px 16px 24px"
+   }
+  },
+  {
+   "id": 2,
+   "depth": 2,
+   "sel": "div.top",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 23,
+    "w": 359,
+    "h": 44
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "10px"
+   }
+  },
+  {
+   "id": 3,
+   "depth": 3,
+   "sel": "button.ib",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 23,
+    "w": 44,
+    "h": 44
+   },
+   "style": {
+    "display": "grid",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "50%",
+    "text-align": "center",
+    "grid-template-columns": "42px"
+   },
+   "aria": "Voltar"
+  },
+  {
+   "id": 4,
+   "depth": 4,
+   "sel": "svg.ic",
+   "text": null,
+   "rect": {
+    "x": 28,
+    "y": 34,
+    "w": 22,
+    "h": 22
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "svg": "<svg class=\"ic\"><use href=\"#i-back\"></use></svg>"
+  },
+  {
+   "id": 5,
+   "depth": 3,
+   "sel": "h2",
+   "text": "Detalhes da corrida",
+   "rect": {
+    "x": 71,
+    "y": 33,
+    "w": 305,
+    "h": 24
+   },
+   "style": {
+    "flex-grow": "1",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-size": "24px",
+    "font-weight": "700",
+    "line-height": "24px",
+    "letter-spacing": "0.96px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 6,
+   "depth": 2,
+   "sel": "div.cl",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 81,
+    "w": 359,
+    "h": 49.5
+   },
+   "style": {
+    "display": "flex",
+    "flex-direction": "column",
+    "flex-shrink": "0",
+    "gap": "4px"
+   }
+  },
+  {
+   "id": 7,
+   "depth": 3,
+   "sel": "span.lb.ol",
+   "text": "Treino 1 · 19 de novembro",
+   "rect": {
+    "x": 17,
+    "y": 81,
+    "w": 359,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 8,
+   "depth": 3,
+   "sel": "h1.t1",
+   "text": "Treino concluído!",
+   "rect": {
+    "x": 17,
+    "y": 99,
+    "w": 359,
+    "h": 31.5
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-size": "30px",
+    "font-weight": "700",
+    "line-height": "31.5px",
+    "letter-spacing": "0.9px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 9,
+   "depth": 2,
+   "sel": "div.card",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 144.5,
+    "w": 359,
+    "h": 150
+   },
+   "style": {
+    "position": "relative",
+    "flex-shrink": "0",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px",
+    "overflow": "hidden"
+   }
+  },
+  {
+   "id": 10,
+   "depth": 3,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 18,
+    "y": 145.5,
+    "w": 357,
+    "h": 150
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "aria": "Trajeto percorrido",
+   "svg": "<svg aria-label=\"Trajeto percorrido\" height=\"150\" viewBox=\"0 0 361 150\" width=\"100%\"><rect fill=\"#0C0E09\" height=\"150\" width=\"361\"></rect><path d=\"M0 110Q80 90 160 105T361 70M120 0C130 60 110 100 150 150\" fill=\"none\" stroke=\"#1C2015\" stroke-width=\"8\"></path><path d=\"M40 118C70 80 110 112 150 74S230 40 270 68 320 40 330 30\" fill=\"none\" stroke=\"#A3B565\" stroke-linecap=\"round\" stroke-width=\"4\"></path><circle cx=\"40\" cy=\"118\" fill=\"#A3B565\" r=\"6\" stroke=\"#0A0B09\" stroke-width=\"2\"></circle><circle cx=\"330\" cy=\"30\" fill=\"#D12B2B\" r=\"6\" stroke=\"#0A0B09\" stroke-width=\"2\"></circle></svg>"
+  },
+  {
+   "id": 11,
+   "depth": 2,
+   "sel": "div.card.stat3",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 308.5,
+    "w": 359,
+    "h": 77.6
+   },
+   "style": {
+    "display": "grid",
+    "position": "relative",
+    "flex-shrink": "0",
+    "gap": "8px",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px",
+    "text-align": "center",
+    "grid-template-columns": "104.328px 104.328px 104.344px"
+   }
+  },
+  {
+   "id": 12,
+   "depth": 3,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 32,
+    "y": 323.5,
+    "w": 104.3,
+    "h": 47.6
+   },
+   "style": {}
+  },
+  {
+   "id": 13,
+   "depth": 4,
+   "sel": "b",
+   "text": "2,40",
+   "rect": {
+    "x": 32,
+    "y": 323.5,
+    "w": 104.3,
+    "h": 28
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-size": "28px",
+    "font-weight": "600",
+    "line-height": "28px"
+   }
+  },
+  {
+   "id": 14,
+   "depth": 4,
+   "sel": "span",
+   "text": "km",
+   "rect": {
+    "x": 76.3,
+    "y": 354.5,
+    "w": 15.7,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "line-height": "15.4px"
+   }
+  },
+  {
+   "id": 15,
+   "depth": 3,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 144.3,
+    "y": 323.5,
+    "w": 104.3,
+    "h": 47.6
+   },
+   "style": {}
+  },
+  {
+   "id": 16,
+   "depth": 4,
+   "sel": "b",
+   "text": "28:12",
+   "rect": {
+    "x": 144.3,
+    "y": 323.5,
+    "w": 104.3,
+    "h": 28
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-size": "28px",
+    "font-weight": "600",
+    "line-height": "28px"
+   }
+  },
+  {
+   "id": 17,
+   "depth": 4,
+   "sel": "span",
+   "text": "Tempo",
+   "rect": {
+    "x": 178.7,
+    "y": 354.5,
+    "w": 35.6,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "line-height": "15.4px"
+   }
+  },
+  {
+   "id": 18,
+   "depth": 3,
+   "sel": "div",
+   "text": null,
+   "rect": {
+    "x": 256.7,
+    "y": 323.5,
+    "w": 104.3,
+    "h": 47.6
+   },
+   "style": {}
+  },
+  {
+   "id": 19,
+   "depth": 4,
+   "sel": "b",
+   "text": "6:05",
+   "rect": {
+    "x": 256.7,
+    "y": 323.5,
+    "w": 104.3,
+    "h": 28
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-size": "28px",
+    "font-weight": "600",
+    "line-height": "28px"
+   }
+  },
+  {
+   "id": 20,
+   "depth": 4,
+   "sel": "span",
+   "text": "Ritmo médio",
+   "rect": {
+    "x": 276.5,
+    "y": 354.5,
+    "w": 64.7,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "line-height": "15.4px"
+   }
+  },
+  {
+   "id": 21,
+   "depth": 2,
+   "sel": "div.card",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 400.1,
+    "w": 359,
+    "h": 142
+   },
+   "style": {
+    "position": "relative",
+    "flex-shrink": "0",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 22,
+   "depth": 3,
+   "sel": "span.lb",
+   "text": "Ritmo ao longo do treino",
+   "rect": {
+    "x": 32,
+    "y": 418.1,
+    "w": 191.6,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 23,
+   "depth": 3,
+   "sel": "div.mu.sm",
+   "text": "Janela móvel de 30 s filtrada",
+   "rect": {
+    "x": 32,
+    "y": 434.7,
+    "w": 329,
+    "h": 16.8
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 24,
+   "depth": 3,
+   "sel": "svg",
+   "text": null,
+   "rect": {
+    "x": 32,
+    "y": 451.5,
+    "w": 329,
+    "h": 70
+   },
+   "style": {
+    "overflow": "hidden"
+   },
+   "aria": "Gráfico de ritmo",
+   "svg": "<svg aria-label=\"Gráfico de ritmo\" height=\"70\" viewBox=\"0 0 320 70\" width=\"100%\"><defs><linearGradient id=\"pg\" x1=\"0\" x2=\"0\" y1=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#A3B565\" stop-opacity=\".35\"></stop><stop offset=\"1\" stop-color=\"#A3B565\" stop-opacity=\"0\"></stop></linearGradient></defs><path d=\"M0 44C20 40 30 22 55 26S95 52 120 40 160 14 190 24 240 50 265 34 305 20 320 26V70H0Z\" fill=\"url(#pg)\"></path><path d=\"M0 44C20 40 30 22 55 26S95 52 120 40 160 14 190 24 240 50 265 34 305 20 320 26\" fill=\"none\" stroke=\"#A3B565\" stroke-linecap=\"round\" stroke-width=\"2.5\"></path></svg>"
+  },
+  {
+   "id": 25,
+   "depth": 2,
+   "sel": "div.card",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 556.1,
+    "w": 359,
+    "h": 119.6
+   },
+   "style": {
+    "position": "relative",
+    "flex-shrink": "0",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 26,
+   "depth": 3,
+   "sel": "span.lb.br",
+   "text": "Seus recordes",
+   "rect": {
+    "x": 32,
+    "y": 574.1,
+    "w": 108.3,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(201, 162, 75)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 27,
+   "depth": 3,
+   "sel": "div.rw.b",
+   "text": null,
+   "rect": {
+    "x": 32,
+    "y": 598.7,
+    "w": 329,
+    "h": 28
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "gap": "12px",
+    "margin": "8px 0px 0px"
+   }
+  },
+  {
+   "id": 28,
+   "depth": 4,
+   "sel": "span",
+   "text": "Maior distância",
+   "rect": {
+    "x": 32,
+    "y": 602.9,
+    "w": 100.9,
+    "h": 19.6
+   },
+   "style": {}
+  },
+  {
+   "id": 29,
+   "depth": 4,
+   "sel": "b.num",
+   "text": "2,40 km",
+   "rect": {
+    "x": 282,
+    "y": 598.7,
+    "w": 79,
+    "h": 28
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-size": "20px",
+    "font-weight": "600",
+    "line-height": "28px",
+    "font-variant-numeric": "tabular-nums"
+   }
+  },
+  {
+   "id": 30,
+   "depth": 3,
+   "sel": "div.rw.b",
+   "text": null,
+   "rect": {
+    "x": 32,
+    "y": 632.7,
+    "w": 329,
+    "h": 28
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "gap": "12px",
+    "margin": "6px 0px 0px"
+   }
+  },
+  {
+   "id": 31,
+   "depth": 4,
+   "sel": "span",
+   "text": "Maior duração",
+   "rect": {
+    "x": 32,
+    "y": 636.9,
+    "w": 95.9,
+    "h": 19.6
+   },
+   "style": {}
+  },
+  {
+   "id": 32,
+   "depth": 4,
+   "sel": "b.num",
+   "text": "28:12",
+   "rect": {
+    "x": 303.9,
+    "y": 632.7,
+    "w": 57.1,
+    "h": 28
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-size": "20px",
+    "font-weight": "600",
+    "line-height": "28px",
+    "font-variant-numeric": "tabular-nums"
+   }
+  },
+  {
+   "id": 33,
+   "depth": 2,
+   "sel": "div.card",
+   "text": null,
+   "rect": {
+    "x": 17,
+    "y": 689.7,
+    "w": 359,
+    "h": 139.2
+   },
+   "style": {
+    "position": "relative",
+    "flex-shrink": "0",
+    "padding": "14px",
+    "background-color": "rgb(22, 25, 17)",
+    "border": "1px solid rgba(236, 232, 218, 0.1)",
+    "border-radius": "18px"
+   }
+  },
+  {
+   "id": 34,
+   "depth": 3,
+   "sel": "span.lb",
+   "text": "Parciais por quilômetro",
+   "rect": {
+    "x": 32,
+    "y": 707.7,
+    "w": 183.1,
+    "h": 14
+   },
+   "style": {
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 35,
+   "depth": 3,
+   "sel": "div.rw.b",
+   "text": null,
+   "rect": {
+    "x": 32,
+    "y": 732.3,
+    "w": 329,
+    "h": 19.6
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "gap": "12px",
+    "margin": "8px 0px 0px"
+   }
+  },
+  {
+   "id": 36,
+   "depth": 4,
+   "sel": "span",
+   "text": "Km 1",
+   "rect": {
+    "x": 32,
+    "y": 732.3,
+    "w": 31.3,
+    "h": 19.6
+   },
+   "style": {}
+  },
+  {
+   "id": 37,
+   "depth": 4,
+   "sel": "b.num",
+   "text": "6:10 /km",
+   "rect": {
+    "x": 300.4,
+    "y": 732.3,
+    "w": 60.6,
+    "h": 19.6
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-weight": "600",
+    "font-variant-numeric": "tabular-nums"
+   }
+  },
+  {
+   "id": 38,
+   "depth": 3,
+   "sel": "div.rw.b",
+   "text": null,
+   "rect": {
+    "x": 32,
+    "y": 751.9,
+    "w": 329,
+    "h": 19.6
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "gap": "12px"
+   }
+  },
+  {
+   "id": 39,
+   "depth": 4,
+   "sel": "span",
+   "text": "Km 2",
+   "rect": {
+    "x": 32,
+    "y": 751.9,
+    "w": 34.2,
+    "h": 19.6
+   },
+   "style": {}
+  },
+  {
+   "id": 40,
+   "depth": 4,
+   "sel": "b.num.ol",
+   "text": "5:58 /km",
+   "rect": {
+    "x": 300.4,
+    "y": 751.9,
+    "w": 60.6,
+    "h": 19.6
+   },
+   "style": {
+    "color": "rgb(163, 181, 101)",
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-weight": "600",
+    "font-variant-numeric": "tabular-nums"
+   }
+  },
+  {
+   "id": 41,
+   "depth": 3,
+   "sel": "div.rw.b",
+   "text": null,
+   "rect": {
+    "x": 32,
+    "y": 771.5,
+    "w": 329,
+    "h": 19.6
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "space-between",
+    "align-items": "center",
+    "gap": "12px"
+   }
+  },
+  {
+   "id": 42,
+   "depth": 4,
+   "sel": "span",
+   "text": "Km 3 (parcial)",
+   "rect": {
+    "x": 32,
+    "y": 771.5,
+    "w": 92.7,
+    "h": 19.6
+   },
+   "style": {}
+  },
+  {
+   "id": 43,
+   "depth": 4,
+   "sel": "b.num",
+   "text": "6:02 /km",
+   "rect": {
+    "x": 300.4,
+    "y": 771.5,
+    "w": 60.6,
+    "h": 19.6
+   },
+   "style": {
+    "font-family": "\"Barlow Condensed\", \"Arial Narrow\", system-ui, sans-serif",
+    "font-weight": "600",
+    "font-variant-numeric": "tabular-nums"
+   }
+  },
+  {
+   "id": 44,
+   "depth": 3,
+   "sel": "div.mu.sm",
+   "text": "Mais rápido: 5:58 /km · Mais lento: 6:10 /km",
+   "rect": {
+    "x": 32,
+    "y": 797,
+    "w": 329,
+    "h": 16.8
+   },
+   "style": {
+    "margin": "6px 0px 0px",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "12px",
+    "line-height": "16.8px"
+   }
+  },
+  {
+   "id": 45,
+   "depth": 2,
+   "sel": "span.lb",
+   "text": "Anotações particulares",
+   "rect": {
+    "x": 17,
+    "y": 842.8,
+    "w": 359,
+    "h": 14
+   },
+   "style": {
+    "flex-shrink": "0",
+    "color": "rgb(143, 147, 132)",
+    "font-size": "11px",
+    "font-weight": "600",
+    "letter-spacing": "1.32px",
+    "text-transform": "uppercase"
+   }
+  },
+  {
+   "id": 46,
+   "depth": 2,
+   "sel": "div.fld",
+   "text": "Ex: Bom ritmo no trecho intermediário…",
+   "rect": {
+    "x": 17,
+    "y": 870.8,
+    "w": 359,
+    "h": 72
+   },
+   "style": {
+    "display": "flex",
+    "align-items": "flex-start",
+    "flex-shrink": "0",
+    "padding": "12px 14px 0px",
+    "color": "rgb(143, 147, 132)",
+    "background-color": "rgb(13, 15, 10)",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "14px"
+   }
+  },
+  {
+   "id": 47,
+   "depth": 2,
+   "sel": "button.btn.gh.sm2",
+   "text": "Compartilhar no Elite",
+   "rect": {
+    "x": 17,
+    "y": 956.8,
+    "w": 359,
+    "h": 44
+   },
+   "style": {
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "10px",
+    "border": "1px solid rgba(236, 232, 218, 0.18)",
+    "border-radius": "22px",
+    "font-weight": "700",
+    "letter-spacing": "0.28px",
+    "text-align": "center",
+    "transition": "transform 0.1s"
+   }
+  },
+  {
+   "id": 48,
+   "depth": 3,
+   "sel": "svg.ic",
+   "text": null,
+   "rect": {
+    "x": 107.9,
+    "y": 969.8,
+    "w": 18,
+    "h": 18
+   },
+   "style": {
+    "flex-shrink": "0",
+    "overflow": "hidden"
+   },
+   "svg": "<svg class=\"ic\"><use href=\"#i-share\"></use></svg>"
+  },
+  {
+   "id": 49,
+   "depth": 2,
+   "sel": "button.btn.pri.stk",
+   "text": "Salvar e concluir treino",
+   "rect": {
+    "x": 17,
+    "y": 770,
+    "w": 359,
+    "h": 56
+   },
+   "style": {
+    "display": "flex",
+    "position": "sticky",
+    "justify-content": "center",
+    "align-items": "center",
+    "flex-shrink": "0",
+    "gap": "10px",
+    "color": "rgb(255, 244, 240)",
+    "background-color": "rgb(209, 43, 43)",
+    "border-radius": "28px",
+    "box-shadow": "rgb(10, 11, 9) 0px -14px 14px -6px",
+    "font-size": "16px",
+    "font-weight": "700",
+    "letter-spacing": "0.32px",
+    "text-align": "center",
+    "transition": "transform 0.1s"
+   }
+  }
+ ],
+ "root_selector": ".phone"
+}

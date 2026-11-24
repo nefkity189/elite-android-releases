@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Corrida livre – mapa visível</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* tokens = RunnaTheme.kt / Color.kt */
+  --background:#0A0B09; --glass:rgba(16,18,13,.82); --glass-elevated:rgba(29,33,22,.92);
+  --line:rgba(236,232,218,.10); --text:#ECE8DA; --muted:#8F9384;
+  --teal:#A3B565; --teal-on:#0E1306; --brass:#C9A24B; --red:#D12B2B; --red-on:#FFF4F0;
+  --item-off-bg:#1D2116; --track:#1D2116; --card-elevated:#1D2116; --amber:#E0A93A; --bottom-h:90px;
+  --top-height:64px; --top-padding:16px; --chip-height:32px; --fab-size:48px; --locate-size:46px;
+  --item-size:44px; --arc-size:132px; --fan-box:160px; --fan-radius:96px; --radial-box:160px; --radial-radius:80px;
+  --timer-size:112px; --stats-row-height:64px; --action-pad:16px; --action-bottom-pad:18px;
+  --button-height:56px; --button-radius:28px; --action-radius:26px;
+  --font-display:"Barlow Condensed","Arial Narrow",sans-serif; --font-body:"Inter",system-ui,sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1);
+  --map-bg:#f2efe9; --map-road:#ffffff; --map-road-edge:#d9d3c4; --map-park:#d4e6c3; --map-water:#aad3df; --map-label:#6b6a63;
+}
+.phone[data-map="claro"]{--map-bg:#f5f5f2;--map-road:#ffffff;--map-road-edge:#e3e3de;--map-park:#ecefe8;--map-water:#dfe6ea;--map-label:#8a8a84}
+.phone[data-map="contraste"]{--map-bg:#f8f4f0;--map-road:#fde3a1;--map-road-edge:#e0b95a;--map-park:#c8e6a0;--map-water:#8ac6e8;--map-label:#4a4a44}
+.phone[data-map="escuro"]{--map-bg:#14161b;--map-road:#2a2d36;--map-road-edge:#1e2128;--map-park:#18221c;--map-water:#0f1d27;--map-label:#6f7480}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#000}
+body{display:flex;justify-content:center;align-items:flex-start;font-family:var(--font-body);color:var(--text)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+svg{display:block}
+.phone{position:relative;width:393px;max-width:393px;height:851px;overflow:hidden;background:var(--background)}
+@media (max-width:480px){.phone{width:100%;max-width:none;height:100dvh}}
+
+/* camada 1: mapa (ilustrativo) */
+.map{position:absolute;inset:0;background:var(--map-bg);overflow:hidden}
+.map svg{position:absolute;inset:0;width:100%;height:100%;transform-origin:245px 524px;transition:transform 500ms var(--ease)}
+.phone[data-camera="bearing"] .map svg{transform:rotate(-28deg) scale(1.5)}
+.phone[data-camera="route"] .map svg{transform:scale(.72)}
+.map-fill-park{fill:var(--map-park)} .map-fill-water{fill:var(--map-water)}
+.map-road{stroke:var(--map-road);fill:none;stroke-linecap:round}
+.map-road-edge{stroke:var(--map-road-edge);fill:none;stroke-linecap:round}
+.map-label{fill:var(--map-label);font:500 11px var(--font-body)}
+.phone[data-names="off"] .map-label{display:none}
+.route-casing{stroke:#0B3D47;stroke-width:5.1;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.route-line{stroke:#00B4D8;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,11,9,.96) 0%,rgba(10,11,9,.94) 30%,rgba(10,11,9,.90) 43%,rgba(10,11,9,0) 53%,rgba(10,11,9,0) 76%,rgba(10,11,9,.85) 100%)}
+
+/* camada 2: conteúdo */
+.layer{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;z-index:1;padding-top:env(safe-area-inset-top,0px)}
+.top{width:100%;height:var(--top-height);padding:var(--top-padding) var(--top-padding) 0;display:flex;justify-content:space-between;align-items:flex-start;flex:none}
+.gps-chip{margin-top:8px;height:var(--chip-height);border-radius:16px;background:var(--glass);border:1px solid var(--line);padding:0 12px;display:flex;align-items:center;gap:7px;font-size:13px;line-height:16px;color:var(--muted)}
+.gps-chip i{width:7px;height:7px;border-radius:50%;background:var(--teal)}
+.hero{width:100%;padding-top:14px;display:flex;flex-direction:column;align-items:center;flex:none}
+/* hero corrida livre */
+.free{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%}
+.timer-ring{position:relative;width:var(--timer-size);height:var(--timer-size);flex:none}
+.timer-ring svg{position:absolute;inset:0}
+.timer-ring .ring-progress{stroke:var(--ring,var(--teal))}
+.timer-ring .ring-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 32px/32px var(--font-display);font-variant-numeric:tabular-nums;color:var(--text)}
+.phone.paused .step-card .ring-progress{stroke:var(--amber)} .phone.paused .step-card .ring-text{color:var(--amber)}
+.mode-label{font:600 11px/16px var(--font-body);letter-spacing:1.32px;color:var(--teal)}
+.stats-row{width:100%;height:var(--stats-row-height);display:flex;align-items:center}
+.stat{flex:1;padding:0 28px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.stat .value{display:flex;align-items:flex-end;gap:4px}
+.stat .num{font:600 40px/40px var(--font-display);font-variant-numeric:tabular-nums}
+.stat .unit{font:600 20px/24px var(--font-display);color:var(--muted)}
+.stat .lb{font:600 11px/16px var(--font-body);letter-spacing:1.32px;color:var(--muted)}
+.stats-row .divider{width:1px;height:34px;background:var(--line)}
+/* hero treino estruturado (novo layout do elite.zip) */
+.step-card{width:100%;padding:0 16px;display:flex;flex-direction:column;align-items:center}
+.step-row{display:flex;align-items:center;gap:12px;min-height:28px}
+.step-row svg{flex:none}
+.step-label{font:600 20px/23px var(--font-display);letter-spacing:.8px;font-variant-numeric:tabular-nums}
+.step-count{margin-top:4px;font:400 14px/19.6px var(--font-body);color:var(--muted);text-align:center}
+.step-card .timer-ring{margin-top:8px}
+.step-card .stats-row{margin-top:8px}
+.spacer{position:relative;flex:1;min-height:0;width:100%}
+.follow-pill{position:absolute;left:16px;bottom:14px;border-radius:15px;background:var(--glass);box-shadow:inset 0 0 0 1px var(--line);padding:7px 13px;font-size:13px;line-height:16px;color:var(--text);white-space:nowrap}
+
+/* bloco inferior = card "A seguir" (só treino estruturado, quando há próxima etapa) + ActionBar */
+.bottom-block{flex:none;width:100%}
+.next-card{margin:12px 16px;border-radius:18px;background:var(--card-elevated);box-shadow:inset 0 0 0 1px var(--line);padding:12px 14px;font:400 12.5px/15px var(--font-body);color:var(--muted)}
+.next-card[hidden]{display:none}
+/* ActionBar (existente) */
+.action-bar{flex:none;width:100%;height:90px;border-radius:var(--action-radius) var(--action-radius) 0 0;background:var(--glass);box-shadow:inset 0 0 0 1px var(--line);
+  padding:var(--action-pad) var(--action-pad) var(--action-bottom-pad);padding-bottom:calc(var(--action-bottom-pad) + env(safe-area-inset-bottom,0px));display:flex;gap:12px}
+.action-bar button{flex:1;height:var(--button-height);border-radius:var(--button-radius);display:flex;align-items:center;justify-content:center;gap:8px;font:700 16px/22px var(--font-body);position:relative}
+.btn-pause{background:var(--teal);color:var(--teal-on);transition:transform 300ms cubic-bezier(.34,1.56,.64,1)}
+.btn-pause:active{transform:scale(.96)}
+.btn-stop{background:var(--red);color:var(--red-on);box-shadow:inset 0 0 0 1px rgba(209,43,43,.3);touch-action:none;user-select:none}
+.btn-stop .hold-ring{display:none;position:absolute;left:50%;top:50%;margin:-18px 0 0 -18px;transform:rotate(-90deg)}
+.btn-stop.holding .hold-ring{display:block}
+.btn-stop .hold-ring circle{fill:none;stroke:var(--red-on);stroke-width:3;stroke-dasharray:103.67;stroke-dashoffset:103.67}
+.btn-stop.holding .hold-ring circle{animation:hold 1500ms linear forwards}
+@keyframes hold{from{stroke-dashoffset:103.67}to{stroke-dashoffset:0}}
+.btn-stop .inner{position:relative;display:flex;align-items:center;gap:8px}
+.ico-play{display:none} .paused .ico-play{display:block} .paused .ico-pause{display:none}
+
+/* RadialMenu do topo (EXISTENTE — manter igual) */
+.scrim{position:absolute;inset:0;z-index:2;display:none}
+.phone.radial-open .scrim, .phone.fan-open .scrim{display:block}
+.radial-menu{position:absolute;top:16px;right:16px;width:var(--radial-box);height:var(--radial-box);z-index:3;pointer-events:none}
+.radial-menu button{pointer-events:auto}.radial-arc{pointer-events:none}
+.radial-arc{position:absolute;right:24px;top:24px;width:var(--arc-size);height:var(--arc-size);border-bottom-left-radius:132px;
+  background:var(--glass-elevated);border:1px solid var(--line);transform-origin:100% 0;transform:scale(.2);opacity:0;
+  transition:transform 250ms var(--ease),opacity 250ms var(--ease)}
+.radial-open .radial-arc{transform:scale(1);opacity:1}
+.radial-item{position:absolute;left:114px;top:2px;width:var(--item-size);height:var(--item-size);border-radius:50%;background:var(--item-off-bg);border:1px solid var(--line);color:var(--muted);
+  display:flex;align-items:center;justify-content:center;transform:translate(0,0) scale(.5);opacity:0;visibility:hidden;
+  transition:transform 280ms var(--ease),opacity 280ms var(--ease),visibility 0s linear 280ms}
+.radial-item.on{background:var(--teal);color:var(--teal-on)}
+.radial-open .radial-item{transform:translate(var(--dx),var(--dy)) scale(1);opacity:1;visibility:visible;
+  transition:transform 280ms var(--ease) var(--delay),opacity 280ms var(--ease) var(--delay),visibility 0s}
+#radial-sound{--dx:-80px;--dy:0px;--delay:0ms}
+#radial-vibration{--dx:-56.57px;--dy:56.57px;--delay:50ms}
+#radial-gps{--dx:0px;--dy:80px;--delay:100ms}
+.radial-anchor{position:absolute;right:0;top:0;width:var(--fab-size);height:var(--fab-size);border-radius:50%;background:var(--glass);border:1px solid var(--line);color:var(--text);
+  display:flex;align-items:center;justify-content:center;transition:transform 300ms var(--ease)}
+.radial-open .radial-anchor{transform:rotate(90deg);background:var(--teal);color:var(--teal-on)}
+
+/* MapStyleFan (NOVO) */
+.map-style-fan{position:absolute;right:16px;bottom:calc(var(--bottom-h) + 10px);width:var(--fan-box);height:var(--fan-box);z-index:3;pointer-events:none}
+.map-style-fan button{pointer-events:auto}.fan-arc{pointer-events:none}
+.fan-arc{position:absolute;right:23px;bottom:23px;width:var(--arc-size);height:var(--arc-size);border-top-left-radius:132px;background:var(--glass-elevated);border:1px solid var(--line);
+  transform-origin:100% 100%;transform:scale(.2);opacity:0;transition:transform 250ms var(--ease),opacity 250ms var(--ease)}
+.fan-open .fan-arc{transform:scale(1);opacity:1}
+.fan-item{position:absolute;left:115px;top:115px;width:var(--item-size);height:var(--item-size);border-radius:50%;background:var(--item-off-bg);border:1px solid var(--line);color:var(--muted);
+  display:flex;align-items:center;justify-content:center;transform:translate(0,0) scale(.5);opacity:0;visibility:hidden;
+  transition:transform 280ms var(--ease),opacity 280ms var(--ease),visibility 0s linear 280ms}
+.fan-open .fan-item{transform:translate(var(--dx),var(--dy)) scale(1);opacity:1;visibility:visible;
+  transition:transform 280ms var(--ease) var(--delay),opacity 280ms var(--ease) var(--delay),visibility 0s}
+.fan-item.action{color:var(--teal)} .fan-item.on{background:var(--teal);color:var(--teal-on)}
+#fan-recenter{--dx:0px;--dy:-96px;--delay:0ms} #fan-dark{--dx:-48px;--dy:-83.14px;--delay:50ms}
+#fan-type{--dx:-83.14px;--dy:-48px;--delay:100ms} #fan-labels{--dx:-96px;--dy:0px;--delay:150ms}
+.fan-anchor{position:absolute;right:0;bottom:0;width:var(--locate-size);height:var(--locate-size);border-radius:50%;background:var(--glass);border:1px solid var(--line);color:var(--teal);display:flex;align-items:center;justify-content:center}
+.fan-open .fan-anchor{background:var(--teal);color:var(--teal-on)}
+.fan-anchor .ic-close{display:none} .fan-open .fan-anchor .ic-close{display:block} .fan-open .fan-anchor .ic-layers{display:none}
+@media (prefers-reduced-motion:reduce){.fan-arc,.fan-item,.radial-arc,.radial-item,.radial-anchor,.map svg,.btn-pause{transition:none!important}.btn-stop.holding .hold-ring circle{animation-duration:1ms}}
+</style>
+</head>
+<body>
+<main class="phone" data-screen="corrida-livre" data-map="padrao" data-names="on" data-camera="follow">
+
+  <div class="map" data-component="MapViewComposable" aria-hidden="true">
+    <svg viewBox="0 0 393 851" preserveAspectRatio="none">
+      <rect class="map-fill-park" x="-10" y="470" width="170" height="130" rx="18"/>
+      <rect class="map-fill-park" x="260" y="610" width="150" height="110" rx="18"/>
+      <path class="map-fill-water" d="M300 380 Q340 420 410 410 L410 330 Q350 340 300 380Z"/>
+      <path class="map-road-edge" stroke-width="16" d="M-10 520 L140 500 L260 530 L410 500"/><path class="map-road" stroke-width="13" d="M-10 520 L140 500 L260 530 L410 500"/>
+      <path class="map-road-edge" stroke-width="14" d="M120 380 L150 520 L190 680 L210 860"/><path class="map-road" stroke-width="11" d="M120 380 L150 520 L190 680 L210 860"/>
+      <path class="map-road-edge" stroke-width="12" d="M-10 640 L200 610 L410 650"/><path class="map-road" stroke-width="9" d="M-10 640 L200 610 L410 650"/>
+      <path class="map-road-edge" stroke-width="12" d="M300 420 L290 560 L310 700 L330 860"/><path class="map-road" stroke-width="9" d="M300 420 L290 560 L310 700 L330 860"/>
+      <path class="map-road" stroke-width="6" d="M-10 570 L260 585 L410 570"/><path class="map-road" stroke-width="6" d="M60 460 L80 700 L100 860"/>
+      <text class="map-label" x="22" y="512">Rua das Acácias</text><text class="map-label" x="214" y="604">Av. Central</text><text class="map-label" x="30" y="632">Rua Ipê</text>
+      <path class="route-casing" d="M196 690 L160 610 L150 560 L152 520 L190 508 L245 524"/>
+      <path class="route-line" d="M196 690 L160 610 L150 560 L152 520 L190 508 L245 524"/>
+      <circle cx="196" cy="690" r="8" fill="#00C853" stroke="#fff" stroke-width="2"/>
+      <circle cx="245" cy="524" r="10" fill="#FF1744" stroke="#fff" stroke-width="3"/>
+    </svg>
+  </div>
+  <div class="shade" aria-hidden="true"></div>
+
+  <div class="layer">
+    <div class="top"><div class="gps-chip" data-component="GpsStatusChip"><i></i>GPS OK</div></div>
+
+    <section class="hero"><div class="free" data-component="FreeRunLayout">
+        <div class="timer-ring" data-component="TimerRing"><svg width="112" height="112" viewBox="0 0 112 112" aria-hidden="true"><circle cx="56" cy="56" r="56" fill="rgba(16,18,13,.82)"/><circle cx="56" cy="56" r="52" fill="none" stroke="rgba(236,232,218,.10)" stroke-width="4"/><circle class="ring-progress" id="" cx="56" cy="56" r="52" fill="none" stroke-width="4" stroke-linecap="round" stroke-dasharray="326.73" stroke-dashoffset="326.73" transform="rotate(-90 56 56)" style="display:none"/></svg><span class="ring-text" id="-text">24:18</span></div>
+        <div class="mode-label">Corrida livre</div>
+        <div class="stats-row" data-component="StatsRow">
+          <div class="stat"><div class="value"><span class="num" id="">3,42</span><span class="unit">km</span></div><div class="lb">Distância</div></div>
+          <div class="divider"></div>
+          <div class="stat"><span class="num" id="">5:48</span><div class="lb">Ritmo (min/km)</div></div>
+        </div></div></section>
+
+    <div class="spacer"><div class="follow-pill" id="pill" data-component="FollowPill">Seguindo você</div></div>
+
+    <div class="bottom-block" id="bottom-block">
+    
+    <nav class="action-bar" data-component="ActionBar">
+      <button class="btn-pause" id="btn-pause" aria-label="Pausar">
+        <svg class="ico-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6z M14 4h4v16h-4z"/></svg>
+        <svg class="ico-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        <span id="pause-label">Pausar</span>
+      </button>
+      <button class="btn-stop" id="btn-stop" aria-label="Parar">
+        <svg class="hold-ring" width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16.5"/></svg>
+        <span class="inner"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="5" width="14" height="14" rx="1"/></svg><span id="stop-label">Parar</span></span>
+      </button>
+    </nav>
+    </div>
+  </div>
+
+  <div class="scrim" id="scrim"></div>
+
+  <!-- RadialMenu do topo (existente) -->
+  <div class="radial-menu" data-component="RadialMenu" data-anim="radial-open">
+    <div class="radial-arc"></div>
+    <button class="radial-item on" id="radial-sound" aria-label="Som" aria-pressed="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg></button>
+    <button class="radial-item on" id="radial-vibration" aria-label="Vibração" aria-pressed="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="3" width="8" height="18" rx="2"/><path d="M4 8v8M20 8v8"/></svg></button>
+    <button class="radial-item on" id="radial-gps" aria-label="Manter GPS ativo" aria-pressed="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></button>
+    <button class="radial-anchor" id="radial-anchor" aria-label="Configurações da corrida" aria-expanded="false"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></button>
+  </div>
+
+  <!-- MapStyleFan (novo) -->
+  <div class="map-style-fan" data-component="MapStyleFan" data-anim="fan-open">
+    <div class="fan-arc"></div>
+    <button class="fan-item action" id="fan-recenter" aria-label="Centralizar no mapa"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></button>
+    <button class="fan-item" id="fan-dark" aria-label="Modo escuro" aria-pressed="false"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    <button class="fan-item action" id="fan-type" aria-label="Tipo de mapa"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/><path d="M8 2v16M16 6v16"/></svg></button>
+    <button class="fan-item on" id="fan-labels" aria-label="Nomes de ruas" aria-pressed="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg></button>
+    <button class="fan-anchor" id="fab" aria-label="Opções do mapa" aria-expanded="false">
+      <svg class="ic-layers" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      <svg class="ic-close" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+</main>
+
+<script>
+(function(){
+  var phone=document.querySelector('.phone'), $=function(i){return document.getElementById(i)};
+  var CAM={follow:'Seguindo você',bearing:'Seguindo com direção',route:'Rota completa',free:'Mapa livre'};
+  window.setCamera=function(m){phone.setAttribute('data-camera',m);$('pill').textContent=CAM[m]};
+  function openRadial(o){phone.classList.toggle('radial-open',o);$('radial-anchor').setAttribute('aria-expanded',o);if(o)openFan(false)}
+  function openFan(o){phone.classList.toggle('fan-open',o);$('fab').setAttribute('aria-expanded',o);if(o)openRadial(false)}
+  $('radial-anchor').addEventListener('click',function(){openRadial(!phone.classList.contains('radial-open'))});
+  $('fab').addEventListener('click',function(){openFan(!phone.classList.contains('fan-open'))});
+  $('scrim').addEventListener('click',function(){openRadial(false);openFan(false)});
+  ['radial-sound','radial-vibration','radial-gps'].forEach(function(id){$(id).addEventListener('click',function(){var e=$(id),on=!e.classList.contains('on');e.classList.toggle('on',on);e.setAttribute('aria-pressed',on)})});
+  /* fan */
+  var types=['padrao','claro','contraste'],idx=0,dark=false;
+  function paint(){phone.setAttribute('data-map',dark?'escuro':types[idx]);$('fan-dark').classList.toggle('on',dark);$('fan-dark').setAttribute('aria-pressed',dark)}
+  $('fan-dark').addEventListener('click',function(){dark=!dark;paint()});
+  $('fan-type').addEventListener('click',function(){idx=(idx+1)%3;dark=false;paint()});
+  $('fan-labels').addEventListener('click',function(){var on=phone.getAttribute('data-names')!=='off';phone.setAttribute('data-names',on?'off':'on');$('fan-labels').classList.toggle('on',!on);$('fan-labels').setAttribute('aria-pressed',!on)});
+  $('fan-recenter').addEventListener('click',function(){openFan(false)});
+  window.measureBottom=function(){phone.style.setProperty('--bottom-h',$('bottom-block').getBoundingClientRect().height+'px')};
+  /* pausar / retomar */
+  $('btn-pause').addEventListener('click',function(){var p=!phone.classList.contains('paused');phone.classList.toggle('paused',p);$('btn-pause').classList.toggle('paused',p);$('pause-label').textContent=p?'Retomar':'Pausar';$('btn-pause').setAttribute('aria-label',p?'Retomar':'Pausar')});
+  /* parar: segurar 1,5 s (EXISTENTE) */
+  var stop=$('btn-stop'),timer=null;
+  function holdStart(e){stop.classList.add('holding');clearTimeout(timer);timer=setTimeout(function(){holdEnd()},1500)}
+  function holdEnd(){clearTimeout(timer);stop.classList.remove('holding');stop.querySelector('circle').style.cssText=''}
+  stop.addEventListener('pointerdown',holdStart);['pointerup','pointercancel','pointerleave'].forEach(function(ev){stop.addEventListener(ev,holdEnd)});
+  window.holdAt=function(p){stop.classList.add('holding');var c=stop.querySelector('circle');c.style.animation='none';c.style.strokeDashoffset=(103.67*(1-p)).toFixed(2)};
+  
+  window.measureBottom();
+})();
+</script>
+</body>
+</html>

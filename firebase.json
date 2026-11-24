@@ -1,0 +1,32 @@
+{
+  "hosting": {
+    "public": "HANDOFF/Site/site",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "**/*.apk",
+      "**/CLAUDE-CODE-PROMPT.md",
+      "**/HANDOFF.md",
+      "**/fonts/inter_regular.ttf",
+      "**/fonts/inter_semibold.ttf"
+    ],
+    "headers": [
+      {
+        "source": "latest-release.json",
+        "headers": [
+          { "key": "Cache-Control", "value": "no-store, max-age=0" }
+        ]
+      }
+    ]
+  },
+  "functions": {
+    "source": "functions",
+    "runtime": "nodejs20",
+    "region": "southamerica-east1"
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}

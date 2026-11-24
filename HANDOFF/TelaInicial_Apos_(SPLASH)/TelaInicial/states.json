@@ -1,0 +1,12 @@
+[
+  {"name": "slide_1", "wait": 300},
+  {"name": "slide_2", "eval": "__go(2)", "wait": 600},
+  {"name": "slide_3", "eval": "__go(3)", "wait": 600},
+  {"name": "slide_4", "eval": "__go(4)", "wait": 600},
+  {"name": "slide_3_transicao", "eval": "__go(3)", "frames": [0, 100, 200, 350]},
+  {"name": "email_sheet", "click": "[data-id='login.actions.email']", "wait": 600},
+  {"name": "email_erro", "setup": ["[data-id='login.actions.email']"], "click": "[data-id='login.sheet.submit']", "wait": 600},
+  {"name": "entrando", "click": "[data-id='login.actions.google']", "frames": [0]},
+  {"name": "google_pressionado", "press": "[data-id='login.actions.google']", "wait": 300},
+  {"name": "email_pressionado", "press": "[data-id='login.actions.email']", "wait": 300}
+]

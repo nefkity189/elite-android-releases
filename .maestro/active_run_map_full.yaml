@@ -1,0 +1,24 @@
+appId: com.elite.sch.app
+---
+- launchApp:
+    clearState: false
+- assertVisible:
+    id: "screen_today"
+- tapOn:
+    id: "tab_perfil"
+- assertVisible:
+    id: "screen_profile"
+- tapOn:
+    id: "switch_show_map"
+- assertVisible:
+    text: "Adicionar corrida"
+- tapOn:
+    text: "RECOLHER"
+- assertVisible:
+    id: "screen_today"
+- tapOn:
+    id: "btn_free_run_descanso"
+- assertVisible:
+    id: "screen_active_run"
+- takeScreenshot:
+    path: "active_run_map_full.png"

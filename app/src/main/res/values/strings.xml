@@ -1,20 +1,20 @@
 <resources>
-    <string name="app_name">Aisle</string>
+    <string name="app_name">Elite</string>
     <string name="notification_action_pause">Pausar</string>
     <string name="notification_action_resume">Retomar</string>
     <string name="voice_km_milestone_singular">Um quilômetro. Tempo %1$d minutos e %2$d segundos. Ritmo médio %3$d e %4$d por quilômetro.</string>
     <string name="voice_km_milestone_plural">%1$d quilômetros. Tempo %2$d minutos e %3$d segundos. Ritmo médio %4$d e %5$d por quilômetro.</string>
-    <string name="voice_free_run_step_run">Corra</string>
-    <string name="voice_free_run_step_walk">Caminhe</string>
-    <string name="voice_start_run">Comece a correr</string>
-    <string name="voice_start_walk">Caminhe</string>
+    <string name="voice_free_run_step_run">Agora, corra</string>
+    <string name="voice_free_run_step_walk">Agora, ande</string>
+    <string name="voice_start_run">Agora, corra</string>
+    <string name="voice_start_walk">Agora, ande</string>
     <string name="voice_ten_seconds_remaining">Faltam 10 segundos</string>
     <string name="voice_workout_completed">Treino concluído</string>
     <string name="voice_free_run_start">Iniciando corrida livre</string>
     <string name="notification_status_starting">Iniciando corrida…</string>
     <string name="notification_status_running">Em andamento</string>
     <string name="notification_status_paused">Pausado</string>
-    <string name="notification_title_format">Aisle • %1$s (%2$s)</string>
+    <string name="notification_title_format">Elite • %1$s (%2$s)</string>
     <string name="today_workout_card_title">Hoje é dia de treino</string>
     <string name="recover_run_title">Corrida em andamento detectada</string>
     <string name="recover_run_message">Você tem um treino gravado que estava em execução. Deseja retomar ou descartar?</string>
@@ -32,8 +32,8 @@
     <string name="confirm_finish_message">Você poderá ver o resumo com o tempo e a distância percorrida até aqui.</string>
     <string name="confirm_finish_confirm">Encerrar e Salvar</string>
     <string name="confirm_finish_dismiss">Continuar Treinando</string>
-    <string name="voice_step_run">Corra</string>
-    <string name="voice_step_walk">Caminhe</string>
+    <string name="voice_step_run">Agora, corra</string>
+    <string name="voice_step_walk">Agora, ande</string>
     <string name="milestone_format_meters">%1$d metros</string>
     <string name="milestone_format_km_singular">1 quilômetro</string>
     <string name="milestone_format_km_plural">%1$d quilômetros</string>

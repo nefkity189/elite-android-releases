@@ -1,0 +1,10 @@
+appId: com.elite.sch.app
+---
+- launchApp:
+    stopApp: true
+- assertVisible:
+    id: "screen_today"
+- tapOn:
+    id: "profile_tab"
+- assertVisible:
+    id: "screen_profile"
