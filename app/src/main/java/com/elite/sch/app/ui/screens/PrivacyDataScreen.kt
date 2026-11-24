@@ -47,6 +47,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.elite.sch.app.BuildConfig
 import com.elite.sch.app.R
 import com.elite.sch.app.ui.components.EliteDialog
 import com.elite.sch.app.ui.theme.EliteSpacing
@@ -250,7 +251,7 @@ fun PrivacyDataScreen(
                 }
                 Spacer(modifier = Modifier.height(EliteSpacing.md))
                 Text(
-                    text = "Sobre o Elite · Versão 1.0.0 (Build 1)\n100% nativo e local",
+                    text = "Sobre o Elite · Versão ${BuildConfig.VERSION_NAME} (Build ${BuildConfig.VERSION_CODE})\n100% nativo e local",
                     fontFamily = EliteBodyFont,
                     fontSize = 12.sp,
                     lineHeight = 16.8.sp,
